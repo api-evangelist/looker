@@ -1,0 +1,470 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cloud.google.com/looker/schemas/dashboard.json",
+  "title": "Looker Dashboard",
+  "description": "Schema for a Looker dashboard object as returned by the Looker API 4.0. A dashboard is a collection of tiles (elements) displaying visualizations from queries, organized in a grid layout with optional cross-filtering capabilities.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the dashboard. Numeric string for user-defined dashboards; model::dashboard_name format for LookML dashboards."
+    },
+    "title": {
+      "type": "string",
+      "description": "Display title of the dashboard shown in the UI and navigation",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Optional description explaining the dashboard's purpose and the data it presents"
+    },
+    "content_metadata_id": {
+      "type": "integer",
+      "description": "ID of the content metadata record that controls access and sharing settings"
+    },
+    "query_timezone": {
+      "type": ["string", "null"],
+      "description": "Timezone applied to all queries on this dashboard. When set, overrides individual query timezones. Uses IANA timezone format (e.g. America/Los_Angeles)."
+    },
+    "space_id": {
+      "type": ["string", "null"],
+      "description": "ID of the space (folder) containing this dashboard"
+    },
+    "folder_id": {
+      "type": ["string", "null"],
+      "description": "ID of the folder containing this dashboard"
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "ID of the Looker user who created this dashboard"
+    },
+    "space": {
+      "$ref": "#/$defs/SpaceBase",
+      "description": "Summary of the space containing this dashboard"
+    },
+    "folder": {
+      "$ref": "#/$defs/FolderBase",
+      "description": "Summary of the folder containing this dashboard"
+    },
+    "dashboard_elements": {
+      "type": "array",
+      "description": "Tiles on this dashboard, each containing a query visualization, a Look reference, or text content",
+      "items": {
+        "$ref": "#/$defs/DashboardElement"
+      }
+    },
+    "dashboard_filters": {
+      "type": "array",
+      "description": "Filters on this dashboard that allow users to dynamically adjust query parameters across tiles",
+      "items": {
+        "$ref": "#/$defs/DashboardFilter"
+      }
+    },
+    "dashboard_layouts": {
+      "type": "array",
+      "description": "Layout configurations defining tile positions and sizes in the dashboard grid",
+      "items": {
+        "$ref": "#/$defs/DashboardLayout"
+      }
+    },
+    "background_color": {
+      "type": ["string", "null"],
+      "description": "CSS background color for the dashboard canvas"
+    },
+    "text_tile_text_color": {
+      "type": ["string", "null"],
+      "description": "Default text color for text-type tiles"
+    },
+    "tile_background_color": {
+      "type": ["string", "null"],
+      "description": "Default background color for all tiles"
+    },
+    "tile_text_color": {
+      "type": ["string", "null"],
+      "description": "Default text color for all tiles"
+    },
+    "hidden": {
+      "type": "boolean",
+      "description": "Whether the dashboard is hidden from navigation menus and search results",
+      "default": false
+    },
+    "readonly": {
+      "type": "boolean",
+      "description": "Whether the dashboard is read-only. LookML dashboards are always read-only."
+    },
+    "refresh_interval": {
+      "type": ["string", "null"],
+      "description": "Auto-refresh interval for the dashboard (e.g. '5 minutes', '1 hour', '30 seconds')"
+    },
+    "load_configuration": {
+      "type": ["string", "null"],
+      "description": "Controls how tiles are loaded. Options control concurrent vs sequential tile loading."
+    },
+    "preferred_viewer": {
+      "type": ["string", "null"],
+      "description": "Preferred viewer type for rendering the dashboard"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the dashboard was created"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the dashboard was last modified"
+    },
+    "deleted_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the dashboard was soft-deleted, or null if active"
+    },
+    "deleted": {
+      "type": "boolean",
+      "description": "Whether the dashboard has been soft-deleted (moved to trash)",
+      "default": false
+    },
+    "last_accessed_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the dashboard was last viewed by any user"
+    },
+    "view_count": {
+      "type": "integer",
+      "description": "Total number of times the dashboard has been viewed",
+      "minimum": 0
+    },
+    "favorite_count": {
+      "type": "integer",
+      "description": "Number of users who have added this dashboard to their favorites",
+      "minimum": 0
+    },
+    "url": {
+      "type": "string",
+      "description": "Relative URL path for accessing this dashboard in the Looker UI"
+    },
+    "model": {
+      "$ref": "#/$defs/LookModel",
+      "description": "LookML model associated with this dashboard (for LookML dashboards)"
+    }
+  },
+  "$defs": {
+    "DashboardElement": {
+      "type": "object",
+      "description": "A single tile on a dashboard. Each element displays a query visualization, references a saved Look, shows text/markdown content, or acts as a filter control.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this dashboard element"
+        },
+        "dashboard_id": {
+          "type": "string",
+          "description": "ID of the parent dashboard"
+        },
+        "look_id": {
+          "type": ["integer", "null"],
+          "description": "ID of the Look displayed in this tile, or null if the tile uses an inline query"
+        },
+        "query_id": {
+          "type": ["integer", "null"],
+          "description": "ID of the query executed by this tile, or null if the tile references a Look"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of dashboard element",
+          "enum": ["vis", "text", "data", "filter"]
+        },
+        "title": {
+          "type": ["string", "null"],
+          "description": "Display title for this tile"
+        },
+        "title_hidden": {
+          "type": "boolean",
+          "description": "Whether the tile title is hidden from display",
+          "default": false
+        },
+        "subtitle_text": {
+          "type": ["string", "null"],
+          "description": "Subtitle text displayed below the title"
+        },
+        "body_text": {
+          "type": ["string", "null"],
+          "description": "Body text content for text-type elements, supports markdown"
+        },
+        "note_text": {
+          "type": ["string", "null"],
+          "description": "Note text displayed as an annotation on the tile"
+        },
+        "note_display": {
+          "type": ["string", "null"],
+          "description": "Position of the note relative to the tile",
+          "enum": ["above", "below", "hover", null]
+        },
+        "note_state": {
+          "type": ["string", "null"],
+          "description": "Display state of the note"
+        },
+        "result_maker": {
+          "type": ["object", "null"],
+          "description": "Result maker configuration for merge queries combining multiple queries"
+        },
+        "rich_content_json": {
+          "type": ["string", "null"],
+          "description": "JSON string containing rich text content configuration"
+        },
+        "query": {
+          "$ref": "#/$defs/QuerySummary",
+          "description": "Embedded query definition for this tile"
+        }
+      }
+    },
+    "DashboardFilter": {
+      "type": "object",
+      "description": "A dashboard filter that allows users to dynamically change query parameters across multiple tiles simultaneously.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this filter"
+        },
+        "dashboard_id": {
+          "type": "string",
+          "description": "ID of the parent dashboard"
+        },
+        "name": {
+          "type": "string",
+          "description": "Internal name used to reference this filter in tile configurations",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "description": "Display title shown to users in the filter bar",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "description": "The input type of the filter, determining the UI control rendered",
+          "enum": ["field_filter", "date_filter", "number_filter", "string_filter"]
+        },
+        "model": {
+          "type": ["string", "null"],
+          "description": "LookML model name for field_filter type filters"
+        },
+        "explore": {
+          "type": ["string", "null"],
+          "description": "LookML explore name for field_filter type filters"
+        },
+        "dimension": {
+          "type": ["string", "null"],
+          "description": "LookML dimension name for field_filter type filters"
+        },
+        "default_value": {
+          "type": ["string", "null"],
+          "description": "Default value applied when the dashboard is first loaded"
+        },
+        "allow_multiple_values": {
+          "type": "boolean",
+          "description": "Whether users can select multiple filter values",
+          "default": true
+        },
+        "required": {
+          "type": "boolean",
+          "description": "Whether the filter must have a value before the dashboard loads",
+          "default": false
+        },
+        "row": {
+          "type": ["integer", "null"],
+          "description": "Row position of the filter in the filter bar layout"
+        },
+        "listens_to_filters": {
+          "type": "array",
+          "description": "Names of other dashboard filters that this filter listens to for cascading filter behavior",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DashboardLayout": {
+      "type": "object",
+      "description": "A layout configuration that defines the grid-based positioning of tiles on a dashboard.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this layout"
+        },
+        "dashboard_id": {
+          "type": "string",
+          "description": "ID of the parent dashboard"
+        },
+        "type": {
+          "type": "string",
+          "description": "Layout type identifier"
+        },
+        "active": {
+          "type": "boolean",
+          "description": "Whether this is the currently active layout"
+        },
+        "column_width": {
+          "type": ["integer", "null"],
+          "description": "Width of each column in the layout grid"
+        },
+        "width": {
+          "type": ["integer", "null"],
+          "description": "Total width of the layout in grid units"
+        },
+        "dashboard_layout_components": {
+          "type": "array",
+          "description": "Components defining the position and size of each tile in the grid",
+          "items": {
+            "$ref": "#/$defs/DashboardLayoutComponent"
+          }
+        }
+      }
+    },
+    "DashboardLayoutComponent": {
+      "type": "object",
+      "description": "Defines the position and size of a single tile within a dashboard layout grid.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this layout component"
+        },
+        "dashboard_layout_id": {
+          "type": "string",
+          "description": "ID of the parent dashboard layout"
+        },
+        "dashboard_element_id": {
+          "type": "string",
+          "description": "ID of the dashboard element this component positions"
+        },
+        "row": {
+          "type": "integer",
+          "description": "Row position in the layout grid (zero-indexed)",
+          "minimum": 0
+        },
+        "column": {
+          "type": "integer",
+          "description": "Column position in the layout grid (zero-indexed)",
+          "minimum": 0
+        },
+        "width": {
+          "type": "integer",
+          "description": "Width of the tile in grid units",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "description": "Height of the tile in grid units",
+          "minimum": 1
+        }
+      }
+    },
+    "QuerySummary": {
+      "type": "object",
+      "description": "Summary of a query definition associated with a dashboard element.",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique numeric identifier for this query"
+        },
+        "model": {
+          "type": "string",
+          "description": "LookML model name"
+        },
+        "view": {
+          "type": "string",
+          "description": "LookML explore (view) name"
+        },
+        "fields": {
+          "type": "array",
+          "description": "List of field names included in the query",
+          "items": {
+            "type": "string"
+          }
+        },
+        "filters": {
+          "type": ["object", "null"],
+          "description": "Key-value map of filter expressions where keys are field names",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "sorts": {
+          "type": ["array", "null"],
+          "description": "Sort order for results",
+          "items": {
+            "type": "string"
+          }
+        },
+        "limit": {
+          "type": ["string", "null"],
+          "description": "Maximum number of rows to return"
+        },
+        "query_timezone": {
+          "type": ["string", "null"],
+          "description": "Timezone for date/time calculations"
+        },
+        "vis_config": {
+          "type": ["object", "null"],
+          "description": "Visualization configuration controlling chart type, colors, axes, and other display settings",
+          "additionalProperties": true
+        }
+      }
+    },
+    "SpaceBase": {
+      "type": "object",
+      "description": "Basic space (folder) information.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name"
+        },
+        "parent_id": {
+          "type": ["string", "null"],
+          "description": "Parent space ID"
+        }
+      }
+    },
+    "FolderBase": {
+      "type": "object",
+      "description": "Basic folder information.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name"
+        },
+        "parent_id": {
+          "type": ["string", "null"],
+          "description": "Parent folder ID"
+        },
+        "content_metadata_id": {
+          "type": "integer",
+          "description": "Content metadata ID"
+        }
+      }
+    },
+    "LookModel": {
+      "type": "object",
+      "description": "Basic LookML model information associated with a dashboard.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Model name/identifier"
+        },
+        "label": {
+          "type": "string",
+          "description": "Display label for the model"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "looker": "https://cloud.google.com/looker/docs/reference/looker-api/latest/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Look": {
+      "@id": "looker:Look",
+      "@context": {
+        "id": "@id",
+        "title": "schema:name",
+        "description": "dcterms:description",
+        "query_id": "looker:queryId",
+        "query": "looker:query",
+        "space_id": "looker:spaceId",
+        "folder_id": "looker:folderId",
+        "user_id": "looker:userId",
+        "public": "looker:isPublic",
+        "is_run_on_load": "looker:isRunOnLoad",
+        "created_at": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "deleted_at": {
+          "@id": "looker:deletedAt",
+          "@type": "xsd:dateTime"
+        },
+        "last_accessed_at": {
+          "@id": "looker:lastAccessedAt",
+          "@type": "xsd:dateTime"
+        },
+        "view_count": "looker:viewCount",
+        "favorite_count": "looker:favoriteCount",
+        "model": "looker:lookmlModel",
+        "url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "Dashboard": {
+      "@id": "looker:Dashboard",
+      "@context": {
+        "id": "@id",
+        "title": "schema:name",
+        "description": "dcterms:description",
+        "query_timezone": "looker:queryTimezone",
+        "space_id": "looker:spaceId",
+        "folder_id": "looker:folderId",
+        "user_id": "looker:userId",
+        "dashboard_elements": {
+          "@id": "looker:dashboardElements",
+          "@container": "@set"
+        },
+        "dashboard_filters": {
+          "@id": "looker:dashboardFilters",
+          "@container": "@set"
+        },
+        "dashboard_layouts": {
+          "@id": "looker:dashboardLayouts",
+          "@container": "@set"
+        },
+        "background_color": "looker:backgroundColor",
+        "text_tile_text_color": "looker:textTileTextColor",
+        "tile_background_color": "looker:tileBackgroundColor",
+        "tile_text_color": "looker:tileTextColor",
+        "hidden": "looker:isHidden",
+        "readonly": "looker:isReadOnly",
+        "refresh_interval": "looker:refreshInterval",
+        "load_configuration": "looker:loadConfiguration",
+        "preferred_viewer": "looker:preferredViewer",
+        "created_at": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updated_at": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "deleted_at": {
+          "@id": "looker:deletedAt",
+          "@type": "xsd:dateTime"
+        },
+        "last_accessed_at": {
+          "@id": "looker:lastAccessedAt",
+          "@type": "xsd:dateTime"
+        },
+        "view_count": "looker:viewCount",
+        "favorite_count": "looker:favoriteCount",
+        "model": "looker:lookmlModel",
+        "url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "DashboardElement": {
+      "@id": "looker:DashboardElement",
+      "@context": {
+        "id": "@id",
+        "dashboard_id": "looker:dashboardId",
+        "look_id": "looker:lookId",
+        "query_id": "looker:queryId",
+        "type": "looker:elementType",
+        "title": "schema:name",
+        "title_hidden": "looker:isTitleHidden",
+        "subtitle_text": "looker:subtitleText",
+        "body_text": "looker:bodyText",
+        "note_text": "looker:noteText",
+        "note_display": "looker:noteDisplay",
+        "note_state": "looker:noteState",
+        "result_maker": "looker:resultMaker",
+        "rich_content_json": "looker:richContentJson"
+      }
+    },
+
+    "DashboardFilter": {
+      "@id": "looker:DashboardFilter",
+      "@context": {
+        "id": "@id",
+        "dashboard_id": "looker:dashboardId",
+        "name": "schema:name",
+        "title": "schema:alternateName",
+        "type": "looker:filterType",
+        "model": "looker:lookmlModel",
+        "explore": "looker:explore",
+        "dimension": "looker:dimension",
+        "default_value": "looker:defaultValue",
+        "allow_multiple_values": "looker:allowMultipleValues",
+        "required": "looker:isRequired",
+        "row": "looker:filterRow",
+        "listens_to_filters": {
+          "@id": "looker:listensToFilters",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "Query": {
+      "@id": "looker:Query",
+      "@context": {
+        "id": "@id",
+        "model": "looker:lookmlModel",
+        "view": "looker:explore",
+        "fields": {
+          "@id": "looker:fields",
+          "@container": "@list"
+        },
+        "pivots": {
+          "@id": "looker:pivots",
+          "@container": "@list"
+        },
+        "filters": "looker:filters",
+        "filter_expression": "looker:filterExpression",
+        "sorts": {
+          "@id": "looker:sorts",
+          "@container": "@list"
+        },
+        "limit": "looker:rowLimit",
+        "column_limit": "looker:columnLimit",
+        "total": "looker:includeTotal",
+        "row_total": "looker:rowTotal",
+        "dynamic_fields": "looker:dynamicFields",
+        "vis_config": "looker:visConfig",
+        "query_timezone": "looker:queryTimezone",
+        "client_id": "looker:clientId",
+        "slug": "looker:slug",
+        "share_url": {
+          "@id": "looker:shareUrl",
+          "@type": "@id"
+        },
+        "url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "has_table_calculations": "looker:hasTableCalculations"
+      }
+    },
+
+    "User": {
+      "@id": "looker:User",
+      "@context": {
+        "id": "@id",
+        "first_name": "schema:givenName",
+        "last_name": "schema:familyName",
+        "display_name": "schema:name",
+        "email": "schema:email",
+        "avatar_url": {
+          "@id": "schema:image",
+          "@type": "@id"
+        },
+        "is_disabled": "looker:isDisabled",
+        "locale": "schema:inLanguage",
+        "home_folder_id": "looker:homeFolderId",
+        "personal_folder_id": "looker:personalFolderId",
+        "role_ids": {
+          "@id": "looker:roleIds",
+          "@container": "@set"
+        },
+        "group_ids": {
+          "@id": "looker:groupIds",
+          "@container": "@set"
+        },
+        "credentials_email": "looker:credentialsEmail",
+        "credentials_api3": {
+          "@id": "looker:credentialsApi3",
+          "@container": "@set"
+        },
+        "sessions": {
+          "@id": "looker:sessions",
+          "@container": "@set"
+        },
+        "created_at": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "Role": {
+      "@id": "looker:Role",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "permission_set": "looker:permissionSet",
+        "permission_set_id": "looker:permissionSetId",
+        "model_set": "looker:modelSet",
+        "model_set_id": "looker:modelSetId",
+        "user_count": "looker:userCount",
+        "url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "Space": {
+      "@id": "looker:Space",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "parent_id": "looker:parentId",
+        "is_shared_root": "looker:isSharedRoot",
+        "is_users_root": "looker:isUsersRoot",
+        "is_user_root": "looker:isUserRoot"
+      }
+    },
+
+    "Folder": {
+      "@id": "looker:Folder",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "parent_id": "looker:parentId",
+        "content_metadata_id": "looker:contentMetadataId",
+        "is_shared_root": "looker:isSharedRoot",
+        "is_users_root": "looker:isUsersRoot",
+        "is_user_root": "looker:isUserRoot"
+      }
+    },
+
+    "LookModel": {
+      "@id": "looker:LookModel",
+      "@context": {
+        "id": "@id",
+        "label": "schema:name"
+      }
+    },
+
+    "AccessToken": {
+      "@id": "looker:AccessToken",
+      "@context": {
+        "access_token": "looker:accessToken",
+        "token_type": "looker:tokenType",
+        "expires_in": "looker:expiresIn"
+      }
+    }
+  }
+}
