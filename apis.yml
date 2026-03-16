@@ -3,7 +3,7 @@ description: Looker is a business intelligence and data analytics platform that 
 image: https://looker.com/assets/img/images/logos/looker-logo.png
 url: https://looker.com
 created: '2024'
-modified: '2026-03-03'
+modified: '2026-03-16'
 tags:
 - Analytics
 - Business Intelligence
@@ -179,6 +179,5 @@ common:
 - type: JSON-LD
   url: json-ld/looker-context.jsonld
 maintainers:
-- name: Kin Lane
+- FN: Kin Lane
   email: kin@apievangelist.com
-  url: https://apievangelist.com
