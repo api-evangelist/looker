@@ -33,16 +33,20 @@ servers:
         description: Your Looker (Google Cloud core) instance hostname prefix
         default: your-instance
 tags:
-  - name: Look
+  - name: Auth
     description: >-
-      Manage Looks, which are saved queries with visualizations. A Look
-      contains a query definition and visualization configuration that can
-      be shared, scheduled, and embedded.
+      Authentication endpoints for obtaining and managing API access
+      tokens using client credentials.
   - name: Dashboard
     description: >-
       Manage dashboards, which are collections of tiles displaying
       visualizations from queries. Dashboards support filters, layouts,
       and can be shared across the organization.
+  - name: Look
+    description: >-
+      Manage Looks, which are saved queries with visualizations. A Look
+      contains a query definition and visualization configuration that can
+      be shared, scheduled, and embedded.
   - name: Query
     description: >-
       Create and run queries against your Looker models. Queries define
@@ -52,10 +56,6 @@ tags:
     description: >-
       Manage Looker users including creating, updating, and retrieving
       user accounts, credentials, roles, and sessions.
-  - name: Auth
-    description: >-
-      Authentication endpoints for obtaining and managing API access
-      tokens using client credentials.
 security:
   - bearerAuth: []
 paths:
