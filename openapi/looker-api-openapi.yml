@@ -62,7 +62,7 @@ paths:
   /login:
     post:
       operationId: login
-      summary: Log in
+      summary: Looker Log in
       description: >-
         Authenticates with the Looker API using client credentials and
         returns an access token. The client_id and client_secret are
@@ -104,7 +104,7 @@ paths:
   /logout:
     delete:
       operationId: logout
-      summary: Log out
+      summary: Looker Log out
       description: >-
         Revokes the current API access token, ending the authenticated
         session. After logout, the token can no longer be used.
@@ -122,7 +122,7 @@ paths:
   /looks:
     get:
       operationId: allLooks
-      summary: List all Looks
+      summary: Looker List all Looks
       description: >-
         Returns a list of all Looks accessible to the authenticated user.
         Supports filtering by fields to limit the response payload.
@@ -148,7 +148,7 @@ paths:
   /looks/search:
     get:
       operationId: searchLooks
-      summary: Search Looks
+      summary: Looker Search Looks
       description: >-
         Searches for Looks matching the specified criteria. Supports
         filtering by title, description, space, user, and other
@@ -208,7 +208,7 @@ paths:
   /looks/{look_id}:
     get:
       operationId: look
-      summary: Get a Look
+      summary: Looker Get a Look
       description: >-
         Retrieves a single Look by its ID, including the query definition,
         visualization configuration, and metadata such as the creator,
@@ -233,7 +233,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
     patch:
       operationId: updateLook
-      summary: Update a Look
+      summary: Looker Update a Look
       description: >-
         Updates an existing Look. Only the fields provided in the request
         body are updated; all other fields remain unchanged.
@@ -269,7 +269,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
     delete:
       operationId: deleteLook
-      summary: Delete a Look
+      summary: Looker Delete a Look
       description: >-
         Permanently deletes the specified Look. This action cannot be
         undone. The Look is moved to trash first if soft delete is
@@ -290,7 +290,7 @@ paths:
   /looks/{look_id}/run/{result_format}:
     get:
       operationId: runLook
-      summary: Run a Look
+      summary: Looker Run a Look
       description: >-
         Executes the query associated with a Look and returns the results
         in the specified format. Supported formats include json, csv,
@@ -345,7 +345,7 @@ paths:
   /dashboards:
     get:
       operationId: allDashboards
-      summary: List all dashboards
+      summary: Looker List all dashboards
       description: >-
         Returns a list of all dashboards accessible to the authenticated
         user. User-defined dashboards and LookML dashboards are both
@@ -371,7 +371,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
     post:
       operationId: createDashboard
-      summary: Create a dashboard
+      summary: Looker Create a dashboard
       description: >-
         Creates a new user-defined dashboard. The dashboard can be
         populated with tiles, filters, and layout settings after
@@ -400,7 +400,7 @@ paths:
   /dashboards/search:
     get:
       operationId: searchDashboards
-      summary: Search dashboards
+      summary: Looker Search dashboards
       description: >-
         Searches for dashboards matching the specified criteria including
         title, description, space, and creator. Results are paginated.
@@ -453,7 +453,7 @@ paths:
   /dashboards/{dashboard_id}:
     get:
       operationId: dashboard
-      summary: Get a dashboard
+      summary: Looker Get a dashboard
       description: >-
         Retrieves a single dashboard by its ID, including all dashboard
         elements (tiles), filters, and layout configuration. For
@@ -479,7 +479,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
     patch:
       operationId: updateDashboard
-      summary: Update a dashboard
+      summary: Looker Update a dashboard
       description: >-
         Updates an existing dashboard. Only the fields provided in the
         request body are updated. Dashboard elements and filters can
@@ -515,7 +515,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
     delete:
       operationId: deleteDashboard
-      summary: Delete a dashboard
+      summary: Looker Delete a dashboard
       description: >-
         Permanently deletes the specified dashboard and all of its
         elements, filters, and layout configuration. This action
@@ -536,7 +536,7 @@ paths:
   /dashboards/{dashboard_id}/dashboard_elements:
     get:
       operationId: dashboardDashboardElements
-      summary: List dashboard elements
+      summary: Looker List dashboard elements
       description: >-
         Returns all elements (tiles) for the specified dashboard. Each
         element contains a query, a Look reference, or a text/markdown
@@ -564,7 +564,7 @@ paths:
   /dashboards/{dashboard_id}/dashboard_filters:
     get:
       operationId: dashboardDashboardFilters
-      summary: List dashboard filters
+      summary: Looker List dashboard filters
       description: >-
         Returns all filters defined on the specified dashboard. Dashboard
         filters allow users to dynamically change query parameters across
@@ -592,7 +592,7 @@ paths:
   /queries:
     post:
       operationId: createQuery
-      summary: Create a query
+      summary: Looker Create a query
       description: >-
         Creates a new query object. A query defines the model, view,
         fields, filters, sorts, and limit used to retrieve data from
@@ -630,7 +630,7 @@ paths:
   /queries/{query_id}:
     get:
       operationId: query
-      summary: Get a query
+      summary: Looker Get a query
       description: >-
         Retrieves a query object by its ID. Returns the query
         definition including the model, view, fields, filters,
@@ -656,7 +656,7 @@ paths:
   /queries/{query_id}/run/{result_format}:
     get:
       operationId: runQuery
-      summary: Run a saved query
+      summary: Looker Run a saved query
       description: >-
         Executes a previously saved query and returns results in the
         specified format. The query must already exist. Supported
@@ -731,7 +731,7 @@ paths:
   /queries/run/{result_format}:
     post:
       operationId: runInlineQuery
-      summary: Run an inline query
+      summary: Looker Run an inline query
       description: >-
         Creates and immediately executes a query in a single request.
         The query definition is provided in the request body and does
@@ -804,7 +804,7 @@ paths:
   /users:
     get:
       operationId: allUsers
-      summary: List all users
+      summary: Looker List all users
       description: >-
         Returns a list of all Looker user accounts. The response includes
         basic user information. Use the fields parameter to include
@@ -842,7 +842,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
     post:
       operationId: createUser
-      summary: Create a user
+      summary: Looker Create a user
       description: >-
         Creates a new Looker user account. The new user will not have
         any credentials or roles assigned; those must be configured
@@ -871,7 +871,7 @@ paths:
   /users/search:
     get:
       operationId: searchUsers
-      summary: Search users
+      summary: Looker Search users
       description: >-
         Searches for users matching the specified criteria. Supports
         filtering by name, email, and other user attributes. Results
@@ -925,7 +925,7 @@ paths:
   /users/{user_id}:
     get:
       operationId: user
-      summary: Get a user
+      summary: Looker Get a user
       description: >-
         Retrieves a single user by their ID including their profile
         information, roles, and credential settings.
@@ -949,7 +949,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
     patch:
       operationId: updateUser
-      summary: Update a user
+      summary: Looker Update a user
       description: >-
         Updates an existing user account. Only the fields provided in
         the request body are updated. Credentials and roles are managed
@@ -986,7 +986,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
     delete:
       operationId: deleteUser
-      summary: Delete a user
+      summary: Looker Delete a user
       description: >-
         Permanently deletes the specified user account. This removes
         the user and all their credentials. Content created by the
@@ -1007,7 +1007,7 @@ paths:
   /users/me:
     get:
       operationId: me
-      summary: Get current user
+      summary: Looker Get current user
       description: >-
         Returns the user record for the currently authenticated user.
         This is useful for determining which user is associated with
@@ -1032,7 +1032,7 @@ paths:
   /users/{user_id}/roles:
     get:
       operationId: userRoles
-      summary: Get user roles
+      summary: Looker Get user roles
       description: >-
         Returns all roles assigned to the specified user. Roles define
         the permissions and model access granted to the user.
@@ -1058,7 +1058,7 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
     put:
       operationId: setUserRoles
-      summary: Set user roles
+      summary: Looker Set user roles
       description: >-
         Replaces all roles assigned to the specified user. Provide
         the complete list of role IDs that should be assigned to the
