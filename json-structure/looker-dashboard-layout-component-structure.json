@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "DashboardLayoutComponent",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "dashboard_layout_id": {
+      "type": "string"
+    },
+    "dashboard_element_id": {
+      "type": "string"
+    },
+    "row": {
+      "type": "integer"
+    },
+    "column": {
+      "type": "integer"
+    },
+    "width": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "DashboardLayout",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "dashboard_id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "column_width": {
+      "type": "integer"
+    },
+    "width": {
+      "type": "integer"
+    },
+    "dashboard_layout_components": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Example Title",
+  "description": "A sample description.",
+  "space_id": "500123",
+  "folder_id": "500123",
+  "query_id": "500123",
+  "public": true,
+  "is_run_on_load": true
+}

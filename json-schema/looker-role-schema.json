@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Role",
+  "type": "object",
+  "description": "A role defines a set of permissions and model access controls that can be assigned to users and groups.",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique numeric identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the role"
+    },
+    "permission_set_id": {
+      "type": "integer",
+      "description": "ID of the permission set assigned to this role"
+    },
+    "model_set_id": {
+      "type": "integer",
+      "description": "ID of the model set assigned to this role"
+    },
+    "user_count": {
+      "type": "integer",
+      "description": "Number of users with this role"
+    },
+    "url": {
+      "type": "string",
+      "description": "Relative URL for this role"
+    }
+  }
+}

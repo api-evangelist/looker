@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Session",
+  "type": "object",
+  "description": "An active user session",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique session identifier"
+    },
+    "ip_address": {
+      "type": "string",
+      "description": "IP address of the session"
+    },
+    "browser": {
+      "type": "string",
+      "description": "Browser used for this session"
+    },
+    "operating_system": {
+      "type": "string",
+      "description": "Operating system used for this session"
+    },
+    "city": {
+      "type": "string",
+      "description": "City from which the session originates"
+    },
+    "state": {
+      "type": "string",
+      "description": "State from which the session originates"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country from which the session originates"
+    },
+    "credentials_type": {
+      "type": "string",
+      "description": "Type of credentials used"
+    },
+    "extended_at": {
+      "type": "string",
+      "description": "Timestamp when the session was last extended"
+    },
+    "extended_count": {
+      "type": "integer",
+      "description": "Number of times the session has been extended"
+    },
+    "sudo_user_id": {
+      "type": "integer",
+      "description": "ID of the user being sudo'd as"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp when the session was created"
+    },
+    "expires_at": {
+      "type": "string",
+      "description": "Timestamp when the session expires"
+    },
+    "url": {
+      "type": "string",
+      "description": "Relative URL"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "first_name": "example_value",
+  "last_name": "example_value",
+  "email": "user@example.com",
+  "is_disabled": true,
+  "locale": "example_value"
+}

@@ -20,44 +20,44 @@ externalDocs:
   description: Looker API 4.0 Documentation
   url: https://cloud.google.com/looker/docs/reference/looker-api/latest
 servers:
-  - url: https://{instance}.looker.com/api/4.0
-    description: Looker Instance API
-    variables:
-      instance:
-        description: Your Looker instance hostname prefix
-        default: your-instance
-  - url: https://{instance}.cloud.looker.com/api/4.0
-    description: Looker (Google Cloud core) Instance API
-    variables:
-      instance:
-        description: Your Looker (Google Cloud core) instance hostname prefix
-        default: your-instance
+- url: https://{instance}.looker.com/api/4.0
+  description: Looker Instance API
+  variables:
+    instance:
+      description: Your Looker instance hostname prefix
+      default: your-instance
+- url: https://{instance}.cloud.looker.com/api/4.0
+  description: Looker (Google Cloud core) Instance API
+  variables:
+    instance:
+      description: Your Looker (Google Cloud core) instance hostname prefix
+      default: your-instance
 tags:
-  - name: Auth
-    description: >-
-      Authentication endpoints for obtaining and managing API access
-      tokens using client credentials.
-  - name: Dashboard
-    description: >-
-      Manage dashboards, which are collections of tiles displaying
-      visualizations from queries. Dashboards support filters, layouts,
-      and can be shared across the organization.
-  - name: Look
-    description: >-
-      Manage Looks, which are saved queries with visualizations. A Look
-      contains a query definition and visualization configuration that can
-      be shared, scheduled, and embedded.
-  - name: Query
-    description: >-
-      Create and run queries against your Looker models. Queries define
-      the fields, filters, sorts, and limits used to retrieve data from
-      the underlying database through LookML models.
-  - name: User
-    description: >-
-      Manage Looker users including creating, updating, and retrieving
-      user accounts, credentials, roles, and sessions.
+- name: Auth
+  description: >-
+    Authentication endpoints for obtaining and managing API access
+    tokens using client credentials.
+- name: Dashboard
+  description: >-
+    Manage dashboards, which are collections of tiles displaying
+    visualizations from queries. Dashboards support filters, layouts,
+    and can be shared across the organization.
+- name: Look
+  description: >-
+    Manage Looks, which are saved queries with visualizations. A Look
+    contains a query definition and visualization configuration that can
+    be shared, scheduled, and embedded.
+- name: Query
+  description: >-
+    Create and run queries against your Looker models. Queries define
+    the fields, filters, sorts, and limits used to retrieve data from
+    the underlying database through LookML models.
+- name: User
+  description: >-
+    Manage Looker users including creating, updating, and retrieving
+    user accounts, credentials, roles, and sessions.
 security:
-  - bearerAuth: []
+- bearerAuth: []
 paths:
   /login:
     post:
@@ -70,7 +70,7 @@ paths:
         The returned access token must be included as a Bearer token in
         the Authorization header for all subsequent API requests.
       tags:
-        - Auth
+      - Auth
       security: []
       requestBody:
         required: true
@@ -79,8 +79,8 @@ paths:
             schema:
               type: object
               required:
-                - client_id
-                - client_secret
+              - client_id
+              - client_secret
               properties:
                 client_id:
                   type: string
@@ -101,15 +101,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /logout:
     delete:
       operationId: logout
-      summary: Looker Log out
+      summary: Looker Log Out
       description: >-
         Revokes the current API access token, ending the authenticated
         session. After logout, the token can no longer be used.
       tags:
-        - Auth
+      - Auth
       responses:
         '204':
           description: Successfully logged out
@@ -119,17 +122,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /looks:
     get:
       operationId: allLooks
-      summary: Looker List all Looks
+      summary: Looker List All Looks
       description: >-
         Returns a list of all Looks accessible to the authenticated user.
         Supports filtering by fields to limit the response payload.
       tags:
-        - Look
+      - Look
       parameters:
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/fields'
       responses:
         '200':
           description: List of Looks
@@ -145,6 +151,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /looks/search:
     get:
       operationId: searchLooks
@@ -154,36 +163,36 @@ paths:
         filtering by title, description, space, user, and other
         attributes. Results are paginated.
       tags:
-        - Look
+      - Look
       parameters:
-        - $ref: '#/components/parameters/fields'
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
-        - name: title
-          in: query
-          description: Filter by Look title (case-insensitive match)
-          schema:
-            type: string
-        - name: description
-          in: query
-          description: Filter by Look description
-          schema:
-            type: string
-        - name: space_id
-          in: query
-          description: Filter by space (folder) ID
-          schema:
-            type: string
-        - name: user_id
-          in: query
-          description: Filter by creator user ID
-          schema:
-            type: string
-        - name: sorts
-          in: query
-          description: Sort fields (e.g. title asc, created_at desc)
-          schema:
-            type: string
+      - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - name: title
+        in: query
+        description: Filter by Look title (case-insensitive match)
+        schema:
+          type: string
+      - name: description
+        in: query
+        description: Filter by Look description
+        schema:
+          type: string
+      - name: space_id
+        in: query
+        description: Filter by space (folder) ID
+        schema:
+          type: string
+      - name: user_id
+        in: query
+        description: Filter by creator user ID
+        schema:
+          type: string
+      - name: sorts
+        in: query
+        description: Sort fields (e.g. title asc, created_at desc)
+        schema:
+          type: string
       responses:
         '200':
           description: Search results
@@ -205,6 +214,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /looks/{look_id}:
     get:
       operationId: look
@@ -214,10 +226,10 @@ paths:
         visualization configuration, and metadata such as the creator,
         space, and sharing settings.
       tags:
-        - Look
+      - Look
       parameters:
-        - $ref: '#/components/parameters/lookId'
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/lookId'
+      - $ref: '#/components/parameters/fields'
       responses:
         '200':
           description: Look details
@@ -231,6 +243,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     patch:
       operationId: updateLook
       summary: Looker Update a Look
@@ -238,10 +253,10 @@ paths:
         Updates an existing Look. Only the fields provided in the request
         body are updated; all other fields remain unchanged.
       tags:
-        - Look
+      - Look
       parameters:
-        - $ref: '#/components/parameters/lookId'
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/lookId'
+      - $ref: '#/components/parameters/fields'
       requestBody:
         required: true
         content:
@@ -267,6 +282,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteLook
       summary: Looker Delete a Look
@@ -275,9 +293,9 @@ paths:
         undone. The Look is moved to trash first if soft delete is
         enabled.
       tags:
-        - Look
+      - Look
       parameters:
-        - $ref: '#/components/parameters/lookId'
+      - $ref: '#/components/parameters/lookId'
       responses:
         '204':
           description: Look deleted successfully
@@ -287,6 +305,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /looks/{look_id}/run/{result_format}:
     get:
       operationId: runLook
@@ -296,36 +317,36 @@ paths:
         in the specified format. Supported formats include json, csv,
         txt, xlsx, html, md, json_label, json_detail, and png.
       tags:
-        - Look
+      - Look
       parameters:
-        - $ref: '#/components/parameters/lookId'
-        - name: result_format
-          in: path
-          required: true
-          description: Format for the query results
-          schema:
-            type: string
-            enum:
-              - json
-              - csv
-              - txt
-              - xlsx
-              - html
-              - md
-              - json_label
-              - json_detail
-              - png
-        - $ref: '#/components/parameters/limit'
-        - name: apply_formatting
-          in: query
-          description: Whether to apply model-specified formatting to results
-          schema:
-            type: boolean
-        - name: apply_vis
-          in: query
-          description: Whether to apply visualization options to results
-          schema:
-            type: boolean
+      - $ref: '#/components/parameters/lookId'
+      - name: result_format
+        in: path
+        required: true
+        description: Format for the query results
+        schema:
+          type: string
+          enum:
+          - json
+          - csv
+          - txt
+          - xlsx
+          - html
+          - md
+          - json_label
+          - json_detail
+          - png
+      - $ref: '#/components/parameters/limit'
+      - name: apply_formatting
+        in: query
+        description: Whether to apply model-specified formatting to results
+        schema:
+          type: boolean
+      - name: apply_vis
+        in: query
+        description: Whether to apply visualization options to results
+        schema:
+          type: boolean
       responses:
         '200':
           description: Query results in the specified format
@@ -342,18 +363,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /dashboards:
     get:
       operationId: allDashboards
-      summary: Looker List all dashboards
+      summary: Looker List All Dashboards
       description: >-
         Returns a list of all dashboards accessible to the authenticated
         user. User-defined dashboards and LookML dashboards are both
         included. Use the fields parameter to limit response size.
       tags:
-        - Dashboard
+      - Dashboard
       parameters:
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/fields'
       responses:
         '200':
           description: List of dashboards
@@ -369,15 +393,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createDashboard
-      summary: Looker Create a dashboard
+      summary: Looker Create a Dashboard
       description: >-
         Creates a new user-defined dashboard. The dashboard can be
         populated with tiles, filters, and layout settings after
         creation or as part of the request body.
       tags:
-        - Dashboard
+      - Dashboard
       requestBody:
         required: true
         content:
@@ -397,44 +424,47 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /dashboards/search:
     get:
       operationId: searchDashboards
-      summary: Looker Search dashboards
+      summary: Looker Search Dashboards
       description: >-
         Searches for dashboards matching the specified criteria including
         title, description, space, and creator. Results are paginated.
       tags:
-        - Dashboard
+      - Dashboard
       parameters:
-        - $ref: '#/components/parameters/fields'
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
-        - name: title
-          in: query
-          description: Filter by dashboard title
-          schema:
-            type: string
-        - name: description
-          in: query
-          description: Filter by dashboard description
-          schema:
-            type: string
-        - name: space_id
-          in: query
-          description: Filter by space (folder) ID
-          schema:
-            type: string
-        - name: user_id
-          in: query
-          description: Filter by creator user ID
-          schema:
-            type: string
-        - name: sorts
-          in: query
-          description: Sort fields
-          schema:
-            type: string
+      - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - name: title
+        in: query
+        description: Filter by dashboard title
+        schema:
+          type: string
+      - name: description
+        in: query
+        description: Filter by dashboard description
+        schema:
+          type: string
+      - name: space_id
+        in: query
+        description: Filter by space (folder) ID
+        schema:
+          type: string
+      - name: user_id
+        in: query
+        description: Filter by creator user ID
+        schema:
+          type: string
+      - name: sorts
+        in: query
+        description: Sort fields
+        schema:
+          type: string
       responses:
         '200':
           description: Search results
@@ -450,20 +480,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /dashboards/{dashboard_id}:
     get:
       operationId: dashboard
-      summary: Looker Get a dashboard
+      summary: Looker Get a Dashboard
       description: >-
         Retrieves a single dashboard by its ID, including all dashboard
         elements (tiles), filters, and layout configuration. For
         user-defined dashboards the ID is numeric; for LookML dashboards
         the ID is the model::dashboard_name string.
       tags:
-        - Dashboard
+      - Dashboard
       parameters:
-        - $ref: '#/components/parameters/dashboardId'
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/dashboardId'
+      - $ref: '#/components/parameters/fields'
       responses:
         '200':
           description: Dashboard details
@@ -477,17 +510,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     patch:
       operationId: updateDashboard
-      summary: Looker Update a dashboard
+      summary: Looker Update a Dashboard
       description: >-
         Updates an existing dashboard. Only the fields provided in the
         request body are updated. Dashboard elements and filters can
         be updated through their own dedicated endpoints.
       tags:
-        - Dashboard
+      - Dashboard
       parameters:
-        - $ref: '#/components/parameters/dashboardId'
+      - $ref: '#/components/parameters/dashboardId'
       requestBody:
         required: true
         content:
@@ -513,17 +549,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteDashboard
-      summary: Looker Delete a dashboard
+      summary: Looker Delete a Dashboard
       description: >-
         Permanently deletes the specified dashboard and all of its
         elements, filters, and layout configuration. This action
         cannot be undone.
       tags:
-        - Dashboard
+      - Dashboard
       parameters:
-        - $ref: '#/components/parameters/dashboardId'
+      - $ref: '#/components/parameters/dashboardId'
       responses:
         '204':
           description: Dashboard deleted successfully
@@ -533,19 +572,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /dashboards/{dashboard_id}/dashboard_elements:
     get:
       operationId: dashboardDashboardElements
-      summary: Looker List dashboard elements
+      summary: Looker List Dashboard Elements
       description: >-
         Returns all elements (tiles) for the specified dashboard. Each
         element contains a query, a Look reference, or a text/markdown
         content block along with positioning and size information.
       tags:
-        - Dashboard
+      - Dashboard
       parameters:
-        - $ref: '#/components/parameters/dashboardId'
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/dashboardId'
+      - $ref: '#/components/parameters/fields'
       responses:
         '200':
           description: List of dashboard elements
@@ -561,19 +603,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /dashboards/{dashboard_id}/dashboard_filters:
     get:
       operationId: dashboardDashboardFilters
-      summary: Looker List dashboard filters
+      summary: Looker List Dashboard Filters
       description: >-
         Returns all filters defined on the specified dashboard. Dashboard
         filters allow users to dynamically change query parameters across
         all tiles that listen to a given filter.
       tags:
-        - Dashboard
+      - Dashboard
       parameters:
-        - $ref: '#/components/parameters/dashboardId'
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/dashboardId'
+      - $ref: '#/components/parameters/fields'
       responses:
         '200':
           description: List of dashboard filters
@@ -589,19 +634,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /queries:
     post:
       operationId: createQuery
-      summary: Looker Create a query
+      summary: Looker Create a Query
       description: >-
         Creates a new query object. A query defines the model, view,
         fields, filters, sorts, and limit used to retrieve data from
         the underlying database. The query is not executed until you
         call the run_query endpoint. Queries are immutable once created.
       tags:
-        - Query
+      - Query
       parameters:
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/fields'
       requestBody:
         required: true
         content:
@@ -627,19 +675,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /queries/{query_id}:
     get:
       operationId: query
-      summary: Looker Get a query
+      summary: Looker Get a Query
       description: >-
         Retrieves a query object by its ID. Returns the query
         definition including the model, view, fields, filters,
         sorts, and limit.
       tags:
-        - Query
+      - Query
       parameters:
-        - $ref: '#/components/parameters/queryId'
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/queryId'
+      - $ref: '#/components/parameters/fields'
       responses:
         '200':
           description: Query details
@@ -653,65 +704,68 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /queries/{query_id}/run/{result_format}:
     get:
       operationId: runQuery
-      summary: Looker Run a saved query
+      summary: Looker Run a Saved Query
       description: >-
         Executes a previously saved query and returns results in the
         specified format. The query must already exist. Supported
         formats include json, csv, txt, xlsx, html, md, json_label,
         json_detail, sql, and png.
       tags:
-        - Query
+      - Query
       parameters:
-        - $ref: '#/components/parameters/queryId'
-        - name: result_format
-          in: path
-          required: true
-          description: Format for the query results
-          schema:
-            type: string
-            enum:
-              - json
-              - csv
-              - txt
-              - xlsx
-              - html
-              - md
-              - json_label
-              - json_detail
-              - sql
-              - png
-        - $ref: '#/components/parameters/limit'
-        - name: apply_formatting
-          in: query
-          description: Whether to apply model-specified formatting
-          schema:
-            type: boolean
-        - name: apply_vis
-          in: query
-          description: Whether to apply visualization options
-          schema:
-            type: boolean
-        - name: cache
-          in: query
-          description: Whether to use cached results if available
-          schema:
-            type: boolean
-            default: true
-        - name: generate_drill_links
-          in: query
-          description: Whether to generate drill links in results
-          schema:
-            type: boolean
-            default: true
-        - name: force_production
-          in: query
-          description: Whether to force use of production models
-          schema:
-            type: boolean
-            default: false
+      - $ref: '#/components/parameters/queryId'
+      - name: result_format
+        in: path
+        required: true
+        description: Format for the query results
+        schema:
+          type: string
+          enum:
+          - json
+          - csv
+          - txt
+          - xlsx
+          - html
+          - md
+          - json_label
+          - json_detail
+          - sql
+          - png
+      - $ref: '#/components/parameters/limit'
+      - name: apply_formatting
+        in: query
+        description: Whether to apply model-specified formatting
+        schema:
+          type: boolean
+      - name: apply_vis
+        in: query
+        description: Whether to apply visualization options
+        schema:
+          type: boolean
+      - name: cache
+        in: query
+        description: Whether to use cached results if available
+        schema:
+          type: boolean
+          default: true
+      - name: generate_drill_links
+        in: query
+        description: Whether to generate drill links in results
+        schema:
+          type: boolean
+          default: true
+      - name: force_production
+        in: query
+        description: Whether to force use of production models
+        schema:
+          type: boolean
+          default: false
       responses:
         '200':
           description: Query results in the requested format
@@ -728,51 +782,54 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /queries/run/{result_format}:
     post:
       operationId: runInlineQuery
-      summary: Looker Run an inline query
+      summary: Looker Run an Inline Query
       description: >-
         Creates and immediately executes a query in a single request.
         The query definition is provided in the request body and does
         not need to be saved first. This is useful for ad-hoc queries.
       tags:
-        - Query
+      - Query
       parameters:
-        - name: result_format
-          in: path
-          required: true
-          description: Format for the query results
-          schema:
-            type: string
-            enum:
-              - json
-              - csv
-              - txt
-              - xlsx
-              - html
-              - md
-              - json_label
-              - json_detail
-              - sql
-              - png
-        - $ref: '#/components/parameters/limit'
-        - name: apply_formatting
-          in: query
-          description: Whether to apply model-specified formatting
-          schema:
-            type: boolean
-        - name: apply_vis
-          in: query
-          description: Whether to apply visualization options
-          schema:
-            type: boolean
-        - name: cache
-          in: query
-          description: Whether to use cached results
-          schema:
-            type: boolean
-            default: true
+      - name: result_format
+        in: path
+        required: true
+        description: Format for the query results
+        schema:
+          type: string
+          enum:
+          - json
+          - csv
+          - txt
+          - xlsx
+          - html
+          - md
+          - json_label
+          - json_detail
+          - sql
+          - png
+      - $ref: '#/components/parameters/limit'
+      - name: apply_formatting
+        in: query
+        description: Whether to apply model-specified formatting
+        schema:
+          type: boolean
+      - name: apply_vis
+        in: query
+        description: Whether to apply visualization options
+        schema:
+          type: boolean
+      - name: cache
+        in: query
+        description: Whether to use cached results
+        schema:
+          type: boolean
+          default: true
       requestBody:
         required: true
         content:
@@ -801,30 +858,33 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /users:
     get:
       operationId: allUsers
-      summary: Looker List all users
+      summary: Looker List All Users
       description: >-
         Returns a list of all Looker user accounts. The response includes
         basic user information. Use the fields parameter to include
         additional details such as roles, credentials, and sessions.
       tags:
-        - User
+      - User
       parameters:
-        - $ref: '#/components/parameters/fields'
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
-        - name: sorts
-          in: query
-          description: Sort fields (e.g. last_name asc, created_at desc)
-          schema:
-            type: string
-        - name: ids
-          in: query
-          description: Comma-separated list of user IDs to retrieve
-          schema:
-            type: string
+      - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - name: sorts
+        in: query
+        description: Sort fields (e.g. last_name asc, created_at desc)
+        schema:
+          type: string
+      - name: ids
+        in: query
+        description: Comma-separated list of user IDs to retrieve
+        schema:
+          type: string
       responses:
         '200':
           description: List of users
@@ -840,15 +900,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createUser
-      summary: Looker Create a user
+      summary: Looker Create a User
       description: >-
         Creates a new Looker user account. The new user will not have
         any credentials or roles assigned; those must be configured
         separately via the credentials and role endpoints.
       tags:
-        - User
+      - User
       requestBody:
         required: true
         content:
@@ -868,45 +931,48 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /users/search:
     get:
       operationId: searchUsers
-      summary: Looker Search users
+      summary: Looker Search Users
       description: >-
         Searches for users matching the specified criteria. Supports
         filtering by name, email, and other user attributes. Results
         are paginated.
       tags:
-        - User
+      - User
       parameters:
-        - $ref: '#/components/parameters/fields'
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
-        - name: first_name
-          in: query
-          description: Filter by first name
-          schema:
-            type: string
-        - name: last_name
-          in: query
-          description: Filter by last name
-          schema:
-            type: string
-        - name: email
-          in: query
-          description: Filter by email address
-          schema:
-            type: string
-        - name: is_disabled
-          in: query
-          description: Filter by disabled status
-          schema:
-            type: boolean
-        - name: sorts
-          in: query
-          description: Sort fields
-          schema:
-            type: string
+      - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - name: first_name
+        in: query
+        description: Filter by first name
+        schema:
+          type: string
+      - name: last_name
+        in: query
+        description: Filter by last name
+        schema:
+          type: string
+      - name: email
+        in: query
+        description: Filter by email address
+        schema:
+          type: string
+      - name: is_disabled
+        in: query
+        description: Filter by disabled status
+        schema:
+          type: boolean
+      - name: sorts
+        in: query
+        description: Sort fields
+        schema:
+          type: string
       responses:
         '200':
           description: Search results
@@ -922,18 +988,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /users/{user_id}:
     get:
       operationId: user
-      summary: Looker Get a user
+      summary: Looker Get a User
       description: >-
         Retrieves a single user by their ID including their profile
         information, roles, and credential settings.
       tags:
-        - User
+      - User
       parameters:
-        - $ref: '#/components/parameters/userId'
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/userId'
+      - $ref: '#/components/parameters/fields'
       responses:
         '200':
           description: User details
@@ -947,18 +1016,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     patch:
       operationId: updateUser
-      summary: Looker Update a user
+      summary: Looker Update a User
       description: >-
         Updates an existing user account. Only the fields provided in
         the request body are updated. Credentials and roles are managed
         through separate endpoints.
       tags:
-        - User
+      - User
       parameters:
-        - $ref: '#/components/parameters/userId'
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/userId'
+      - $ref: '#/components/parameters/fields'
       requestBody:
         required: true
         content:
@@ -984,17 +1056,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteUser
-      summary: Looker Delete a user
+      summary: Looker Delete a User
       description: >-
         Permanently deletes the specified user account. This removes
         the user and all their credentials. Content created by the
         user (dashboards, Looks, etc.) is not deleted.
       tags:
-        - User
+      - User
       parameters:
-        - $ref: '#/components/parameters/userId'
+      - $ref: '#/components/parameters/userId'
       responses:
         '204':
           description: User deleted successfully
@@ -1004,18 +1079,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /users/me:
     get:
       operationId: me
-      summary: Looker Get current user
+      summary: Looker Get Current User
       description: >-
         Returns the user record for the currently authenticated user.
         This is useful for determining which user is associated with
         the current API session.
       tags:
-        - User
+      - User
       parameters:
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/fields'
       responses:
         '200':
           description: Current user details
@@ -1029,18 +1107,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /users/{user_id}/roles:
     get:
       operationId: userRoles
-      summary: Looker Get user roles
+      summary: Looker Get User Roles
       description: >-
         Returns all roles assigned to the specified user. Roles define
         the permissions and model access granted to the user.
       tags:
-        - User
+      - User
       parameters:
-        - $ref: '#/components/parameters/userId'
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/userId'
+      - $ref: '#/components/parameters/fields'
       responses:
         '200':
           description: List of user roles
@@ -1056,18 +1137,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
       operationId: setUserRoles
-      summary: Looker Set user roles
+      summary: Looker Set User Roles
       description: >-
         Replaces all roles assigned to the specified user. Provide
         the complete list of role IDs that should be assigned to the
         user. Any roles not included in the request will be removed.
       tags:
-        - User
+      - User
       parameters:
-        - $ref: '#/components/parameters/userId'
-        - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/userId'
+      - $ref: '#/components/parameters/fields'
       requestBody:
         required: true
         content:
@@ -1093,6 +1177,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     bearerAuth:
@@ -1165,17 +1252,21 @@ components:
         access_token:
           type: string
           description: The OAuth2 access token string
+          example: example_value
         token_type:
           type: string
           description: Token type, always 'Bearer'
           default: Bearer
+          example: example_value
         expires_in:
           type: integer
           description: Number of seconds until the token expires
+          example: 10
         refresh_token:
           type: string
           nullable: true
           description: Refresh token (not used in API client credential flow)
+          example: example_value
     Look:
       type: object
       description: >-
@@ -1188,35 +1279,43 @@ components:
           format: int64
           description: Unique numeric identifier for this Look
           readOnly: true
+          example: abc123
         title:
           type: string
           description: Display title of the Look
+          example: Example Title
         description:
           type: string
           nullable: true
           description: Description of the Look's purpose
+          example: A sample description.
         content_metadata_id:
           type: integer
           format: int64
           description: ID of the content metadata record
           readOnly: true
+          example: '500123'
         query_id:
           type: integer
           format: int64
           description: ID of the query associated with this Look
+          example: '500123'
         query:
           $ref: '#/components/schemas/Query'
         space_id:
           type: string
           description: ID of the space (folder) containing this Look
+          example: '500123'
         folder_id:
           type: string
           description: ID of the folder containing this Look
+          example: '500123'
         user_id:
           type: integer
           format: int64
           description: ID of the user who created this Look
           readOnly: true
+          example: '500123'
         space:
           $ref: '#/components/schemas/SpaceBase'
         folder:
@@ -1224,49 +1323,59 @@ components:
         public:
           type: boolean
           description: Whether this Look is publicly accessible
+          example: true
         is_run_on_load:
           type: boolean
           description: Whether the query runs automatically when the Look is loaded
+          example: true
         created_at:
           type: string
           format: date-time
           description: Timestamp when the Look was created
           readOnly: true
+          example: '2026-01-15T10:30:00Z'
         updated_at:
           type: string
           format: date-time
           description: Timestamp when the Look was last updated
           readOnly: true
+          example: '2026-01-15T10:30:00Z'
         deleted_at:
           type: string
           format: date-time
           nullable: true
           description: Timestamp when the Look was soft-deleted
           readOnly: true
+          example: '2026-01-15T10:30:00Z'
         deleted:
           type: boolean
           description: Whether this Look has been soft-deleted
           readOnly: true
+          example: true
         last_accessed_at:
           type: string
           format: date-time
           nullable: true
           description: Timestamp when the Look was last viewed
           readOnly: true
+          example: '2026-01-15T10:30:00Z'
         view_count:
           type: integer
           description: Number of times the Look has been viewed
           readOnly: true
+          example: 10
         favorite_count:
           type: integer
           description: Number of users who have favorited this Look
           readOnly: true
+          example: 10
         model:
           $ref: '#/components/schemas/LookModel'
         url:
           type: string
           description: Relative URL path for this Look
           readOnly: true
+          example: https://www.example.com
     WriteLookWithQuery:
       type: object
       description: Writable fields for creating or updating a Look
@@ -1274,28 +1383,35 @@ components:
         title:
           type: string
           description: Display title
+          example: Example Title
         description:
           type: string
           nullable: true
           description: Description of the Look
+          example: A sample description.
         space_id:
           type: string
           description: Space (folder) ID to place the Look in
+          example: '500123'
         folder_id:
           type: string
           description: Folder ID to place the Look in
+          example: '500123'
         query_id:
           type: integer
           format: int64
           description: ID of the query to use
+          example: '500123'
         query:
           $ref: '#/components/schemas/WriteQuery'
         public:
           type: boolean
           description: Whether the Look is public
+          example: true
         is_run_on_load:
           type: boolean
           description: Whether to auto-run the query on load
+          example: true
     Dashboard:
       type: object
       description: >-
@@ -1309,32 +1425,40 @@ components:
             Unique identifier. Numeric for user-defined dashboards;
             model::dashboard_name for LookML dashboards.
           readOnly: true
+          example: abc123
         title:
           type: string
           description: Display title of the dashboard
+          example: Example Title
         description:
           type: string
           nullable: true
           description: Description of the dashboard's purpose
+          example: A sample description.
         content_metadata_id:
           type: integer
           format: int64
           description: ID of the content metadata record
           readOnly: true
+          example: '500123'
         query_timezone:
           type: string
           description: Timezone for queries on this dashboard
+          example: example_value
         space_id:
           type: string
           description: ID of the space (folder) containing this dashboard
+          example: '500123'
         folder_id:
           type: string
           description: ID of the folder containing this dashboard
+          example: '500123'
         user_id:
           type: integer
           format: int64
           description: ID of the user who created this dashboard
           readOnly: true
+          example: '500123'
         space:
           $ref: '#/components/schemas/SpaceBase'
         folder:
@@ -1344,86 +1468,106 @@ components:
           description: List of tiles (elements) on this dashboard
           items:
             $ref: '#/components/schemas/DashboardElement'
+          example: []
         dashboard_filters:
           type: array
           description: List of filters on this dashboard
           items:
             $ref: '#/components/schemas/DashboardFilter'
+          example: []
         dashboard_layouts:
           type: array
           description: Layout configurations for this dashboard
           items:
             $ref: '#/components/schemas/DashboardLayout'
+          example: []
         background_color:
           type: string
           description: CSS background color for the dashboard
+          example: example_value
         text_tile_text_color:
           type: string
           description: Default text color for text tiles
+          example: example_value
         tile_background_color:
           type: string
           description: Default background color for tiles
+          example: example_value
         tile_text_color:
           type: string
           description: Default text color for tiles
+          example: example_value
         hidden:
           type: boolean
           description: Whether this dashboard is hidden from navigation
+          example: true
         readonly:
           type: boolean
           description: Whether this dashboard is read-only (LookML dashboards are read-only)
           readOnly: true
+          example: true
         refresh_interval:
           type: string
           nullable: true
           description: Auto-refresh interval (e.g. 5 minutes, 1 hour)
+          example: example_value
         load_configuration:
           type: string
           nullable: true
           description: >-
             Dashboard load configuration. Controls whether tiles load
             concurrently or sequentially.
+          example: example_value
         preferred_viewer:
           type: string
           description: Preferred viewer type for the dashboard
+          example: example_value
         created_at:
           type: string
           format: date-time
           description: Timestamp when the dashboard was created
           readOnly: true
+          example: '2026-01-15T10:30:00Z'
         updated_at:
           type: string
           format: date-time
           description: Timestamp when the dashboard was last updated
           readOnly: true
+          example: '2026-01-15T10:30:00Z'
         deleted_at:
           type: string
           format: date-time
           nullable: true
           description: Timestamp when the dashboard was soft-deleted
           readOnly: true
+          example: '2026-01-15T10:30:00Z'
         deleted:
           type: boolean
           description: Whether this dashboard has been soft-deleted
           readOnly: true
+          example: true
         last_accessed_at:
           type: string
           format: date-time
           nullable: true
           description: Timestamp when the dashboard was last viewed
           readOnly: true
+          example: '2026-01-15T10:30:00Z'
         view_count:
           type: integer
           description: Number of times the dashboard has been viewed
           readOnly: true
+          example: 10
         favorite_count:
           type: integer
           description: Number of users who have favorited this dashboard
           readOnly: true
+          example: 10
         url:
           type: string
           description: Relative URL path for this dashboard
           readOnly: true
+          example: https://www.example.com
         model:
           $ref: '#/components/schemas/LookModel'
     WriteDashboard:
@@ -1433,45 +1577,58 @@ components:
         title:
           type: string
           description: Display title
+          example: Example Title
         description:
           type: string
           nullable: true
           description: Description of the dashboard
+          example: A sample description.
         space_id:
           type: string
           description: Space (folder) ID
+          example: '500123'
         folder_id:
           type: string
           description: Folder ID
+          example: '500123'
         query_timezone:
           type: string
           description: Timezone for queries
+          example: example_value
         background_color:
           type: string
           description: CSS background color
+          example: example_value
         text_tile_text_color:
           type: string
           description: Default text color for text tiles
+          example: example_value
         tile_background_color:
           type: string
           description: Default background color for tiles
+          example: example_value
         tile_text_color:
           type: string
           description: Default text color for tiles
+          example: example_value
         hidden:
           type: boolean
           description: Whether the dashboard is hidden
+          example: true
         refresh_interval:
           type: string
           nullable: true
           description: Auto-refresh interval
+          example: example_value
         load_configuration:
           type: string
           nullable: true
           description: Tile load configuration
+          example: example_value
         preferred_viewer:
           type: string
           description: Preferred viewer type
+          example: example_value
     DashboardElement:
       type: object
       description: >-
@@ -1482,19 +1639,23 @@ components:
           type: string
           description: Unique identifier for this element
           readOnly: true
+          example: abc123
         dashboard_id:
           type: string
           description: ID of the parent dashboard
+          example: '500123'
         look_id:
           type: integer
           format: int64
           nullable: true
           description: ID of a Look to display in this tile
+          example: '500123'
         query_id:
           type: integer
           format: int64
           nullable: true
           description: ID of a query to run in this tile
+          example: '500123'
         query:
           $ref: '#/components/schemas/Query'
         look:
@@ -1503,44 +1664,54 @@ components:
           type: string
           description: Element type
           enum:
-            - vis
-            - text
-            - data
-            - filter
+          - vis
+          - text
+          - data
+          - filter
+          example: vis
         title:
           type: string
           description: Display title for this tile
+          example: Example Title
         title_hidden:
           type: boolean
           description: Whether the title is hidden
+          example: true
         subtitle_text:
           type: string
           nullable: true
           description: Subtitle text displayed below the title
+          example: example_value
         body_text:
           type: string
           nullable: true
           description: Body text for text-type elements
+          example: example_value
         note_text:
           type: string
           nullable: true
           description: Note text displayed on the tile
+          example: example_value
         note_display:
           type: string
           nullable: true
           description: How the note is displayed (above, below, hover)
+          example: example_value
         note_state:
           type: string
           nullable: true
           description: Note display state
+          example: example_value
         result_maker:
           type: object
           nullable: true
           description: Result maker configuration for merged queries
+          example: example_value
         rich_content_json:
           type: string
           nullable: true
           description: Rich content JSON for advanced text elements
+          example: example_value
     DashboardFilter:
       type: object
       description: >-
@@ -1551,53 +1722,66 @@ components:
           type: string
           description: Unique identifier for this filter
           readOnly: true
+          example: abc123
         dashboard_id:
           type: string
           description: ID of the parent dashboard
+          example: '500123'
         name:
           type: string
           description: Internal name of the filter
+          example: Example Title
         title:
           type: string
           description: Display title of the filter
+          example: Example Title
         type:
           type: string
           description: Filter input type
           enum:
-            - field_filter
-            - date_filter
-            - number_filter
-            - string_filter
+          - field_filter
+          - date_filter
+          - number_filter
+          - string_filter
+          example: field_filter
         model:
           type: string
           nullable: true
           description: LookML model name for field_filter type
+          example: example_value
         explore:
           type: string
           nullable: true
           description: LookML explore name for field_filter type
+          example: example_value
         dimension:
           type: string
           nullable: true
           description: LookML dimension for field_filter type
+          example: example_value
         default_value:
           type: string
           nullable: true
           description: Default filter value
+          example: example_value
         allow_multiple_values:
           type: boolean
           description: Whether multiple values can be selected
+          example: true
         required:
           type: boolean
           description: Whether the filter must have a value
+          example: true
         row:
           type: integer
           description: Row position of the filter in the filter bar
+          example: 10
         listens_to_filters:
           type: array
           description: Other filters this filter listens to for cascading
           items:
             type: string
+          example: []
     DashboardLayout:
       type: object
       description: Layout configuration for a dashboard defining tile positions
@@ -1606,26 +1790,33 @@ components:
           type: string
           description: Unique identifier for this layout
           readOnly: true
+          example: abc123
         dashboard_id:
           type: string
           description: ID of the parent dashboard
+          example: '500123'
         type:
           type: string
           description: Layout type
+          example: example_value
         active:
           type: boolean
           description: Whether this is the active layout
+          example: true
         column_width:
           type: integer
           description: Width of each column in the grid
+          example: 10
         width:
           type: integer
           description: Total width of the layout
+          example: 10
         dashboard_layout_components:
           type: array
           description: Positioning of elements within this layout
           items:
             $ref: '#/components/schemas/DashboardLayoutComponent'
+          example: []
     DashboardLayoutComponent:
       type: object
       description: Position and size of a single element within a dashboard layout
@@ -1634,24 +1825,31 @@ components:
           type: string
           description: Unique identifier
           readOnly: true
+          example: abc123
         dashboard_layout_id:
           type: string
           description: ID of the parent layout
+          example: '500123'
         dashboard_element_id:
           type: string
           description: ID of the dashboard element this positions
+          example: '500123'
         row:
           type: integer
           description: Row position in the grid
+          example: 10
         column:
           type: integer
           description: Column position in the grid
+          example: 10
         width:
           type: integer
           description: Width in grid units
+          example: 10
         height:
           type: integer
           description: Height in grid units
+          example: 10
     Query:
       type: object
       description: >-
@@ -1665,12 +1863,15 @@ components:
           format: int64
           description: Unique numeric identifier for this query
           readOnly: true
+          example: abc123
         model:
           type: string
           description: LookML model name
+          example: example_value
         view:
           type: string
           description: LookML explore (view) name
+          example: example_value
         fields:
           type: array
           description: >-
@@ -1678,18 +1879,21 @@ components:
             orders.count, users.created_date)
           items:
             type: string
+          example: []
         pivots:
           type: array
           nullable: true
           description: List of field names to pivot on
           items:
             type: string
+          example: []
         fill_fields:
           type: array
           nullable: true
           description: Fields to fill missing date values for
           items:
             type: string
+          example: []
         filters:
           type: object
           nullable: true
@@ -1698,10 +1902,12 @@ components:
             and values are Looker filter expressions.
           additionalProperties:
             type: string
+          example: example_value
         filter_expression:
           type: string
           nullable: true
           description: Custom filter expression using Looker filter syntax
+          example: example_value
         sorts:
           type: array
           nullable: true
@@ -1710,140 +1916,170 @@ components:
             followed by asc or desc.
           items:
             type: string
+          example: []
         limit:
           type: string
           nullable: true
           description: Maximum number of rows to return (as string)
+          example: example_value
         column_limit:
           type: string
           nullable: true
           description: Maximum number of columns for pivoted results
+          example: example_value
         total:
           type: boolean
           description: Whether to include row totals
+          example: true
         row_total:
           type: string
           nullable: true
           description: Row total display setting
+          example: example_value
         subtotals:
           type: array
           nullable: true
           description: Fields to subtotal on
           items:
             type: string
+          example: []
         dynamic_fields:
           type: string
           nullable: true
           description: JSON string of dynamic field definitions
+          example: example_value
         vis_config:
           type: object
           nullable: true
           description: Visualization configuration object
           additionalProperties: true
+          example: example_value
         query_timezone:
           type: string
           nullable: true
           description: Timezone for date/time calculations
+          example: example_value
         client_id:
           type: string
           description: Client-generated hash of the query for caching
           readOnly: true
+          example: '500123'
         slug:
           type: string
           description: Short unique URL slug for this query
           readOnly: true
+          example: example_value
         share_url:
           type: string
           description: Shareable URL for this query
           readOnly: true
+          example: https://www.example.com
         url:
           type: string
           description: Relative URL for this query in the Looker UI
           readOnly: true
+          example: https://www.example.com
         has_table_calculations:
           type: boolean
           description: Whether this query has table calculations
           readOnly: true
+          example: true
     WriteQuery:
       type: object
       required:
-        - model
-        - view
+      - model
+      - view
       description: Writable fields for creating a new query
       properties:
         model:
           type: string
           description: LookML model name
+          example: example_value
         view:
           type: string
           description: LookML explore (view) name
+          example: example_value
         fields:
           type: array
           description: List of field names to include
           items:
             type: string
+          example: []
         pivots:
           type: array
           nullable: true
           description: Fields to pivot on
           items:
             type: string
+          example: []
         fill_fields:
           type: array
           nullable: true
           description: Fields to fill missing values for
           items:
             type: string
+          example: []
         filters:
           type: object
           nullable: true
           description: Filter expressions keyed by field name
           additionalProperties:
             type: string
+          example: example_value
         filter_expression:
           type: string
           nullable: true
           description: Custom filter expression
+          example: example_value
         sorts:
           type: array
           nullable: true
           description: Sort order for results
           items:
             type: string
+          example: []
         limit:
           type: string
           nullable: true
           description: Maximum rows to return
+          example: example_value
         column_limit:
           type: string
           nullable: true
           description: Maximum columns for pivoted results
+          example: example_value
         total:
           type: boolean
           description: Include row totals
+          example: true
         row_total:
           type: string
           nullable: true
           description: Row total setting
+          example: example_value
         subtotals:
           type: array
           nullable: true
           description: Fields to subtotal on
           items:
             type: string
+          example: []
         dynamic_fields:
           type: string
           nullable: true
           description: JSON string of dynamic field definitions
+          example: example_value
         vis_config:
           type: object
           nullable: true
           description: Visualization configuration
           additionalProperties: true
+          example: example_value
         query_timezone:
           type: string
           nullable: true
           description: Timezone for date/time calculations
+          example: example_value
     User:
       type: object
       description: >-
@@ -1855,82 +2091,101 @@ components:
           format: int64
           description: Unique numeric identifier
           readOnly: true
+          example: abc123
         first_name:
           type: string
           description: First name
+          example: example_value
         last_name:
           type: string
           description: Last name
+          example: example_value
         display_name:
           type: string
           description: Full display name
           readOnly: true
+          example: example_value
         email:
           type: string
           description: Email address
+          example: user@example.com
         avatar_url:
           type: string
           description: URL of the user's avatar image
           readOnly: true
+          example: https://www.example.com
         is_disabled:
           type: boolean
           description: Whether the user account is disabled
+          example: true
         locale:
           type: string
           nullable: true
           description: User's locale setting
+          example: example_value
         home_space_id:
           type: string
           nullable: true
           description: ID of the user's personal space (folder)
           readOnly: true
+          example: '500123'
         home_folder_id:
           type: string
           nullable: true
           description: ID of the user's personal folder
           readOnly: true
+          example: '500123'
         personal_space_id:
           type: integer
           format: int64
           nullable: true
           description: ID of the user's personal space
           readOnly: true
+          example: '500123'
         personal_folder_id:
           type: integer
           format: int64
           nullable: true
           description: ID of the user's personal folder
           readOnly: true
+          example: '500123'
         presumed_looker_employee:
           type: boolean
           description: Whether the user is a Looker employee
           readOnly: true
+          example: true
         verified_looker_employee:
           type: boolean
           description: Whether the user is a verified Looker employee
           readOnly: true
+          example: true
         roles_externally_managed:
           type: boolean
           description: Whether user roles are managed externally (e.g. via SAML)
           readOnly: true
+          example: true
         allow_direct_roles:
           type: boolean
           description: Whether roles can be assigned directly to this user
           readOnly: true
+          example: true
         allow_normal_group_membership:
           type: boolean
           description: Whether the user can be added to groups
           readOnly: true
+          example: true
         allow_roles_from_normal_groups:
           type: boolean
           description: Whether the user inherits roles from groups
           readOnly: true
+          example: true
         embed_group_space_id:
           type: integer
           format: int64
           nullable: true
           description: Embed group space ID
           readOnly: true
+          example: '500123'
         credentials_email:
           $ref: '#/components/schemas/CredentialsEmail'
         credentials_api3:
@@ -1939,12 +2194,14 @@ components:
           items:
             $ref: '#/components/schemas/CredentialsApi3'
           readOnly: true
+          example: []
         sessions:
           type: array
           description: Active sessions for this user
           items:
             $ref: '#/components/schemas/Session'
           readOnly: true
+          example: []
         role_ids:
           type: array
           description: IDs of roles assigned to this user
@@ -1952,6 +2209,7 @@ components:
             type: integer
             format: int64
           readOnly: true
+          example: []
         group_ids:
           type: array
           description: IDs of groups this user belongs to
@@ -1959,15 +2217,18 @@ components:
             type: integer
             format: int64
           readOnly: true
+          example: []
         url:
           type: string
           description: Relative URL for this user
           readOnly: true
+          example: https://www.example.com
         created_at:
           type: string
           format: date-time
           description: Timestamp when the user was created
           readOnly: true
+          example: '2026-01-15T10:30:00Z'
     WriteUser:
       type: object
       description: Writable fields for creating or updating a user
@@ -1975,19 +2236,24 @@ components:
         first_name:
           type: string
           description: First name
+          example: example_value
         last_name:
           type: string
           description: Last name
+          example: example_value
         email:
           type: string
           description: Email address
+          example: user@example.com
         is_disabled:
           type: boolean
           description: Whether the account is disabled
+          example: true
         locale:
           type: string
           nullable: true
           description: Locale setting
+          example: example_value
     Role:
       type: object
       description: >-
@@ -1999,29 +2265,35 @@ components:
           format: int64
           description: Unique numeric identifier
           readOnly: true
+          example: abc123
         name:
           type: string
           description: Display name of the role
+          example: Example Title
         permission_set:
           $ref: '#/components/schemas/PermissionSet'
         permission_set_id:
           type: integer
           format: int64
           description: ID of the permission set assigned to this role
+          example: '500123'
         model_set:
           $ref: '#/components/schemas/ModelSet'
         model_set_id:
           type: integer
           format: int64
           description: ID of the model set assigned to this role
+          example: '500123'
         user_count:
           type: integer
           description: Number of users with this role
           readOnly: true
+          example: 10
         url:
           type: string
           description: Relative URL for this role
           readOnly: true
+          example: https://www.example.com
     PermissionSet:
       type: object
       description: A set of permissions that can be assigned to a role
@@ -2031,26 +2303,32 @@ components:
           format: int64
           description: Unique numeric identifier
           readOnly: true
+          example: abc123
         name:
           type: string
           description: Display name
+          example: Example Title
         permissions:
           type: array
           description: List of permission strings
           items:
             type: string
+          example: []
         built_in:
           type: boolean
           description: Whether this is a built-in permission set
           readOnly: true
+          example: true
         all_access:
           type: boolean
           description: Whether this grants all permissions
           readOnly: true
+          example: true
         url:
           type: string
           description: Relative URL
           readOnly: true
+          example: https://www.example.com
     ModelSet:
       type: object
       description: A set of LookML models that can be assigned to a role
@@ -2060,26 +2338,32 @@ components:
           format: int64
           description: Unique numeric identifier
           readOnly: true
+          example: abc123
         name:
           type: string
           description: Display name
+          example: Example Title
         models:
           type: array
           description: List of model names included in this set
           items:
             type: string
+          example: []
         built_in:
           type: boolean
           description: Whether this is a built-in model set
           readOnly: true
+          example: true
         all_access:
           type: boolean
           description: Whether this grants access to all models
           readOnly: true
+          example: true
         url:
           type: string
           description: Relative URL
           readOnly: true
+          example: https://www.example.com
     CredentialsEmail:
       type: object
       description: Email/password credentials for a user
@@ -2087,22 +2371,27 @@ components:
         email:
           type: string
           description: Email address
+          example: user@example.com
         is_disabled:
           type: boolean
           description: Whether these credentials are disabled
+          example: true
         logged_in_at:
           type: string
           format: date-time
           nullable: true
           description: Timestamp of last login with these credentials
+          example: '2026-01-15T10:30:00Z'
         created_at:
           type: string
           format: date-time
           description: Timestamp when these credentials were created
+          example: '2026-01-15T10:30:00Z'
         url:
           type: string
           description: Relative URL
           readOnly: true
+          example: https://www.example.com
     CredentialsApi3:
       type: object
       description: API3 client credentials for a user
@@ -2112,23 +2401,29 @@ components:
           format: int64
           description: Unique identifier
           readOnly: true
+          example: abc123
         client_id:
           type: string
           description: API3 client ID
+          example: '500123'
         created_at:
           type: string
           format: date-time
           description: Timestamp when these credentials were created
+          example: '2026-01-15T10:30:00Z'
         is_disabled:
           type: boolean
           description: Whether these credentials are disabled
+          example: true
         type:
           type: string
           description: Credential type
+          example: example_value
         url:
           type: string
           description: Relative URL
           readOnly: true
+          example: https://www.example.com
     Session:
       type: object
       description: An active user session
@@ -2138,54 +2433,68 @@ components:
           format: int64
           description: Unique session identifier
           readOnly: true
+          example: abc123
         ip_address:
           type: string
           description: IP address of the session
+          example: example_value
         browser:
           type: string
           description: Browser used for this session
+          example: example_value
         operating_system:
           type: string
           description: Operating system used for this session
+          example: example_value
         city:
           type: string
           nullable: true
           description: City from which the session originates
+          example: example_value
         state:
           type: string
           nullable: true
           description: State from which the session originates
+          example: example_value
         country:
           type: string
           nullable: true
           description: Country from which the session originates
+          example: example_value
         credentials_type:
           type: string
           description: Type of credentials used
+          example: example_value
         extended_at:
           type: string
           format: date-time
           description: Timestamp when the session was last extended
+          example: '2026-01-15T10:30:00Z'
         extended_count:
           type: integer
           description: Number of times the session has been extended
+          example: 10
         sudo_user_id:
           type: integer
           format: int64
           nullable: true
           description: ID of the user being sudo'd as
+          example: '500123'
         created_at:
           type: string
           format: date-time
           description: Timestamp when the session was created
+          example: '2026-01-15T10:30:00Z'
         expires_at:
           type: string
           format: date-time
           description: Timestamp when the session expires
+          example: '2026-01-15T10:30:00Z'
         url:
           type: string
           description: Relative URL
           readOnly: true
+          example: https://www.example.com
     SpaceBase:
       type: object
       description: Basic space (folder) information
@@ -2193,22 +2502,28 @@ components:
         id:
           type: string
           description: Unique identifier
+          example: abc123
         name:
           type: string
           description: Display name
+          example: Example Title
         parent_id:
           type: string
           nullable: true
           description: Parent space ID
+          example: '500123'
         is_shared_root:
           type: boolean
           description: Whether this is the shared root space
+          example: true
         is_users_root:
           type: boolean
           description: Whether this is the users root space
+          example: true
         is_user_root:
           type: boolean
           description: Whether this is a user's personal root space
+          example: true
     FolderBase:
       type: object
       description: Basic folder information
@@ -2216,26 +2531,33 @@ components:
         id:
           type: string
           description: Unique identifier
+          example: abc123
         name:
           type: string
           description: Display name
+          example: Example Title
         parent_id:
           type: string
           nullable: true
           description: Parent folder ID
+          example: '500123'
         content_metadata_id:
           type: integer
           format: int64
           description: Content metadata ID
+          example: '500123'
         is_shared_root:
           type: boolean
           description: Whether this is the shared root folder
+          example: true
         is_users_root:
           type: boolean
           description: Whether this is the users root folder
+          example: true
         is_user_root:
           type: boolean
           description: Whether this is a user's personal root folder
+          example: true
     LookModel:
       type: object
       description: Basic LookML model information
@@ -2243,9 +2565,11 @@ components:
         id:
           type: string
           description: Model name/identifier
+          example: abc123
         label:
           type: string
           description: Display label for the model
+          example: Example Title
     ErrorResponse:
       type: object
       description: Error response from the Looker API
@@ -2253,6 +2577,8 @@ components:
         message:
           type: string
           description: Human-readable error message
+          example: example_value
         documentation_url:
           type: string
           description: URL to relevant API documentation
+          example: https://www.example.com

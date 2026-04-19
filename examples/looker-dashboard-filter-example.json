@@ -1,0 +1,15 @@
+{
+  "id": "abc123",
+  "dashboard_id": "500123",
+  "name": "Example Title",
+  "title": "Example Title",
+  "type": "example_value",
+  "model": "example_value",
+  "explore": "example_value",
+  "dimension": "example_value",
+  "default_value": "example_value",
+  "allow_multiple_values": true,
+  "required": true,
+  "row": 10,
+  "listens_to_filters": []
+}

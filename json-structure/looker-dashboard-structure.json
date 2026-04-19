@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "Dashboard",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "content_metadata_id": {
+      "type": "integer"
+    },
+    "query_timezone": {
+      "type": "string"
+    },
+    "space_id": {
+      "type": "string"
+    },
+    "folder_id": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "integer"
+    },
+    "dashboard_elements": {
+      "type": "array"
+    },
+    "dashboard_filters": {
+      "type": "array"
+    },
+    "dashboard_layouts": {
+      "type": "array"
+    },
+    "background_color": {
+      "type": "string"
+    },
+    "text_tile_text_color": {
+      "type": "string"
+    },
+    "tile_background_color": {
+      "type": "string"
+    },
+    "tile_text_color": {
+      "type": "string"
+    },
+    "hidden": {
+      "type": "boolean"
+    },
+    "readonly": {
+      "type": "boolean"
+    },
+    "refresh_interval": {
+      "type": "string"
+    },
+    "load_configuration": {
+      "type": "string"
+    },
+    "preferred_viewer": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "deleted_at": {
+      "type": "string"
+    },
+    "deleted": {
+      "type": "boolean"
+    },
+    "last_accessed_at": {
+      "type": "string"
+    },
+    "view_count": {
+      "type": "integer"
+    },
+    "favorite_count": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

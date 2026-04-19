@@ -1,0 +1,12 @@
+name: looker API Vocabulary
+provider: looker
+created: '2026-04-18'
+modified: '2026-04-18'
+operations: 29
+schemas: 23
+tags:
+- Auth
+- Dashboard
+- Look
+- Query
+- User

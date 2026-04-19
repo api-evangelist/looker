@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Look",
+  "type": "object",
+  "description": "A Look is a saved query with a visualization. Looks can be shared, embedded, scheduled for delivery, and added to dashboards as tiles.",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique numeric identifier for this Look"
+    },
+    "title": {
+      "type": "string",
+      "description": "Display title of the Look"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the Look's purpose"
+    },
+    "content_metadata_id": {
+      "type": "integer",
+      "description": "ID of the content metadata record"
+    },
+    "query_id": {
+      "type": "integer",
+      "description": "ID of the query associated with this Look"
+    },
+    "space_id": {
+      "type": "string",
+      "description": "ID of the space (folder) containing this Look"
+    },
+    "folder_id": {
+      "type": "string",
+      "description": "ID of the folder containing this Look"
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "ID of the user who created this Look"
+    },
+    "public": {
+      "type": "boolean",
+      "description": "Whether this Look is publicly accessible"
+    },
+    "is_run_on_load": {
+      "type": "boolean",
+      "description": "Whether the query runs automatically when the Look is loaded"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp when the Look was created"
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "Timestamp when the Look was last updated"
+    },
+    "deleted_at": {
+      "type": "string",
+      "description": "Timestamp when the Look was soft-deleted"
+    },
+    "deleted": {
+      "type": "boolean",
+      "description": "Whether this Look has been soft-deleted"
+    },
+    "last_accessed_at": {
+      "type": "string",
+      "description": "Timestamp when the Look was last viewed"
+    },
+    "view_count": {
+      "type": "integer",
+      "description": "Number of times the Look has been viewed"
+    },
+    "favorite_count": {
+      "type": "integer",
+      "description": "Number of users who have favorited this Look"
+    },
+    "url": {
+      "type": "string",
+      "description": "Relative URL path for this Look"
+    }
+  }
+}

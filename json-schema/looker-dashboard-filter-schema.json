@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DashboardFilter",
+  "type": "object",
+  "description": "A filter on a dashboard that allows users to dynamically change query parameters across multiple tiles simultaneously.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this filter"
+    },
+    "dashboard_id": {
+      "type": "string",
+      "description": "ID of the parent dashboard"
+    },
+    "name": {
+      "type": "string",
+      "description": "Internal name of the filter"
+    },
+    "title": {
+      "type": "string",
+      "description": "Display title of the filter"
+    },
+    "type": {
+      "type": "string",
+      "description": "Filter input type"
+    },
+    "model": {
+      "type": "string",
+      "description": "LookML model name for field_filter type"
+    },
+    "explore": {
+      "type": "string",
+      "description": "LookML explore name for field_filter type"
+    },
+    "dimension": {
+      "type": "string",
+      "description": "LookML dimension for field_filter type"
+    },
+    "default_value": {
+      "type": "string",
+      "description": "Default filter value"
+    },
+    "allow_multiple_values": {
+      "type": "boolean",
+      "description": "Whether multiple values can be selected"
+    },
+    "required": {
+      "type": "boolean",
+      "description": "Whether the filter must have a value"
+    },
+    "row": {
+      "type": "integer",
+      "description": "Row position of the filter in the filter bar"
+    },
+    "listens_to_filters": {
+      "type": "array",
+      "description": "Other filters this filter listens to for cascading"
+    }
+  }
+}

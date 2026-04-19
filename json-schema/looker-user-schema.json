@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "User",
+  "type": "object",
+  "description": "A Looker user account. Users have credentials, roles, and can own content such as Looks, dashboards, and queries.",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique numeric identifier"
+    },
+    "first_name": {
+      "type": "string",
+      "description": "First name"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Last name"
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Full display name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address"
+    },
+    "avatar_url": {
+      "type": "string",
+      "description": "URL of the user's avatar image"
+    },
+    "is_disabled": {
+      "type": "boolean",
+      "description": "Whether the user account is disabled"
+    },
+    "locale": {
+      "type": "string",
+      "description": "User's locale setting"
+    },
+    "home_space_id": {
+      "type": "string",
+      "description": "ID of the user's personal space (folder)"
+    },
+    "home_folder_id": {
+      "type": "string",
+      "description": "ID of the user's personal folder"
+    },
+    "personal_space_id": {
+      "type": "integer",
+      "description": "ID of the user's personal space"
+    },
+    "personal_folder_id": {
+      "type": "integer",
+      "description": "ID of the user's personal folder"
+    },
+    "presumed_looker_employee": {
+      "type": "boolean",
+      "description": "Whether the user is a Looker employee"
+    },
+    "verified_looker_employee": {
+      "type": "boolean",
+      "description": "Whether the user is a verified Looker employee"
+    },
+    "roles_externally_managed": {
+      "type": "boolean",
+      "description": "Whether user roles are managed externally (e.g. via SAML)"
+    },
+    "allow_direct_roles": {
+      "type": "boolean",
+      "description": "Whether roles can be assigned directly to this user"
+    },
+    "allow_normal_group_membership": {
+      "type": "boolean",
+      "description": "Whether the user can be added to groups"
+    },
+    "allow_roles_from_normal_groups": {
+      "type": "boolean",
+      "description": "Whether the user inherits roles from groups"
+    },
+    "embed_group_space_id": {
+      "type": "integer",
+      "description": "Embed group space ID"
+    },
+    "credentials_api3": {
+      "type": "array",
+      "description": "API3 credentials for this user"
+    },
+    "sessions": {
+      "type": "array",
+      "description": "Active sessions for this user"
+    },
+    "role_ids": {
+      "type": "array",
+      "description": "IDs of roles assigned to this user"
+    },
+    "group_ids": {
+      "type": "array",
+      "description": "IDs of groups this user belongs to"
+    },
+    "url": {
+      "type": "string",
+      "description": "Relative URL for this user"
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Timestamp when the user was created"
+    }
+  }
+}

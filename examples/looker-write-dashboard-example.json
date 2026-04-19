@@ -1,0 +1,15 @@
+{
+  "title": "Example Title",
+  "description": "A sample description.",
+  "space_id": "500123",
+  "folder_id": "500123",
+  "query_timezone": "example_value",
+  "background_color": "example_value",
+  "text_tile_text_color": "example_value",
+  "tile_background_color": "example_value",
+  "tile_text_color": "example_value",
+  "hidden": true,
+  "refresh_interval": "example_value",
+  "load_configuration": "example_value",
+  "preferred_viewer": "example_value"
+}

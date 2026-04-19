@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DashboardLayout",
+  "type": "object",
+  "description": "Layout configuration for a dashboard defining tile positions",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this layout"
+    },
+    "dashboard_id": {
+      "type": "string",
+      "description": "ID of the parent dashboard"
+    },
+    "type": {
+      "type": "string",
+      "description": "Layout type"
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Whether this is the active layout"
+    },
+    "column_width": {
+      "type": "integer",
+      "description": "Width of each column in the grid"
+    },
+    "width": {
+      "type": "integer",
+      "description": "Total width of the layout"
+    },
+    "dashboard_layout_components": {
+      "type": "array",
+      "description": "Positioning of elements within this layout"
+    }
+  }
+}

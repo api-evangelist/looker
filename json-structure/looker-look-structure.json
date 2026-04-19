@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "Look",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "content_metadata_id": {
+      "type": "integer"
+    },
+    "query_id": {
+      "type": "integer"
+    },
+    "space_id": {
+      "type": "string"
+    },
+    "folder_id": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "integer"
+    },
+    "public": {
+      "type": "boolean"
+    },
+    "is_run_on_load": {
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "deleted_at": {
+      "type": "string"
+    },
+    "deleted": {
+      "type": "boolean"
+    },
+    "last_accessed_at": {
+      "type": "string"
+    },
+    "view_count": {
+      "type": "integer"
+    },
+    "favorite_count": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

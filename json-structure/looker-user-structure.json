@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "avatar_url": {
+      "type": "string"
+    },
+    "is_disabled": {
+      "type": "boolean"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "home_space_id": {
+      "type": "string"
+    },
+    "home_folder_id": {
+      "type": "string"
+    },
+    "personal_space_id": {
+      "type": "integer"
+    },
+    "personal_folder_id": {
+      "type": "integer"
+    },
+    "presumed_looker_employee": {
+      "type": "boolean"
+    },
+    "verified_looker_employee": {
+      "type": "boolean"
+    },
+    "roles_externally_managed": {
+      "type": "boolean"
+    },
+    "allow_direct_roles": {
+      "type": "boolean"
+    },
+    "allow_normal_group_membership": {
+      "type": "boolean"
+    },
+    "allow_roles_from_normal_groups": {
+      "type": "boolean"
+    },
+    "embed_group_space_id": {
+      "type": "integer"
+    },
+    "credentials_api3": {
+      "type": "array"
+    },
+    "sessions": {
+      "type": "array"
+    },
+    "role_ids": {
+      "type": "array"
+    },
+    "group_ids": {
+      "type": "array"
+    },
+    "url": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    }
+  }
+}

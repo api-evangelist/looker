@@ -1,0 +1,365 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Looker Analytics and Reporting"
+  description: "Unified workflow for business intelligence analytics including dashboards, looks, queries, and user management. Used by data analysts and BI administrators."
+  tags:
+    - Looker
+    - Business Intelligence
+    - Analytics
+    - Dashboards
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      LOOKER_CLIENT_ID: LOOKER_CLIENT_ID
+      LOOKER_CLIENT_SECRET: LOOKER_CLIENT_SECRET
+
+capability:
+  consumes:
+    - import: looker
+      location: ./shared/looker-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: looker-analytics-api
+      description: "Unified REST API for Looker analytics and reporting."
+      resources:
+        - path: /v1/looks
+          name: looks
+          description: "Look management."
+          operations:
+            - method: GET
+              name: list-looks
+              description: "List all looks."
+              call: "looker.list-looks"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/looks/{id}
+          name: look-details
+          description: "Individual look management."
+          operations:
+            - method: GET
+              name: get-look
+              description: "Get look details."
+              call: "looker.get-look"
+              with:
+                look_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: PATCH
+              name: update-look
+              description: "Update a look."
+              call: "looker.update-look"
+              with:
+                look_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-look
+              description: "Delete a look."
+              call: "looker.delete-look"
+              with:
+                look_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/dashboards
+          name: dashboards
+          description: "Dashboard management."
+          operations:
+            - method: GET
+              name: list-dashboards
+              description: "List all dashboards."
+              call: "looker.list-dashboards"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-dashboard
+              description: "Create a dashboard."
+              call: "looker.create-dashboard"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/dashboards/{id}
+          name: dashboard-details
+          description: "Individual dashboard management."
+          operations:
+            - method: GET
+              name: get-dashboard
+              description: "Get dashboard details."
+              call: "looker.get-dashboard"
+              with:
+                dashboard_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: PATCH
+              name: update-dashboard
+              description: "Update a dashboard."
+              call: "looker.update-dashboard"
+              with:
+                dashboard_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-dashboard
+              description: "Delete a dashboard."
+              call: "looker.delete-dashboard"
+              with:
+                dashboard_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/queries
+          name: queries
+          description: "Query management."
+          operations:
+            - method: POST
+              name: create-query
+              description: "Create a query."
+              call: "looker.create-query"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/queries/{id}
+          name: query-details
+          description: "Individual query operations."
+          operations:
+            - method: GET
+              name: get-query
+              description: "Get query details."
+              call: "looker.get-query"
+              with:
+                query_id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/users
+          name: users
+          description: "User management."
+          operations:
+            - method: GET
+              name: list-users
+              description: "List all users."
+              call: "looker.list-users"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-user
+              description: "Create a user."
+              call: "looker.create-user"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9080
+      namespace: looker-analytics-mcp
+      transport: http
+      description: "MCP server for AI-assisted Looker analytics and reporting."
+      tools:
+        - name: list-looks
+          description: "List all saved looks."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "looker.list-looks"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: search-looks
+          description: "Search for looks by title."
+          hints:
+            readOnly: true
+          call: "looker.search-looks"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-look
+          description: "Get look details."
+          hints:
+            readOnly: true
+          call: "looker.get-look"
+          with:
+            look_id: "tools.lookId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: update-look
+          description: "Update a look."
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "looker.update-look"
+          with:
+            look_id: "tools.lookId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-look
+          description: "Delete a look."
+          hints:
+            destructive: true
+            idempotent: true
+          call: "looker.delete-look"
+          with:
+            look_id: "tools.lookId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: run-look
+          description: "Run a look and return results."
+          hints:
+            readOnly: true
+          call: "looker.run-look"
+          with:
+            look_id: "tools.lookId"
+            result_format: "tools.resultFormat"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-dashboards
+          description: "List all dashboards."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "looker.list-dashboards"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: search-dashboards
+          description: "Search for dashboards."
+          hints:
+            readOnly: true
+          call: "looker.search-dashboards"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-dashboard
+          description: "Create a new dashboard."
+          hints:
+            readOnly: false
+          call: "looker.create-dashboard"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-dashboard
+          description: "Get dashboard details."
+          hints:
+            readOnly: true
+          call: "looker.get-dashboard"
+          with:
+            dashboard_id: "tools.dashboardId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: update-dashboard
+          description: "Update a dashboard."
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "looker.update-dashboard"
+          with:
+            dashboard_id: "tools.dashboardId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-dashboard
+          description: "Delete a dashboard."
+          hints:
+            destructive: true
+            idempotent: true
+          call: "looker.delete-dashboard"
+          with:
+            dashboard_id: "tools.dashboardId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-query
+          description: "Create a query."
+          hints:
+            readOnly: false
+          call: "looker.create-query"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-query
+          description: "Get query details."
+          hints:
+            readOnly: true
+          call: "looker.get-query"
+          with:
+            query_id: "tools.queryId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: run-query
+          description: "Run a saved query."
+          hints:
+            readOnly: true
+          call: "looker.run-query"
+          with:
+            query_id: "tools.queryId"
+            result_format: "tools.resultFormat"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-users
+          description: "List all users."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "looker.list-users"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-user
+          description: "Create a new user."
+          hints:
+            readOnly: false
+          call: "looker.create-user"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-user
+          description: "Get user details."
+          hints:
+            readOnly: true
+          call: "looker.get-user"
+          with:
+            user_id: "tools.userId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: update-user
+          description: "Update a user."
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "looker.update-user"
+          with:
+            user_id: "tools.userId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-user
+          description: "Delete a user."
+          hints:
+            destructive: true
+            idempotent: true
+          call: "looker.delete-user"
+          with:
+            user_id: "tools.userId"
+          outputParameters:
+            - type: object
+              mapping: "$."

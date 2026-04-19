@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SpaceBase",
+  "type": "object",
+  "description": "Basic space (folder) information",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name"
+    },
+    "parent_id": {
+      "type": "string",
+      "description": "Parent space ID"
+    },
+    "is_shared_root": {
+      "type": "boolean",
+      "description": "Whether this is the shared root space"
+    },
+    "is_users_root": {
+      "type": "boolean",
+      "description": "Whether this is the users root space"
+    },
+    "is_user_root": {
+      "type": "boolean",
+      "description": "Whether this is a user's personal root space"
+    }
+  }
+}

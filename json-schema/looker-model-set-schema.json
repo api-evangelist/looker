@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ModelSet",
+  "type": "object",
+  "description": "A set of LookML models that can be assigned to a role",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique numeric identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name"
+    },
+    "models": {
+      "type": "array",
+      "description": "List of model names included in this set"
+    },
+    "built_in": {
+      "type": "boolean",
+      "description": "Whether this is a built-in model set"
+    },
+    "all_access": {
+      "type": "boolean",
+      "description": "Whether this grants access to all models"
+    },
+    "url": {
+      "type": "string",
+      "description": "Relative URL"
+    }
+  }
+}

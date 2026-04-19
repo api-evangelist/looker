@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "DashboardFilter",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "dashboard_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "explore": {
+      "type": "string"
+    },
+    "dimension": {
+      "type": "string"
+    },
+    "default_value": {
+      "type": "string"
+    },
+    "allow_multiple_values": {
+      "type": "boolean"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "row": {
+      "type": "integer"
+    },
+    "listens_to_filters": {
+      "type": "array"
+    }
+  }
+}

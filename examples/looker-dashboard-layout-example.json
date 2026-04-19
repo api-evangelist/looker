@@ -1,0 +1,9 @@
+{
+  "id": "abc123",
+  "dashboard_id": "500123",
+  "type": "example_value",
+  "active": true,
+  "column_width": 10,
+  "width": 10,
+  "dashboard_layout_components": []
+}

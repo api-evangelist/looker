@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "WriteQuery",
+  "type": "object",
+  "properties": {
+    "model": {
+      "type": "string"
+    },
+    "view": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "array"
+    },
+    "pivots": {
+      "type": "array"
+    },
+    "fill_fields": {
+      "type": "array"
+    },
+    "filters": {
+      "type": "object"
+    },
+    "filter_expression": {
+      "type": "string"
+    },
+    "sorts": {
+      "type": "array"
+    },
+    "limit": {
+      "type": "string"
+    },
+    "column_limit": {
+      "type": "string"
+    },
+    "total": {
+      "type": "boolean"
+    },
+    "row_total": {
+      "type": "string"
+    },
+    "subtotals": {
+      "type": "array"
+    },
+    "dynamic_fields": {
+      "type": "string"
+    },
+    "vis_config": {
+      "type": "object"
+    },
+    "query_timezone": {
+      "type": "string"
+    }
+  }
+}

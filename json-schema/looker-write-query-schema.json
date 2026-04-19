@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WriteQuery",
+  "type": "object",
+  "description": "Writable fields for creating a new query",
+  "properties": {
+    "model": {
+      "type": "string",
+      "description": "LookML model name"
+    },
+    "view": {
+      "type": "string",
+      "description": "LookML explore (view) name"
+    },
+    "fields": {
+      "type": "array",
+      "description": "List of field names to include"
+    },
+    "pivots": {
+      "type": "array",
+      "description": "Fields to pivot on"
+    },
+    "fill_fields": {
+      "type": "array",
+      "description": "Fields to fill missing values for"
+    },
+    "filters": {
+      "type": "object",
+      "description": "Filter expressions keyed by field name"
+    },
+    "filter_expression": {
+      "type": "string",
+      "description": "Custom filter expression"
+    },
+    "sorts": {
+      "type": "array",
+      "description": "Sort order for results"
+    },
+    "limit": {
+      "type": "string",
+      "description": "Maximum rows to return"
+    },
+    "column_limit": {
+      "type": "string",
+      "description": "Maximum columns for pivoted results"
+    },
+    "total": {
+      "type": "boolean",
+      "description": "Include row totals"
+    },
+    "row_total": {
+      "type": "string",
+      "description": "Row total setting"
+    },
+    "subtotals": {
+      "type": "array",
+      "description": "Fields to subtotal on"
+    },
+    "dynamic_fields": {
+      "type": "string",
+      "description": "JSON string of dynamic field definitions"
+    },
+    "vis_config": {
+      "type": "object",
+      "description": "Visualization configuration"
+    },
+    "query_timezone": {
+      "type": "string",
+      "description": "Timezone for date/time calculations"
+    }
+  }
+}

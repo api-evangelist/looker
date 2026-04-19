@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "PermissionSet",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "permissions": {
+      "type": "array"
+    },
+    "built_in": {
+      "type": "boolean"
+    },
+    "all_access": {
+      "type": "boolean"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

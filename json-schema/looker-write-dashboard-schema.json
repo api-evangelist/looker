@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WriteDashboard",
+  "type": "object",
+  "description": "Writable fields for creating or updating a dashboard",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Display title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the dashboard"
+    },
+    "space_id": {
+      "type": "string",
+      "description": "Space (folder) ID"
+    },
+    "folder_id": {
+      "type": "string",
+      "description": "Folder ID"
+    },
+    "query_timezone": {
+      "type": "string",
+      "description": "Timezone for queries"
+    },
+    "background_color": {
+      "type": "string",
+      "description": "CSS background color"
+    },
+    "text_tile_text_color": {
+      "type": "string",
+      "description": "Default text color for text tiles"
+    },
+    "tile_background_color": {
+      "type": "string",
+      "description": "Default background color for tiles"
+    },
+    "tile_text_color": {
+      "type": "string",
+      "description": "Default text color for tiles"
+    },
+    "hidden": {
+      "type": "boolean",
+      "description": "Whether the dashboard is hidden"
+    },
+    "refresh_interval": {
+      "type": "string",
+      "description": "Auto-refresh interval"
+    },
+    "load_configuration": {
+      "type": "string",
+      "description": "Tile load configuration"
+    },
+    "preferred_viewer": {
+      "type": "string",
+      "description": "Preferred viewer type"
+    }
+  }
+}

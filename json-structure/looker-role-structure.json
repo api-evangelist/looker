@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "Role",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "permission_set_id": {
+      "type": "integer"
+    },
+    "model_set_id": {
+      "type": "integer"
+    },
+    "user_count": {
+      "type": "integer"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

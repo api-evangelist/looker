@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "WriteLookWithQuery",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "space_id": {
+      "type": "string"
+    },
+    "folder_id": {
+      "type": "string"
+    },
+    "query_id": {
+      "type": "integer"
+    },
+    "public": {
+      "type": "boolean"
+    },
+    "is_run_on_load": {
+      "type": "boolean"
+    }
+  }
+}

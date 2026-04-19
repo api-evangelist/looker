@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Query",
+  "type": "object",
+  "description": "A query defines a data request against a LookML model. Queries are immutable once created and contain the model, view, fields, filters, sorts, and limit needed to generate SQL and retrieve results.",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique numeric identifier for this query"
+    },
+    "model": {
+      "type": "string",
+      "description": "LookML model name"
+    },
+    "view": {
+      "type": "string",
+      "description": "LookML explore (view) name"
+    },
+    "fields": {
+      "type": "array",
+      "description": "List of field names to include in the query results (e.g. orders.count, users.created_date)"
+    },
+    "pivots": {
+      "type": "array",
+      "description": "List of field names to pivot on"
+    },
+    "fill_fields": {
+      "type": "array",
+      "description": "Fields to fill missing date values for"
+    },
+    "filters": {
+      "type": "object",
+      "description": "Key-value map of filter expressions. Keys are field names and values are Looker filter expressions."
+    },
+    "filter_expression": {
+      "type": "string",
+      "description": "Custom filter expression using Looker filter syntax"
+    },
+    "sorts": {
+      "type": "array",
+      "description": "Sort order for results. Each item is a field name optionally followed by asc or desc."
+    },
+    "limit": {
+      "type": "string",
+      "description": "Maximum number of rows to return (as string)"
+    },
+    "column_limit": {
+      "type": "string",
+      "description": "Maximum number of columns for pivoted results"
+    },
+    "total": {
+      "type": "boolean",
+      "description": "Whether to include row totals"
+    },
+    "row_total": {
+      "type": "string",
+      "description": "Row total display setting"
+    },
+    "subtotals": {
+      "type": "array",
+      "description": "Fields to subtotal on"
+    },
+    "dynamic_fields": {
+      "type": "string",
+      "description": "JSON string of dynamic field definitions"
+    },
+    "vis_config": {
+      "type": "object",
+      "description": "Visualization configuration object"
+    },
+    "query_timezone": {
+      "type": "string",
+      "description": "Timezone for date/time calculations"
+    },
+    "client_id": {
+      "type": "string",
+      "description": "Client-generated hash of the query for caching"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Short unique URL slug for this query"
+    },
+    "share_url": {
+      "type": "string",
+      "description": "Shareable URL for this query"
+    },
+    "url": {
+      "type": "string",
+      "description": "Relative URL for this query in the Looker UI"
+    },
+    "has_table_calculations": {
+      "type": "boolean",
+      "description": "Whether this query has table calculations"
+    }
+  }
+}

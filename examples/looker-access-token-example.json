@@ -1,0 +1,6 @@
+{
+  "access_token": "example_value",
+  "token_type": "example_value",
+  "expires_in": 10,
+  "refresh_token": "example_value"
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DashboardElement",
+  "type": "object",
+  "description": "A single tile on a dashboard. Each element can contain a query, a reference to a Look, a merge query, or text/markdown content.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this element"
+    },
+    "dashboard_id": {
+      "type": "string",
+      "description": "ID of the parent dashboard"
+    },
+    "look_id": {
+      "type": "integer",
+      "description": "ID of a Look to display in this tile"
+    },
+    "query_id": {
+      "type": "integer",
+      "description": "ID of a query to run in this tile"
+    },
+    "type": {
+      "type": "string",
+      "description": "Element type"
+    },
+    "title": {
+      "type": "string",
+      "description": "Display title for this tile"
+    },
+    "title_hidden": {
+      "type": "boolean",
+      "description": "Whether the title is hidden"
+    },
+    "subtitle_text": {
+      "type": "string",
+      "description": "Subtitle text displayed below the title"
+    },
+    "body_text": {
+      "type": "string",
+      "description": "Body text for text-type elements"
+    },
+    "note_text": {
+      "type": "string",
+      "description": "Note text displayed on the tile"
+    },
+    "note_display": {
+      "type": "string",
+      "description": "How the note is displayed (above, below, hover)"
+    },
+    "note_state": {
+      "type": "string",
+      "description": "Note display state"
+    },
+    "result_maker": {
+      "type": "object",
+      "description": "Result maker configuration for merged queries"
+    },
+    "rich_content_json": {
+      "type": "string",
+      "description": "Rich content JSON for advanced text elements"
+    }
+  }
+}

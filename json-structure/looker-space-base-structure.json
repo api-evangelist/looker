@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SpaceBase",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "parent_id": {
+      "type": "string"
+    },
+    "is_shared_root": {
+      "type": "boolean"
+    },
+    "is_users_root": {
+      "type": "boolean"
+    },
+    "is_user_root": {
+      "type": "boolean"
+    }
+  }
+}

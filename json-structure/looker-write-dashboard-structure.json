@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "WriteDashboard",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "space_id": {
+      "type": "string"
+    },
+    "folder_id": {
+      "type": "string"
+    },
+    "query_timezone": {
+      "type": "string"
+    },
+    "background_color": {
+      "type": "string"
+    },
+    "text_tile_text_color": {
+      "type": "string"
+    },
+    "tile_background_color": {
+      "type": "string"
+    },
+    "tile_text_color": {
+      "type": "string"
+    },
+    "hidden": {
+      "type": "boolean"
+    },
+    "refresh_interval": {
+      "type": "string"
+    },
+    "load_configuration": {
+      "type": "string"
+    },
+    "preferred_viewer": {
+      "type": "string"
+    }
+  }
+}

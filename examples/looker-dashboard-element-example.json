@@ -1,0 +1,16 @@
+{
+  "id": "abc123",
+  "dashboard_id": "500123",
+  "look_id": "500123",
+  "query_id": "500123",
+  "type": "example_value",
+  "title": "Example Title",
+  "title_hidden": true,
+  "subtitle_text": "example_value",
+  "body_text": "example_value",
+  "note_text": "example_value",
+  "note_display": "example_value",
+  "note_state": "example_value",
+  "result_maker": "example_value",
+  "rich_content_json": "example_value"
+}

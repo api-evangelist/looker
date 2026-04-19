@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "Session",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "ip_address": {
+      "type": "string"
+    },
+    "browser": {
+      "type": "string"
+    },
+    "operating_system": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "credentials_type": {
+      "type": "string"
+    },
+    "extended_at": {
+      "type": "string"
+    },
+    "extended_count": {
+      "type": "integer"
+    },
+    "sudo_user_id": {
+      "type": "integer"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "expires_at": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
