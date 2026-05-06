@@ -4,111 +4,70 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Looker
 providerId: looker
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - Analytics
+  - Rate Limiting
   - BI Platform
   - Business Intelligence
-  - Data Analytics
-  - Data Visualization
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Looker API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: Looker (Google Cloud) enforces monthly API call quotas that scale with edition (Standard /
+  Enterprise / Embed). Quotas are split between query-based API calls and administrative API calls. Per-second
+  throttling is governed by the Looker (Google Cloud core) API service quotas via Google Cloud Quotas;
+  raise via support.
+sources:
+  - https://cloud.google.com/looker/pricing
+  - https://cloud.google.com/looker/docs
 responseCodes:
   throttled: 429
   quotaExceeded: 429
-  serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Looker API
-      - LookML API
-      - Looker Action API
-      - Looker Embed SDK
-      - Looker Extension Framework API
-      - Looker (Google Cloud core) API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
+  - name: Query-based API calls (Standard)
+    scope: account
     metric: requests_per_month
     limit: 1000
     timeFrame: month
-    applies:
-      - Looker API
-      - LookML API
-      - Looker Action API
-      - Looker Embed SDK
-      - Looker Extension Framework API
-      - Looker (Google Cloud core) API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Looker API
-      - LookML API
-      - Looker Action API
-      - Looker Embed SDK
-      - Looker Extension Framework API
-      - Looker (Google Cloud core) API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
+  - name: Administrative API calls (Standard)
+    scope: account
+    metric: requests_per_month
+    limit: 1000
+    timeFrame: month
+  - name: Query-based API calls (Enterprise)
+    scope: account
     metric: requests_per_month
     limit: 100000
     timeFrame: month
-    applies:
-      - Looker API
-      - LookML API
-      - Looker Action API
-      - Looker Embed SDK
-      - Looker Extension Framework API
-      - Looker (Google Cloud core) API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Looker API
-      - LookML API
-      - Looker Action API
-      - Looker Embed SDK
-      - Looker Extension Framework API
-      - Looker (Google Cloud core) API
+  - name: Administrative API calls (Enterprise)
+    scope: account
+    metric: requests_per_month
+    limit: 10000
+    timeFrame: month
+  - name: Query-based API calls (Embed)
+    scope: account
+    metric: requests_per_month
+    limit: 500000
+    timeFrame: month
+  - name: Administrative API calls (Embed)
+    scope: account
+    metric: requests_per_month
+    limit: 100000
+    timeFrame: month
+  - name: Conversational Analytics input tokens (per Developer User)
+    scope: user
+    metric: tokens_per_month
+    limit: 4000000
+    timeFrame: month
+  - name: Conversational Analytics output tokens (per Developer User)
+    scope: user
+    metric: tokens_per_month
+    limit: 80000
+    timeFrame: month
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+  - name: Edition-scoped quotas
+    description: API call quotas are split between query-based and administrative APIs and scale by edition.
+  - name: Per-user token quotas
+    description: Conversational Analytics tokens are quota'd per user role; overage applies after Oct 1 2026.
+  - name: Cloud quota
+    description: For the Looker (Google Cloud core) API, additional per-second/per-region throttling
+      is governed by Google Cloud quotas; request increases via the Cloud Quotas page.
+  - name: Backoff
+    description: On 429, retry with exponential backoff and respect Retry-After when present.
