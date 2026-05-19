@@ -1,0 +1,281 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Looker API — Look
+  description: 'Looker API — Look. 6 operations. Lead operation: Looker List All Looks. Self-contained Naftiko capability
+    covering one Looker business surface.'
+  tags:
+  - Looker
+  - Look
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOOKER_API_KEY: LOOKER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: looker-look
+    baseUri: https://{instance}.looker.com/api/4.0
+    description: Looker API — Look business capability. Self-contained, no shared references.
+    resources:
+    - name: looks
+      path: /looks
+      operations:
+      - name: alllooks
+        method: GET
+        description: Looker List All Looks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: looks-search
+      path: /looks/search
+      operations:
+      - name: searchlooks
+        method: GET
+        description: Looker Search Looks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: title
+          in: query
+          type: string
+          description: Filter by Look title (case-insensitive match)
+        - name: description
+          in: query
+          type: string
+          description: Filter by Look description
+        - name: space_id
+          in: query
+          type: string
+          description: Filter by space (folder) ID
+        - name: user_id
+          in: query
+          type: string
+          description: Filter by creator user ID
+        - name: sorts
+          in: query
+          type: string
+          description: Sort fields (e.g. title asc, created_at desc)
+    - name: looks-look_id
+      path: /looks/{look_id}
+      operations:
+      - name: look
+        method: GET
+        description: Looker Get a Look
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatelook
+        method: PATCH
+        description: Looker Update a Look
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletelook
+        method: DELETE
+        description: Looker Delete a Look
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: looks-look_id-run-result_format
+      path: /looks/{look_id}/run/{result_format}
+      operations:
+      - name: runlook
+        method: GET
+        description: Looker Run a Look
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: result_format
+          in: path
+          type: string
+          description: Format for the query results
+          required: true
+        - name: apply_formatting
+          in: query
+          type: boolean
+          description: Whether to apply model-specified formatting to results
+        - name: apply_vis
+          in: query
+          type: boolean
+          description: Whether to apply visualization options to results
+    authentication:
+      type: bearer
+      token: '{{env.LOOKER_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: looker-look-rest
+    port: 8080
+    description: REST adapter for Looker API — Look. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/looks
+      name: looks
+      description: REST surface for looks.
+      operations:
+      - method: GET
+        name: alllooks
+        description: Looker List All Looks
+        call: looker-look.alllooks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/looks/search
+      name: looks-search
+      description: REST surface for looks-search.
+      operations:
+      - method: GET
+        name: searchlooks
+        description: Looker Search Looks
+        call: looker-look.searchlooks
+        with:
+          title: rest.title
+          description: rest.description
+          space_id: rest.space_id
+          user_id: rest.user_id
+          sorts: rest.sorts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/looks/{look-id}
+      name: looks-look-id
+      description: REST surface for looks-look_id.
+      operations:
+      - method: GET
+        name: look
+        description: Looker Get a Look
+        call: looker-look.look
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatelook
+        description: Looker Update a Look
+        call: looker-look.updatelook
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletelook
+        description: Looker Delete a Look
+        call: looker-look.deletelook
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/looks/{look-id}/run/{result-format}
+      name: looks-look-id-run-result-format
+      description: REST surface for looks-look_id-run-result_format.
+      operations:
+      - method: GET
+        name: runlook
+        description: Looker Run a Look
+        call: looker-look.runlook
+        with:
+          result_format: rest.result_format
+          apply_formatting: rest.apply_formatting
+          apply_vis: rest.apply_vis
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: looker-look-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Looker API — Look. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: looker-list-all-looks
+      description: Looker List All Looks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: looker-look.alllooks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: looker-search-looks
+      description: Looker Search Looks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: looker-look.searchlooks
+      with:
+        title: tools.title
+        description: tools.description
+        space_id: tools.space_id
+        user_id: tools.user_id
+        sorts: tools.sorts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: looker-get-look
+      description: Looker Get a Look
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: looker-look.look
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: looker-update-look
+      description: Looker Update a Look
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: looker-look.updatelook
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: looker-delete-look
+      description: Looker Delete a Look
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: looker-look.deletelook
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: looker-run-look
+      description: Looker Run a Look
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: looker-look.runlook
+      with:
+        result_format: tools.result_format
+        apply_formatting: tools.apply_formatting
+        apply_vis: tools.apply_vis
+      outputParameters:
+      - type: object
+        mapping: $.

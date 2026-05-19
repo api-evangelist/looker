@@ -1,0 +1,251 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Looker API — Query
+  description: 'Looker API — Query. 4 operations. Lead operation: Looker Create a Query. Self-contained Naftiko capability
+    covering one Looker business surface.'
+  tags:
+  - Looker
+  - Query
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LOOKER_API_KEY: LOOKER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: looker-query
+    baseUri: https://{instance}.looker.com/api/4.0
+    description: Looker API — Query business capability. Self-contained, no shared references.
+    resources:
+    - name: queries
+      path: /queries
+      operations:
+      - name: createquery
+        method: POST
+        description: Looker Create a Query
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: queries-run-result_format
+      path: /queries/run/{result_format}
+      operations:
+      - name: runinlinequery
+        method: POST
+        description: Looker Run an Inline Query
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: result_format
+          in: path
+          type: string
+          description: Format for the query results
+          required: true
+        - name: apply_formatting
+          in: query
+          type: boolean
+          description: Whether to apply model-specified formatting
+        - name: apply_vis
+          in: query
+          type: boolean
+          description: Whether to apply visualization options
+        - name: cache
+          in: query
+          type: boolean
+          description: Whether to use cached results
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: queries-query_id
+      path: /queries/{query_id}
+      operations:
+      - name: query
+        method: GET
+        description: Looker Get a Query
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queries-query_id-run-result_format
+      path: /queries/{query_id}/run/{result_format}
+      operations:
+      - name: runquery
+        method: GET
+        description: Looker Run a Saved Query
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: result_format
+          in: path
+          type: string
+          description: Format for the query results
+          required: true
+        - name: apply_formatting
+          in: query
+          type: boolean
+          description: Whether to apply model-specified formatting
+        - name: apply_vis
+          in: query
+          type: boolean
+          description: Whether to apply visualization options
+        - name: cache
+          in: query
+          type: boolean
+          description: Whether to use cached results if available
+        - name: generate_drill_links
+          in: query
+          type: boolean
+          description: Whether to generate drill links in results
+        - name: force_production
+          in: query
+          type: boolean
+          description: Whether to force use of production models
+    authentication:
+      type: bearer
+      token: '{{env.LOOKER_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: looker-query-rest
+    port: 8080
+    description: REST adapter for Looker API — Query. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/queries
+      name: queries
+      description: REST surface for queries.
+      operations:
+      - method: POST
+        name: createquery
+        description: Looker Create a Query
+        call: looker-query.createquery
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queries/run/{result-format}
+      name: queries-run-result-format
+      description: REST surface for queries-run-result_format.
+      operations:
+      - method: POST
+        name: runinlinequery
+        description: Looker Run an Inline Query
+        call: looker-query.runinlinequery
+        with:
+          result_format: rest.result_format
+          apply_formatting: rest.apply_formatting
+          apply_vis: rest.apply_vis
+          cache: rest.cache
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queries/{query-id}
+      name: queries-query-id
+      description: REST surface for queries-query_id.
+      operations:
+      - method: GET
+        name: query
+        description: Looker Get a Query
+        call: looker-query.query
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queries/{query-id}/run/{result-format}
+      name: queries-query-id-run-result-format
+      description: REST surface for queries-query_id-run-result_format.
+      operations:
+      - method: GET
+        name: runquery
+        description: Looker Run a Saved Query
+        call: looker-query.runquery
+        with:
+          result_format: rest.result_format
+          apply_formatting: rest.apply_formatting
+          apply_vis: rest.apply_vis
+          cache: rest.cache
+          generate_drill_links: rest.generate_drill_links
+          force_production: rest.force_production
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: looker-query-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Looker API — Query. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: looker-create-query
+      description: Looker Create a Query
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: looker-query.createquery
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: looker-run-inline-query
+      description: Looker Run an Inline Query
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: looker-query.runinlinequery
+      with:
+        result_format: tools.result_format
+        apply_formatting: tools.apply_formatting
+        apply_vis: tools.apply_vis
+        cache: tools.cache
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: looker-get-query
+      description: Looker Get a Query
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: looker-query.query
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: looker-run-saved-query
+      description: Looker Run a Saved Query
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: looker-query.runquery
+      with:
+        result_format: tools.result_format
+        apply_formatting: tools.apply_formatting
+        apply_vis: tools.apply_vis
+        cache: tools.cache
+        generate_drill_links: tools.generate_drill_links
+        force_production: tools.force_production
+      outputParameters:
+      - type: object
+        mapping: $.
