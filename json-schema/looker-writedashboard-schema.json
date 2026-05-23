@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WriteDashboard",
+  "title": "WriteDashboard",
+  "type": "object",
+  "description": "Writable fields for creating or updating a dashboard",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Display title",
+      "example": "Example Title"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "description": "Description of the dashboard",
+      "example": "A sample description."
+    },
+    "space_id": {
+      "type": "string",
+      "description": "Space (folder) ID",
+      "example": "500123"
+    },
+    "folder_id": {
+      "type": "string",
+      "description": "Folder ID",
+      "example": "500123"
+    },
+    "query_timezone": {
+      "type": "string",
+      "description": "Timezone for queries",
+      "example": "example_value"
+    },
+    "background_color": {
+      "type": "string",
+      "description": "CSS background color",
+      "example": "example_value"
+    },
+    "text_tile_text_color": {
+      "type": "string",
+      "description": "Default text color for text tiles",
+      "example": "example_value"
+    },
+    "tile_background_color": {
+      "type": "string",
+      "description": "Default background color for tiles",
+      "example": "example_value"
+    },
+    "tile_text_color": {
+      "type": "string",
+      "description": "Default text color for tiles",
+      "example": "example_value"
+    },
+    "hidden": {
+      "type": "boolean",
+      "description": "Whether the dashboard is hidden",
+      "example": true
+    },
+    "refresh_interval": {
+      "type": "string",
+      "nullable": true,
+      "description": "Auto-refresh interval",
+      "example": "example_value"
+    },
+    "load_configuration": {
+      "type": "string",
+      "nullable": true,
+      "description": "Tile load configuration",
+      "example": "example_value"
+    },
+    "preferred_viewer": {
+      "type": "string",
+      "description": "Preferred viewer type",
+      "example": "example_value"
+    }
+  }
+}

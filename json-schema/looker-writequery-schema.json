@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WriteQuery",
+  "title": "WriteQuery",
+  "type": "object",
+  "required": [
+    "model",
+    "view"
+  ],
+  "description": "Writable fields for creating a new query",
+  "properties": {
+    "model": {
+      "type": "string",
+      "description": "LookML model name",
+      "example": "example_value"
+    },
+    "view": {
+      "type": "string",
+      "description": "LookML explore (view) name",
+      "example": "example_value"
+    },
+    "fields": {
+      "type": "array",
+      "description": "List of field names to include",
+      "items": {
+        "type": "string"
+      },
+      "example": []
+    },
+    "pivots": {
+      "type": "array",
+      "nullable": true,
+      "description": "Fields to pivot on",
+      "items": {
+        "type": "string"
+      },
+      "example": []
+    },
+    "fill_fields": {
+      "type": "array",
+      "nullable": true,
+      "description": "Fields to fill missing values for",
+      "items": {
+        "type": "string"
+      },
+      "example": []
+    },
+    "filters": {
+      "type": "object",
+      "nullable": true,
+      "description": "Filter expressions keyed by field name",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "example": "example_value"
+    },
+    "filter_expression": {
+      "type": "string",
+      "nullable": true,
+      "description": "Custom filter expression",
+      "example": "example_value"
+    },
+    "sorts": {
+      "type": "array",
+      "nullable": true,
+      "description": "Sort order for results",
+      "items": {
+        "type": "string"
+      },
+      "example": []
+    },
+    "limit": {
+      "type": "string",
+      "nullable": true,
+      "description": "Maximum rows to return",
+      "example": "example_value"
+    },
+    "column_limit": {
+      "type": "string",
+      "nullable": true,
+      "description": "Maximum columns for pivoted results",
+      "example": "example_value"
+    },
+    "total": {
+      "type": "boolean",
+      "description": "Include row totals",
+      "example": true
+    },
+    "row_total": {
+      "type": "string",
+      "nullable": true,
+      "description": "Row total setting",
+      "example": "example_value"
+    },
+    "subtotals": {
+      "type": "array",
+      "nullable": true,
+      "description": "Fields to subtotal on",
+      "items": {
+        "type": "string"
+      },
+      "example": []
+    },
+    "dynamic_fields": {
+      "type": "string",
+      "nullable": true,
+      "description": "JSON string of dynamic field definitions",
+      "example": "example_value"
+    },
+    "vis_config": {
+      "type": "object",
+      "nullable": true,
+      "description": "Visualization configuration",
+      "additionalProperties": true,
+      "example": "example_value"
+    },
+    "query_timezone": {
+      "type": "string",
+      "nullable": true,
+      "description": "Timezone for date/time calculations",
+      "example": "example_value"
+    }
+  }
+}

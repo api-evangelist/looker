@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DashboardFilter",
+  "title": "DashboardFilter",
+  "type": "object",
+  "description": "A filter on a dashboard that allows users to dynamically change query parameters across multiple tiles simultaneously.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this filter",
+      "readOnly": true,
+      "example": "abc123"
+    },
+    "dashboard_id": {
+      "type": "string",
+      "description": "ID of the parent dashboard",
+      "example": "500123"
+    },
+    "name": {
+      "type": "string",
+      "description": "Internal name of the filter",
+      "example": "Example Title"
+    },
+    "title": {
+      "type": "string",
+      "description": "Display title of the filter",
+      "example": "Example Title"
+    },
+    "type": {
+      "type": "string",
+      "description": "Filter input type",
+      "enum": [
+        "field_filter",
+        "date_filter",
+        "number_filter",
+        "string_filter"
+      ],
+      "example": "field_filter"
+    },
+    "model": {
+      "type": "string",
+      "nullable": true,
+      "description": "LookML model name for field_filter type",
+      "example": "example_value"
+    },
+    "explore": {
+      "type": "string",
+      "nullable": true,
+      "description": "LookML explore name for field_filter type",
+      "example": "example_value"
+    },
+    "dimension": {
+      "type": "string",
+      "nullable": true,
+      "description": "LookML dimension for field_filter type",
+      "example": "example_value"
+    },
+    "default_value": {
+      "type": "string",
+      "nullable": true,
+      "description": "Default filter value",
+      "example": "example_value"
+    },
+    "allow_multiple_values": {
+      "type": "boolean",
+      "description": "Whether multiple values can be selected",
+      "example": true
+    },
+    "required": {
+      "type": "boolean",
+      "description": "Whether the filter must have a value",
+      "example": true
+    },
+    "row": {
+      "type": "integer",
+      "description": "Row position of the filter in the filter bar",
+      "example": 10
+    },
+    "listens_to_filters": {
+      "type": "array",
+      "description": "Other filters this filter listens to for cascading",
+      "items": {
+        "type": "string"
+      },
+      "example": []
+    }
+  }
+}

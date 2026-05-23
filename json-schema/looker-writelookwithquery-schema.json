@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WriteLookWithQuery",
+  "title": "WriteLookWithQuery",
+  "type": "object",
+  "description": "Writable fields for creating or updating a Look",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Display title",
+      "example": "Example Title"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "description": "Description of the Look",
+      "example": "A sample description."
+    },
+    "space_id": {
+      "type": "string",
+      "description": "Space (folder) ID to place the Look in",
+      "example": "500123"
+    },
+    "folder_id": {
+      "type": "string",
+      "description": "Folder ID to place the Look in",
+      "example": "500123"
+    },
+    "query_id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "ID of the query to use",
+      "example": "500123"
+    },
+    "query": {
+      "$ref": "#/components/schemas/WriteQuery"
+    },
+    "public": {
+      "type": "boolean",
+      "description": "Whether the Look is public",
+      "example": true
+    },
+    "is_run_on_load": {
+      "type": "boolean",
+      "description": "Whether to auto-run the query on load",
+      "example": true
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DashboardLayoutComponent",
+  "title": "DashboardLayoutComponent",
+  "type": "object",
+  "description": "Position and size of a single element within a dashboard layout",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier",
+      "readOnly": true,
+      "example": "abc123"
+    },
+    "dashboard_layout_id": {
+      "type": "string",
+      "description": "ID of the parent layout",
+      "example": "500123"
+    },
+    "dashboard_element_id": {
+      "type": "string",
+      "description": "ID of the dashboard element this positions",
+      "example": "500123"
+    },
+    "row": {
+      "type": "integer",
+      "description": "Row position in the grid",
+      "example": 10
+    },
+    "column": {
+      "type": "integer",
+      "description": "Column position in the grid",
+      "example": 10
+    },
+    "width": {
+      "type": "integer",
+      "description": "Width in grid units",
+      "example": 10
+    },
+    "height": {
+      "type": "integer",
+      "description": "Height in grid units",
+      "example": 10
+    }
+  }
+}

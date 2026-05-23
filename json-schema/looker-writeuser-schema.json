@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WriteUser",
+  "title": "WriteUser",
+  "type": "object",
+  "description": "Writable fields for creating or updating a user",
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "description": "First name",
+      "example": "example_value"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Last name",
+      "example": "example_value"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address",
+      "example": "user@example.com"
+    },
+    "is_disabled": {
+      "type": "boolean",
+      "description": "Whether the account is disabled",
+      "example": true
+    },
+    "locale": {
+      "type": "string",
+      "nullable": true,
+      "description": "Locale setting",
+      "example": "example_value"
+    }
+  }
+}

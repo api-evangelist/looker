@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PermissionSet",
+  "title": "PermissionSet",
+  "type": "object",
+  "description": "A set of permissions that can be assigned to a role",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Unique numeric identifier",
+      "readOnly": true,
+      "example": "abc123"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name",
+      "example": "Example Title"
+    },
+    "permissions": {
+      "type": "array",
+      "description": "List of permission strings",
+      "items": {
+        "type": "string"
+      },
+      "example": []
+    },
+    "built_in": {
+      "type": "boolean",
+      "description": "Whether this is a built-in permission set",
+      "readOnly": true,
+      "example": true
+    },
+    "all_access": {
+      "type": "boolean",
+      "description": "Whether this grants all permissions",
+      "readOnly": true,
+      "example": true
+    },
+    "url": {
+      "type": "string",
+      "description": "Relative URL",
+      "readOnly": true,
+      "example": "https://www.example.com"
+    }
+  }
+}

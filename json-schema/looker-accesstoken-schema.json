@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AccessToken",
+  "title": "AccessToken",
+  "type": "object",
+  "description": "An API access token returned after successful authentication",
+  "properties": {
+    "access_token": {
+      "type": "string",
+      "description": "The OAuth2 access token string",
+      "example": "example_value"
+    },
+    "token_type": {
+      "type": "string",
+      "description": "Token type, always 'Bearer'",
+      "default": "Bearer",
+      "example": "example_value"
+    },
+    "expires_in": {
+      "type": "integer",
+      "description": "Number of seconds until the token expires",
+      "example": 10
+    },
+    "refresh_token": {
+      "type": "string",
+      "nullable": true,
+      "description": "Refresh token (not used in API client credential flow)",
+      "example": "example_value"
+    }
+  }
+}

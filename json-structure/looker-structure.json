@@ -1,0 +1,414 @@
+{
+  "provider": "Looker",
+  "providerId": "looker",
+  "kind": "json-structure",
+  "description": "Structural overview of the Looker API surface; extracted from openapi/.",
+  "schemaCount": 23,
+  "operationCount": 29,
+  "schemas": [
+    {
+      "name": "AccessToken",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "Look",
+      "type": "object",
+      "propertyCount": 22,
+      "required": []
+    },
+    {
+      "name": "WriteLookWithQuery",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "Dashboard",
+      "type": "object",
+      "propertyCount": 31,
+      "required": []
+    },
+    {
+      "name": "WriteDashboard",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "DashboardElement",
+      "type": "object",
+      "propertyCount": 16,
+      "required": []
+    },
+    {
+      "name": "DashboardFilter",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "DashboardLayout",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "DashboardLayoutComponent",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "Query",
+      "type": "object",
+      "propertyCount": 22,
+      "required": []
+    },
+    {
+      "name": "WriteQuery",
+      "type": "object",
+      "propertyCount": 16,
+      "required": [
+        "model",
+        "view"
+      ]
+    },
+    {
+      "name": "User",
+      "type": "object",
+      "propertyCount": 26,
+      "required": []
+    },
+    {
+      "name": "WriteUser",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "Role",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "PermissionSet",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "ModelSet",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "CredentialsEmail",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "CredentialsApi3",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "Session",
+      "type": "object",
+      "propertyCount": 14,
+      "required": []
+    },
+    {
+      "name": "SpaceBase",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "FolderBase",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "LookModel",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ErrorResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/login",
+      "operationId": "login",
+      "summary": "Looker Log in",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/logout",
+      "operationId": "logout",
+      "summary": "Looker Log Out",
+      "tags": [
+        "Auth"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/looks",
+      "operationId": "allLooks",
+      "summary": "Looker List All Looks",
+      "tags": [
+        "Look"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/looks/search",
+      "operationId": "searchLooks",
+      "summary": "Looker Search Looks",
+      "tags": [
+        "Look"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/looks/{look_id}",
+      "operationId": "look",
+      "summary": "Looker Get a Look",
+      "tags": [
+        "Look"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/looks/{look_id}",
+      "operationId": "deleteLook",
+      "summary": "Looker Delete a Look",
+      "tags": [
+        "Look"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/looks/{look_id}",
+      "operationId": "updateLook",
+      "summary": "Looker Update a Look",
+      "tags": [
+        "Look"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/looks/{look_id}/run/{result_format}",
+      "operationId": "runLook",
+      "summary": "Looker Run a Look",
+      "tags": [
+        "Look"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards",
+      "operationId": "allDashboards",
+      "summary": "Looker List All Dashboards",
+      "tags": [
+        "Dashboard"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/dashboards",
+      "operationId": "createDashboard",
+      "summary": "Looker Create a Dashboard",
+      "tags": [
+        "Dashboard"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/search",
+      "operationId": "searchDashboards",
+      "summary": "Looker Search Dashboards",
+      "tags": [
+        "Dashboard"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/{dashboard_id}",
+      "operationId": "dashboard",
+      "summary": "Looker Get a Dashboard",
+      "tags": [
+        "Dashboard"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/dashboards/{dashboard_id}",
+      "operationId": "deleteDashboard",
+      "summary": "Looker Delete a Dashboard",
+      "tags": [
+        "Dashboard"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/dashboards/{dashboard_id}",
+      "operationId": "updateDashboard",
+      "summary": "Looker Update a Dashboard",
+      "tags": [
+        "Dashboard"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/{dashboard_id}/dashboard_elements",
+      "operationId": "dashboardDashboardElements",
+      "summary": "Looker List Dashboard Elements",
+      "tags": [
+        "Dashboard"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/{dashboard_id}/dashboard_filters",
+      "operationId": "dashboardDashboardFilters",
+      "summary": "Looker List Dashboard Filters",
+      "tags": [
+        "Dashboard"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/queries",
+      "operationId": "createQuery",
+      "summary": "Looker Create a Query",
+      "tags": [
+        "Query"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/queries/{query_id}",
+      "operationId": "query",
+      "summary": "Looker Get a Query",
+      "tags": [
+        "Query"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/queries/{query_id}/run/{result_format}",
+      "operationId": "runQuery",
+      "summary": "Looker Run a Saved Query",
+      "tags": [
+        "Query"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/queries/run/{result_format}",
+      "operationId": "runInlineQuery",
+      "summary": "Looker Run an Inline Query",
+      "tags": [
+        "Query"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/users",
+      "operationId": "allUsers",
+      "summary": "Looker List All Users",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/users",
+      "operationId": "createUser",
+      "summary": "Looker Create a User",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/users/search",
+      "operationId": "searchUsers",
+      "summary": "Looker Search Users",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/users/{user_id}",
+      "operationId": "user",
+      "summary": "Looker Get a User",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/users/{user_id}",
+      "operationId": "deleteUser",
+      "summary": "Looker Delete a User",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/users/{user_id}",
+      "operationId": "updateUser",
+      "summary": "Looker Update a User",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/users/me",
+      "operationId": "me",
+      "summary": "Looker Get Current User",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/users/{user_id}/roles",
+      "operationId": "userRoles",
+      "summary": "Looker Get User Roles",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/users/{user_id}/roles",
+      "operationId": "setUserRoles",
+      "summary": "Looker Set User Roles",
+      "tags": [
+        "User"
+      ]
+    }
+  ]
+}

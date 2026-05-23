@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DashboardLayout",
+  "title": "DashboardLayout",
+  "type": "object",
+  "description": "Layout configuration for a dashboard defining tile positions",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this layout",
+      "readOnly": true,
+      "example": "abc123"
+    },
+    "dashboard_id": {
+      "type": "string",
+      "description": "ID of the parent dashboard",
+      "example": "500123"
+    },
+    "type": {
+      "type": "string",
+      "description": "Layout type",
+      "example": "example_value"
+    },
+    "active": {
+      "type": "boolean",
+      "description": "Whether this is the active layout",
+      "example": true
+    },
+    "column_width": {
+      "type": "integer",
+      "description": "Width of each column in the grid",
+      "example": 10
+    },
+    "width": {
+      "type": "integer",
+      "description": "Total width of the layout",
+      "example": 10
+    },
+    "dashboard_layout_components": {
+      "type": "array",
+      "description": "Positioning of elements within this layout",
+      "items": {
+        "$ref": "#/components/schemas/DashboardLayoutComponent"
+      },
+      "example": []
+    }
+  }
+}

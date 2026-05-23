@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ModelSet",
+  "title": "ModelSet",
+  "type": "object",
+  "description": "A set of LookML models that can be assigned to a role",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Unique numeric identifier",
+      "readOnly": true,
+      "example": "abc123"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name",
+      "example": "Example Title"
+    },
+    "models": {
+      "type": "array",
+      "description": "List of model names included in this set",
+      "items": {
+        "type": "string"
+      },
+      "example": []
+    },
+    "built_in": {
+      "type": "boolean",
+      "description": "Whether this is a built-in model set",
+      "readOnly": true,
+      "example": true
+    },
+    "all_access": {
+      "type": "boolean",
+      "description": "Whether this grants access to all models",
+      "readOnly": true,
+      "example": true
+    },
+    "url": {
+      "type": "string",
+      "description": "Relative URL",
+      "readOnly": true,
+      "example": "https://www.example.com"
+    }
+  }
+}

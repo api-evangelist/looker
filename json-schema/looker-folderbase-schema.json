@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FolderBase",
+  "title": "FolderBase",
+  "type": "object",
+  "description": "Basic folder information",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier",
+      "example": "abc123"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name",
+      "example": "Example Title"
+    },
+    "parent_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Parent folder ID",
+      "example": "500123"
+    },
+    "content_metadata_id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Content metadata ID",
+      "example": "500123"
+    },
+    "is_shared_root": {
+      "type": "boolean",
+      "description": "Whether this is the shared root folder",
+      "example": true
+    },
+    "is_users_root": {
+      "type": "boolean",
+      "description": "Whether this is the users root folder",
+      "example": true
+    },
+    "is_user_root": {
+      "type": "boolean",
+      "description": "Whether this is a user's personal root folder",
+      "example": true
+    }
+  }
+}

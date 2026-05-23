@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LookModel",
+  "title": "LookModel",
+  "type": "object",
+  "description": "Basic LookML model information",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Model name/identifier",
+      "example": "abc123"
+    },
+    "label": {
+      "type": "string",
+      "description": "Display label for the model",
+      "example": "Example Title"
+    }
+  }
+}

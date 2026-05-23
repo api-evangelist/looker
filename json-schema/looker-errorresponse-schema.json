@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ErrorResponse",
+  "title": "ErrorResponse",
+  "type": "object",
+  "description": "Error response from the Looker API",
+  "properties": {
+    "message": {
+      "type": "string",
+      "description": "Human-readable error message",
+      "example": "example_value"
+    },
+    "documentation_url": {
+      "type": "string",
+      "description": "URL to relevant API documentation",
+      "example": "https://www.example.com"
+    }
+  }
+}

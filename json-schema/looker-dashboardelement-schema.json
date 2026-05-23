@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DashboardElement",
+  "title": "DashboardElement",
+  "type": "object",
+  "description": "A single tile on a dashboard. Each element can contain a query, a reference to a Look, a merge query, or text/markdown content.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this element",
+      "readOnly": true,
+      "example": "abc123"
+    },
+    "dashboard_id": {
+      "type": "string",
+      "description": "ID of the parent dashboard",
+      "example": "500123"
+    },
+    "look_id": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true,
+      "description": "ID of a Look to display in this tile",
+      "example": "500123"
+    },
+    "query_id": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true,
+      "description": "ID of a query to run in this tile",
+      "example": "500123"
+    },
+    "query": {
+      "$ref": "#/components/schemas/Query"
+    },
+    "look": {
+      "$ref": "#/components/schemas/Look"
+    },
+    "type": {
+      "type": "string",
+      "description": "Element type",
+      "enum": [
+        "vis",
+        "text",
+        "data",
+        "filter"
+      ],
+      "example": "vis"
+    },
+    "title": {
+      "type": "string",
+      "description": "Display title for this tile",
+      "example": "Example Title"
+    },
+    "title_hidden": {
+      "type": "boolean",
+      "description": "Whether the title is hidden",
+      "example": true
+    },
+    "subtitle_text": {
+      "type": "string",
+      "nullable": true,
+      "description": "Subtitle text displayed below the title",
+      "example": "example_value"
+    },
+    "body_text": {
+      "type": "string",
+      "nullable": true,
+      "description": "Body text for text-type elements",
+      "example": "example_value"
+    },
+    "note_text": {
+      "type": "string",
+      "nullable": true,
+      "description": "Note text displayed on the tile",
+      "example": "example_value"
+    },
+    "note_display": {
+      "type": "string",
+      "nullable": true,
+      "description": "How the note is displayed (above, below, hover)",
+      "example": "example_value"
+    },
+    "note_state": {
+      "type": "string",
+      "nullable": true,
+      "description": "Note display state",
+      "example": "example_value"
+    },
+    "result_maker": {
+      "type": "object",
+      "nullable": true,
+      "description": "Result maker configuration for merged queries",
+      "example": "example_value"
+    },
+    "rich_content_json": {
+      "type": "string",
+      "nullable": true,
+      "description": "Rich content JSON for advanced text elements",
+      "example": "example_value"
+    }
+  }
+}
