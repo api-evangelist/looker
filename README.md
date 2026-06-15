@@ -1,172 +1,185 @@
 # Looker (looker)
+
 Looker is a business intelligence and data analytics platform that enables organizations to explore, analyze, and share real-time business analytics.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/looker/refs/heads/main/apis.yml)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/looker/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/looker/refs/heads/main/apis.yml)
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Scope
 
-## Tags:
+- **Type:** Index
+- **Access:** 3rd-Party
 
- - Analytics, BI Platform, Business Intelligence, Data Analytics, Data Visualization
+## Tags
+
+- Analytics
+- BI Platform
+- Business Intelligence
+- Data Analytics
+- Data Visualization
 
 ## Timestamps
 
 - **Created:** 2024-01-01
-- **Modified:** 2026-04-18
+- **Modified:** 2026-05-19
 
 ## APIs
 
 ### Looker API
+
 The Looker API provides programmatic access to Looker functionality including running queries, managing users, creating dashboards, and administering the platform.
 
-**Human URL:** [https://developers.looker.com/api/explorer/4.0](https://developers.looker.com/api/explorer/4.0)
+- **Human URL:** [https://developers.looker.com/api/explorer/4.0](https://developers.looker.com/api/explorer/4.0)
+- **Base URL:** `https://your-instance.looker.com:19999/api/4.0`
 
-#### Tags:
+#### Tags
 
- - Analytics, Dashboards, Queries, REST API
+- Analytics
+- Dashboards
+- Queries
+- REST API
 
 #### Properties
 
 - [Documentation](https://developers.looker.com/api/getting-started)
-- [OpenAPI](openapi/looker-api-openapi.yml)
+- [OpenAPI](openapi/looker-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/looker-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/looker-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Authentication](https://developers.looker.com/api/getting-started#authentication)
+- [SDK](https://developers.looker.com/api/sdks)
+- [Console](https://developers.looker.com/api/explorer/4.0)
+- [Rate Limits](https://cloud.google.com/looker/docs/api-rate-limits)
+- [API Reference](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest)
+- [Getting Started](https://docs.cloud.google.com/looker/docs/api-getting-started)
+- [Versioning](https://docs.cloud.google.com/looker/docs/api-versioning)
 
 ### LookML API
+
 API for programmatically managing LookML projects, models, and views.
 
-**Human URL:** [https://developers.looker.com/api/explorer/4.0/methods/Project](https://developers.looker.com/api/explorer/4.0/methods/Project)
+- **Human URL:** [https://developers.looker.com/api/explorer/4.0/methods/Project](https://developers.looker.com/api/explorer/4.0/methods/Project)
+- **Base URL:** `https://your-instance.looker.com:19999/api/4.0`
 
-#### Tags:
+#### Tags
 
- - Data Modeling, LookML, Projects
+- Data Modeling
+- LookML
+- Projects
 
 #### Properties
 
 - [Documentation](https://developers.looker.com/api/explorer/4.0/methods/Project)
+- [Tutorials](https://developers.looker.com/api/lookml-validation)
+- [Postman Collection](collections/looker-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/looker-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Looker Action API
+
 The Looker Action API enables developers to define custom actions, or destinations, to which Looker can send query results, dashboard results, or user interactions via a webhook-like API.
 
-**Human URL:** [https://docs.cloud.google.com/looker/docs/actions-overview](https://docs.cloud.google.com/looker/docs/actions-overview)
+- **Human URL:** [https://docs.cloud.google.com/looker/docs/actions-overview](https://docs.cloud.google.com/looker/docs/actions-overview)
+- **Base URL:** `https://your-instance.looker.com:19999/api/4.0`
 
-#### Tags:
+#### Tags
 
- - Actions, Data Delivery, Integrations, Webhooks
+- Actions
+- Data Delivery
+- Integrations
+- Webhooks
 
 #### Properties
 
 - [Documentation](https://docs.cloud.google.com/looker/docs/actions-overview)
-- [GitHubRepository](https://github.com/looker-open-source/actions)
+- [GitHub Repository](https://github.com/looker-open-source/actions)
+- [Postman Collection](collections/looker-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/looker-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Looker Embed SDK
-The Looker Embed SDK is a JavaScript library for embedding Looker content into web applications.
 
-**Human URL:** [https://docs.cloud.google.com/looker/docs/embed-sdk-intro](https://docs.cloud.google.com/looker/docs/embed-sdk-intro)
+The Looker Embed SDK is a JavaScript library for embedding Looker content such as dashboards, Looks, Explores, reports, and extensions into web applications, with support for signed SSO and cookieless authentication.
 
-#### Tags:
+- **Human URL:** [https://docs.cloud.google.com/looker/docs/embed-sdk-intro](https://docs.cloud.google.com/looker/docs/embed-sdk-intro)
+- **Base URL:** `https://your-instance.looker.com:19999/api/4.0`
 
- - Dashboards, Embedding, JavaScript SDK, SSO
+#### Tags
+
+- Dashboards
+- Embedding
+- JavaScript SDK
+- SSO
 
 #### Properties
 
 - [Documentation](https://docs.cloud.google.com/looker/docs/embed-sdk-intro)
-- [GitHubRepository](https://github.com/looker-open-source/embed-sdk)
+- [GitHub Repository](https://github.com/looker-open-source/embed-sdk)
+- [API Reference](https://looker-open-source.github.io/embed-sdk/)
+- [Postman Collection](collections/looker-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/looker-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Looker Extension Framework API
-The Looker Extension Framework provides APIs and SDKs for building custom extensions that run inside the Looker UI.
 
-**Human URL:** [https://developers.looker.com/extensions/overview/](https://developers.looker.com/extensions/overview/)
+The Looker Extension Framework provides APIs and SDKs for building custom extensions that run inside the Looker UI, with access to the Looker API, Looker components library, and the Embed SDK.
 
-#### Tags:
+- **Human URL:** [https://developers.looker.com/extensions/overview/](https://developers.looker.com/extensions/overview/)
+- **Base URL:** `https://your-instance.looker.com:19999/api/4.0`
 
- - Extensions, JavaScript, React, UI Components
+#### Tags
+
+- Extensions
+- JavaScript
+- React
+- UI Components
 
 #### Properties
 
 - [Documentation](https://docs.cloud.google.com/looker/docs/intro-to-extension-framework)
-- [CodeExamples](https://docs.cloud.google.com/looker/docs/extension-framework-react-and-js-code-examples)
+- [Code Examples](https://docs.cloud.google.com/looker/docs/extension-framework-react-and-js-code-examples)
+- [Postman Collection](collections/looker-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/looker-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Looker (Google Cloud core) API
-The Looker (Google Cloud core) REST API provides management capabilities for Looker instances running on Google Cloud.
 
-**Human URL:** [https://cloud.google.com/looker/docs/reference/rest](https://cloud.google.com/looker/docs/reference/rest)
+The Looker (Google Cloud core) REST API provides management capabilities for Looker instances running on Google Cloud, including instance lifecycle management, backups, and operations.
 
-#### Tags:
+- **Human URL:** [https://cloud.google.com/looker/docs/reference/rest](https://cloud.google.com/looker/docs/reference/rest)
+- **Base URL:** `https://looker.googleapis.com/v1`
 
- - Backups, Google Cloud, Infrastructure, Instance Management
+#### Tags
+
+- Backups
+- Google Cloud
+- Infrastructure
+- Instance Management
 
 #### Properties
 
 - [Documentation](https://cloud.google.com/looker/docs/reference/rest)
+- [Console](https://console.cloud.google.com/apis/library/looker.googleapis.com)
+- [Postman Collection](collections/looker-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/looker-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ## Common Properties
 
-- [DeveloperPortal](https://developers.looker.com/)
-- [GitHubOrganization](https://github.com/looker-open-source)
+- [LinkedIn](https://www.linkedin.com/company/looker)
+- [Developer Portal](https://developers.looker.com/)
+- [GitHub Organization](https://github.com/looker-open-source)
 - [Support](https://cloud.google.com/looker/docs/support)
-- [StatusPage](https://status.looker.com/)
-- [PrivacyPolicy](https://looker.com/privacy)
-- [TermsOfService](https://looker.com/terms)
-
-## Features
-
-| Name | Description |
-|------|-------------|
-| Self-Service Analytics | Enable business users to explore data, build visualizations, and create dashboards without SQL knowledge using LookML models. |
-| Data Modeling with LookML | Define reusable data models in LookML that provide a semantic layer between databases and end-user analytics. |
-| Embedded Analytics | Embed interactive dashboards, reports, and data explorations directly into web applications using SSO and cookieless authentication. |
-| Scheduled Reports | Schedule and deliver reports and dashboards via email, Slack, S3, or custom action destinations. |
-| Custom Actions | Build webhook-based actions to send query results to any external destination or trigger workflows. |
-| API-Driven Administration | Programmatically manage users, roles, dashboards, queries, and platform settings through the Looker API. |
-
-## Use Cases
-
-| Name | Description |
-|------|-------------|
-| Executive Dashboards | Build real-time executive dashboards aggregating KPIs from multiple data sources for leadership visibility. |
-| Customer-Facing Analytics | Embed analytics into SaaS products to provide customers with self-service reporting and data exploration. |
-| Data Governance Reporting | Monitor data quality, usage patterns, and access controls across the organization through audit reports. |
-| Marketing Performance Analytics | Analyze campaign performance, attribution, and ROI across marketing channels with unified data models. |
-| Operational Monitoring | Track operational metrics and KPIs in real time with automated alerting and scheduled report delivery. |
-
-## Integrations
-
-| Name | Description |
-|------|-------------|
-| Google BigQuery | Native optimized connector for querying and analyzing data in Google BigQuery data warehouse. |
-| Snowflake | High-performance connector for Snowflake cloud data warehouse with push-down query optimization. |
-| Amazon Redshift | Native connector for querying and visualizing data in Amazon Redshift data warehouse. |
-| Slack | Deliver scheduled reports and dashboard snapshots to Slack channels with interactive query capabilities. |
-| Google Sheets | Export query results and dashboard data directly to Google Sheets for collaborative analysis. |
-| Salesforce | Connect to Salesforce data for CRM analytics and combine with other data sources for unified views. |
-
-## Artifacts
-
-Machine-readable API specifications organized by format.
-
-### OpenAPI
-
-- [Looker API](openapi/looker-api-openapi.yml)
-
-### JSON-LD
-
-- [Looker Context](json-ld/looker-context.jsonld)
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [Looker API](capabilities/shared/looker-api.yaml) -- 29 operations for business intelligence management
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Analytics and Reporting](capabilities/analytics-and-reporting.yaml) | Looker API | 21 | Data Analyst |
+- [Status Page](https://status.looker.com/)
+- [Privacy Policy](https://looker.com/privacy)
+- [Terms of Service](https://looker.com/terms)
+- [SDK](https://docs.cloud.google.com/looker/docs/api-sdk)
+- [Changelog](https://github.com/looker-open-source/sdk-codegen/blob/main/CHANGELOG.md)
+- [Release Notes](https://docs.cloud.google.com/looker/docs/release-notes)
+- [Pricing](https://cloud.google.com/looker/pricing)
+- [Getting Started](https://docs.cloud.google.com/looker/docs/api-getting-started)
+- [Authentication](https://docs.cloud.google.com/looker/docs/api-auth)
+- [Tutorials](https://developers.looker.com/api/tutorials/interactive-api-docs-whats-next/)
+- [JSON Schema](json-schema/looker-dashboard-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON-LD](json-ld/looker-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+- [Features](undefined)
+- [Use Cases](undefined)
+- [Integrations](undefined)
 
 ## Maintainers
 
 **FN:** Kin Lane
-
 **Email:** kin@apievangelist.com
