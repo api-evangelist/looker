@@ -37,7 +37,7 @@ apis:
         url: openapi/looker-api-openapi.yml
       - type: Authentication
         url: https://developers.looker.com/api/getting-started#authentication
-      - type: SDK
+      - type: SDKs
         url: https://developers.looker.com/api/sdks
       - type: Console
         url: https://developers.looker.com/api/explorer/4.0
@@ -148,7 +148,7 @@ common:
     url: https://looker.com/privacy
   - type: TermsOfService
     url: https://looker.com/terms
-  - type: SDK
+  - type: SDKs
     url: https://docs.cloud.google.com/looker/docs/api-sdk
   - type: ChangeLog
     url: https://github.com/looker-open-source/sdk-codegen/blob/main/CHANGELOG.md
