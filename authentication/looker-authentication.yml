@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/looker-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: Access token obtained from the /login endpoint using client credentials. Include
+    as Bearer token in the Authorization header.
+  sources:
+  - openapi/looker-api-openapi.yml
