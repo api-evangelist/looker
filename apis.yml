@@ -134,6 +134,8 @@ apis:
       - type: Console
         url: https://console.cloud.google.com/apis/library/looker.googleapis.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/looker-agentic-access.yml
   - type: DomainSecurity
     url: security/looker-domain-security.yml
   - type: Authentication
