@@ -1,0 +1,134 @@
+openapi: 3.1.0
+info:
+  title: Looker Auth API
+  description: The Looker API 4.0 provides programmatic access to the Looker business intelligence platform. It allows you to manage and interact with Looks, dashboards, queries, users, and other Looker resources. The API uses client credentials (client_id and client_secret) for authentication and returns JSON responses. Looker is part of Google Cloud and the API is available on any Looker instance at the /api/4.0 path.
+  version: '4.0'
+  contact:
+    name: Google Cloud Looker Support
+    url: https://cloud.google.com/looker/docs/support
+  termsOfService: https://cloud.google.com/terms
+  license:
+    name: Google Cloud Terms
+    url: https://cloud.google.com/terms
+servers:
+- url: https://{instance}.looker.com/api/4.0
+  description: Looker Instance API
+  variables:
+    instance:
+      description: Your Looker instance hostname prefix
+      default: your-instance
+- url: https://{instance}.cloud.looker.com/api/4.0
+  description: Looker (Google Cloud core) Instance API
+  variables:
+    instance:
+      description: Your Looker (Google Cloud core) instance hostname prefix
+      default: your-instance
+security:
+- bearerAuth: []
+tags:
+- name: Auth
+  description: Authentication endpoints for obtaining and managing API access tokens using client credentials.
+paths:
+  /login:
+    post:
+      operationId: login
+      summary: Looker Log in
+      description: Authenticates with the Looker API using client credentials and returns an access token. The client_id and client_secret are generated from the Looker Admin panel under Users > API Keys. The returned access token must be included as a Bearer token in the Authorization header for all subsequent API requests.
+      tags:
+      - Auth
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - client_id
+              - client_secret
+              properties:
+                client_id:
+                  type: string
+                  description: API client ID generated from Looker Admin
+                client_secret:
+                  type: string
+                  description: API client secret generated from Looker Admin
+      responses:
+        '200':
+          description: Successfully authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+        '404':
+          description: Invalid client credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /logout:
+    delete:
+      operationId: logout
+      summary: Looker Log Out
+      description: Revokes the current API access token, ending the authenticated session. After logout, the token can no longer be used.
+      tags:
+      - Auth
+      responses:
+        '204':
+          description: Successfully logged out
+        '404':
+          description: Session not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      description: Error response from the Looker API
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+          example: example_value
+        documentation_url:
+          type: string
+          description: URL to relevant API documentation
+          example: https://www.example.com
+    AccessToken:
+      type: object
+      description: An API access token returned after successful authentication
+      properties:
+        access_token:
+          type: string
+          description: The OAuth2 access token string
+          example: example_value
+        token_type:
+          type: string
+          description: Token type, always 'Bearer'
+          default: Bearer
+          example: example_value
+        expires_in:
+          type: integer
+          description: Number of seconds until the token expires
+          example: 10
+        refresh_token:
+          type: string
+          nullable: true
+          description: Refresh token (not used in API client credential flow)
+          example: example_value
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Access token obtained from the /login endpoint using client credentials. Include as Bearer token in the Authorization header.
+externalDocs:
+  description: Looker API 4.0 Documentation
+  url: https://cloud.google.com/looker/docs/reference/looker-api/latest

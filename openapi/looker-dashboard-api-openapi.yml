@@ -1,0 +1,1060 @@
+openapi: 3.1.0
+info:
+  title: Looker Auth Dashboard API
+  description: The Looker API 4.0 provides programmatic access to the Looker business intelligence platform. It allows you to manage and interact with Looks, dashboards, queries, users, and other Looker resources. The API uses client credentials (client_id and client_secret) for authentication and returns JSON responses. Looker is part of Google Cloud and the API is available on any Looker instance at the /api/4.0 path.
+  version: '4.0'
+  contact:
+    name: Google Cloud Looker Support
+    url: https://cloud.google.com/looker/docs/support
+  termsOfService: https://cloud.google.com/terms
+  license:
+    name: Google Cloud Terms
+    url: https://cloud.google.com/terms
+servers:
+- url: https://{instance}.looker.com/api/4.0
+  description: Looker Instance API
+  variables:
+    instance:
+      description: Your Looker instance hostname prefix
+      default: your-instance
+- url: https://{instance}.cloud.looker.com/api/4.0
+  description: Looker (Google Cloud core) Instance API
+  variables:
+    instance:
+      description: Your Looker (Google Cloud core) instance hostname prefix
+      default: your-instance
+security:
+- bearerAuth: []
+tags:
+- name: Dashboard
+  description: Manage dashboards, which are collections of tiles displaying visualizations from queries. Dashboards support filters, layouts, and can be shared across the organization.
+paths:
+  /dashboards:
+    get:
+      operationId: allDashboards
+      summary: Looker List All Dashboards
+      description: Returns a list of all dashboards accessible to the authenticated user. User-defined dashboards and LookML dashboards are both included. Use the fields parameter to limit response size.
+      tags:
+      - Dashboard
+      parameters:
+      - $ref: '#/components/parameters/fields'
+      responses:
+        '200':
+          description: List of dashboards
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Dashboard'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createDashboard
+      summary: Looker Create a Dashboard
+      description: Creates a new user-defined dashboard. The dashboard can be populated with tiles, filters, and layout settings after creation or as part of the request body.
+      tags:
+      - Dashboard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WriteDashboard'
+      responses:
+        '200':
+          description: Dashboard created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dashboard'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /dashboards/search:
+    get:
+      operationId: searchDashboards
+      summary: Looker Search Dashboards
+      description: Searches for dashboards matching the specified criteria including title, description, space, and creator. Results are paginated.
+      tags:
+      - Dashboard
+      parameters:
+      - $ref: '#/components/parameters/fields'
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - name: title
+        in: query
+        description: Filter by dashboard title
+        schema:
+          type: string
+      - name: description
+        in: query
+        description: Filter by dashboard description
+        schema:
+          type: string
+      - name: space_id
+        in: query
+        description: Filter by space (folder) ID
+        schema:
+          type: string
+      - name: user_id
+        in: query
+        description: Filter by creator user ID
+        schema:
+          type: string
+      - name: sorts
+        in: query
+        description: Sort fields
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Dashboard'
+        '400':
+          description: Invalid search parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /dashboards/{dashboard_id}:
+    get:
+      operationId: dashboard
+      summary: Looker Get a Dashboard
+      description: Retrieves a single dashboard by its ID, including all dashboard elements (tiles), filters, and layout configuration. For user-defined dashboards the ID is numeric; for LookML dashboards the ID is the model::dashboard_name string.
+      tags:
+      - Dashboard
+      parameters:
+      - $ref: '#/components/parameters/dashboardId'
+      - $ref: '#/components/parameters/fields'
+      responses:
+        '200':
+          description: Dashboard details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dashboard'
+        '404':
+          description: Dashboard not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      operationId: updateDashboard
+      summary: Looker Update a Dashboard
+      description: Updates an existing dashboard. Only the fields provided in the request body are updated. Dashboard elements and filters can be updated through their own dedicated endpoints.
+      tags:
+      - Dashboard
+      parameters:
+      - $ref: '#/components/parameters/dashboardId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WriteDashboard'
+      responses:
+        '200':
+          description: Updated dashboard
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dashboard'
+        '404':
+          description: Dashboard not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteDashboard
+      summary: Looker Delete a Dashboard
+      description: Permanently deletes the specified dashboard and all of its elements, filters, and layout configuration. This action cannot be undone.
+      tags:
+      - Dashboard
+      parameters:
+      - $ref: '#/components/parameters/dashboardId'
+      responses:
+        '204':
+          description: Dashboard deleted successfully
+        '404':
+          description: Dashboard not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /dashboards/{dashboard_id}/dashboard_elements:
+    get:
+      operationId: dashboardDashboardElements
+      summary: Looker List Dashboard Elements
+      description: Returns all elements (tiles) for the specified dashboard. Each element contains a query, a Look reference, or a text/markdown content block along with positioning and size information.
+      tags:
+      - Dashboard
+      parameters:
+      - $ref: '#/components/parameters/dashboardId'
+      - $ref: '#/components/parameters/fields'
+      responses:
+        '200':
+          description: List of dashboard elements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DashboardElement'
+        '404':
+          description: Dashboard not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /dashboards/{dashboard_id}/dashboard_filters:
+    get:
+      operationId: dashboardDashboardFilters
+      summary: Looker List Dashboard Filters
+      description: Returns all filters defined on the specified dashboard. Dashboard filters allow users to dynamically change query parameters across all tiles that listen to a given filter.
+      tags:
+      - Dashboard
+      parameters:
+      - $ref: '#/components/parameters/dashboardId'
+      - $ref: '#/components/parameters/fields'
+      responses:
+        '200':
+          description: List of dashboard filters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DashboardFilter'
+        '404':
+          description: Dashboard not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    DashboardFilter:
+      type: object
+      description: A filter on a dashboard that allows users to dynamically change query parameters across multiple tiles simultaneously.
+      properties:
+        id:
+          type: string
+          description: Unique identifier for this filter
+          readOnly: true
+          example: abc123
+        dashboard_id:
+          type: string
+          description: ID of the parent dashboard
+          example: '500123'
+        name:
+          type: string
+          description: Internal name of the filter
+          example: Example Title
+        title:
+          type: string
+          description: Display title of the filter
+          example: Example Title
+        type:
+          type: string
+          description: Filter input type
+          enum:
+          - field_filter
+          - date_filter
+          - number_filter
+          - string_filter
+          example: field_filter
+        model:
+          type: string
+          nullable: true
+          description: LookML model name for field_filter type
+          example: example_value
+        explore:
+          type: string
+          nullable: true
+          description: LookML explore name for field_filter type
+          example: example_value
+        dimension:
+          type: string
+          nullable: true
+          description: LookML dimension for field_filter type
+          example: example_value
+        default_value:
+          type: string
+          nullable: true
+          description: Default filter value
+          example: example_value
+        allow_multiple_values:
+          type: boolean
+          description: Whether multiple values can be selected
+          example: true
+        required:
+          type: boolean
+          description: Whether the filter must have a value
+          example: true
+        row:
+          type: integer
+          description: Row position of the filter in the filter bar
+          example: 10
+        listens_to_filters:
+          type: array
+          description: Other filters this filter listens to for cascading
+          items:
+            type: string
+          example: []
+    DashboardElement:
+      type: object
+      description: A single tile on a dashboard. Each element can contain a query, a reference to a Look, a merge query, or text/markdown content.
+      properties:
+        id:
+          type: string
+          description: Unique identifier for this element
+          readOnly: true
+          example: abc123
+        dashboard_id:
+          type: string
+          description: ID of the parent dashboard
+          example: '500123'
+        look_id:
+          type: integer
+          format: int64
+          nullable: true
+          description: ID of a Look to display in this tile
+          example: '500123'
+        query_id:
+          type: integer
+          format: int64
+          nullable: true
+          description: ID of a query to run in this tile
+          example: '500123'
+        query:
+          $ref: '#/components/schemas/Query'
+        look:
+          $ref: '#/components/schemas/Look'
+        type:
+          type: string
+          description: Element type
+          enum:
+          - vis
+          - text
+          - data
+          - filter
+          example: vis
+        title:
+          type: string
+          description: Display title for this tile
+          example: Example Title
+        title_hidden:
+          type: boolean
+          description: Whether the title is hidden
+          example: true
+        subtitle_text:
+          type: string
+          nullable: true
+          description: Subtitle text displayed below the title
+          example: example_value
+        body_text:
+          type: string
+          nullable: true
+          description: Body text for text-type elements
+          example: example_value
+        note_text:
+          type: string
+          nullable: true
+          description: Note text displayed on the tile
+          example: example_value
+        note_display:
+          type: string
+          nullable: true
+          description: How the note is displayed (above, below, hover)
+          example: example_value
+        note_state:
+          type: string
+          nullable: true
+          description: Note display state
+          example: example_value
+        result_maker:
+          type: object
+          nullable: true
+          description: Result maker configuration for merged queries
+          example: example_value
+        rich_content_json:
+          type: string
+          nullable: true
+          description: Rich content JSON for advanced text elements
+          example: example_value
+    DashboardLayout:
+      type: object
+      description: Layout configuration for a dashboard defining tile positions
+      properties:
+        id:
+          type: string
+          description: Unique identifier for this layout
+          readOnly: true
+          example: abc123
+        dashboard_id:
+          type: string
+          description: ID of the parent dashboard
+          example: '500123'
+        type:
+          type: string
+          description: Layout type
+          example: example_value
+        active:
+          type: boolean
+          description: Whether this is the active layout
+          example: true
+        column_width:
+          type: integer
+          description: Width of each column in the grid
+          example: 10
+        width:
+          type: integer
+          description: Total width of the layout
+          example: 10
+        dashboard_layout_components:
+          type: array
+          description: Positioning of elements within this layout
+          items:
+            $ref: '#/components/schemas/DashboardLayoutComponent'
+          example: []
+    SpaceBase:
+      type: object
+      description: Basic space (folder) information
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          example: abc123
+        name:
+          type: string
+          description: Display name
+          example: Example Title
+        parent_id:
+          type: string
+          nullable: true
+          description: Parent space ID
+          example: '500123'
+        is_shared_root:
+          type: boolean
+          description: Whether this is the shared root space
+          example: true
+        is_users_root:
+          type: boolean
+          description: Whether this is the users root space
+          example: true
+        is_user_root:
+          type: boolean
+          description: Whether this is a user's personal root space
+          example: true
+    LookModel:
+      type: object
+      description: Basic LookML model information
+      properties:
+        id:
+          type: string
+          description: Model name/identifier
+          example: abc123
+        label:
+          type: string
+          description: Display label for the model
+          example: Example Title
+    DashboardLayoutComponent:
+      type: object
+      description: Position and size of a single element within a dashboard layout
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          readOnly: true
+          example: abc123
+        dashboard_layout_id:
+          type: string
+          description: ID of the parent layout
+          example: '500123'
+        dashboard_element_id:
+          type: string
+          description: ID of the dashboard element this positions
+          example: '500123'
+        row:
+          type: integer
+          description: Row position in the grid
+          example: 10
+        column:
+          type: integer
+          description: Column position in the grid
+          example: 10
+        width:
+          type: integer
+          description: Width in grid units
+          example: 10
+        height:
+          type: integer
+          description: Height in grid units
+          example: 10
+    ErrorResponse:
+      type: object
+      description: Error response from the Looker API
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+          example: example_value
+        documentation_url:
+          type: string
+          description: URL to relevant API documentation
+          example: https://www.example.com
+    Query:
+      type: object
+      description: A query defines a data request against a LookML model. Queries are immutable once created and contain the model, view, fields, filters, sorts, and limit needed to generate SQL and retrieve results.
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Unique numeric identifier for this query
+          readOnly: true
+          example: abc123
+        model:
+          type: string
+          description: LookML model name
+          example: example_value
+        view:
+          type: string
+          description: LookML explore (view) name
+          example: example_value
+        fields:
+          type: array
+          description: List of field names to include in the query results (e.g. orders.count, users.created_date)
+          items:
+            type: string
+          example: []
+        pivots:
+          type: array
+          nullable: true
+          description: List of field names to pivot on
+          items:
+            type: string
+          example: []
+        fill_fields:
+          type: array
+          nullable: true
+          description: Fields to fill missing date values for
+          items:
+            type: string
+          example: []
+        filters:
+          type: object
+          nullable: true
+          description: Key-value map of filter expressions. Keys are field names and values are Looker filter expressions.
+          additionalProperties:
+            type: string
+          example: example_value
+        filter_expression:
+          type: string
+          nullable: true
+          description: Custom filter expression using Looker filter syntax
+          example: example_value
+        sorts:
+          type: array
+          nullable: true
+          description: Sort order for results. Each item is a field name optionally followed by asc or desc.
+          items:
+            type: string
+          example: []
+        limit:
+          type: string
+          nullable: true
+          description: Maximum number of rows to return (as string)
+          example: example_value
+        column_limit:
+          type: string
+          nullable: true
+          description: Maximum number of columns for pivoted results
+          example: example_value
+        total:
+          type: boolean
+          description: Whether to include row totals
+          example: true
+        row_total:
+          type: string
+          nullable: true
+          description: Row total display setting
+          example: example_value
+        subtotals:
+          type: array
+          nullable: true
+          description: Fields to subtotal on
+          items:
+            type: string
+          example: []
+        dynamic_fields:
+          type: string
+          nullable: true
+          description: JSON string of dynamic field definitions
+          example: example_value
+        vis_config:
+          type: object
+          nullable: true
+          description: Visualization configuration object
+          additionalProperties: true
+          example: example_value
+        query_timezone:
+          type: string
+          nullable: true
+          description: Timezone for date/time calculations
+          example: example_value
+        client_id:
+          type: string
+          description: Client-generated hash of the query for caching
+          readOnly: true
+          example: '500123'
+        slug:
+          type: string
+          description: Short unique URL slug for this query
+          readOnly: true
+          example: example_value
+        share_url:
+          type: string
+          description: Shareable URL for this query
+          readOnly: true
+          example: https://www.example.com
+        url:
+          type: string
+          description: Relative URL for this query in the Looker UI
+          readOnly: true
+          example: https://www.example.com
+        has_table_calculations:
+          type: boolean
+          description: Whether this query has table calculations
+          readOnly: true
+          example: true
+    WriteDashboard:
+      type: object
+      description: Writable fields for creating or updating a dashboard
+      properties:
+        title:
+          type: string
+          description: Display title
+          example: Example Title
+        description:
+          type: string
+          nullable: true
+          description: Description of the dashboard
+          example: A sample description.
+        space_id:
+          type: string
+          description: Space (folder) ID
+          example: '500123'
+        folder_id:
+          type: string
+          description: Folder ID
+          example: '500123'
+        query_timezone:
+          type: string
+          description: Timezone for queries
+          example: example_value
+        background_color:
+          type: string
+          description: CSS background color
+          example: example_value
+        text_tile_text_color:
+          type: string
+          description: Default text color for text tiles
+          example: example_value
+        tile_background_color:
+          type: string
+          description: Default background color for tiles
+          example: example_value
+        tile_text_color:
+          type: string
+          description: Default text color for tiles
+          example: example_value
+        hidden:
+          type: boolean
+          description: Whether the dashboard is hidden
+          example: true
+        refresh_interval:
+          type: string
+          nullable: true
+          description: Auto-refresh interval
+          example: example_value
+        load_configuration:
+          type: string
+          nullable: true
+          description: Tile load configuration
+          example: example_value
+        preferred_viewer:
+          type: string
+          description: Preferred viewer type
+          example: example_value
+    Look:
+      type: object
+      description: A Look is a saved query with a visualization. Looks can be shared, embedded, scheduled for delivery, and added to dashboards as tiles.
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Unique numeric identifier for this Look
+          readOnly: true
+          example: abc123
+        title:
+          type: string
+          description: Display title of the Look
+          example: Example Title
+        description:
+          type: string
+          nullable: true
+          description: Description of the Look's purpose
+          example: A sample description.
+        content_metadata_id:
+          type: integer
+          format: int64
+          description: ID of the content metadata record
+          readOnly: true
+          example: '500123'
+        query_id:
+          type: integer
+          format: int64
+          description: ID of the query associated with this Look
+          example: '500123'
+        query:
+          $ref: '#/components/schemas/Query'
+        space_id:
+          type: string
+          description: ID of the space (folder) containing this Look
+          example: '500123'
+        folder_id:
+          type: string
+          description: ID of the folder containing this Look
+          example: '500123'
+        user_id:
+          type: integer
+          format: int64
+          description: ID of the user who created this Look
+          readOnly: true
+          example: '500123'
+        space:
+          $ref: '#/components/schemas/SpaceBase'
+        folder:
+          $ref: '#/components/schemas/FolderBase'
+        public:
+          type: boolean
+          description: Whether this Look is publicly accessible
+          example: true
+        is_run_on_load:
+          type: boolean
+          description: Whether the query runs automatically when the Look is loaded
+          example: true
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the Look was created
+          readOnly: true
+          example: '2026-01-15T10:30:00Z'
+        updated_at:
+          type: string
+          format: date-time
+          description: Timestamp when the Look was last updated
+          readOnly: true
+          example: '2026-01-15T10:30:00Z'
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: Timestamp when the Look was soft-deleted
+          readOnly: true
+          example: '2026-01-15T10:30:00Z'
+        deleted:
+          type: boolean
+          description: Whether this Look has been soft-deleted
+          readOnly: true
+          example: true
+        last_accessed_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: Timestamp when the Look was last viewed
+          readOnly: true
+          example: '2026-01-15T10:30:00Z'
+        view_count:
+          type: integer
+          description: Number of times the Look has been viewed
+          readOnly: true
+          example: 10
+        favorite_count:
+          type: integer
+          description: Number of users who have favorited this Look
+          readOnly: true
+          example: 10
+        model:
+          $ref: '#/components/schemas/LookModel'
+        url:
+          type: string
+          description: Relative URL path for this Look
+          readOnly: true
+          example: https://www.example.com
+    Dashboard:
+      type: object
+      description: A dashboard is a collection of tiles arranged in a layout that visualize data from queries. Dashboards support cross-filtering, drill-down, and can be shared, embedded, or scheduled.
+      properties:
+        id:
+          type: string
+          description: Unique identifier. Numeric for user-defined dashboards; model::dashboard_name for LookML dashboards.
+          readOnly: true
+          example: abc123
+        title:
+          type: string
+          description: Display title of the dashboard
+          example: Example Title
+        description:
+          type: string
+          nullable: true
+          description: Description of the dashboard's purpose
+          example: A sample description.
+        content_metadata_id:
+          type: integer
+          format: int64
+          description: ID of the content metadata record
+          readOnly: true
+          example: '500123'
+        query_timezone:
+          type: string
+          description: Timezone for queries on this dashboard
+          example: example_value
+        space_id:
+          type: string
+          description: ID of the space (folder) containing this dashboard
+          example: '500123'
+        folder_id:
+          type: string
+          description: ID of the folder containing this dashboard
+          example: '500123'
+        user_id:
+          type: integer
+          format: int64
+          description: ID of the user who created this dashboard
+          readOnly: true
+          example: '500123'
+        space:
+          $ref: '#/components/schemas/SpaceBase'
+        folder:
+          $ref: '#/components/schemas/FolderBase'
+        dashboard_elements:
+          type: array
+          description: List of tiles (elements) on this dashboard
+          items:
+            $ref: '#/components/schemas/DashboardElement'
+          example: []
+        dashboard_filters:
+          type: array
+          description: List of filters on this dashboard
+          items:
+            $ref: '#/components/schemas/DashboardFilter'
+          example: []
+        dashboard_layouts:
+          type: array
+          description: Layout configurations for this dashboard
+          items:
+            $ref: '#/components/schemas/DashboardLayout'
+          example: []
+        background_color:
+          type: string
+          description: CSS background color for the dashboard
+          example: example_value
+        text_tile_text_color:
+          type: string
+          description: Default text color for text tiles
+          example: example_value
+        tile_background_color:
+          type: string
+          description: Default background color for tiles
+          example: example_value
+        tile_text_color:
+          type: string
+          description: Default text color for tiles
+          example: example_value
+        hidden:
+          type: boolean
+          description: Whether this dashboard is hidden from navigation
+          example: true
+        readonly:
+          type: boolean
+          description: Whether this dashboard is read-only (LookML dashboards are read-only)
+          readOnly: true
+          example: true
+        refresh_interval:
+          type: string
+          nullable: true
+          description: Auto-refresh interval (e.g. 5 minutes, 1 hour)
+          example: example_value
+        load_configuration:
+          type: string
+          nullable: true
+          description: Dashboard load configuration. Controls whether tiles load concurrently or sequentially.
+          example: example_value
+        preferred_viewer:
+          type: string
+          description: Preferred viewer type for the dashboard
+          example: example_value
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the dashboard was created
+          readOnly: true
+          example: '2026-01-15T10:30:00Z'
+        updated_at:
+          type: string
+          format: date-time
+          description: Timestamp when the dashboard was last updated
+          readOnly: true
+          example: '2026-01-15T10:30:00Z'
+        deleted_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: Timestamp when the dashboard was soft-deleted
+          readOnly: true
+          example: '2026-01-15T10:30:00Z'
+        deleted:
+          type: boolean
+          description: Whether this dashboard has been soft-deleted
+          readOnly: true
+          example: true
+        last_accessed_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: Timestamp when the dashboard was last viewed
+          readOnly: true
+          example: '2026-01-15T10:30:00Z'
+        view_count:
+          type: integer
+          description: Number of times the dashboard has been viewed
+          readOnly: true
+          example: 10
+        favorite_count:
+          type: integer
+          description: Number of users who have favorited this dashboard
+          readOnly: true
+          example: 10
+        url:
+          type: string
+          description: Relative URL path for this dashboard
+          readOnly: true
+          example: https://www.example.com
+        model:
+          $ref: '#/components/schemas/LookModel'
+    FolderBase:
+      type: object
+      description: Basic folder information
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          example: abc123
+        name:
+          type: string
+          description: Display name
+          example: Example Title
+        parent_id:
+          type: string
+          nullable: true
+          description: Parent folder ID
+          example: '500123'
+        content_metadata_id:
+          type: integer
+          format: int64
+          description: Content metadata ID
+          example: '500123'
+        is_shared_root:
+          type: boolean
+          description: Whether this is the shared root folder
+          example: true
+        is_users_root:
+          type: boolean
+          description: Whether this is the users root folder
+          example: true
+        is_user_root:
+          type: boolean
+          description: Whether this is a user's personal root folder
+          example: true
+  parameters:
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        default: 100
+    dashboardId:
+      name: dashboard_id
+      in: path
+      required: true
+      description: The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards.
+      schema:
+        type: string
+    fields:
+      name: fields
+      in: query
+      description: Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip before returning results
+      schema:
+        type: integer
+        default: 0
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Access token obtained from the /login endpoint using client credentials. Include as Bearer token in the Authorization header.
+externalDocs:
+  description: Looker API 4.0 Documentation
+  url: https://cloud.google.com/looker/docs/reference/looker-api/latest
