@@ -3,6 +3,19 @@ name: Looker
 description: >-
   Looker is a business intelligence and data analytics platform that enables organizations to explore, analyze, and
   share real-time business analytics.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://looker.com/assets/img/images/logos/looker-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/looker/refs/heads/main/apis.yml
 created: '2024-01-01'
@@ -17,123 +30,233 @@ tags:
   - Data Analytics
   - Data Visualization
 apis:
-  - aid: looker:api
-    name: Looker API
-    description: >-
-      The Looker API provides programmatic access to Looker functionality including running queries, managing users,
-      creating dashboards, and administering the platform.
-    image: https://looker.com/assets/img/images/logos/looker-logo.png
-    humanURL: https://developers.looker.com/api/explorer/4.0
-    baseURL: https://your-instance.looker.com:19999/api/4.0
-    tags:
-      - Analytics
-      - Dashboards
-      - Queries
-      - REST API
-    properties:
-      - type: Documentation
-        url: https://developers.looker.com/api/getting-started
-      - type: OpenAPI
-        url: openapi/looker-api-openapi.yml
-      - type: Authentication
-        url: https://developers.looker.com/api/getting-started#authentication
-      - type: SDKs
-        url: https://developers.looker.com/api/sdks
-      - type: Console
-        url: https://developers.looker.com/api/explorer/4.0
-      - type: RateLimits
-        url: https://cloud.google.com/looker/docs/api-rate-limits
-      - type: APIReference
-        url: https://docs.cloud.google.com/looker/docs/reference/looker-api/latest
-      - type: GettingStarted
-        url: https://docs.cloud.google.com/looker/docs/api-getting-started
-      - type: Versioning
-        url: https://docs.cloud.google.com/looker/docs/api-versioning
-  - aid: looker:lookml
-    name: LookML API
-    description: API for programmatically managing LookML projects, models, and views.
-    humanURL: https://developers.looker.com/api/explorer/4.0/methods/Project
-    baseURL: https://your-instance.looker.com:19999/api/4.0
-    tags:
-      - Data Modeling
-      - LookML
-      - Projects
-    properties:
-      - type: Documentation
-        url: https://developers.looker.com/api/explorer/4.0/methods/Project
-      - type: Tutorials
-        url: https://developers.looker.com/api/lookml-validation
-  - aid: looker:action
-    name: Looker Action API
-    description: >-
-      The Looker Action API enables developers to define custom actions, or destinations, to which Looker can send query
-      results, dashboard results, or user interactions via a webhook-like API.
-    humanURL: https://docs.cloud.google.com/looker/docs/actions-overview
-    baseURL: https://your-instance.looker.com:19999/api/4.0
-    tags:
-      - Actions
-      - Data Delivery
-      - Integrations
-      - Webhooks
-    properties:
-      - type: Documentation
-        url: https://docs.cloud.google.com/looker/docs/actions-overview
-      - type: GitHubRepository
-        url: https://github.com/looker-open-source/actions
-  - aid: looker:embed-sdk
-    name: Looker Embed SDK
-    description: >-
-      The Looker Embed SDK is a JavaScript library for embedding Looker content such as dashboards, Looks, Explores,
-      reports, and extensions into web applications, with support for signed SSO and cookieless authentication.
-    humanURL: https://docs.cloud.google.com/looker/docs/embed-sdk-intro
-    baseURL: https://your-instance.looker.com:19999/api/4.0
-    tags:
-      - Dashboards
-      - Embedding
-      - JavaScript SDK
-      - SSO
-    properties:
-      - type: Documentation
-        url: https://docs.cloud.google.com/looker/docs/embed-sdk-intro
-      - type: GitHubRepository
-        url: https://github.com/looker-open-source/embed-sdk
-      - type: APIReference
-        url: https://looker-open-source.github.io/embed-sdk/
-  - aid: looker:extension-framework
-    name: Looker Extension Framework API
-    description: >-
-      The Looker Extension Framework provides APIs and SDKs for building custom extensions that run inside the Looker
-      UI, with access to the Looker API, Looker components library, and the Embed SDK.
-    humanURL: https://developers.looker.com/extensions/overview/
-    baseURL: https://your-instance.looker.com:19999/api/4.0
-    tags:
-      - Extensions
-      - JavaScript
-      - React
-      - UI Components
-    properties:
-      - type: Documentation
-        url: https://docs.cloud.google.com/looker/docs/intro-to-extension-framework
-      - type: CodeExamples
-        url: https://docs.cloud.google.com/looker/docs/extension-framework-react-and-js-code-examples
-  - aid: looker:google-cloud-core
-    name: Looker (Google Cloud core) API
-    description: >-
-      The Looker (Google Cloud core) REST API provides management capabilities for Looker instances running on Google
-      Cloud, including instance lifecycle management, backups, and operations.
-    humanURL: https://cloud.google.com/looker/docs/reference/rest
-    baseURL: https://looker.googleapis.com/v1
-    tags:
-      - Backups
-      - Google Cloud
-      - Infrastructure
-      - Instance Management
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/looker/docs/reference/rest
-      - type: Console
-        url: https://console.cloud.google.com/apis/library/looker.googleapis.com
+- aid: looker:lookml
+  name: LookML API
+  description: API for programmatically managing LookML projects, models, and views.
+  humanURL: https://developers.looker.com/api/explorer/4.0/methods/Project
+  baseURL: https://your-instance.looker.com:19999/api/4.0
+  tags:
+  - Data Modeling
+  - LookML
+  - Projects
+  properties:
+  - type: Documentation
+    url: https://developers.looker.com/api/explorer/4.0/methods/Project
+  - type: Tutorials
+    url: https://developers.looker.com/api/lookml-validation
+- aid: looker:action
+  name: Looker Action API
+  description: >-
+    The Looker Action API enables developers to define custom actions, or destinations, to which Looker
+    can send query results, dashboard results, or user interactions via a webhook-like API.
+  humanURL: https://docs.cloud.google.com/looker/docs/actions-overview
+  baseURL: https://your-instance.looker.com:19999/api/4.0
+  tags:
+  - Actions
+  - Data Delivery
+  - Integrations
+  - Webhooks
+  properties:
+  - type: Documentation
+    url: https://docs.cloud.google.com/looker/docs/actions-overview
+  - type: GitHubRepository
+    url: https://github.com/looker-open-source/actions
+- aid: looker:embed-sdk
+  name: Looker Embed SDK
+  description: >-
+    The Looker Embed SDK is a JavaScript library for embedding Looker content such as dashboards, Looks,
+    Explores, reports, and extensions into web applications, with support for signed SSO and cookieless
+    authentication.
+  humanURL: https://docs.cloud.google.com/looker/docs/embed-sdk-intro
+  baseURL: https://your-instance.looker.com:19999/api/4.0
+  tags:
+  - Dashboards
+  - Embedding
+  - JavaScript SDK
+  - SSO
+  properties:
+  - type: Documentation
+    url: https://docs.cloud.google.com/looker/docs/embed-sdk-intro
+  - type: GitHubRepository
+    url: https://github.com/looker-open-source/embed-sdk
+  - type: APIReference
+    url: https://looker-open-source.github.io/embed-sdk/
+- aid: looker:extension-framework
+  name: Looker Extension Framework API
+  description: >-
+    The Looker Extension Framework provides APIs and SDKs for building custom extensions that run inside
+    the Looker UI, with access to the Looker API, Looker components library, and the Embed SDK.
+  humanURL: https://developers.looker.com/extensions/overview/
+  baseURL: https://your-instance.looker.com:19999/api/4.0
+  tags:
+  - Extensions
+  - JavaScript
+  - React
+  - UI Components
+  properties:
+  - type: Documentation
+    url: https://docs.cloud.google.com/looker/docs/intro-to-extension-framework
+  - type: CodeExamples
+    url: https://docs.cloud.google.com/looker/docs/extension-framework-react-and-js-code-examples
+- aid: looker:google-cloud-core
+  name: Looker (Google Cloud core) API
+  description: >-
+    The Looker (Google Cloud core) REST API provides management capabilities for Looker instances running
+    on Google Cloud, including instance lifecycle management, backups, and operations.
+  humanURL: https://cloud.google.com/looker/docs/reference/rest
+  baseURL: https://looker.googleapis.com/v1
+  tags:
+  - Backups
+  - Google Cloud
+  - Infrastructure
+  - Instance Management
+  properties:
+  - type: Documentation
+    url: https://cloud.google.com/looker/docs/reference/rest
+  - type: Console
+    url: https://console.cloud.google.com/apis/library/looker.googleapis.com
+- aid: looker:looker-auth-api
+  name: Looker Auth API
+  description: >-
+    Authentication endpoints for obtaining and managing API access tokens using client credentials.
+  humanURL: https://developers.looker.com/api/explorer/4.0
+  baseURL: https://your-instance.looker.com:19999/api/4.0
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/looker-auth-api-openapi.yml
+  - type: Documentation
+    url: https://developers.looker.com/api/getting-started
+  - type: Authentication
+    url: https://developers.looker.com/api/getting-started#authentication
+  - type: SDKs
+    url: https://developers.looker.com/api/sdks
+  - type: Console
+    url: https://developers.looker.com/api/explorer/4.0
+  - type: RateLimits
+    url: https://cloud.google.com/looker/docs/api-rate-limits
+  - type: APIReference
+    url: https://docs.cloud.google.com/looker/docs/reference/looker-api/latest
+  - type: GettingStarted
+    url: https://docs.cloud.google.com/looker/docs/api-getting-started
+  - type: Versioning
+    url: https://docs.cloud.google.com/looker/docs/api-versioning
+- aid: looker:looker-dashboard-api
+  name: Looker Dashboard API
+  description: >-
+    Manage dashboards, which are collections of tiles displaying visualizations from queries. Dashboards
+    support filters, layouts, and can be shared across the organization.
+  humanURL: https://developers.looker.com/api/explorer/4.0
+  baseURL: https://your-instance.looker.com:19999/api/4.0
+  tags:
+  - Dashboard
+  properties:
+  - type: OpenAPI
+    url: openapi/looker-dashboard-api-openapi.yml
+  - type: Documentation
+    url: https://developers.looker.com/api/getting-started
+  - type: Authentication
+    url: https://developers.looker.com/api/getting-started#authentication
+  - type: SDKs
+    url: https://developers.looker.com/api/sdks
+  - type: Console
+    url: https://developers.looker.com/api/explorer/4.0
+  - type: RateLimits
+    url: https://cloud.google.com/looker/docs/api-rate-limits
+  - type: APIReference
+    url: https://docs.cloud.google.com/looker/docs/reference/looker-api/latest
+  - type: GettingStarted
+    url: https://docs.cloud.google.com/looker/docs/api-getting-started
+  - type: Versioning
+    url: https://docs.cloud.google.com/looker/docs/api-versioning
+- aid: looker:looker-look-api
+  name: Looker Look API
+  description: >-
+    Manage Looks, which are saved queries with visualizations. A Look contains a query definition and
+    visualization configuration that can be shared, scheduled, and embedded.
+  humanURL: https://developers.looker.com/api/explorer/4.0
+  baseURL: https://your-instance.looker.com:19999/api/4.0
+  tags:
+  - Look
+  properties:
+  - type: OpenAPI
+    url: openapi/looker-look-api-openapi.yml
+  - type: Documentation
+    url: https://developers.looker.com/api/getting-started
+  - type: Authentication
+    url: https://developers.looker.com/api/getting-started#authentication
+  - type: SDKs
+    url: https://developers.looker.com/api/sdks
+  - type: Console
+    url: https://developers.looker.com/api/explorer/4.0
+  - type: RateLimits
+    url: https://cloud.google.com/looker/docs/api-rate-limits
+  - type: APIReference
+    url: https://docs.cloud.google.com/looker/docs/reference/looker-api/latest
+  - type: GettingStarted
+    url: https://docs.cloud.google.com/looker/docs/api-getting-started
+  - type: Versioning
+    url: https://docs.cloud.google.com/looker/docs/api-versioning
+- aid: looker:looker-query-api
+  name: Looker Query API
+  description: >-
+    Create and run queries against your Looker models. Queries define the fields, filters, sorts, and
+    limits used to retrieve data from the underlying database through LookML models.
+  humanURL: https://developers.looker.com/api/explorer/4.0
+  baseURL: https://your-instance.looker.com:19999/api/4.0
+  tags:
+  - Query
+  properties:
+  - type: OpenAPI
+    url: openapi/looker-query-api-openapi.yml
+  - type: Documentation
+    url: https://developers.looker.com/api/getting-started
+  - type: Authentication
+    url: https://developers.looker.com/api/getting-started#authentication
+  - type: SDKs
+    url: https://developers.looker.com/api/sdks
+  - type: Console
+    url: https://developers.looker.com/api/explorer/4.0
+  - type: RateLimits
+    url: https://cloud.google.com/looker/docs/api-rate-limits
+  - type: APIReference
+    url: https://docs.cloud.google.com/looker/docs/reference/looker-api/latest
+  - type: GettingStarted
+    url: https://docs.cloud.google.com/looker/docs/api-getting-started
+  - type: Versioning
+    url: https://docs.cloud.google.com/looker/docs/api-versioning
+- aid: looker:looker-user-api
+  name: Looker User API
+  description: >-
+    Manage Looker users including creating, updating, and retrieving user accounts, credentials, roles,
+    and sessions.
+  humanURL: https://developers.looker.com/api/explorer/4.0
+  baseURL: https://your-instance.looker.com:19999/api/4.0
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/looker-user-api-openapi.yml
+  - type: Documentation
+    url: https://developers.looker.com/api/getting-started
+  - type: Authentication
+    url: https://developers.looker.com/api/getting-started#authentication
+  - type: SDKs
+    url: https://developers.looker.com/api/sdks
+  - type: Console
+    url: https://developers.looker.com/api/explorer/4.0
+  - type: RateLimits
+    url: https://cloud.google.com/looker/docs/api-rate-limits
+  - type: APIReference
+    url: https://docs.cloud.google.com/looker/docs/reference/looker-api/latest
+  - type: GettingStarted
+    url: https://docs.cloud.google.com/looker/docs/api-getting-started
+  - type: Versioning
+    url: https://docs.cloud.google.com/looker/docs/api-versioning
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/looker/overview
   - type: AgenticAccess
     url: agentic-access/looker-agentic-access.yml
   - type: DomainSecurity
