@@ -1,0 +1,330 @@
+{
+  "info": {
+    "_postman_id": "c18e31aa-1b65-4faf-986f-c10ce40519b3",
+    "name": "Looker Auth API",
+    "description": "The Looker API 4.0 provides programmatic access to the Looker business intelligence platform. It allows you to manage and interact with Looks, dashboards, queries, users, and other Looker resources. The API uses client credentials (client_id and client_secret) for authentication and returns JSON responses. Looker is part of Google Cloud and the API is available on any Looker instance at the /api/4.0 path.\n\nContact Support:\n Name: Google Cloud Looker Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:07:38.000Z",
+    "updatedAt": "2026-07-28T02:07:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c18e31aa-1b65-4faf-986f-c10ce40519b3"
+  },
+  "item": [
+    {
+      "name": "login",
+      "item": [
+        {
+          "name": "Looker Log in",
+          "id": "d5fb72a9-79ff-4cb7-af42-cb73b576b43a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) API client ID generated from Looker Admin",
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API client secret generated from Looker Admin",
+                  "key": "client_secret",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "login"
+              ]
+            },
+            "description": "Authenticates with the Looker API using client credentials and returns an access token. The client_id and client_secret are generated from the Looker Admin panel under Users > API Keys. The returned access token must be included as a Bearer token in the Authorization header for all subsequent API requests."
+          },
+          "response": [
+            {
+              "id": "ef404e3b-b781-471a-9ade-d129faa6a753",
+              "name": "Successfully authenticated",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) API client ID generated from Looker Admin",
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API client secret generated from Looker Admin",
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"access_token\": \"<string>\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": \"<integer>\",\n  \"refresh_token\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:07:39.000Z",
+              "updatedAt": "2026-07-28T02:07:39.000Z",
+              "uid": "35240-ef404e3b-b781-471a-9ade-d129faa6a753"
+            },
+            {
+              "id": "a24ad46e-bb2c-40e4-ba9b-f4e09b70b5db",
+              "name": "Invalid client credentials",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) API client ID generated from Looker Admin",
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API client secret generated from Looker Admin",
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "login"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:07:39.000Z",
+              "updatedAt": "2026-07-28T02:07:39.000Z",
+              "uid": "35240-a24ad46e-bb2c-40e4-ba9b-f4e09b70b5db"
+            }
+          ],
+          "createdAt": "2026-07-28T02:07:39.000Z",
+          "updatedAt": "2026-07-28T02:07:39.000Z",
+          "uid": "35240-d5fb72a9-79ff-4cb7-af42-cb73b576b43a"
+        }
+      ],
+      "id": "ad3738d1-13a8-4dcd-acca-199348a1c3e3",
+      "createdAt": "2026-07-28T02:07:39.000Z",
+      "updatedAt": "2026-07-28T02:07:39.000Z",
+      "uid": "35240-ad3738d1-13a8-4dcd-acca-199348a1c3e3"
+    },
+    {
+      "name": "logout",
+      "item": [
+        {
+          "name": "Looker Log Out",
+          "id": "f0843ca6-8218-41eb-9dfe-320026b67e9e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "logout"
+              ]
+            },
+            "description": "Revokes the current API access token, ending the authenticated session. After logout, the token can no longer be used."
+          },
+          "response": [
+            {
+              "id": "e610ce75-0511-46a1-8d62-eecc80ca6b73",
+              "name": "Successfully logged out",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/logout",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "logout"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:07:39.000Z",
+              "updatedAt": "2026-07-28T02:07:39.000Z",
+              "uid": "35240-e610ce75-0511-46a1-8d62-eecc80ca6b73"
+            },
+            {
+              "id": "bcc73b87-251e-4b8d-b8b9-87e3e707923a",
+              "name": "Session not found",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/logout",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "logout"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:07:39.000Z",
+              "updatedAt": "2026-07-28T02:07:39.000Z",
+              "uid": "35240-bcc73b87-251e-4b8d-b8b9-87e3e707923a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:07:39.000Z",
+          "updatedAt": "2026-07-28T02:07:39.000Z",
+          "uid": "35240-f0843ca6-8218-41eb-9dfe-320026b67e9e"
+        }
+      ],
+      "id": "f5c21a35-12dd-448b-9984-defaf67a4725",
+      "createdAt": "2026-07-28T02:07:39.000Z",
+      "updatedAt": "2026-07-28T02:07:39.000Z",
+      "uid": "35240-f5c21a35-12dd-448b-9984-defaf67a4725"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "your-instance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.looker.com/api/4.0"
+    }
+  ]
+}

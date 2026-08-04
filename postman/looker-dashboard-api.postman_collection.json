@@ -1,0 +1,1460 @@
+{
+  "info": {
+    "_postman_id": "dd14b4f6-03b9-4165-84e3-b0f80192b163",
+    "name": "Looker Auth Dashboard API",
+    "description": "The Looker API 4.0 provides programmatic access to the Looker business intelligence platform. It allows you to manage and interact with Looks, dashboards, queries, users, and other Looker resources. The API uses client credentials (client_id and client_secret) for authentication and returns JSON responses. Looker is part of Google Cloud and the API is available on any Looker instance at the /api/4.0 path.\n\nContact Support:\n Name: Google Cloud Looker Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:07:40.000Z",
+    "updatedAt": "2026-07-28T02:07:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dd14b4f6-03b9-4165-84e3-b0f80192b163"
+  },
+  "item": [
+    {
+      "name": "dashboards",
+      "item": [
+        {
+          "name": "search",
+          "item": [
+            {
+              "name": "Looker Search Dashboards",
+              "id": "5fd079fc-5630-47ab-8c65-59bf54a3ed41",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dashboards/search?fields=<string>&limit=100&offset=0&title=<string>&description=<string>&space_id=<string>&user_id=<string>&sorts=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dashboards",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of results to skip before returning results",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by dashboard title",
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by dashboard description",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by space (folder) ID",
+                      "key": "space_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by creator user ID",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sort fields",
+                      "key": "sorts",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Searches for dashboards matching the specified criteria including title, description, space, and creator. Results are paginated."
+              },
+              "response": [
+                {
+                  "id": "39a50dfc-8fcc-46ce-8c89-b3bcc1ea1d0e",
+                  "name": "Search results",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/search?fields=<string>&limit=100&offset=0&title=<string>&description=<string>&space_id=<string>&user_id=<string>&sorts=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Number of results to skip before returning results",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Filter by dashboard title",
+                          "key": "title",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by dashboard description",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by space (folder) ID",
+                          "key": "space_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by creator user ID",
+                          "key": "user_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Sort fields",
+                          "key": "sorts",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"query_timezone\": \"<string>\",\n    \"space_id\": \"<string>\",\n    \"folder_id\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"space\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"folder\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"content_metadata_id\": \"<long>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"dashboard_elements\": [\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"look_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"reprehenderit_7\": \"<string>\",\n            \"quic\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"anim5b\": -54813877,\n            \"animcb\": 8801544\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"look\": {\n          \"id\": \"<long>\",\n          \"title\": \"<string>\",\n          \"description\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"query_id\": \"<long>\",\n          \"query\": {\n            \"id\": \"<long>\",\n            \"model\": \"<string>\",\n            \"view\": \"<string>\",\n            \"fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"pivots\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"fill_fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"filters\": {\n              \"sint63\": \"<string>\",\n              \"fugiat__\": \"<string>\"\n            },\n            \"filter_expression\": \"<string>\",\n            \"sorts\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"limit\": \"<string>\",\n            \"column_limit\": \"<string>\",\n            \"total\": \"<boolean>\",\n            \"row_total\": \"<string>\",\n            \"subtotals\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"dynamic_fields\": \"<string>\",\n            \"vis_config\": {\n              \"occaecat_7ab\": true\n            },\n            \"query_timezone\": \"<string>\",\n            \"client_id\": \"<string>\",\n            \"slug\": \"<string>\",\n            \"share_url\": \"<string>\",\n            \"url\": \"<string>\",\n            \"has_table_calculations\": \"<boolean>\"\n          },\n          \"space_id\": \"<string>\",\n          \"folder_id\": \"<string>\",\n          \"user_id\": \"<long>\",\n          \"space\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"folder\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"content_metadata_id\": \"<long>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"public\": \"<boolean>\",\n          \"is_run_on_load\": \"<boolean>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"deleted_at\": \"<dateTime>\",\n          \"deleted\": \"<boolean>\",\n          \"last_accessed_at\": \"<dateTime>\",\n          \"view_count\": \"<integer>\",\n          \"favorite_count\": \"<integer>\",\n          \"model\": {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\"\n          },\n          \"url\": \"<string>\"\n        },\n        \"type\": \"filter\",\n        \"title\": \"<string>\",\n        \"title_hidden\": \"<boolean>\",\n        \"subtitle_text\": \"<string>\",\n        \"body_text\": \"<string>\",\n        \"note_text\": \"<string>\",\n        \"note_display\": \"<string>\",\n        \"note_state\": \"<string>\",\n        \"result_maker\": {},\n        \"rich_content_json\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"look_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"amet_acf\": \"<string>\",\n            \"aute_f9\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"proident_ea\": \"deserunt cillum\",\n            \"Ut_2aa\": 15217699\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"look\": {\n          \"id\": \"<long>\",\n          \"title\": \"<string>\",\n          \"description\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"query_id\": \"<long>\",\n          \"query\": {\n            \"id\": \"<long>\",\n            \"model\": \"<string>\",\n            \"view\": \"<string>\",\n            \"fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"pivots\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"fill_fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"filters\": {\n              \"ut_\": \"<string>\"\n            },\n            \"filter_expression\": \"<string>\",\n            \"sorts\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"limit\": \"<string>\",\n            \"column_limit\": \"<string>\",\n            \"total\": \"<boolean>\",\n            \"row_total\": \"<string>\",\n            \"subtotals\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"dynamic_fields\": \"<string>\",\n            \"vis_config\": {\n              \"in_1\": \"sunt eu nulla\",\n              \"commodo_53\": true\n            },\n            \"query_timezone\": \"<string>\",\n            \"client_id\": \"<string>\",\n            \"slug\": \"<string>\",\n            \"share_url\": \"<string>\",\n            \"url\": \"<string>\",\n            \"has_table_calculations\": \"<boolean>\"\n          },\n          \"space_id\": \"<string>\",\n          \"folder_id\": \"<string>\",\n          \"user_id\": \"<long>\",\n          \"space\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"folder\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"content_metadata_id\": \"<long>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"public\": \"<boolean>\",\n          \"is_run_on_load\": \"<boolean>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"deleted_at\": \"<dateTime>\",\n          \"deleted\": \"<boolean>\",\n          \"last_accessed_at\": \"<dateTime>\",\n          \"view_count\": \"<integer>\",\n          \"favorite_count\": \"<integer>\",\n          \"model\": {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\"\n          },\n          \"url\": \"<string>\"\n        },\n        \"type\": \"text\",\n        \"title\": \"<string>\",\n        \"title_hidden\": \"<boolean>\",\n        \"subtitle_text\": \"<string>\",\n        \"body_text\": \"<string>\",\n        \"note_text\": \"<string>\",\n        \"note_display\": \"<string>\",\n        \"note_state\": \"<string>\",\n        \"result_maker\": {},\n        \"rich_content_json\": \"<string>\"\n      }\n    ],\n    \"dashboard_filters\": [\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"type\": \"number_filter\",\n        \"model\": \"<string>\",\n        \"explore\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"default_value\": \"<string>\",\n        \"allow_multiple_values\": \"<boolean>\",\n        \"required\": \"<boolean>\",\n        \"row\": \"<integer>\",\n        \"listens_to_filters\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"type\": \"string_filter\",\n        \"model\": \"<string>\",\n        \"explore\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"default_value\": \"<string>\",\n        \"allow_multiple_values\": \"<boolean>\",\n        \"required\": \"<boolean>\",\n        \"row\": \"<integer>\",\n        \"listens_to_filters\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"dashboard_layouts\": [\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"active\": \"<boolean>\",\n        \"column_width\": \"<integer>\",\n        \"width\": \"<integer>\",\n        \"dashboard_layout_components\": [\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"active\": \"<boolean>\",\n        \"column_width\": \"<integer>\",\n        \"width\": \"<integer>\",\n        \"dashboard_layout_components\": [\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          }\n        ]\n      }\n    ],\n    \"background_color\": \"<string>\",\n    \"text_tile_text_color\": \"<string>\",\n    \"tile_background_color\": \"<string>\",\n    \"tile_text_color\": \"<string>\",\n    \"hidden\": \"<boolean>\",\n    \"readonly\": \"<boolean>\",\n    \"refresh_interval\": \"<string>\",\n    \"load_configuration\": \"<string>\",\n    \"preferred_viewer\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"deleted\": \"<boolean>\",\n    \"last_accessed_at\": \"<dateTime>\",\n    \"view_count\": \"<integer>\",\n    \"favorite_count\": \"<integer>\",\n    \"url\": \"<string>\",\n    \"model\": {\n      \"id\": \"<string>\",\n      \"label\": \"<string>\"\n    }\n  },\n  {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"query_timezone\": \"<string>\",\n    \"space_id\": \"<string>\",\n    \"folder_id\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"space\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"folder\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"content_metadata_id\": \"<long>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"dashboard_elements\": [\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"look_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"occaecat_93a\": \"<string>\",\n            \"incididunt_d\": \"<string>\",\n            \"culpa_f\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"ex_5a\": -19196137.611480653\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"look\": {\n          \"id\": \"<long>\",\n          \"title\": \"<string>\",\n          \"description\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"query_id\": \"<long>\",\n          \"query\": {\n            \"id\": \"<long>\",\n            \"model\": \"<string>\",\n            \"view\": \"<string>\",\n            \"fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"pivots\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"fill_fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"filters\": {\n              \"anima52\": \"<string>\"\n            },\n            \"filter_expression\": \"<string>\",\n            \"sorts\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"limit\": \"<string>\",\n            \"column_limit\": \"<string>\",\n            \"total\": \"<boolean>\",\n            \"row_total\": \"<string>\",\n            \"subtotals\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"dynamic_fields\": \"<string>\",\n            \"vis_config\": {\n              \"dolordc\": \"voluptate ut fugiat\",\n              \"esse0\": false\n            },\n            \"query_timezone\": \"<string>\",\n            \"client_id\": \"<string>\",\n            \"slug\": \"<string>\",\n            \"share_url\": \"<string>\",\n            \"url\": \"<string>\",\n            \"has_table_calculations\": \"<boolean>\"\n          },\n          \"space_id\": \"<string>\",\n          \"folder_id\": \"<string>\",\n          \"user_id\": \"<long>\",\n          \"space\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"folder\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"content_metadata_id\": \"<long>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"public\": \"<boolean>\",\n          \"is_run_on_load\": \"<boolean>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"deleted_at\": \"<dateTime>\",\n          \"deleted\": \"<boolean>\",\n          \"last_accessed_at\": \"<dateTime>\",\n          \"view_count\": \"<integer>\",\n          \"favorite_count\": \"<integer>\",\n          \"model\": {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\"\n          },\n          \"url\": \"<string>\"\n        },\n        \"type\": \"data\",\n        \"title\": \"<string>\",\n        \"title_hidden\": \"<boolean>\",\n        \"subtitle_text\": \"<string>\",\n        \"body_text\": \"<string>\",\n        \"note_text\": \"<string>\",\n        \"note_display\": \"<string>\",\n        \"note_state\": \"<string>\",\n        \"result_maker\": {},\n        \"rich_content_json\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"look_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"minim36\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"in_4eb\": true,\n            \"id90\": -68945591.25944805,\n            \"occaecatc7\": -7675537.269328147,\n            \"sint54\": \"velit officia ullamco\"\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"look\": {\n          \"id\": \"<long>\",\n          \"title\": \"<string>\",\n          \"description\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"query_id\": \"<long>\",\n          \"query\": {\n            \"id\": \"<long>\",\n            \"model\": \"<string>\",\n            \"view\": \"<string>\",\n            \"fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"pivots\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"fill_fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"filters\": {\n              \"nulla__12\": \"<string>\",\n              \"mollit1\": \"<string>\",\n              \"Uta\": \"<string>\",\n              \"incididunt07b\": \"<string>\"\n            },\n            \"filter_expression\": \"<string>\",\n            \"sorts\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"limit\": \"<string>\",\n            \"column_limit\": \"<string>\",\n            \"total\": \"<boolean>\",\n            \"row_total\": \"<string>\",\n            \"subtotals\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"dynamic_fields\": \"<string>\",\n            \"vis_config\": {\n              \"ex_3_\": true,\n              \"suntd5\": true\n            },\n            \"query_timezone\": \"<string>\",\n            \"client_id\": \"<string>\",\n            \"slug\": \"<string>\",\n            \"share_url\": \"<string>\",\n            \"url\": \"<string>\",\n            \"has_table_calculations\": \"<boolean>\"\n          },\n          \"space_id\": \"<string>\",\n          \"folder_id\": \"<string>\",\n          \"user_id\": \"<long>\",\n          \"space\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"folder\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"content_metadata_id\": \"<long>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"public\": \"<boolean>\",\n          \"is_run_on_load\": \"<boolean>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"deleted_at\": \"<dateTime>\",\n          \"deleted\": \"<boolean>\",\n          \"last_accessed_at\": \"<dateTime>\",\n          \"view_count\": \"<integer>\",\n          \"favorite_count\": \"<integer>\",\n          \"model\": {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\"\n          },\n          \"url\": \"<string>\"\n        },\n        \"type\": \"filter\",\n        \"title\": \"<string>\",\n        \"title_hidden\": \"<boolean>\",\n        \"subtitle_text\": \"<string>\",\n        \"body_text\": \"<string>\",\n        \"note_text\": \"<string>\",\n        \"note_display\": \"<string>\",\n        \"note_state\": \"<string>\",\n        \"result_maker\": {},\n        \"rich_content_json\": \"<string>\"\n      }\n    ],\n    \"dashboard_filters\": [\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"type\": \"string_filter\",\n        \"model\": \"<string>\",\n        \"explore\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"default_value\": \"<string>\",\n        \"allow_multiple_values\": \"<boolean>\",\n        \"required\": \"<boolean>\",\n        \"row\": \"<integer>\",\n        \"listens_to_filters\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"type\": \"number_filter\",\n        \"model\": \"<string>\",\n        \"explore\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"default_value\": \"<string>\",\n        \"allow_multiple_values\": \"<boolean>\",\n        \"required\": \"<boolean>\",\n        \"row\": \"<integer>\",\n        \"listens_to_filters\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"dashboard_layouts\": [\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"active\": \"<boolean>\",\n        \"column_width\": \"<integer>\",\n        \"width\": \"<integer>\",\n        \"dashboard_layout_components\": [\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"active\": \"<boolean>\",\n        \"column_width\": \"<integer>\",\n        \"width\": \"<integer>\",\n        \"dashboard_layout_components\": [\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          }\n        ]\n      }\n    ],\n    \"background_color\": \"<string>\",\n    \"text_tile_text_color\": \"<string>\",\n    \"tile_background_color\": \"<string>\",\n    \"tile_text_color\": \"<string>\",\n    \"hidden\": \"<boolean>\",\n    \"readonly\": \"<boolean>\",\n    \"refresh_interval\": \"<string>\",\n    \"load_configuration\": \"<string>\",\n    \"preferred_viewer\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"deleted\": \"<boolean>\",\n    \"last_accessed_at\": \"<dateTime>\",\n    \"view_count\": \"<integer>\",\n    \"favorite_count\": \"<integer>\",\n    \"url\": \"<string>\",\n    \"model\": {\n      \"id\": \"<string>\",\n      \"label\": \"<string>\"\n    }\n  }\n]",
+                  "createdAt": "2026-07-28T02:07:40.000Z",
+                  "updatedAt": "2026-07-28T02:07:40.000Z",
+                  "uid": "35240-39a50dfc-8fcc-46ce-8c89-b3bcc1ea1d0e"
+                },
+                {
+                  "id": "4cee8f81-c151-43e1-ac1d-de6285a7fca6",
+                  "name": "Invalid search parameters",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/search?fields=<string>&limit=100&offset=0&title=<string>&description=<string>&space_id=<string>&user_id=<string>&sorts=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Number of results to skip before returning results",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Filter by dashboard title",
+                          "key": "title",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by dashboard description",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by space (folder) ID",
+                          "key": "space_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by creator user ID",
+                          "key": "user_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Sort fields",
+                          "key": "sorts",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:40.000Z",
+                  "updatedAt": "2026-07-28T02:07:40.000Z",
+                  "uid": "35240-4cee8f81-c151-43e1-ac1d-de6285a7fca6"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:40.000Z",
+              "updatedAt": "2026-07-28T02:07:40.000Z",
+              "uid": "35240-5fd079fc-5630-47ab-8c65-59bf54a3ed41"
+            }
+          ],
+          "id": "71fb4bce-135a-429c-bd26-a61b8fb66df0",
+          "createdAt": "2026-07-28T02:07:40.000Z",
+          "updatedAt": "2026-07-28T02:07:40.000Z",
+          "uid": "35240-71fb4bce-135a-429c-bd26-a61b8fb66df0"
+        },
+        {
+          "name": "{dashboard_id}",
+          "item": [
+            {
+              "name": "dashboard_elements",
+              "item": [
+                {
+                  "name": "Looker List Dashboard Elements",
+                  "id": "240fd913-3b27-449a-9417-d37fc3605439",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboard_id/dashboard_elements?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboard_id",
+                        "dashboard_elements"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "b2950762-b296-446b-a02c-22ad5257bb9a",
+                          "key": "dashboard_id",
+                          "value": "<string>",
+                          "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                        }
+                      ]
+                    },
+                    "description": "Returns all elements (tiles) for the specified dashboard. Each element contains a query, a Look reference, or a text/markdown content block along with positioning and size information."
+                  },
+                  "response": [
+                    {
+                      "id": "95a1b1c0-32e4-4347-8546-559b1479d2a7",
+                      "name": "List of dashboard elements",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dashboards/:dashboard_id/dashboard_elements?fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dashboards",
+                            ":dashboard_id",
+                            "dashboard_elements"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "dashboard_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"dashboard_id\": \"<string>\",\n    \"look_id\": \"<long>\",\n    \"query_id\": \"<long>\",\n    \"query\": {\n      \"id\": \"<long>\",\n      \"model\": \"<string>\",\n      \"view\": \"<string>\",\n      \"fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"pivots\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fill_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"filters\": {\n        \"officia86\": \"<string>\"\n      },\n      \"filter_expression\": \"<string>\",\n      \"sorts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"limit\": \"<string>\",\n      \"column_limit\": \"<string>\",\n      \"total\": \"<boolean>\",\n      \"row_total\": \"<string>\",\n      \"subtotals\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dynamic_fields\": \"<string>\",\n      \"vis_config\": {\n        \"sint_1\": \"do\",\n        \"ut_bd\": 65066754.635827005\n      },\n      \"query_timezone\": \"<string>\",\n      \"client_id\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"share_url\": \"<string>\",\n      \"url\": \"<string>\",\n      \"has_table_calculations\": \"<boolean>\"\n    },\n    \"look\": {\n      \"id\": \"<long>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"content_metadata_id\": \"<long>\",\n      \"query_id\": \"<long>\",\n      \"query\": {\n        \"id\": \"<long>\",\n        \"model\": \"<string>\",\n        \"view\": \"<string>\",\n        \"fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"pivots\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"fill_fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"filters\": {\n          \"nisi17e\": \"<string>\"\n        },\n        \"filter_expression\": \"<string>\",\n        \"sorts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"limit\": \"<string>\",\n        \"column_limit\": \"<string>\",\n        \"total\": \"<boolean>\",\n        \"row_total\": \"<string>\",\n        \"subtotals\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dynamic_fields\": \"<string>\",\n        \"vis_config\": {\n          \"reprehenderit__\": -39428736.67441087,\n          \"ullamco_ca1\": -38381735.75216426\n        },\n        \"query_timezone\": \"<string>\",\n        \"client_id\": \"<string>\",\n        \"slug\": \"<string>\",\n        \"share_url\": \"<string>\",\n        \"url\": \"<string>\",\n        \"has_table_calculations\": \"<boolean>\"\n      },\n      \"space_id\": \"<string>\",\n      \"folder_id\": \"<string>\",\n      \"user_id\": \"<long>\",\n      \"space\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"parent_id\": \"<string>\",\n        \"is_shared_root\": \"<boolean>\",\n        \"is_users_root\": \"<boolean>\",\n        \"is_user_root\": \"<boolean>\"\n      },\n      \"folder\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"parent_id\": \"<string>\",\n        \"content_metadata_id\": \"<long>\",\n        \"is_shared_root\": \"<boolean>\",\n        \"is_users_root\": \"<boolean>\",\n        \"is_user_root\": \"<boolean>\"\n      },\n      \"public\": \"<boolean>\",\n      \"is_run_on_load\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"deleted\": \"<boolean>\",\n      \"last_accessed_at\": \"<dateTime>\",\n      \"view_count\": \"<integer>\",\n      \"favorite_count\": \"<integer>\",\n      \"model\": {\n        \"id\": \"<string>\",\n        \"label\": \"<string>\"\n      },\n      \"url\": \"<string>\"\n    },\n    \"type\": \"vis\",\n    \"title\": \"<string>\",\n    \"title_hidden\": \"<boolean>\",\n    \"subtitle_text\": \"<string>\",\n    \"body_text\": \"<string>\",\n    \"note_text\": \"<string>\",\n    \"note_display\": \"<string>\",\n    \"note_state\": \"<string>\",\n    \"result_maker\": {},\n    \"rich_content_json\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"dashboard_id\": \"<string>\",\n    \"look_id\": \"<long>\",\n    \"query_id\": \"<long>\",\n    \"query\": {\n      \"id\": \"<long>\",\n      \"model\": \"<string>\",\n      \"view\": \"<string>\",\n      \"fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"pivots\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fill_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"filters\": {\n        \"sit_548\": \"<string>\"\n      },\n      \"filter_expression\": \"<string>\",\n      \"sorts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"limit\": \"<string>\",\n      \"column_limit\": \"<string>\",\n      \"total\": \"<boolean>\",\n      \"row_total\": \"<string>\",\n      \"subtotals\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dynamic_fields\": \"<string>\",\n      \"vis_config\": {\n        \"tempor310\": -15765218.117457718,\n        \"Duisb\": -84882618\n      },\n      \"query_timezone\": \"<string>\",\n      \"client_id\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"share_url\": \"<string>\",\n      \"url\": \"<string>\",\n      \"has_table_calculations\": \"<boolean>\"\n    },\n    \"look\": {\n      \"id\": \"<long>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"content_metadata_id\": \"<long>\",\n      \"query_id\": \"<long>\",\n      \"query\": {\n        \"id\": \"<long>\",\n        \"model\": \"<string>\",\n        \"view\": \"<string>\",\n        \"fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"pivots\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"fill_fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"filters\": {\n          \"laboris_7b\": \"<string>\",\n          \"Ut_99\": \"<string>\"\n        },\n        \"filter_expression\": \"<string>\",\n        \"sorts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"limit\": \"<string>\",\n        \"column_limit\": \"<string>\",\n        \"total\": \"<boolean>\",\n        \"row_total\": \"<string>\",\n        \"subtotals\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dynamic_fields\": \"<string>\",\n        \"vis_config\": {\n          \"sit3\": -78038036.05472277\n        },\n        \"query_timezone\": \"<string>\",\n        \"client_id\": \"<string>\",\n        \"slug\": \"<string>\",\n        \"share_url\": \"<string>\",\n        \"url\": \"<string>\",\n        \"has_table_calculations\": \"<boolean>\"\n      },\n      \"space_id\": \"<string>\",\n      \"folder_id\": \"<string>\",\n      \"user_id\": \"<long>\",\n      \"space\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"parent_id\": \"<string>\",\n        \"is_shared_root\": \"<boolean>\",\n        \"is_users_root\": \"<boolean>\",\n        \"is_user_root\": \"<boolean>\"\n      },\n      \"folder\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"parent_id\": \"<string>\",\n        \"content_metadata_id\": \"<long>\",\n        \"is_shared_root\": \"<boolean>\",\n        \"is_users_root\": \"<boolean>\",\n        \"is_user_root\": \"<boolean>\"\n      },\n      \"public\": \"<boolean>\",\n      \"is_run_on_load\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"deleted_at\": \"<dateTime>\",\n      \"deleted\": \"<boolean>\",\n      \"last_accessed_at\": \"<dateTime>\",\n      \"view_count\": \"<integer>\",\n      \"favorite_count\": \"<integer>\",\n      \"model\": {\n        \"id\": \"<string>\",\n        \"label\": \"<string>\"\n      },\n      \"url\": \"<string>\"\n    },\n    \"type\": \"vis\",\n    \"title\": \"<string>\",\n    \"title_hidden\": \"<boolean>\",\n    \"subtitle_text\": \"<string>\",\n    \"body_text\": \"<string>\",\n    \"note_text\": \"<string>\",\n    \"note_display\": \"<string>\",\n    \"note_state\": \"<string>\",\n    \"result_maker\": {},\n    \"rich_content_json\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:07:40.000Z",
+                      "updatedAt": "2026-07-28T02:07:40.000Z",
+                      "uid": "35240-95a1b1c0-32e4-4347-8546-559b1479d2a7"
+                    },
+                    {
+                      "id": "d4a4e07f-5791-41c1-bf44-89a91c912c30",
+                      "name": "Dashboard not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dashboards/:dashboard_id/dashboard_elements?fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dashboards",
+                            ":dashboard_id",
+                            "dashboard_elements"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "dashboard_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:40.000Z",
+                      "updatedAt": "2026-07-28T02:07:40.000Z",
+                      "uid": "35240-d4a4e07f-5791-41c1-bf44-89a91c912c30"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:07:40.000Z",
+                  "updatedAt": "2026-07-28T02:07:40.000Z",
+                  "uid": "35240-240fd913-3b27-449a-9417-d37fc3605439"
+                }
+              ],
+              "id": "c0300947-3630-4e5b-9663-44ab63eba207",
+              "createdAt": "2026-07-28T02:07:40.000Z",
+              "updatedAt": "2026-07-28T02:07:40.000Z",
+              "uid": "35240-c0300947-3630-4e5b-9663-44ab63eba207"
+            },
+            {
+              "name": "dashboard_filters",
+              "item": [
+                {
+                  "name": "Looker List Dashboard Filters",
+                  "id": "29ebbb7d-d1b3-4474-86bf-485dc4fa2983",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboard_id/dashboard_filters?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboard_id",
+                        "dashboard_filters"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "5aba7d44-e48b-4097-83c8-14882aa5dfa1",
+                          "key": "dashboard_id",
+                          "value": "<string>",
+                          "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                        }
+                      ]
+                    },
+                    "description": "Returns all filters defined on the specified dashboard. Dashboard filters allow users to dynamically change query parameters across all tiles that listen to a given filter."
+                  },
+                  "response": [
+                    {
+                      "id": "65daeebd-d0ff-4aab-911e-f1b7973006f0",
+                      "name": "List of dashboard filters",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dashboards/:dashboard_id/dashboard_filters?fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dashboards",
+                            ":dashboard_id",
+                            "dashboard_filters"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "dashboard_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"dashboard_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"title\": \"<string>\",\n    \"type\": \"date_filter\",\n    \"model\": \"<string>\",\n    \"explore\": \"<string>\",\n    \"dimension\": \"<string>\",\n    \"default_value\": \"<string>\",\n    \"allow_multiple_values\": \"<boolean>\",\n    \"required\": \"<boolean>\",\n    \"row\": \"<integer>\",\n    \"listens_to_filters\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"id\": \"<string>\",\n    \"dashboard_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"title\": \"<string>\",\n    \"type\": \"field_filter\",\n    \"model\": \"<string>\",\n    \"explore\": \"<string>\",\n    \"dimension\": \"<string>\",\n    \"default_value\": \"<string>\",\n    \"allow_multiple_values\": \"<boolean>\",\n    \"required\": \"<boolean>\",\n    \"row\": \"<integer>\",\n    \"listens_to_filters\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]",
+                      "createdAt": "2026-07-28T02:07:40.000Z",
+                      "updatedAt": "2026-07-28T02:07:40.000Z",
+                      "uid": "35240-65daeebd-d0ff-4aab-911e-f1b7973006f0"
+                    },
+                    {
+                      "id": "cc284e09-c482-426d-90b9-db8ded749510",
+                      "name": "Dashboard not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dashboards/:dashboard_id/dashboard_filters?fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dashboards",
+                            ":dashboard_id",
+                            "dashboard_filters"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "dashboard_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:40.000Z",
+                      "updatedAt": "2026-07-28T02:07:40.000Z",
+                      "uid": "35240-cc284e09-c482-426d-90b9-db8ded749510"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:07:40.000Z",
+                  "updatedAt": "2026-07-28T02:07:40.000Z",
+                  "uid": "35240-29ebbb7d-d1b3-4474-86bf-485dc4fa2983"
+                }
+              ],
+              "id": "75c5a004-b806-4ea9-8bb1-67d2f9095290",
+              "createdAt": "2026-07-28T02:07:40.000Z",
+              "updatedAt": "2026-07-28T02:07:40.000Z",
+              "uid": "35240-75c5a004-b806-4ea9-8bb1-67d2f9095290"
+            },
+            {
+              "name": "Looker Get a Dashboard",
+              "id": "a2928f0d-1115-45e4-9971-f6ae0ce3b565",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dashboards/:dashboard_id?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "4062b109-7a3d-4b25-927a-5d8e6211e041",
+                      "key": "dashboard_id",
+                      "value": "<string>",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    }
+                  ]
+                },
+                "description": "Retrieves a single dashboard by its ID, including all dashboard elements (tiles), filters, and layout configuration. For user-defined dashboards the ID is numeric; for LookML dashboards the ID is the model::dashboard_name string."
+              },
+              "response": [
+                {
+                  "id": "a77303ad-cec6-4324-8e18-32cd5ab4ad50",
+                  "name": "Dashboard details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboard_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboard_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "dashboard_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content_metadata_id\": \"<long>\",\n  \"query_timezone\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"user_id\": \"<long>\",\n  \"space\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"parent_id\": \"<string>\",\n    \"is_shared_root\": \"<boolean>\",\n    \"is_users_root\": \"<boolean>\",\n    \"is_user_root\": \"<boolean>\"\n  },\n  \"folder\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"parent_id\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"is_shared_root\": \"<boolean>\",\n    \"is_users_root\": \"<boolean>\",\n    \"is_user_root\": \"<boolean>\"\n  },\n  \"dashboard_elements\": [\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"look_id\": \"<long>\",\n      \"query_id\": \"<long>\",\n      \"query\": {\n        \"id\": \"<long>\",\n        \"model\": \"<string>\",\n        \"view\": \"<string>\",\n        \"fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"pivots\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"fill_fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"filters\": {\n          \"animd_c\": \"<string>\"\n        },\n        \"filter_expression\": \"<string>\",\n        \"sorts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"limit\": \"<string>\",\n        \"column_limit\": \"<string>\",\n        \"total\": \"<boolean>\",\n        \"row_total\": \"<string>\",\n        \"subtotals\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dynamic_fields\": \"<string>\",\n        \"vis_config\": {\n          \"enim_7d_\": \"mollit irure consectetur\",\n          \"velitd\": true,\n          \"officia_4\": \"Duis sint aute\",\n          \"Excepteur_a\": false\n        },\n        \"query_timezone\": \"<string>\",\n        \"client_id\": \"<string>\",\n        \"slug\": \"<string>\",\n        \"share_url\": \"<string>\",\n        \"url\": \"<string>\",\n        \"has_table_calculations\": \"<boolean>\"\n      },\n      \"look\": {\n        \"id\": \"<long>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"content_metadata_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"esse_\": \"<string>\",\n            \"cupidatatda8\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"elit_7d0\": false,\n            \"deserunt6dd\": true\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"space_id\": \"<string>\",\n        \"folder_id\": \"<string>\",\n        \"user_id\": \"<long>\",\n        \"space\": {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<string>\",\n          \"is_shared_root\": \"<boolean>\",\n          \"is_users_root\": \"<boolean>\",\n          \"is_user_root\": \"<boolean>\"\n        },\n        \"folder\": {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"is_shared_root\": \"<boolean>\",\n          \"is_users_root\": \"<boolean>\",\n          \"is_user_root\": \"<boolean>\"\n        },\n        \"public\": \"<boolean>\",\n        \"is_run_on_load\": \"<boolean>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"deleted_at\": \"<dateTime>\",\n        \"deleted\": \"<boolean>\",\n        \"last_accessed_at\": \"<dateTime>\",\n        \"view_count\": \"<integer>\",\n        \"favorite_count\": \"<integer>\",\n        \"model\": {\n          \"id\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        \"url\": \"<string>\"\n      },\n      \"type\": \"vis\",\n      \"title\": \"<string>\",\n      \"title_hidden\": \"<boolean>\",\n      \"subtitle_text\": \"<string>\",\n      \"body_text\": \"<string>\",\n      \"note_text\": \"<string>\",\n      \"note_display\": \"<string>\",\n      \"note_state\": \"<string>\",\n      \"result_maker\": {},\n      \"rich_content_json\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"look_id\": \"<long>\",\n      \"query_id\": \"<long>\",\n      \"query\": {\n        \"id\": \"<long>\",\n        \"model\": \"<string>\",\n        \"view\": \"<string>\",\n        \"fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"pivots\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"fill_fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"filters\": {\n          \"Ut_5e\": \"<string>\",\n          \"aute48\": \"<string>\",\n          \"et_529\": \"<string>\"\n        },\n        \"filter_expression\": \"<string>\",\n        \"sorts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"limit\": \"<string>\",\n        \"column_limit\": \"<string>\",\n        \"total\": \"<boolean>\",\n        \"row_total\": \"<string>\",\n        \"subtotals\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dynamic_fields\": \"<string>\",\n        \"vis_config\": {\n          \"sunt264\": 72544439,\n          \"et3\": \"commodo magna dolor Excepteur\",\n          \"irure_\": \"proident ullamco reprehenderit cupidatat\"\n        },\n        \"query_timezone\": \"<string>\",\n        \"client_id\": \"<string>\",\n        \"slug\": \"<string>\",\n        \"share_url\": \"<string>\",\n        \"url\": \"<string>\",\n        \"has_table_calculations\": \"<boolean>\"\n      },\n      \"look\": {\n        \"id\": \"<long>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"content_metadata_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"officia_7\": \"<string>\",\n            \"eiusmod_3\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"reprehenderit1\": false\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"space_id\": \"<string>\",\n        \"folder_id\": \"<string>\",\n        \"user_id\": \"<long>\",\n        \"space\": {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<string>\",\n          \"is_shared_root\": \"<boolean>\",\n          \"is_users_root\": \"<boolean>\",\n          \"is_user_root\": \"<boolean>\"\n        },\n        \"folder\": {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"is_shared_root\": \"<boolean>\",\n          \"is_users_root\": \"<boolean>\",\n          \"is_user_root\": \"<boolean>\"\n        },\n        \"public\": \"<boolean>\",\n        \"is_run_on_load\": \"<boolean>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"deleted_at\": \"<dateTime>\",\n        \"deleted\": \"<boolean>\",\n        \"last_accessed_at\": \"<dateTime>\",\n        \"view_count\": \"<integer>\",\n        \"favorite_count\": \"<integer>\",\n        \"model\": {\n          \"id\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        \"url\": \"<string>\"\n      },\n      \"type\": \"data\",\n      \"title\": \"<string>\",\n      \"title_hidden\": \"<boolean>\",\n      \"subtitle_text\": \"<string>\",\n      \"body_text\": \"<string>\",\n      \"note_text\": \"<string>\",\n      \"note_display\": \"<string>\",\n      \"note_state\": \"<string>\",\n      \"result_maker\": {},\n      \"rich_content_json\": \"<string>\"\n    }\n  ],\n  \"dashboard_filters\": [\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"date_filter\",\n      \"model\": \"<string>\",\n      \"explore\": \"<string>\",\n      \"dimension\": \"<string>\",\n      \"default_value\": \"<string>\",\n      \"allow_multiple_values\": \"<boolean>\",\n      \"required\": \"<boolean>\",\n      \"row\": \"<integer>\",\n      \"listens_to_filters\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"string_filter\",\n      \"model\": \"<string>\",\n      \"explore\": \"<string>\",\n      \"dimension\": \"<string>\",\n      \"default_value\": \"<string>\",\n      \"allow_multiple_values\": \"<boolean>\",\n      \"required\": \"<boolean>\",\n      \"row\": \"<integer>\",\n      \"listens_to_filters\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"dashboard_layouts\": [\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"column_width\": \"<integer>\",\n      \"width\": \"<integer>\",\n      \"dashboard_layout_components\": [\n        {\n          \"id\": \"<string>\",\n          \"dashboard_layout_id\": \"<string>\",\n          \"dashboard_element_id\": \"<string>\",\n          \"row\": \"<integer>\",\n          \"column\": \"<integer>\",\n          \"width\": \"<integer>\",\n          \"height\": \"<integer>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"dashboard_layout_id\": \"<string>\",\n          \"dashboard_element_id\": \"<string>\",\n          \"row\": \"<integer>\",\n          \"column\": \"<integer>\",\n          \"width\": \"<integer>\",\n          \"height\": \"<integer>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"column_width\": \"<integer>\",\n      \"width\": \"<integer>\",\n      \"dashboard_layout_components\": [\n        {\n          \"id\": \"<string>\",\n          \"dashboard_layout_id\": \"<string>\",\n          \"dashboard_element_id\": \"<string>\",\n          \"row\": \"<integer>\",\n          \"column\": \"<integer>\",\n          \"width\": \"<integer>\",\n          \"height\": \"<integer>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"dashboard_layout_id\": \"<string>\",\n          \"dashboard_element_id\": \"<string>\",\n          \"row\": \"<integer>\",\n          \"column\": \"<integer>\",\n          \"width\": \"<integer>\",\n          \"height\": \"<integer>\"\n        }\n      ]\n    }\n  ],\n  \"background_color\": \"<string>\",\n  \"text_tile_text_color\": \"<string>\",\n  \"tile_background_color\": \"<string>\",\n  \"tile_text_color\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"readonly\": \"<boolean>\",\n  \"refresh_interval\": \"<string>\",\n  \"load_configuration\": \"<string>\",\n  \"preferred_viewer\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"deleted\": \"<boolean>\",\n  \"last_accessed_at\": \"<dateTime>\",\n  \"view_count\": \"<integer>\",\n  \"favorite_count\": \"<integer>\",\n  \"url\": \"<string>\",\n  \"model\": {\n    \"id\": \"<string>\",\n    \"label\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:07:40.000Z",
+                  "updatedAt": "2026-07-28T02:07:40.000Z",
+                  "uid": "35240-a77303ad-cec6-4324-8e18-32cd5ab4ad50"
+                },
+                {
+                  "id": "a0f40f2b-511c-4717-8202-bf63502f5c46",
+                  "name": "Dashboard not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboard_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboard_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "dashboard_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:40.000Z",
+                  "updatedAt": "2026-07-28T02:07:40.000Z",
+                  "uid": "35240-a0f40f2b-511c-4717-8202-bf63502f5c46"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:40.000Z",
+              "updatedAt": "2026-07-28T02:07:40.000Z",
+              "uid": "35240-a2928f0d-1115-45e4-9971-f6ae0ce3b565"
+            },
+            {
+              "name": "Looker Update a Dashboard",
+              "id": "c9f1a00e-b5a5-4bb8-8764-2aee073488e4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_timezone\": \"<string>\",\n  \"background_color\": \"<string>\",\n  \"text_tile_text_color\": \"<string>\",\n  \"tile_background_color\": \"<string>\",\n  \"tile_text_color\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"refresh_interval\": \"<string>\",\n  \"load_configuration\": \"<string>\",\n  \"preferred_viewer\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dashboards/:dashboard_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ad5d5b3d-a7c6-406e-b124-8ea87ad551b6",
+                      "key": "dashboard_id",
+                      "value": "<string>",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    }
+                  ]
+                },
+                "description": "Updates an existing dashboard. Only the fields provided in the request body are updated. Dashboard elements and filters can be updated through their own dedicated endpoints."
+              },
+              "response": [
+                {
+                  "id": "73d1ad78-d5b6-4cfc-8202-6ffc5001f901",
+                  "name": "Updated dashboard",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_timezone\": \"<string>\",\n  \"background_color\": \"<string>\",\n  \"text_tile_text_color\": \"<string>\",\n  \"tile_background_color\": \"<string>\",\n  \"tile_text_color\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"refresh_interval\": \"<string>\",\n  \"load_configuration\": \"<string>\",\n  \"preferred_viewer\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboard_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboard_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dashboard_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content_metadata_id\": \"<long>\",\n  \"query_timezone\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"user_id\": \"<long>\",\n  \"space\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"parent_id\": \"<string>\",\n    \"is_shared_root\": \"<boolean>\",\n    \"is_users_root\": \"<boolean>\",\n    \"is_user_root\": \"<boolean>\"\n  },\n  \"folder\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"parent_id\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"is_shared_root\": \"<boolean>\",\n    \"is_users_root\": \"<boolean>\",\n    \"is_user_root\": \"<boolean>\"\n  },\n  \"dashboard_elements\": [\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"look_id\": \"<long>\",\n      \"query_id\": \"<long>\",\n      \"query\": {\n        \"id\": \"<long>\",\n        \"model\": \"<string>\",\n        \"view\": \"<string>\",\n        \"fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"pivots\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"fill_fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"filters\": {\n          \"animd_c\": \"<string>\"\n        },\n        \"filter_expression\": \"<string>\",\n        \"sorts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"limit\": \"<string>\",\n        \"column_limit\": \"<string>\",\n        \"total\": \"<boolean>\",\n        \"row_total\": \"<string>\",\n        \"subtotals\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dynamic_fields\": \"<string>\",\n        \"vis_config\": {\n          \"enim_7d_\": \"mollit irure consectetur\",\n          \"velitd\": true,\n          \"officia_4\": \"Duis sint aute\",\n          \"Excepteur_a\": false\n        },\n        \"query_timezone\": \"<string>\",\n        \"client_id\": \"<string>\",\n        \"slug\": \"<string>\",\n        \"share_url\": \"<string>\",\n        \"url\": \"<string>\",\n        \"has_table_calculations\": \"<boolean>\"\n      },\n      \"look\": {\n        \"id\": \"<long>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"content_metadata_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"esse_\": \"<string>\",\n            \"cupidatatda8\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"elit_7d0\": false,\n            \"deserunt6dd\": true\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"space_id\": \"<string>\",\n        \"folder_id\": \"<string>\",\n        \"user_id\": \"<long>\",\n        \"space\": {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<string>\",\n          \"is_shared_root\": \"<boolean>\",\n          \"is_users_root\": \"<boolean>\",\n          \"is_user_root\": \"<boolean>\"\n        },\n        \"folder\": {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"is_shared_root\": \"<boolean>\",\n          \"is_users_root\": \"<boolean>\",\n          \"is_user_root\": \"<boolean>\"\n        },\n        \"public\": \"<boolean>\",\n        \"is_run_on_load\": \"<boolean>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"deleted_at\": \"<dateTime>\",\n        \"deleted\": \"<boolean>\",\n        \"last_accessed_at\": \"<dateTime>\",\n        \"view_count\": \"<integer>\",\n        \"favorite_count\": \"<integer>\",\n        \"model\": {\n          \"id\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        \"url\": \"<string>\"\n      },\n      \"type\": \"vis\",\n      \"title\": \"<string>\",\n      \"title_hidden\": \"<boolean>\",\n      \"subtitle_text\": \"<string>\",\n      \"body_text\": \"<string>\",\n      \"note_text\": \"<string>\",\n      \"note_display\": \"<string>\",\n      \"note_state\": \"<string>\",\n      \"result_maker\": {},\n      \"rich_content_json\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"look_id\": \"<long>\",\n      \"query_id\": \"<long>\",\n      \"query\": {\n        \"id\": \"<long>\",\n        \"model\": \"<string>\",\n        \"view\": \"<string>\",\n        \"fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"pivots\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"fill_fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"filters\": {\n          \"Ut_5e\": \"<string>\",\n          \"aute48\": \"<string>\",\n          \"et_529\": \"<string>\"\n        },\n        \"filter_expression\": \"<string>\",\n        \"sorts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"limit\": \"<string>\",\n        \"column_limit\": \"<string>\",\n        \"total\": \"<boolean>\",\n        \"row_total\": \"<string>\",\n        \"subtotals\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dynamic_fields\": \"<string>\",\n        \"vis_config\": {\n          \"sunt264\": 72544439,\n          \"et3\": \"commodo magna dolor Excepteur\",\n          \"irure_\": \"proident ullamco reprehenderit cupidatat\"\n        },\n        \"query_timezone\": \"<string>\",\n        \"client_id\": \"<string>\",\n        \"slug\": \"<string>\",\n        \"share_url\": \"<string>\",\n        \"url\": \"<string>\",\n        \"has_table_calculations\": \"<boolean>\"\n      },\n      \"look\": {\n        \"id\": \"<long>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"content_metadata_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"officia_7\": \"<string>\",\n            \"eiusmod_3\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"reprehenderit1\": false\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"space_id\": \"<string>\",\n        \"folder_id\": \"<string>\",\n        \"user_id\": \"<long>\",\n        \"space\": {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<string>\",\n          \"is_shared_root\": \"<boolean>\",\n          \"is_users_root\": \"<boolean>\",\n          \"is_user_root\": \"<boolean>\"\n        },\n        \"folder\": {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"is_shared_root\": \"<boolean>\",\n          \"is_users_root\": \"<boolean>\",\n          \"is_user_root\": \"<boolean>\"\n        },\n        \"public\": \"<boolean>\",\n        \"is_run_on_load\": \"<boolean>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"deleted_at\": \"<dateTime>\",\n        \"deleted\": \"<boolean>\",\n        \"last_accessed_at\": \"<dateTime>\",\n        \"view_count\": \"<integer>\",\n        \"favorite_count\": \"<integer>\",\n        \"model\": {\n          \"id\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        \"url\": \"<string>\"\n      },\n      \"type\": \"data\",\n      \"title\": \"<string>\",\n      \"title_hidden\": \"<boolean>\",\n      \"subtitle_text\": \"<string>\",\n      \"body_text\": \"<string>\",\n      \"note_text\": \"<string>\",\n      \"note_display\": \"<string>\",\n      \"note_state\": \"<string>\",\n      \"result_maker\": {},\n      \"rich_content_json\": \"<string>\"\n    }\n  ],\n  \"dashboard_filters\": [\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"date_filter\",\n      \"model\": \"<string>\",\n      \"explore\": \"<string>\",\n      \"dimension\": \"<string>\",\n      \"default_value\": \"<string>\",\n      \"allow_multiple_values\": \"<boolean>\",\n      \"required\": \"<boolean>\",\n      \"row\": \"<integer>\",\n      \"listens_to_filters\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"string_filter\",\n      \"model\": \"<string>\",\n      \"explore\": \"<string>\",\n      \"dimension\": \"<string>\",\n      \"default_value\": \"<string>\",\n      \"allow_multiple_values\": \"<boolean>\",\n      \"required\": \"<boolean>\",\n      \"row\": \"<integer>\",\n      \"listens_to_filters\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"dashboard_layouts\": [\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"column_width\": \"<integer>\",\n      \"width\": \"<integer>\",\n      \"dashboard_layout_components\": [\n        {\n          \"id\": \"<string>\",\n          \"dashboard_layout_id\": \"<string>\",\n          \"dashboard_element_id\": \"<string>\",\n          \"row\": \"<integer>\",\n          \"column\": \"<integer>\",\n          \"width\": \"<integer>\",\n          \"height\": \"<integer>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"dashboard_layout_id\": \"<string>\",\n          \"dashboard_element_id\": \"<string>\",\n          \"row\": \"<integer>\",\n          \"column\": \"<integer>\",\n          \"width\": \"<integer>\",\n          \"height\": \"<integer>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"column_width\": \"<integer>\",\n      \"width\": \"<integer>\",\n      \"dashboard_layout_components\": [\n        {\n          \"id\": \"<string>\",\n          \"dashboard_layout_id\": \"<string>\",\n          \"dashboard_element_id\": \"<string>\",\n          \"row\": \"<integer>\",\n          \"column\": \"<integer>\",\n          \"width\": \"<integer>\",\n          \"height\": \"<integer>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"dashboard_layout_id\": \"<string>\",\n          \"dashboard_element_id\": \"<string>\",\n          \"row\": \"<integer>\",\n          \"column\": \"<integer>\",\n          \"width\": \"<integer>\",\n          \"height\": \"<integer>\"\n        }\n      ]\n    }\n  ],\n  \"background_color\": \"<string>\",\n  \"text_tile_text_color\": \"<string>\",\n  \"tile_background_color\": \"<string>\",\n  \"tile_text_color\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"readonly\": \"<boolean>\",\n  \"refresh_interval\": \"<string>\",\n  \"load_configuration\": \"<string>\",\n  \"preferred_viewer\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"deleted\": \"<boolean>\",\n  \"last_accessed_at\": \"<dateTime>\",\n  \"view_count\": \"<integer>\",\n  \"favorite_count\": \"<integer>\",\n  \"url\": \"<string>\",\n  \"model\": {\n    \"id\": \"<string>\",\n    \"label\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:07:40.000Z",
+                  "updatedAt": "2026-07-28T02:07:40.000Z",
+                  "uid": "35240-73d1ad78-d5b6-4cfc-8202-6ffc5001f901"
+                },
+                {
+                  "id": "e19f3ed8-5079-4a3d-993c-04efd91f454f",
+                  "name": "Dashboard not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_timezone\": \"<string>\",\n  \"background_color\": \"<string>\",\n  \"text_tile_text_color\": \"<string>\",\n  \"tile_background_color\": \"<string>\",\n  \"tile_text_color\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"refresh_interval\": \"<string>\",\n  \"load_configuration\": \"<string>\",\n  \"preferred_viewer\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboard_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboard_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dashboard_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:40.000Z",
+                  "updatedAt": "2026-07-28T02:07:40.000Z",
+                  "uid": "35240-e19f3ed8-5079-4a3d-993c-04efd91f454f"
+                },
+                {
+                  "id": "4564f292-e960-49ce-94b0-3a26a1cda067",
+                  "name": "Validation error",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_timezone\": \"<string>\",\n  \"background_color\": \"<string>\",\n  \"text_tile_text_color\": \"<string>\",\n  \"tile_background_color\": \"<string>\",\n  \"tile_text_color\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"refresh_interval\": \"<string>\",\n  \"load_configuration\": \"<string>\",\n  \"preferred_viewer\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboard_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboard_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dashboard_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:40.000Z",
+                  "updatedAt": "2026-07-28T02:07:40.000Z",
+                  "uid": "35240-4564f292-e960-49ce-94b0-3a26a1cda067"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:40.000Z",
+              "updatedAt": "2026-07-28T02:07:40.000Z",
+              "uid": "35240-c9f1a00e-b5a5-4bb8-8764-2aee073488e4"
+            },
+            {
+              "name": "Looker Delete a Dashboard",
+              "id": "f967cf23-cb98-4499-925c-1e40a5462d29",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dashboards/:dashboard_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5fc0e344-c2a8-4c70-bd28-9eccd392ae8f",
+                      "key": "dashboard_id",
+                      "value": "<string>",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    }
+                  ]
+                },
+                "description": "Permanently deletes the specified dashboard and all of its elements, filters, and layout configuration. This action cannot be undone."
+              },
+              "response": [
+                {
+                  "id": "1a670056-6063-4734-a0a8-ab0e281ab435",
+                  "name": "Dashboard deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboard_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboard_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dashboard_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:07:40.000Z",
+                  "updatedAt": "2026-07-28T02:07:40.000Z",
+                  "uid": "35240-1a670056-6063-4734-a0a8-ab0e281ab435"
+                },
+                {
+                  "id": "38ea1d6c-8183-4d86-a28a-ee2fa047e00f",
+                  "name": "Dashboard not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboard_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboard_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dashboard_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:40.000Z",
+                  "updatedAt": "2026-07-28T02:07:40.000Z",
+                  "uid": "35240-38ea1d6c-8183-4d86-a28a-ee2fa047e00f"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:40.000Z",
+              "updatedAt": "2026-07-28T02:07:40.000Z",
+              "uid": "35240-f967cf23-cb98-4499-925c-1e40a5462d29"
+            }
+          ],
+          "id": "77ce5788-bb9e-417b-bfd4-c5e1132f9bd3",
+          "createdAt": "2026-07-28T02:07:40.000Z",
+          "updatedAt": "2026-07-28T02:07:40.000Z",
+          "uid": "35240-77ce5788-bb9e-417b-bfd4-c5e1132f9bd3"
+        },
+        {
+          "name": "Looker List All Dashboards",
+          "id": "7b3ce7e4-bcaf-451f-ad85-7c2d48fa4341",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/dashboards?fields=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dashboards"
+              ],
+              "query": [
+                {
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                  "key": "fields",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a list of all dashboards accessible to the authenticated user. User-defined dashboards and LookML dashboards are both included. Use the fields parameter to limit response size."
+          },
+          "response": [
+            {
+              "id": "dda76ce3-f196-4f66-8351-b8094ce1ae8a",
+              "name": "List of dashboards",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dashboards?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dashboards"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"query_timezone\": \"<string>\",\n    \"space_id\": \"<string>\",\n    \"folder_id\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"space\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"folder\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"content_metadata_id\": \"<long>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"dashboard_elements\": [\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"look_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"reprehenderit_7\": \"<string>\",\n            \"quic\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"anim5b\": -54813877,\n            \"animcb\": 8801544\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"look\": {\n          \"id\": \"<long>\",\n          \"title\": \"<string>\",\n          \"description\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"query_id\": \"<long>\",\n          \"query\": {\n            \"id\": \"<long>\",\n            \"model\": \"<string>\",\n            \"view\": \"<string>\",\n            \"fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"pivots\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"fill_fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"filters\": {\n              \"sint63\": \"<string>\",\n              \"fugiat__\": \"<string>\"\n            },\n            \"filter_expression\": \"<string>\",\n            \"sorts\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"limit\": \"<string>\",\n            \"column_limit\": \"<string>\",\n            \"total\": \"<boolean>\",\n            \"row_total\": \"<string>\",\n            \"subtotals\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"dynamic_fields\": \"<string>\",\n            \"vis_config\": {\n              \"occaecat_7ab\": true\n            },\n            \"query_timezone\": \"<string>\",\n            \"client_id\": \"<string>\",\n            \"slug\": \"<string>\",\n            \"share_url\": \"<string>\",\n            \"url\": \"<string>\",\n            \"has_table_calculations\": \"<boolean>\"\n          },\n          \"space_id\": \"<string>\",\n          \"folder_id\": \"<string>\",\n          \"user_id\": \"<long>\",\n          \"space\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"folder\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"content_metadata_id\": \"<long>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"public\": \"<boolean>\",\n          \"is_run_on_load\": \"<boolean>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"deleted_at\": \"<dateTime>\",\n          \"deleted\": \"<boolean>\",\n          \"last_accessed_at\": \"<dateTime>\",\n          \"view_count\": \"<integer>\",\n          \"favorite_count\": \"<integer>\",\n          \"model\": {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\"\n          },\n          \"url\": \"<string>\"\n        },\n        \"type\": \"filter\",\n        \"title\": \"<string>\",\n        \"title_hidden\": \"<boolean>\",\n        \"subtitle_text\": \"<string>\",\n        \"body_text\": \"<string>\",\n        \"note_text\": \"<string>\",\n        \"note_display\": \"<string>\",\n        \"note_state\": \"<string>\",\n        \"result_maker\": {},\n        \"rich_content_json\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"look_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"amet_acf\": \"<string>\",\n            \"aute_f9\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"proident_ea\": \"deserunt cillum\",\n            \"Ut_2aa\": 15217699\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"look\": {\n          \"id\": \"<long>\",\n          \"title\": \"<string>\",\n          \"description\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"query_id\": \"<long>\",\n          \"query\": {\n            \"id\": \"<long>\",\n            \"model\": \"<string>\",\n            \"view\": \"<string>\",\n            \"fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"pivots\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"fill_fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"filters\": {\n              \"ut_\": \"<string>\"\n            },\n            \"filter_expression\": \"<string>\",\n            \"sorts\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"limit\": \"<string>\",\n            \"column_limit\": \"<string>\",\n            \"total\": \"<boolean>\",\n            \"row_total\": \"<string>\",\n            \"subtotals\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"dynamic_fields\": \"<string>\",\n            \"vis_config\": {\n              \"in_1\": \"sunt eu nulla\",\n              \"commodo_53\": true\n            },\n            \"query_timezone\": \"<string>\",\n            \"client_id\": \"<string>\",\n            \"slug\": \"<string>\",\n            \"share_url\": \"<string>\",\n            \"url\": \"<string>\",\n            \"has_table_calculations\": \"<boolean>\"\n          },\n          \"space_id\": \"<string>\",\n          \"folder_id\": \"<string>\",\n          \"user_id\": \"<long>\",\n          \"space\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"folder\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"content_metadata_id\": \"<long>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"public\": \"<boolean>\",\n          \"is_run_on_load\": \"<boolean>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"deleted_at\": \"<dateTime>\",\n          \"deleted\": \"<boolean>\",\n          \"last_accessed_at\": \"<dateTime>\",\n          \"view_count\": \"<integer>\",\n          \"favorite_count\": \"<integer>\",\n          \"model\": {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\"\n          },\n          \"url\": \"<string>\"\n        },\n        \"type\": \"text\",\n        \"title\": \"<string>\",\n        \"title_hidden\": \"<boolean>\",\n        \"subtitle_text\": \"<string>\",\n        \"body_text\": \"<string>\",\n        \"note_text\": \"<string>\",\n        \"note_display\": \"<string>\",\n        \"note_state\": \"<string>\",\n        \"result_maker\": {},\n        \"rich_content_json\": \"<string>\"\n      }\n    ],\n    \"dashboard_filters\": [\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"type\": \"number_filter\",\n        \"model\": \"<string>\",\n        \"explore\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"default_value\": \"<string>\",\n        \"allow_multiple_values\": \"<boolean>\",\n        \"required\": \"<boolean>\",\n        \"row\": \"<integer>\",\n        \"listens_to_filters\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"type\": \"string_filter\",\n        \"model\": \"<string>\",\n        \"explore\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"default_value\": \"<string>\",\n        \"allow_multiple_values\": \"<boolean>\",\n        \"required\": \"<boolean>\",\n        \"row\": \"<integer>\",\n        \"listens_to_filters\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"dashboard_layouts\": [\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"active\": \"<boolean>\",\n        \"column_width\": \"<integer>\",\n        \"width\": \"<integer>\",\n        \"dashboard_layout_components\": [\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"active\": \"<boolean>\",\n        \"column_width\": \"<integer>\",\n        \"width\": \"<integer>\",\n        \"dashboard_layout_components\": [\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          }\n        ]\n      }\n    ],\n    \"background_color\": \"<string>\",\n    \"text_tile_text_color\": \"<string>\",\n    \"tile_background_color\": \"<string>\",\n    \"tile_text_color\": \"<string>\",\n    \"hidden\": \"<boolean>\",\n    \"readonly\": \"<boolean>\",\n    \"refresh_interval\": \"<string>\",\n    \"load_configuration\": \"<string>\",\n    \"preferred_viewer\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"deleted\": \"<boolean>\",\n    \"last_accessed_at\": \"<dateTime>\",\n    \"view_count\": \"<integer>\",\n    \"favorite_count\": \"<integer>\",\n    \"url\": \"<string>\",\n    \"model\": {\n      \"id\": \"<string>\",\n      \"label\": \"<string>\"\n    }\n  },\n  {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"query_timezone\": \"<string>\",\n    \"space_id\": \"<string>\",\n    \"folder_id\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"space\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"folder\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"content_metadata_id\": \"<long>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"dashboard_elements\": [\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"look_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"occaecat_93a\": \"<string>\",\n            \"incididunt_d\": \"<string>\",\n            \"culpa_f\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"ex_5a\": -19196137.611480653\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"look\": {\n          \"id\": \"<long>\",\n          \"title\": \"<string>\",\n          \"description\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"query_id\": \"<long>\",\n          \"query\": {\n            \"id\": \"<long>\",\n            \"model\": \"<string>\",\n            \"view\": \"<string>\",\n            \"fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"pivots\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"fill_fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"filters\": {\n              \"anima52\": \"<string>\"\n            },\n            \"filter_expression\": \"<string>\",\n            \"sorts\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"limit\": \"<string>\",\n            \"column_limit\": \"<string>\",\n            \"total\": \"<boolean>\",\n            \"row_total\": \"<string>\",\n            \"subtotals\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"dynamic_fields\": \"<string>\",\n            \"vis_config\": {\n              \"dolordc\": \"voluptate ut fugiat\",\n              \"esse0\": false\n            },\n            \"query_timezone\": \"<string>\",\n            \"client_id\": \"<string>\",\n            \"slug\": \"<string>\",\n            \"share_url\": \"<string>\",\n            \"url\": \"<string>\",\n            \"has_table_calculations\": \"<boolean>\"\n          },\n          \"space_id\": \"<string>\",\n          \"folder_id\": \"<string>\",\n          \"user_id\": \"<long>\",\n          \"space\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"folder\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"content_metadata_id\": \"<long>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"public\": \"<boolean>\",\n          \"is_run_on_load\": \"<boolean>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"deleted_at\": \"<dateTime>\",\n          \"deleted\": \"<boolean>\",\n          \"last_accessed_at\": \"<dateTime>\",\n          \"view_count\": \"<integer>\",\n          \"favorite_count\": \"<integer>\",\n          \"model\": {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\"\n          },\n          \"url\": \"<string>\"\n        },\n        \"type\": \"data\",\n        \"title\": \"<string>\",\n        \"title_hidden\": \"<boolean>\",\n        \"subtitle_text\": \"<string>\",\n        \"body_text\": \"<string>\",\n        \"note_text\": \"<string>\",\n        \"note_display\": \"<string>\",\n        \"note_state\": \"<string>\",\n        \"result_maker\": {},\n        \"rich_content_json\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"look_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"minim36\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"in_4eb\": true,\n            \"id90\": -68945591.25944805,\n            \"occaecatc7\": -7675537.269328147,\n            \"sint54\": \"velit officia ullamco\"\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"look\": {\n          \"id\": \"<long>\",\n          \"title\": \"<string>\",\n          \"description\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"query_id\": \"<long>\",\n          \"query\": {\n            \"id\": \"<long>\",\n            \"model\": \"<string>\",\n            \"view\": \"<string>\",\n            \"fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"pivots\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"fill_fields\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"filters\": {\n              \"nulla__12\": \"<string>\",\n              \"mollit1\": \"<string>\",\n              \"Uta\": \"<string>\",\n              \"incididunt07b\": \"<string>\"\n            },\n            \"filter_expression\": \"<string>\",\n            \"sorts\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"limit\": \"<string>\",\n            \"column_limit\": \"<string>\",\n            \"total\": \"<boolean>\",\n            \"row_total\": \"<string>\",\n            \"subtotals\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"dynamic_fields\": \"<string>\",\n            \"vis_config\": {\n              \"ex_3_\": true,\n              \"suntd5\": true\n            },\n            \"query_timezone\": \"<string>\",\n            \"client_id\": \"<string>\",\n            \"slug\": \"<string>\",\n            \"share_url\": \"<string>\",\n            \"url\": \"<string>\",\n            \"has_table_calculations\": \"<boolean>\"\n          },\n          \"space_id\": \"<string>\",\n          \"folder_id\": \"<string>\",\n          \"user_id\": \"<long>\",\n          \"space\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"folder\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"parent_id\": \"<string>\",\n            \"content_metadata_id\": \"<long>\",\n            \"is_shared_root\": \"<boolean>\",\n            \"is_users_root\": \"<boolean>\",\n            \"is_user_root\": \"<boolean>\"\n          },\n          \"public\": \"<boolean>\",\n          \"is_run_on_load\": \"<boolean>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\",\n          \"deleted_at\": \"<dateTime>\",\n          \"deleted\": \"<boolean>\",\n          \"last_accessed_at\": \"<dateTime>\",\n          \"view_count\": \"<integer>\",\n          \"favorite_count\": \"<integer>\",\n          \"model\": {\n            \"id\": \"<string>\",\n            \"label\": \"<string>\"\n          },\n          \"url\": \"<string>\"\n        },\n        \"type\": \"filter\",\n        \"title\": \"<string>\",\n        \"title_hidden\": \"<boolean>\",\n        \"subtitle_text\": \"<string>\",\n        \"body_text\": \"<string>\",\n        \"note_text\": \"<string>\",\n        \"note_display\": \"<string>\",\n        \"note_state\": \"<string>\",\n        \"result_maker\": {},\n        \"rich_content_json\": \"<string>\"\n      }\n    ],\n    \"dashboard_filters\": [\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"type\": \"string_filter\",\n        \"model\": \"<string>\",\n        \"explore\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"default_value\": \"<string>\",\n        \"allow_multiple_values\": \"<boolean>\",\n        \"required\": \"<boolean>\",\n        \"row\": \"<integer>\",\n        \"listens_to_filters\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"type\": \"number_filter\",\n        \"model\": \"<string>\",\n        \"explore\": \"<string>\",\n        \"dimension\": \"<string>\",\n        \"default_value\": \"<string>\",\n        \"allow_multiple_values\": \"<boolean>\",\n        \"required\": \"<boolean>\",\n        \"row\": \"<integer>\",\n        \"listens_to_filters\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"dashboard_layouts\": [\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"active\": \"<boolean>\",\n        \"column_width\": \"<integer>\",\n        \"width\": \"<integer>\",\n        \"dashboard_layout_components\": [\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<string>\",\n        \"dashboard_id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"active\": \"<boolean>\",\n        \"column_width\": \"<integer>\",\n        \"width\": \"<integer>\",\n        \"dashboard_layout_components\": [\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"dashboard_layout_id\": \"<string>\",\n            \"dashboard_element_id\": \"<string>\",\n            \"row\": \"<integer>\",\n            \"column\": \"<integer>\",\n            \"width\": \"<integer>\",\n            \"height\": \"<integer>\"\n          }\n        ]\n      }\n    ],\n    \"background_color\": \"<string>\",\n    \"text_tile_text_color\": \"<string>\",\n    \"tile_background_color\": \"<string>\",\n    \"tile_text_color\": \"<string>\",\n    \"hidden\": \"<boolean>\",\n    \"readonly\": \"<boolean>\",\n    \"refresh_interval\": \"<string>\",\n    \"load_configuration\": \"<string>\",\n    \"preferred_viewer\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"deleted\": \"<boolean>\",\n    \"last_accessed_at\": \"<dateTime>\",\n    \"view_count\": \"<integer>\",\n    \"favorite_count\": \"<integer>\",\n    \"url\": \"<string>\",\n    \"model\": {\n      \"id\": \"<string>\",\n      \"label\": \"<string>\"\n    }\n  }\n]",
+              "createdAt": "2026-07-28T02:07:40.000Z",
+              "updatedAt": "2026-07-28T02:07:40.000Z",
+              "uid": "35240-dda76ce3-f196-4f66-8351-b8094ce1ae8a"
+            },
+            {
+              "id": "db261fc9-f58b-4e18-aba6-f07268d2986d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dashboards?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dashboards"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:07:40.000Z",
+              "updatedAt": "2026-07-28T02:07:40.000Z",
+              "uid": "35240-db261fc9-f58b-4e18-aba6-f07268d2986d"
+            }
+          ],
+          "createdAt": "2026-07-28T02:07:40.000Z",
+          "updatedAt": "2026-07-28T02:07:40.000Z",
+          "uid": "35240-7b3ce7e4-bcaf-451f-ad85-7c2d48fa4341"
+        },
+        {
+          "name": "Looker Create a Dashboard",
+          "id": "e16161a0-0e2b-4c60-a875-09af8999b067",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_timezone\": \"<string>\",\n  \"background_color\": \"<string>\",\n  \"text_tile_text_color\": \"<string>\",\n  \"tile_background_color\": \"<string>\",\n  \"tile_text_color\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"refresh_interval\": \"<string>\",\n  \"load_configuration\": \"<string>\",\n  \"preferred_viewer\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/dashboards",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dashboards"
+              ]
+            },
+            "description": "Creates a new user-defined dashboard. The dashboard can be populated with tiles, filters, and layout settings after creation or as part of the request body."
+          },
+          "response": [
+            {
+              "id": "305a788d-4353-4b6d-b103-2813f042891a",
+              "name": "Dashboard created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_timezone\": \"<string>\",\n  \"background_color\": \"<string>\",\n  \"text_tile_text_color\": \"<string>\",\n  \"tile_background_color\": \"<string>\",\n  \"tile_text_color\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"refresh_interval\": \"<string>\",\n  \"load_configuration\": \"<string>\",\n  \"preferred_viewer\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dashboards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dashboards"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content_metadata_id\": \"<long>\",\n  \"query_timezone\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"user_id\": \"<long>\",\n  \"space\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"parent_id\": \"<string>\",\n    \"is_shared_root\": \"<boolean>\",\n    \"is_users_root\": \"<boolean>\",\n    \"is_user_root\": \"<boolean>\"\n  },\n  \"folder\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"parent_id\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"is_shared_root\": \"<boolean>\",\n    \"is_users_root\": \"<boolean>\",\n    \"is_user_root\": \"<boolean>\"\n  },\n  \"dashboard_elements\": [\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"look_id\": \"<long>\",\n      \"query_id\": \"<long>\",\n      \"query\": {\n        \"id\": \"<long>\",\n        \"model\": \"<string>\",\n        \"view\": \"<string>\",\n        \"fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"pivots\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"fill_fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"filters\": {\n          \"animd_c\": \"<string>\"\n        },\n        \"filter_expression\": \"<string>\",\n        \"sorts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"limit\": \"<string>\",\n        \"column_limit\": \"<string>\",\n        \"total\": \"<boolean>\",\n        \"row_total\": \"<string>\",\n        \"subtotals\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dynamic_fields\": \"<string>\",\n        \"vis_config\": {\n          \"enim_7d_\": \"mollit irure consectetur\",\n          \"velitd\": true,\n          \"officia_4\": \"Duis sint aute\",\n          \"Excepteur_a\": false\n        },\n        \"query_timezone\": \"<string>\",\n        \"client_id\": \"<string>\",\n        \"slug\": \"<string>\",\n        \"share_url\": \"<string>\",\n        \"url\": \"<string>\",\n        \"has_table_calculations\": \"<boolean>\"\n      },\n      \"look\": {\n        \"id\": \"<long>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"content_metadata_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"esse_\": \"<string>\",\n            \"cupidatatda8\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"elit_7d0\": false,\n            \"deserunt6dd\": true\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"space_id\": \"<string>\",\n        \"folder_id\": \"<string>\",\n        \"user_id\": \"<long>\",\n        \"space\": {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<string>\",\n          \"is_shared_root\": \"<boolean>\",\n          \"is_users_root\": \"<boolean>\",\n          \"is_user_root\": \"<boolean>\"\n        },\n        \"folder\": {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"is_shared_root\": \"<boolean>\",\n          \"is_users_root\": \"<boolean>\",\n          \"is_user_root\": \"<boolean>\"\n        },\n        \"public\": \"<boolean>\",\n        \"is_run_on_load\": \"<boolean>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"deleted_at\": \"<dateTime>\",\n        \"deleted\": \"<boolean>\",\n        \"last_accessed_at\": \"<dateTime>\",\n        \"view_count\": \"<integer>\",\n        \"favorite_count\": \"<integer>\",\n        \"model\": {\n          \"id\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        \"url\": \"<string>\"\n      },\n      \"type\": \"vis\",\n      \"title\": \"<string>\",\n      \"title_hidden\": \"<boolean>\",\n      \"subtitle_text\": \"<string>\",\n      \"body_text\": \"<string>\",\n      \"note_text\": \"<string>\",\n      \"note_display\": \"<string>\",\n      \"note_state\": \"<string>\",\n      \"result_maker\": {},\n      \"rich_content_json\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"look_id\": \"<long>\",\n      \"query_id\": \"<long>\",\n      \"query\": {\n        \"id\": \"<long>\",\n        \"model\": \"<string>\",\n        \"view\": \"<string>\",\n        \"fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"pivots\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"fill_fields\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"filters\": {\n          \"Ut_5e\": \"<string>\",\n          \"aute48\": \"<string>\",\n          \"et_529\": \"<string>\"\n        },\n        \"filter_expression\": \"<string>\",\n        \"sorts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"limit\": \"<string>\",\n        \"column_limit\": \"<string>\",\n        \"total\": \"<boolean>\",\n        \"row_total\": \"<string>\",\n        \"subtotals\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dynamic_fields\": \"<string>\",\n        \"vis_config\": {\n          \"sunt264\": 72544439,\n          \"et3\": \"commodo magna dolor Excepteur\",\n          \"irure_\": \"proident ullamco reprehenderit cupidatat\"\n        },\n        \"query_timezone\": \"<string>\",\n        \"client_id\": \"<string>\",\n        \"slug\": \"<string>\",\n        \"share_url\": \"<string>\",\n        \"url\": \"<string>\",\n        \"has_table_calculations\": \"<boolean>\"\n      },\n      \"look\": {\n        \"id\": \"<long>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\",\n        \"content_metadata_id\": \"<long>\",\n        \"query_id\": \"<long>\",\n        \"query\": {\n          \"id\": \"<long>\",\n          \"model\": \"<string>\",\n          \"view\": \"<string>\",\n          \"fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"pivots\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"fill_fields\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"filters\": {\n            \"officia_7\": \"<string>\",\n            \"eiusmod_3\": \"<string>\"\n          },\n          \"filter_expression\": \"<string>\",\n          \"sorts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"limit\": \"<string>\",\n          \"column_limit\": \"<string>\",\n          \"total\": \"<boolean>\",\n          \"row_total\": \"<string>\",\n          \"subtotals\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dynamic_fields\": \"<string>\",\n          \"vis_config\": {\n            \"reprehenderit1\": false\n          },\n          \"query_timezone\": \"<string>\",\n          \"client_id\": \"<string>\",\n          \"slug\": \"<string>\",\n          \"share_url\": \"<string>\",\n          \"url\": \"<string>\",\n          \"has_table_calculations\": \"<boolean>\"\n        },\n        \"space_id\": \"<string>\",\n        \"folder_id\": \"<string>\",\n        \"user_id\": \"<long>\",\n        \"space\": {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<string>\",\n          \"is_shared_root\": \"<boolean>\",\n          \"is_users_root\": \"<boolean>\",\n          \"is_user_root\": \"<boolean>\"\n        },\n        \"folder\": {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"parent_id\": \"<string>\",\n          \"content_metadata_id\": \"<long>\",\n          \"is_shared_root\": \"<boolean>\",\n          \"is_users_root\": \"<boolean>\",\n          \"is_user_root\": \"<boolean>\"\n        },\n        \"public\": \"<boolean>\",\n        \"is_run_on_load\": \"<boolean>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"deleted_at\": \"<dateTime>\",\n        \"deleted\": \"<boolean>\",\n        \"last_accessed_at\": \"<dateTime>\",\n        \"view_count\": \"<integer>\",\n        \"favorite_count\": \"<integer>\",\n        \"model\": {\n          \"id\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        \"url\": \"<string>\"\n      },\n      \"type\": \"data\",\n      \"title\": \"<string>\",\n      \"title_hidden\": \"<boolean>\",\n      \"subtitle_text\": \"<string>\",\n      \"body_text\": \"<string>\",\n      \"note_text\": \"<string>\",\n      \"note_display\": \"<string>\",\n      \"note_state\": \"<string>\",\n      \"result_maker\": {},\n      \"rich_content_json\": \"<string>\"\n    }\n  ],\n  \"dashboard_filters\": [\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"date_filter\",\n      \"model\": \"<string>\",\n      \"explore\": \"<string>\",\n      \"dimension\": \"<string>\",\n      \"default_value\": \"<string>\",\n      \"allow_multiple_values\": \"<boolean>\",\n      \"required\": \"<boolean>\",\n      \"row\": \"<integer>\",\n      \"listens_to_filters\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"string_filter\",\n      \"model\": \"<string>\",\n      \"explore\": \"<string>\",\n      \"dimension\": \"<string>\",\n      \"default_value\": \"<string>\",\n      \"allow_multiple_values\": \"<boolean>\",\n      \"required\": \"<boolean>\",\n      \"row\": \"<integer>\",\n      \"listens_to_filters\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"dashboard_layouts\": [\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"column_width\": \"<integer>\",\n      \"width\": \"<integer>\",\n      \"dashboard_layout_components\": [\n        {\n          \"id\": \"<string>\",\n          \"dashboard_layout_id\": \"<string>\",\n          \"dashboard_element_id\": \"<string>\",\n          \"row\": \"<integer>\",\n          \"column\": \"<integer>\",\n          \"width\": \"<integer>\",\n          \"height\": \"<integer>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"dashboard_layout_id\": \"<string>\",\n          \"dashboard_element_id\": \"<string>\",\n          \"row\": \"<integer>\",\n          \"column\": \"<integer>\",\n          \"width\": \"<integer>\",\n          \"height\": \"<integer>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"dashboard_id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"active\": \"<boolean>\",\n      \"column_width\": \"<integer>\",\n      \"width\": \"<integer>\",\n      \"dashboard_layout_components\": [\n        {\n          \"id\": \"<string>\",\n          \"dashboard_layout_id\": \"<string>\",\n          \"dashboard_element_id\": \"<string>\",\n          \"row\": \"<integer>\",\n          \"column\": \"<integer>\",\n          \"width\": \"<integer>\",\n          \"height\": \"<integer>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"dashboard_layout_id\": \"<string>\",\n          \"dashboard_element_id\": \"<string>\",\n          \"row\": \"<integer>\",\n          \"column\": \"<integer>\",\n          \"width\": \"<integer>\",\n          \"height\": \"<integer>\"\n        }\n      ]\n    }\n  ],\n  \"background_color\": \"<string>\",\n  \"text_tile_text_color\": \"<string>\",\n  \"tile_background_color\": \"<string>\",\n  \"tile_text_color\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"readonly\": \"<boolean>\",\n  \"refresh_interval\": \"<string>\",\n  \"load_configuration\": \"<string>\",\n  \"preferred_viewer\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"deleted\": \"<boolean>\",\n  \"last_accessed_at\": \"<dateTime>\",\n  \"view_count\": \"<integer>\",\n  \"favorite_count\": \"<integer>\",\n  \"url\": \"<string>\",\n  \"model\": {\n    \"id\": \"<string>\",\n    \"label\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:07:40.000Z",
+              "updatedAt": "2026-07-28T02:07:40.000Z",
+              "uid": "35240-305a788d-4353-4b6d-b103-2813f042891a"
+            },
+            {
+              "id": "defcb4bc-0133-42e7-8888-fd204fc7fc47",
+              "name": "Validation error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_timezone\": \"<string>\",\n  \"background_color\": \"<string>\",\n  \"text_tile_text_color\": \"<string>\",\n  \"tile_background_color\": \"<string>\",\n  \"tile_text_color\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"refresh_interval\": \"<string>\",\n  \"load_configuration\": \"<string>\",\n  \"preferred_viewer\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dashboards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dashboards"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:07:40.000Z",
+              "updatedAt": "2026-07-28T02:07:40.000Z",
+              "uid": "35240-defcb4bc-0133-42e7-8888-fd204fc7fc47"
+            }
+          ],
+          "createdAt": "2026-07-28T02:07:40.000Z",
+          "updatedAt": "2026-07-28T02:07:40.000Z",
+          "uid": "35240-e16161a0-0e2b-4c60-a875-09af8999b067"
+        }
+      ],
+      "id": "146337d5-40b7-48e2-87be-f96a632e1699",
+      "createdAt": "2026-07-28T02:07:40.000Z",
+      "updatedAt": "2026-07-28T02:07:40.000Z",
+      "uid": "35240-146337d5-40b7-48e2-87be-f96a632e1699"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "your-instance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.looker.com/api/4.0"
+    }
+  ]
+}

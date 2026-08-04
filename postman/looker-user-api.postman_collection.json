@@ -1,0 +1,1729 @@
+{
+  "info": {
+    "_postman_id": "89b600e1-f0ad-409d-81c0-41b2d8926a88",
+    "name": "Looker Auth User API",
+    "description": "The Looker API 4.0 provides programmatic access to the Looker business intelligence platform. It allows you to manage and interact with Looks, dashboards, queries, users, and other Looker resources. The API uses client credentials (client_id and client_secret) for authentication and returns JSON responses. Looker is part of Google Cloud and the API is available on any Looker instance at the /api/4.0 path.\n\nContact Support:\n Name: Google Cloud Looker Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:07:45.000Z",
+    "updatedAt": "2026-07-28T02:07:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-89b600e1-f0ad-409d-81c0-41b2d8926a88"
+  },
+  "item": [
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "search",
+          "item": [
+            {
+              "name": "Looker Search Users",
+              "id": "2f7b6d72-661c-433e-accf-7beee741b039",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users/search?fields=<string>&limit=100&offset=0&first_name=<string>&last_name=<string>&email=<string>&is_disabled=<boolean>&sorts=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of results to skip before returning results",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by first name",
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by last name",
+                      "key": "last_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by email address",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by disabled status",
+                      "key": "is_disabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Sort fields",
+                      "key": "sorts",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Searches for users matching the specified criteria. Supports filtering by name, email, and other user attributes. Results are paginated."
+              },
+              "response": [
+                {
+                  "id": "4afaf78c-4e7b-4989-97a4-e5dfd166b40b",
+                  "name": "Search results",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/search?fields=<string>&limit=100&offset=0&first_name=<string>&last_name=<string>&email=<string>&is_disabled=<boolean>&sorts=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Number of results to skip before returning results",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Filter by first name",
+                          "key": "first_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by last name",
+                          "key": "last_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by email address",
+                          "key": "email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by disabled status",
+                          "key": "is_disabled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Sort fields",
+                          "key": "sorts",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"display_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar_url\": \"<string>\",\n    \"is_disabled\": \"<boolean>\",\n    \"locale\": \"<string>\",\n    \"home_space_id\": \"<string>\",\n    \"home_folder_id\": \"<string>\",\n    \"personal_space_id\": \"<long>\",\n    \"personal_folder_id\": \"<long>\",\n    \"presumed_looker_employee\": \"<boolean>\",\n    \"verified_looker_employee\": \"<boolean>\",\n    \"roles_externally_managed\": \"<boolean>\",\n    \"allow_direct_roles\": \"<boolean>\",\n    \"allow_normal_group_membership\": \"<boolean>\",\n    \"allow_roles_from_normal_groups\": \"<boolean>\",\n    \"embed_group_space_id\": \"<long>\",\n    \"credentials_email\": {\n      \"email\": \"<string>\",\n      \"is_disabled\": \"<boolean>\",\n      \"logged_in_at\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"url\": \"<string>\"\n    },\n    \"credentials_api3\": [\n      {\n        \"id\": \"<long>\",\n        \"client_id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"is_disabled\": \"<boolean>\",\n        \"type\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"client_id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"is_disabled\": \"<boolean>\",\n        \"type\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"sessions\": [\n      {\n        \"id\": \"<long>\",\n        \"ip_address\": \"<string>\",\n        \"browser\": \"<string>\",\n        \"operating_system\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"credentials_type\": \"<string>\",\n        \"extended_at\": \"<dateTime>\",\n        \"extended_count\": \"<integer>\",\n        \"sudo_user_id\": \"<long>\",\n        \"created_at\": \"<dateTime>\",\n        \"expires_at\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"ip_address\": \"<string>\",\n        \"browser\": \"<string>\",\n        \"operating_system\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"credentials_type\": \"<string>\",\n        \"extended_at\": \"<dateTime>\",\n        \"extended_count\": \"<integer>\",\n        \"sudo_user_id\": \"<long>\",\n        \"created_at\": \"<dateTime>\",\n        \"expires_at\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"role_ids\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"group_ids\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"url\": \"<string>\",\n    \"created_at\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"display_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar_url\": \"<string>\",\n    \"is_disabled\": \"<boolean>\",\n    \"locale\": \"<string>\",\n    \"home_space_id\": \"<string>\",\n    \"home_folder_id\": \"<string>\",\n    \"personal_space_id\": \"<long>\",\n    \"personal_folder_id\": \"<long>\",\n    \"presumed_looker_employee\": \"<boolean>\",\n    \"verified_looker_employee\": \"<boolean>\",\n    \"roles_externally_managed\": \"<boolean>\",\n    \"allow_direct_roles\": \"<boolean>\",\n    \"allow_normal_group_membership\": \"<boolean>\",\n    \"allow_roles_from_normal_groups\": \"<boolean>\",\n    \"embed_group_space_id\": \"<long>\",\n    \"credentials_email\": {\n      \"email\": \"<string>\",\n      \"is_disabled\": \"<boolean>\",\n      \"logged_in_at\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"url\": \"<string>\"\n    },\n    \"credentials_api3\": [\n      {\n        \"id\": \"<long>\",\n        \"client_id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"is_disabled\": \"<boolean>\",\n        \"type\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"client_id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"is_disabled\": \"<boolean>\",\n        \"type\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"sessions\": [\n      {\n        \"id\": \"<long>\",\n        \"ip_address\": \"<string>\",\n        \"browser\": \"<string>\",\n        \"operating_system\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"credentials_type\": \"<string>\",\n        \"extended_at\": \"<dateTime>\",\n        \"extended_count\": \"<integer>\",\n        \"sudo_user_id\": \"<long>\",\n        \"created_at\": \"<dateTime>\",\n        \"expires_at\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"ip_address\": \"<string>\",\n        \"browser\": \"<string>\",\n        \"operating_system\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"credentials_type\": \"<string>\",\n        \"extended_at\": \"<dateTime>\",\n        \"extended_count\": \"<integer>\",\n        \"sudo_user_id\": \"<long>\",\n        \"created_at\": \"<dateTime>\",\n        \"expires_at\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"role_ids\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"group_ids\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"url\": \"<string>\",\n    \"created_at\": \"<dateTime>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-4afaf78c-4e7b-4989-97a4-e5dfd166b40b"
+                },
+                {
+                  "id": "715bc3fb-0271-4a1b-b31a-5f326aeb0607",
+                  "name": "Invalid search parameters",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/search?fields=<string>&limit=100&offset=0&first_name=<string>&last_name=<string>&email=<string>&is_disabled=<boolean>&sorts=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Number of results to skip before returning results",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Filter by first name",
+                          "key": "first_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by last name",
+                          "key": "last_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by email address",
+                          "key": "email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by disabled status",
+                          "key": "is_disabled",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Sort fields",
+                          "key": "sorts",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-715bc3fb-0271-4a1b-b31a-5f326aeb0607"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:45.000Z",
+              "updatedAt": "2026-07-28T02:07:45.000Z",
+              "uid": "35240-2f7b6d72-661c-433e-accf-7beee741b039"
+            }
+          ],
+          "id": "f4a787ad-b52b-4613-9075-03ae92599eb4",
+          "createdAt": "2026-07-28T02:07:45.000Z",
+          "updatedAt": "2026-07-28T02:07:45.000Z",
+          "uid": "35240-f4a787ad-b52b-4613-9075-03ae92599eb4"
+        },
+        {
+          "name": "{user_id}",
+          "item": [
+            {
+              "name": "roles",
+              "item": [
+                {
+                  "name": "Looker Get User Roles",
+                  "id": "4de67dfb-2248-4331-af21-2d172876a98a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id/roles?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id",
+                        "roles"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "5e6747e5-3cec-49fa-9de1-b168666ebbd2",
+                          "key": "user_id",
+                          "value": "<long>",
+                          "description": "(Required) The unique numeric ID of the user"
+                        }
+                      ]
+                    },
+                    "description": "Returns all roles assigned to the specified user. Roles define the permissions and model access granted to the user."
+                  },
+                  "response": [
+                    {
+                      "id": "2dfb8a57-ed98-447b-82af-d9402204d8e8",
+                      "name": "List of user roles",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/roles?fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "roles"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"permission_set\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"permissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"built_in\": \"<boolean>\",\n      \"all_access\": \"<boolean>\",\n      \"url\": \"<string>\"\n    },\n    \"permission_set_id\": \"<long>\",\n    \"model_set\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"models\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"built_in\": \"<boolean>\",\n      \"all_access\": \"<boolean>\",\n      \"url\": \"<string>\"\n    },\n    \"model_set_id\": \"<long>\",\n    \"user_count\": \"<integer>\",\n    \"url\": \"<string>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"permission_set\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"permissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"built_in\": \"<boolean>\",\n      \"all_access\": \"<boolean>\",\n      \"url\": \"<string>\"\n    },\n    \"permission_set_id\": \"<long>\",\n    \"model_set\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"models\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"built_in\": \"<boolean>\",\n      \"all_access\": \"<boolean>\",\n      \"url\": \"<string>\"\n    },\n    \"model_set_id\": \"<long>\",\n    \"user_count\": \"<integer>\",\n    \"url\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:07:45.000Z",
+                      "updatedAt": "2026-07-28T02:07:45.000Z",
+                      "uid": "35240-2dfb8a57-ed98-447b-82af-d9402204d8e8"
+                    },
+                    {
+                      "id": "7227b1c1-c8f5-4624-b5e9-ec9233c61f21",
+                      "name": "User not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/roles?fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "roles"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:45.000Z",
+                      "updatedAt": "2026-07-28T02:07:45.000Z",
+                      "uid": "35240-7227b1c1-c8f5-4624-b5e9-ec9233c61f21"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-4de67dfb-2248-4331-af21-2d172876a98a"
+                },
+                {
+                  "name": "Looker Set User Roles",
+                  "id": "06c9d375-9afd-464c-8067-5a09264e8f8e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  \"<long>\",\n  \"<long>\"\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id/roles?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id",
+                        "roles"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "929fa44f-b7a4-47d8-9064-fe79705258eb",
+                          "key": "user_id",
+                          "value": "<long>",
+                          "description": "(Required) The unique numeric ID of the user"
+                        }
+                      ]
+                    },
+                    "description": "Replaces all roles assigned to the specified user. Provide the complete list of role IDs that should be assigned to the user. Any roles not included in the request will be removed."
+                  },
+                  "response": [
+                    {
+                      "id": "2ea1a47e-e8d3-4927-ac53-95141b5dab8b",
+                      "name": "Updated role assignments",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[\n  \"<long>\",\n  \"<long>\"\n]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/roles?fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "roles"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"permission_set\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"permissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"built_in\": \"<boolean>\",\n      \"all_access\": \"<boolean>\",\n      \"url\": \"<string>\"\n    },\n    \"permission_set_id\": \"<long>\",\n    \"model_set\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"models\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"built_in\": \"<boolean>\",\n      \"all_access\": \"<boolean>\",\n      \"url\": \"<string>\"\n    },\n    \"model_set_id\": \"<long>\",\n    \"user_count\": \"<integer>\",\n    \"url\": \"<string>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"permission_set\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"permissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"built_in\": \"<boolean>\",\n      \"all_access\": \"<boolean>\",\n      \"url\": \"<string>\"\n    },\n    \"permission_set_id\": \"<long>\",\n    \"model_set\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"models\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"built_in\": \"<boolean>\",\n      \"all_access\": \"<boolean>\",\n      \"url\": \"<string>\"\n    },\n    \"model_set_id\": \"<long>\",\n    \"user_count\": \"<integer>\",\n    \"url\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:07:45.000Z",
+                      "updatedAt": "2026-07-28T02:07:45.000Z",
+                      "uid": "35240-2ea1a47e-e8d3-4927-ac53-95141b5dab8b"
+                    },
+                    {
+                      "id": "73cfd9cd-7bb0-405f-be5f-38576d92e962",
+                      "name": "User not found",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[\n  \"<long>\",\n  \"<long>\"\n]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/roles?fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "roles"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:45.000Z",
+                      "updatedAt": "2026-07-28T02:07:45.000Z",
+                      "uid": "35240-73cfd9cd-7bb0-405f-be5f-38576d92e962"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-06c9d375-9afd-464c-8067-5a09264e8f8e"
+                }
+              ],
+              "id": "67de6356-3031-4ee4-b431-c4cc1a0a6b5b",
+              "createdAt": "2026-07-28T02:07:45.000Z",
+              "updatedAt": "2026-07-28T02:07:45.000Z",
+              "uid": "35240-67de6356-3031-4ee4-b431-c4cc1a0a6b5b"
+            },
+            {
+              "name": "Looker Get a User",
+              "id": "83906339-afa7-40e6-b5c2-d4c26ca9842c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users/:user_id?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "3c964d6e-3aea-4913-ba85-be3ff1f0a637",
+                      "key": "user_id",
+                      "value": "<long>",
+                      "description": "(Required) The unique numeric ID of the user"
+                    }
+                  ]
+                },
+                "description": "Retrieves a single user by their ID including their profile information, roles, and credential settings."
+              },
+              "response": [
+                {
+                  "id": "44cdd749-8136-41d2-a4e7-ffe0dcd8a664",
+                  "name": "User details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<long>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"avatar_url\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\",\n  \"home_space_id\": \"<string>\",\n  \"home_folder_id\": \"<string>\",\n  \"personal_space_id\": \"<long>\",\n  \"personal_folder_id\": \"<long>\",\n  \"presumed_looker_employee\": \"<boolean>\",\n  \"verified_looker_employee\": \"<boolean>\",\n  \"roles_externally_managed\": \"<boolean>\",\n  \"allow_direct_roles\": \"<boolean>\",\n  \"allow_normal_group_membership\": \"<boolean>\",\n  \"allow_roles_from_normal_groups\": \"<boolean>\",\n  \"embed_group_space_id\": \"<long>\",\n  \"credentials_email\": {\n    \"email\": \"<string>\",\n    \"is_disabled\": \"<boolean>\",\n    \"logged_in_at\": \"<dateTime>\",\n    \"created_at\": \"<dateTime>\",\n    \"url\": \"<string>\"\n  },\n  \"credentials_api3\": [\n    {\n      \"id\": \"<long>\",\n      \"client_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"is_disabled\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"client_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"is_disabled\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"sessions\": [\n    {\n      \"id\": \"<long>\",\n      \"ip_address\": \"<string>\",\n      \"browser\": \"<string>\",\n      \"operating_system\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"credentials_type\": \"<string>\",\n      \"extended_at\": \"<dateTime>\",\n      \"extended_count\": \"<integer>\",\n      \"sudo_user_id\": \"<long>\",\n      \"created_at\": \"<dateTime>\",\n      \"expires_at\": \"<dateTime>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"ip_address\": \"<string>\",\n      \"browser\": \"<string>\",\n      \"operating_system\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"credentials_type\": \"<string>\",\n      \"extended_at\": \"<dateTime>\",\n      \"extended_count\": \"<integer>\",\n      \"sudo_user_id\": \"<long>\",\n      \"created_at\": \"<dateTime>\",\n      \"expires_at\": \"<dateTime>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"role_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"group_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"url\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-44cdd749-8136-41d2-a4e7-ffe0dcd8a664"
+                },
+                {
+                  "id": "6f18c6ca-be22-416a-ad57-b604eb27b536",
+                  "name": "User not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-6f18c6ca-be22-416a-ad57-b604eb27b536"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:45.000Z",
+              "updatedAt": "2026-07-28T02:07:45.000Z",
+              "uid": "35240-83906339-afa7-40e6-b5c2-d4c26ca9842c"
+            },
+            {
+              "name": "Looker Update a User",
+              "id": "b807be0e-e0ca-47da-9a72-6bf5bd8aa748",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/:user_id?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "fb31931c-8394-4568-98b6-c3f5dbb93162",
+                      "key": "user_id",
+                      "value": "<long>",
+                      "description": "(Required) The unique numeric ID of the user"
+                    }
+                  ]
+                },
+                "description": "Updates an existing user account. Only the fields provided in the request body are updated. Credentials and roles are managed through separate endpoints."
+              },
+              "response": [
+                {
+                  "id": "eb7c7d61-9e40-4f6e-9ed1-6814f39b871e",
+                  "name": "Updated user",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<long>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"avatar_url\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\",\n  \"home_space_id\": \"<string>\",\n  \"home_folder_id\": \"<string>\",\n  \"personal_space_id\": \"<long>\",\n  \"personal_folder_id\": \"<long>\",\n  \"presumed_looker_employee\": \"<boolean>\",\n  \"verified_looker_employee\": \"<boolean>\",\n  \"roles_externally_managed\": \"<boolean>\",\n  \"allow_direct_roles\": \"<boolean>\",\n  \"allow_normal_group_membership\": \"<boolean>\",\n  \"allow_roles_from_normal_groups\": \"<boolean>\",\n  \"embed_group_space_id\": \"<long>\",\n  \"credentials_email\": {\n    \"email\": \"<string>\",\n    \"is_disabled\": \"<boolean>\",\n    \"logged_in_at\": \"<dateTime>\",\n    \"created_at\": \"<dateTime>\",\n    \"url\": \"<string>\"\n  },\n  \"credentials_api3\": [\n    {\n      \"id\": \"<long>\",\n      \"client_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"is_disabled\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"client_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"is_disabled\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"sessions\": [\n    {\n      \"id\": \"<long>\",\n      \"ip_address\": \"<string>\",\n      \"browser\": \"<string>\",\n      \"operating_system\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"credentials_type\": \"<string>\",\n      \"extended_at\": \"<dateTime>\",\n      \"extended_count\": \"<integer>\",\n      \"sudo_user_id\": \"<long>\",\n      \"created_at\": \"<dateTime>\",\n      \"expires_at\": \"<dateTime>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"ip_address\": \"<string>\",\n      \"browser\": \"<string>\",\n      \"operating_system\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"credentials_type\": \"<string>\",\n      \"extended_at\": \"<dateTime>\",\n      \"extended_count\": \"<integer>\",\n      \"sudo_user_id\": \"<long>\",\n      \"created_at\": \"<dateTime>\",\n      \"expires_at\": \"<dateTime>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"role_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"group_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"url\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-eb7c7d61-9e40-4f6e-9ed1-6814f39b871e"
+                },
+                {
+                  "id": "77e68bc9-e407-4e45-ba04-bc9afea1866e",
+                  "name": "User not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-77e68bc9-e407-4e45-ba04-bc9afea1866e"
+                },
+                {
+                  "id": "d44d576c-e977-4ca4-93c8-08b27e4a3134",
+                  "name": "Validation error",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-d44d576c-e977-4ca4-93c8-08b27e4a3134"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:45.000Z",
+              "updatedAt": "2026-07-28T02:07:45.000Z",
+              "uid": "35240-b807be0e-e0ca-47da-9a72-6bf5bd8aa748"
+            },
+            {
+              "name": "Looker Delete a User",
+              "id": "f8032272-379a-403e-89f5-a56675c1fafb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users/:user_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "270f1f7d-98c8-416d-b091-7c2b0422bc8a",
+                      "key": "user_id",
+                      "value": "<long>",
+                      "description": "(Required) The unique numeric ID of the user"
+                    }
+                  ]
+                },
+                "description": "Permanently deletes the specified user account. This removes the user and all their credentials. Content created by the user (dashboards, Looks, etc.) is not deleted."
+              },
+              "response": [
+                {
+                  "id": "8398bc92-204f-4427-be2f-a828b0cdfda8",
+                  "name": "User deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-8398bc92-204f-4427-be2f-a828b0cdfda8"
+                },
+                {
+                  "id": "881e4282-dcc6-4adc-a3dc-dc03b6817a3b",
+                  "name": "User not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-881e4282-dcc6-4adc-a3dc-dc03b6817a3b"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:45.000Z",
+              "updatedAt": "2026-07-28T02:07:45.000Z",
+              "uid": "35240-f8032272-379a-403e-89f5-a56675c1fafb"
+            }
+          ],
+          "id": "f0e1d552-995b-40bb-bf9b-8f8aedf452c5",
+          "createdAt": "2026-07-28T02:07:45.000Z",
+          "updatedAt": "2026-07-28T02:07:45.000Z",
+          "uid": "35240-f0e1d552-995b-40bb-bf9b-8f8aedf452c5"
+        },
+        {
+          "name": "me",
+          "item": [
+            {
+              "name": "Looker Get Current User",
+              "id": "53ffd297-b1a3-4c57-88e4-b7e21809b986",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users/me?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "me"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns the user record for the currently authenticated user. This is useful for determining which user is associated with the current API session."
+              },
+              "response": [
+                {
+                  "id": "d2e08e12-f147-45a0-9f10-515333128b37",
+                  "name": "Current user details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/me?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        "me"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<long>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"avatar_url\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\",\n  \"home_space_id\": \"<string>\",\n  \"home_folder_id\": \"<string>\",\n  \"personal_space_id\": \"<long>\",\n  \"personal_folder_id\": \"<long>\",\n  \"presumed_looker_employee\": \"<boolean>\",\n  \"verified_looker_employee\": \"<boolean>\",\n  \"roles_externally_managed\": \"<boolean>\",\n  \"allow_direct_roles\": \"<boolean>\",\n  \"allow_normal_group_membership\": \"<boolean>\",\n  \"allow_roles_from_normal_groups\": \"<boolean>\",\n  \"embed_group_space_id\": \"<long>\",\n  \"credentials_email\": {\n    \"email\": \"<string>\",\n    \"is_disabled\": \"<boolean>\",\n    \"logged_in_at\": \"<dateTime>\",\n    \"created_at\": \"<dateTime>\",\n    \"url\": \"<string>\"\n  },\n  \"credentials_api3\": [\n    {\n      \"id\": \"<long>\",\n      \"client_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"is_disabled\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"client_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"is_disabled\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"sessions\": [\n    {\n      \"id\": \"<long>\",\n      \"ip_address\": \"<string>\",\n      \"browser\": \"<string>\",\n      \"operating_system\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"credentials_type\": \"<string>\",\n      \"extended_at\": \"<dateTime>\",\n      \"extended_count\": \"<integer>\",\n      \"sudo_user_id\": \"<long>\",\n      \"created_at\": \"<dateTime>\",\n      \"expires_at\": \"<dateTime>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"ip_address\": \"<string>\",\n      \"browser\": \"<string>\",\n      \"operating_system\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"credentials_type\": \"<string>\",\n      \"extended_at\": \"<dateTime>\",\n      \"extended_count\": \"<integer>\",\n      \"sudo_user_id\": \"<long>\",\n      \"created_at\": \"<dateTime>\",\n      \"expires_at\": \"<dateTime>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"role_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"group_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"url\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-d2e08e12-f147-45a0-9f10-515333128b37"
+                },
+                {
+                  "id": "2d8877f9-0dfb-4e72-927c-566602425160",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/me?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        "me"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:45.000Z",
+                  "updatedAt": "2026-07-28T02:07:45.000Z",
+                  "uid": "35240-2d8877f9-0dfb-4e72-927c-566602425160"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:45.000Z",
+              "updatedAt": "2026-07-28T02:07:45.000Z",
+              "uid": "35240-53ffd297-b1a3-4c57-88e4-b7e21809b986"
+            }
+          ],
+          "id": "1d2a0fbb-8a6d-4b48-9433-90e23cf45148",
+          "createdAt": "2026-07-28T02:07:45.000Z",
+          "updatedAt": "2026-07-28T02:07:45.000Z",
+          "uid": "35240-1d2a0fbb-8a6d-4b48-9433-90e23cf45148"
+        },
+        {
+          "name": "Looker List All Users",
+          "id": "0a9aab00-3ab2-4bc6-bf50-d75f91987a00",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users?fields=<string>&limit=100&offset=0&sorts=<string>&ids=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [
+                {
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                  "key": "fields",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of results to return",
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "description": "Number of results to skip before returning results",
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "description": "Sort fields (e.g. last_name asc, created_at desc)",
+                  "key": "sorts",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Comma-separated list of user IDs to retrieve",
+                  "key": "ids",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a list of all Looker user accounts. The response includes basic user information. Use the fields parameter to include additional details such as roles, credentials, and sessions."
+          },
+          "response": [
+            {
+              "id": "1455008c-3cca-4e27-809d-b4473b7ceca0",
+              "name": "List of users",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users?fields=<string>&limit=100&offset=0&sorts=<string>&ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of results to skip before returning results",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Sort fields (e.g. last_name asc, created_at desc)",
+                      "key": "sorts",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of user IDs to retrieve",
+                      "key": "ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"display_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar_url\": \"<string>\",\n    \"is_disabled\": \"<boolean>\",\n    \"locale\": \"<string>\",\n    \"home_space_id\": \"<string>\",\n    \"home_folder_id\": \"<string>\",\n    \"personal_space_id\": \"<long>\",\n    \"personal_folder_id\": \"<long>\",\n    \"presumed_looker_employee\": \"<boolean>\",\n    \"verified_looker_employee\": \"<boolean>\",\n    \"roles_externally_managed\": \"<boolean>\",\n    \"allow_direct_roles\": \"<boolean>\",\n    \"allow_normal_group_membership\": \"<boolean>\",\n    \"allow_roles_from_normal_groups\": \"<boolean>\",\n    \"embed_group_space_id\": \"<long>\",\n    \"credentials_email\": {\n      \"email\": \"<string>\",\n      \"is_disabled\": \"<boolean>\",\n      \"logged_in_at\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"url\": \"<string>\"\n    },\n    \"credentials_api3\": [\n      {\n        \"id\": \"<long>\",\n        \"client_id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"is_disabled\": \"<boolean>\",\n        \"type\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"client_id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"is_disabled\": \"<boolean>\",\n        \"type\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"sessions\": [\n      {\n        \"id\": \"<long>\",\n        \"ip_address\": \"<string>\",\n        \"browser\": \"<string>\",\n        \"operating_system\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"credentials_type\": \"<string>\",\n        \"extended_at\": \"<dateTime>\",\n        \"extended_count\": \"<integer>\",\n        \"sudo_user_id\": \"<long>\",\n        \"created_at\": \"<dateTime>\",\n        \"expires_at\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"ip_address\": \"<string>\",\n        \"browser\": \"<string>\",\n        \"operating_system\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"credentials_type\": \"<string>\",\n        \"extended_at\": \"<dateTime>\",\n        \"extended_count\": \"<integer>\",\n        \"sudo_user_id\": \"<long>\",\n        \"created_at\": \"<dateTime>\",\n        \"expires_at\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"role_ids\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"group_ids\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"url\": \"<string>\",\n    \"created_at\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"display_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar_url\": \"<string>\",\n    \"is_disabled\": \"<boolean>\",\n    \"locale\": \"<string>\",\n    \"home_space_id\": \"<string>\",\n    \"home_folder_id\": \"<string>\",\n    \"personal_space_id\": \"<long>\",\n    \"personal_folder_id\": \"<long>\",\n    \"presumed_looker_employee\": \"<boolean>\",\n    \"verified_looker_employee\": \"<boolean>\",\n    \"roles_externally_managed\": \"<boolean>\",\n    \"allow_direct_roles\": \"<boolean>\",\n    \"allow_normal_group_membership\": \"<boolean>\",\n    \"allow_roles_from_normal_groups\": \"<boolean>\",\n    \"embed_group_space_id\": \"<long>\",\n    \"credentials_email\": {\n      \"email\": \"<string>\",\n      \"is_disabled\": \"<boolean>\",\n      \"logged_in_at\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"url\": \"<string>\"\n    },\n    \"credentials_api3\": [\n      {\n        \"id\": \"<long>\",\n        \"client_id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"is_disabled\": \"<boolean>\",\n        \"type\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"client_id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"is_disabled\": \"<boolean>\",\n        \"type\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"sessions\": [\n      {\n        \"id\": \"<long>\",\n        \"ip_address\": \"<string>\",\n        \"browser\": \"<string>\",\n        \"operating_system\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"credentials_type\": \"<string>\",\n        \"extended_at\": \"<dateTime>\",\n        \"extended_count\": \"<integer>\",\n        \"sudo_user_id\": \"<long>\",\n        \"created_at\": \"<dateTime>\",\n        \"expires_at\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"ip_address\": \"<string>\",\n        \"browser\": \"<string>\",\n        \"operating_system\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"credentials_type\": \"<string>\",\n        \"extended_at\": \"<dateTime>\",\n        \"extended_count\": \"<integer>\",\n        \"sudo_user_id\": \"<long>\",\n        \"created_at\": \"<dateTime>\",\n        \"expires_at\": \"<dateTime>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"role_ids\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"group_ids\": [\n      \"<long>\",\n      \"<long>\"\n    ],\n    \"url\": \"<string>\",\n    \"created_at\": \"<dateTime>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:07:45.000Z",
+              "updatedAt": "2026-07-28T02:07:45.000Z",
+              "uid": "35240-1455008c-3cca-4e27-809d-b4473b7ceca0"
+            },
+            {
+              "id": "f485c279-e3c7-4d84-8456-c34a0c52ad10",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users?fields=<string>&limit=100&offset=0&sorts=<string>&ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of results to skip before returning results",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Sort fields (e.g. last_name asc, created_at desc)",
+                      "key": "sorts",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of user IDs to retrieve",
+                      "key": "ids",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:07:45.000Z",
+              "updatedAt": "2026-07-28T02:07:45.000Z",
+              "uid": "35240-f485c279-e3c7-4d84-8456-c34a0c52ad10"
+            }
+          ],
+          "createdAt": "2026-07-28T02:07:45.000Z",
+          "updatedAt": "2026-07-28T02:07:45.000Z",
+          "uid": "35240-0a9aab00-3ab2-4bc6-bf50-d75f91987a00"
+        },
+        {
+          "name": "Looker Create a User",
+          "id": "53765dac-dee5-4d54-bd95-41116898c7b5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "Creates a new Looker user account. The new user will not have any credentials or roles assigned; those must be configured separately via the credentials and role endpoints."
+          },
+          "response": [
+            {
+              "id": "41c783b5-3c26-4600-968a-5d555ca708f3",
+              "name": "User created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<long>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"avatar_url\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\",\n  \"home_space_id\": \"<string>\",\n  \"home_folder_id\": \"<string>\",\n  \"personal_space_id\": \"<long>\",\n  \"personal_folder_id\": \"<long>\",\n  \"presumed_looker_employee\": \"<boolean>\",\n  \"verified_looker_employee\": \"<boolean>\",\n  \"roles_externally_managed\": \"<boolean>\",\n  \"allow_direct_roles\": \"<boolean>\",\n  \"allow_normal_group_membership\": \"<boolean>\",\n  \"allow_roles_from_normal_groups\": \"<boolean>\",\n  \"embed_group_space_id\": \"<long>\",\n  \"credentials_email\": {\n    \"email\": \"<string>\",\n    \"is_disabled\": \"<boolean>\",\n    \"logged_in_at\": \"<dateTime>\",\n    \"created_at\": \"<dateTime>\",\n    \"url\": \"<string>\"\n  },\n  \"credentials_api3\": [\n    {\n      \"id\": \"<long>\",\n      \"client_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"is_disabled\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"client_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"is_disabled\": \"<boolean>\",\n      \"type\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"sessions\": [\n    {\n      \"id\": \"<long>\",\n      \"ip_address\": \"<string>\",\n      \"browser\": \"<string>\",\n      \"operating_system\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"credentials_type\": \"<string>\",\n      \"extended_at\": \"<dateTime>\",\n      \"extended_count\": \"<integer>\",\n      \"sudo_user_id\": \"<long>\",\n      \"created_at\": \"<dateTime>\",\n      \"expires_at\": \"<dateTime>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"ip_address\": \"<string>\",\n      \"browser\": \"<string>\",\n      \"operating_system\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"credentials_type\": \"<string>\",\n      \"extended_at\": \"<dateTime>\",\n      \"extended_count\": \"<integer>\",\n      \"sudo_user_id\": \"<long>\",\n      \"created_at\": \"<dateTime>\",\n      \"expires_at\": \"<dateTime>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"role_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"group_ids\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"url\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:07:45.000Z",
+              "updatedAt": "2026-07-28T02:07:45.000Z",
+              "uid": "35240-41c783b5-3c26-4600-968a-5d555ca708f3"
+            },
+            {
+              "id": "50f4379e-98be-4b71-8915-89b9c1937b53",
+              "name": "Validation error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:07:45.000Z",
+              "updatedAt": "2026-07-28T02:07:45.000Z",
+              "uid": "35240-50f4379e-98be-4b71-8915-89b9c1937b53"
+            }
+          ],
+          "createdAt": "2026-07-28T02:07:45.000Z",
+          "updatedAt": "2026-07-28T02:07:45.000Z",
+          "uid": "35240-53765dac-dee5-4d54-bd95-41116898c7b5"
+        }
+      ],
+      "id": "088cec9a-a780-45c5-a004-abcc0b3c773b",
+      "createdAt": "2026-07-28T02:07:45.000Z",
+      "updatedAt": "2026-07-28T02:07:45.000Z",
+      "uid": "35240-088cec9a-a780-45c5-a004-abcc0b3c773b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "your-instance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.looker.com/api/4.0"
+    }
+  ]
+}

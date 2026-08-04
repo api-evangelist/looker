@@ -1,0 +1,1301 @@
+{
+  "info": {
+    "_postman_id": "c395e0f8-7f36-4ab5-b6d1-17a4c134defe",
+    "name": "Looker Auth Look API",
+    "description": "The Looker API 4.0 provides programmatic access to the Looker business intelligence platform. It allows you to manage and interact with Looks, dashboards, queries, users, and other Looker resources. The API uses client credentials (client_id and client_secret) for authentication and returns JSON responses. Looker is part of Google Cloud and the API is available on any Looker instance at the /api/4.0 path.\n\nContact Support:\n Name: Google Cloud Looker Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:07:43.000Z",
+    "updatedAt": "2026-07-28T02:07:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c395e0f8-7f36-4ab5-b6d1-17a4c134defe"
+  },
+  "item": [
+    {
+      "name": "looks",
+      "item": [
+        {
+          "name": "search",
+          "item": [
+            {
+              "name": "Looker Search Looks",
+              "id": "563a71e2-56fc-4d9c-8ae9-4429d93fd333",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/looks/search?fields=<string>&limit=100&offset=0&title=<string>&description=<string>&space_id=<string>&user_id=<string>&sorts=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "looks",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Number of results to skip before returning results",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by Look title (case-insensitive match)",
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by Look description",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by space (folder) ID",
+                      "key": "space_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by creator user ID",
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sort fields (e.g. title asc, created_at desc)",
+                      "key": "sorts",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Searches for Looks matching the specified criteria. Supports filtering by title, description, space, user, and other attributes. Results are paginated."
+              },
+              "response": [
+                {
+                  "id": "4b8447ea-4db3-48c4-ace1-4407e3871f39",
+                  "name": "Search results",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/looks/search?fields=<string>&limit=100&offset=0&title=<string>&description=<string>&space_id=<string>&user_id=<string>&sorts=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "looks",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Number of results to skip before returning results",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Filter by Look title (case-insensitive match)",
+                          "key": "title",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by Look description",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by space (folder) ID",
+                          "key": "space_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by creator user ID",
+                          "key": "user_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Sort fields (e.g. title asc, created_at desc)",
+                          "key": "sorts",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"query_id\": \"<long>\",\n    \"query\": {\n      \"id\": \"<long>\",\n      \"model\": \"<string>\",\n      \"view\": \"<string>\",\n      \"fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"pivots\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fill_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"filters\": {\n        \"deserunt0_\": \"<string>\"\n      },\n      \"filter_expression\": \"<string>\",\n      \"sorts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"limit\": \"<string>\",\n      \"column_limit\": \"<string>\",\n      \"total\": \"<boolean>\",\n      \"row_total\": \"<string>\",\n      \"subtotals\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dynamic_fields\": \"<string>\",\n      \"vis_config\": {\n        \"eiusmod3b\": \"ad laboris reprehenderit\",\n        \"in18\": true\n      },\n      \"query_timezone\": \"<string>\",\n      \"client_id\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"share_url\": \"<string>\",\n      \"url\": \"<string>\",\n      \"has_table_calculations\": \"<boolean>\"\n    },\n    \"space_id\": \"<string>\",\n    \"folder_id\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"space\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"folder\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"content_metadata_id\": \"<long>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"public\": \"<boolean>\",\n    \"is_run_on_load\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"deleted\": \"<boolean>\",\n    \"last_accessed_at\": \"<dateTime>\",\n    \"view_count\": \"<integer>\",\n    \"favorite_count\": \"<integer>\",\n    \"model\": {\n      \"id\": \"<string>\",\n      \"label\": \"<string>\"\n    },\n    \"url\": \"<string>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"query_id\": \"<long>\",\n    \"query\": {\n      \"id\": \"<long>\",\n      \"model\": \"<string>\",\n      \"view\": \"<string>\",\n      \"fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"pivots\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fill_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"filters\": {\n        \"cupidatat78\": \"<string>\"\n      },\n      \"filter_expression\": \"<string>\",\n      \"sorts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"limit\": \"<string>\",\n      \"column_limit\": \"<string>\",\n      \"total\": \"<boolean>\",\n      \"row_total\": \"<string>\",\n      \"subtotals\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dynamic_fields\": \"<string>\",\n      \"vis_config\": {\n        \"enim05\": -43553054\n      },\n      \"query_timezone\": \"<string>\",\n      \"client_id\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"share_url\": \"<string>\",\n      \"url\": \"<string>\",\n      \"has_table_calculations\": \"<boolean>\"\n    },\n    \"space_id\": \"<string>\",\n    \"folder_id\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"space\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"folder\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"content_metadata_id\": \"<long>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"public\": \"<boolean>\",\n    \"is_run_on_load\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"deleted\": \"<boolean>\",\n    \"last_accessed_at\": \"<dateTime>\",\n    \"view_count\": \"<integer>\",\n    \"favorite_count\": \"<integer>\",\n    \"model\": {\n      \"id\": \"<string>\",\n      \"label\": \"<string>\"\n    },\n    \"url\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:07:43.000Z",
+                  "updatedAt": "2026-07-28T02:07:43.000Z",
+                  "uid": "35240-4b8447ea-4db3-48c4-ace1-4407e3871f39"
+                },
+                {
+                  "id": "9f995425-b7f0-4ef4-b0bc-b493a09d04f1",
+                  "name": "Invalid search parameters",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/looks/search?fields=<string>&limit=100&offset=0&title=<string>&description=<string>&space_id=<string>&user_id=<string>&sorts=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "looks",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Number of results to skip before returning results",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Filter by Look title (case-insensitive match)",
+                          "key": "title",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by Look description",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by space (folder) ID",
+                          "key": "space_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by creator user ID",
+                          "key": "user_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Sort fields (e.g. title asc, created_at desc)",
+                          "key": "sorts",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:43.000Z",
+                  "updatedAt": "2026-07-28T02:07:43.000Z",
+                  "uid": "35240-9f995425-b7f0-4ef4-b0bc-b493a09d04f1"
+                },
+                {
+                  "id": "97324cff-ebf1-4d45-9f45-f71b6690285a",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/looks/search?fields=<string>&limit=100&offset=0&title=<string>&description=<string>&space_id=<string>&user_id=<string>&sorts=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "looks",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Number of results to skip before returning results",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Filter by Look title (case-insensitive match)",
+                          "key": "title",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by Look description",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by space (folder) ID",
+                          "key": "space_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by creator user ID",
+                          "key": "user_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Sort fields (e.g. title asc, created_at desc)",
+                          "key": "sorts",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:43.000Z",
+                  "updatedAt": "2026-07-28T02:07:43.000Z",
+                  "uid": "35240-97324cff-ebf1-4d45-9f45-f71b6690285a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:43.000Z",
+              "updatedAt": "2026-07-28T02:07:43.000Z",
+              "uid": "35240-563a71e2-56fc-4d9c-8ae9-4429d93fd333"
+            }
+          ],
+          "id": "3fd84acc-4855-4223-8794-2487a00cdd42",
+          "createdAt": "2026-07-28T02:07:43.000Z",
+          "updatedAt": "2026-07-28T02:07:43.000Z",
+          "uid": "35240-3fd84acc-4855-4223-8794-2487a00cdd42"
+        },
+        {
+          "name": "{look_id}",
+          "item": [
+            {
+              "name": "run",
+              "item": [
+                {
+                  "name": "{result_format}",
+                  "item": [
+                    {
+                      "name": "Looker Run a Look",
+                      "id": "305163ae-b5b8-46cf-ba28-d0cc5cfc04bc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/looks/:look_id/run/:result_format?limit=100&apply_formatting=<boolean>&apply_vis=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "looks",
+                            ":look_id",
+                            "run",
+                            ":result_format"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Whether to apply model-specified formatting to results",
+                              "key": "apply_formatting",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to apply visualization options to results",
+                              "key": "apply_vis",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "3e12142a-f624-4054-8ea2-f2c59b84179b",
+                              "key": "look_id",
+                              "value": "<long>",
+                              "description": "(Required) The unique numeric ID of the Look"
+                            },
+                            {
+                              "id": "b613b6fa-d6ce-4317-b1f7-0fec2794bf4c",
+                              "key": "result_format",
+                              "value": "csv",
+                              "description": "(Required) Format for the query results"
+                            }
+                          ]
+                        },
+                        "description": "Executes the query associated with a Look and returns the results in the specified format. Supported formats include json, csv, txt, xlsx, html, md, json_label, json_detail, and png."
+                      },
+                      "response": [
+                        {
+                          "id": "c936bd02-0b0e-4e14-b415-789dd890fe9f",
+                          "name": "Query results in the specified format",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/looks/:look_id/run/:result_format?limit=100&apply_formatting=<boolean>&apply_vis=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "looks",
+                                ":look_id",
+                                "run",
+                                ":result_format"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of results to return",
+                                  "key": "limit",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "Whether to apply model-specified formatting to results",
+                                  "key": "apply_formatting",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to apply visualization options to results",
+                                  "key": "apply_vis",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "look_id"
+                                },
+                                {
+                                  "key": "result_format"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<string>",
+                          "createdAt": "2026-07-28T02:07:43.000Z",
+                          "updatedAt": "2026-07-28T02:07:43.000Z",
+                          "uid": "35240-c936bd02-0b0e-4e14-b415-789dd890fe9f"
+                        },
+                        {
+                          "id": "929d7d0e-f857-4fed-8440-3a17fbd4f5f2",
+                          "name": "Look not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/looks/:look_id/run/:result_format?limit=100&apply_formatting=<boolean>&apply_vis=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "looks",
+                                ":look_id",
+                                "run",
+                                ":result_format"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of results to return",
+                                  "key": "limit",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "Whether to apply model-specified formatting to results",
+                                  "key": "apply_formatting",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to apply visualization options to results",
+                                  "key": "apply_vis",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "look_id"
+                                },
+                                {
+                                  "key": "result_format"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:07:43.000Z",
+                          "updatedAt": "2026-07-28T02:07:43.000Z",
+                          "uid": "35240-929d7d0e-f857-4fed-8440-3a17fbd4f5f2"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:07:43.000Z",
+                      "updatedAt": "2026-07-28T02:07:43.000Z",
+                      "uid": "35240-305163ae-b5b8-46cf-ba28-d0cc5cfc04bc"
+                    }
+                  ],
+                  "id": "9a46b9d1-331a-45e1-8fa8-bfd4de21f306",
+                  "createdAt": "2026-07-28T02:07:43.000Z",
+                  "updatedAt": "2026-07-28T02:07:43.000Z",
+                  "uid": "35240-9a46b9d1-331a-45e1-8fa8-bfd4de21f306"
+                }
+              ],
+              "id": "73792a57-da52-4334-a97e-35f822349a04",
+              "createdAt": "2026-07-28T02:07:43.000Z",
+              "updatedAt": "2026-07-28T02:07:43.000Z",
+              "uid": "35240-73792a57-da52-4334-a97e-35f822349a04"
+            },
+            {
+              "name": "Looker Get a Look",
+              "id": "50c519d1-5835-4df8-ad4e-0bab2e9e3dd1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/looks/:look_id?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "looks",
+                    ":look_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "6c6f9480-76f3-4e3c-8f84-ecedf0a24f5f",
+                      "key": "look_id",
+                      "value": "<long>",
+                      "description": "(Required) The unique numeric ID of the Look"
+                    }
+                  ]
+                },
+                "description": "Retrieves a single Look by its ID, including the query definition, visualization configuration, and metadata such as the creator, space, and sharing settings."
+              },
+              "response": [
+                {
+                  "id": "cbcad44f-f622-4aa7-b427-bf3111a0c2e1",
+                  "name": "Look details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/looks/:look_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "looks",
+                        ":look_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "look_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<long>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content_metadata_id\": \"<long>\",\n  \"query_id\": \"<long>\",\n  \"query\": {\n    \"id\": \"<long>\",\n    \"model\": \"<string>\",\n    \"view\": \"<string>\",\n    \"fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pivots\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fill_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"filters\": {\n      \"dolore9\": \"<string>\"\n    },\n    \"filter_expression\": \"<string>\",\n    \"sorts\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<string>\",\n    \"column_limit\": \"<string>\",\n    \"total\": \"<boolean>\",\n    \"row_total\": \"<string>\",\n    \"subtotals\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dynamic_fields\": \"<string>\",\n    \"vis_config\": {\n      \"qui7\": \"labore aute ad\",\n      \"dolor6e2\": 61773555,\n      \"fugiat_d2\": \"aute ut in\"\n    },\n    \"query_timezone\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"slug\": \"<string>\",\n    \"share_url\": \"<string>\",\n    \"url\": \"<string>\",\n    \"has_table_calculations\": \"<boolean>\"\n  },\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"user_id\": \"<long>\",\n  \"space\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"parent_id\": \"<string>\",\n    \"is_shared_root\": \"<boolean>\",\n    \"is_users_root\": \"<boolean>\",\n    \"is_user_root\": \"<boolean>\"\n  },\n  \"folder\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"parent_id\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"is_shared_root\": \"<boolean>\",\n    \"is_users_root\": \"<boolean>\",\n    \"is_user_root\": \"<boolean>\"\n  },\n  \"public\": \"<boolean>\",\n  \"is_run_on_load\": \"<boolean>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"deleted\": \"<boolean>\",\n  \"last_accessed_at\": \"<dateTime>\",\n  \"view_count\": \"<integer>\",\n  \"favorite_count\": \"<integer>\",\n  \"model\": {\n    \"id\": \"<string>\",\n    \"label\": \"<string>\"\n  },\n  \"url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:43.000Z",
+                  "updatedAt": "2026-07-28T02:07:43.000Z",
+                  "uid": "35240-cbcad44f-f622-4aa7-b427-bf3111a0c2e1"
+                },
+                {
+                  "id": "200f3b80-86d0-4ea5-bfec-b9e5c596d92e",
+                  "name": "Look not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/looks/:look_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "looks",
+                        ":look_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "look_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:43.000Z",
+                  "updatedAt": "2026-07-28T02:07:43.000Z",
+                  "uid": "35240-200f3b80-86d0-4ea5-bfec-b9e5c596d92e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:43.000Z",
+              "updatedAt": "2026-07-28T02:07:43.000Z",
+              "uid": "35240-50c519d1-5835-4df8-ad4e-0bab2e9e3dd1"
+            },
+            {
+              "name": "Looker Update a Look",
+              "id": "f3dc86f6-bc8e-4d5d-80d1-d23f827bea70",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_id\": \"<long>\",\n  \"query\": {\n    \"model\": \"<string>\",\n    \"view\": \"<string>\",\n    \"fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pivots\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fill_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"filters\": {\n      \"eu391\": \"<string>\",\n      \"consequat80\": \"<string>\"\n    },\n    \"filter_expression\": \"<string>\",\n    \"sorts\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<string>\",\n    \"column_limit\": \"<string>\",\n    \"total\": \"<boolean>\",\n    \"row_total\": \"<string>\",\n    \"subtotals\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dynamic_fields\": \"<string>\",\n    \"vis_config\": {\n      \"ullamco_67b\": true,\n      \"enimc6_\": true\n    },\n    \"query_timezone\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"is_run_on_load\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/looks/:look_id?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "looks",
+                    ":look_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "12c4b438-ecfe-4a52-ba6c-232b036e77fe",
+                      "key": "look_id",
+                      "value": "<long>",
+                      "description": "(Required) The unique numeric ID of the Look"
+                    }
+                  ]
+                },
+                "description": "Updates an existing Look. Only the fields provided in the request body are updated; all other fields remain unchanged."
+              },
+              "response": [
+                {
+                  "id": "14315d66-ff0b-4d37-adf5-9805616a7539",
+                  "name": "Updated Look",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_id\": \"<long>\",\n  \"query\": {\n    \"model\": \"<string>\",\n    \"view\": \"<string>\",\n    \"fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pivots\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fill_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"filters\": {\n      \"eu391\": \"<string>\",\n      \"consequat80\": \"<string>\"\n    },\n    \"filter_expression\": \"<string>\",\n    \"sorts\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<string>\",\n    \"column_limit\": \"<string>\",\n    \"total\": \"<boolean>\",\n    \"row_total\": \"<string>\",\n    \"subtotals\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dynamic_fields\": \"<string>\",\n    \"vis_config\": {\n      \"ullamco_67b\": true,\n      \"enimc6_\": true\n    },\n    \"query_timezone\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"is_run_on_load\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/looks/:look_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "looks",
+                        ":look_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "look_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<long>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content_metadata_id\": \"<long>\",\n  \"query_id\": \"<long>\",\n  \"query\": {\n    \"id\": \"<long>\",\n    \"model\": \"<string>\",\n    \"view\": \"<string>\",\n    \"fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pivots\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fill_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"filters\": {\n      \"dolore9\": \"<string>\"\n    },\n    \"filter_expression\": \"<string>\",\n    \"sorts\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<string>\",\n    \"column_limit\": \"<string>\",\n    \"total\": \"<boolean>\",\n    \"row_total\": \"<string>\",\n    \"subtotals\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dynamic_fields\": \"<string>\",\n    \"vis_config\": {\n      \"qui7\": \"labore aute ad\",\n      \"dolor6e2\": 61773555,\n      \"fugiat_d2\": \"aute ut in\"\n    },\n    \"query_timezone\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"slug\": \"<string>\",\n    \"share_url\": \"<string>\",\n    \"url\": \"<string>\",\n    \"has_table_calculations\": \"<boolean>\"\n  },\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"user_id\": \"<long>\",\n  \"space\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"parent_id\": \"<string>\",\n    \"is_shared_root\": \"<boolean>\",\n    \"is_users_root\": \"<boolean>\",\n    \"is_user_root\": \"<boolean>\"\n  },\n  \"folder\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"parent_id\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"is_shared_root\": \"<boolean>\",\n    \"is_users_root\": \"<boolean>\",\n    \"is_user_root\": \"<boolean>\"\n  },\n  \"public\": \"<boolean>\",\n  \"is_run_on_load\": \"<boolean>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\",\n  \"deleted\": \"<boolean>\",\n  \"last_accessed_at\": \"<dateTime>\",\n  \"view_count\": \"<integer>\",\n  \"favorite_count\": \"<integer>\",\n  \"model\": {\n    \"id\": \"<string>\",\n    \"label\": \"<string>\"\n  },\n  \"url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:43.000Z",
+                  "updatedAt": "2026-07-28T02:07:43.000Z",
+                  "uid": "35240-14315d66-ff0b-4d37-adf5-9805616a7539"
+                },
+                {
+                  "id": "b88db95d-f346-4882-847d-f75441bc40d5",
+                  "name": "Look not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_id\": \"<long>\",\n  \"query\": {\n    \"model\": \"<string>\",\n    \"view\": \"<string>\",\n    \"fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pivots\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fill_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"filters\": {\n      \"eu391\": \"<string>\",\n      \"consequat80\": \"<string>\"\n    },\n    \"filter_expression\": \"<string>\",\n    \"sorts\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<string>\",\n    \"column_limit\": \"<string>\",\n    \"total\": \"<boolean>\",\n    \"row_total\": \"<string>\",\n    \"subtotals\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dynamic_fields\": \"<string>\",\n    \"vis_config\": {\n      \"ullamco_67b\": true,\n      \"enimc6_\": true\n    },\n    \"query_timezone\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"is_run_on_load\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/looks/:look_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "looks",
+                        ":look_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "look_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:43.000Z",
+                  "updatedAt": "2026-07-28T02:07:43.000Z",
+                  "uid": "35240-b88db95d-f346-4882-847d-f75441bc40d5"
+                },
+                {
+                  "id": "0a193c8c-c7e3-4aec-9799-7c77b47924b8",
+                  "name": "Validation error",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_id\": \"<long>\",\n  \"query\": {\n    \"model\": \"<string>\",\n    \"view\": \"<string>\",\n    \"fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pivots\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fill_fields\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"filters\": {\n      \"eu391\": \"<string>\",\n      \"consequat80\": \"<string>\"\n    },\n    \"filter_expression\": \"<string>\",\n    \"sorts\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<string>\",\n    \"column_limit\": \"<string>\",\n    \"total\": \"<boolean>\",\n    \"row_total\": \"<string>\",\n    \"subtotals\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"dynamic_fields\": \"<string>\",\n    \"vis_config\": {\n      \"ullamco_67b\": true,\n      \"enimc6_\": true\n    },\n    \"query_timezone\": \"<string>\"\n  },\n  \"public\": \"<boolean>\",\n  \"is_run_on_load\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/looks/:look_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "looks",
+                        ":look_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "look_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:43.000Z",
+                  "updatedAt": "2026-07-28T02:07:43.000Z",
+                  "uid": "35240-0a193c8c-c7e3-4aec-9799-7c77b47924b8"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:43.000Z",
+              "updatedAt": "2026-07-28T02:07:43.000Z",
+              "uid": "35240-f3dc86f6-bc8e-4d5d-80d1-d23f827bea70"
+            },
+            {
+              "name": "Looker Delete a Look",
+              "id": "273ab640-efaa-4d0a-9db2-31b5199a0ad6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/looks/:look_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "looks",
+                    ":look_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "70a50d8b-6d2d-498d-835c-da60ccf10a3d",
+                      "key": "look_id",
+                      "value": "<long>",
+                      "description": "(Required) The unique numeric ID of the Look"
+                    }
+                  ]
+                },
+                "description": "Permanently deletes the specified Look. This action cannot be undone. The Look is moved to trash first if soft delete is enabled."
+              },
+              "response": [
+                {
+                  "id": "29766214-ed84-45ff-a28f-fcec04050723",
+                  "name": "Look deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/looks/:look_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "looks",
+                        ":look_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "look_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:07:43.000Z",
+                  "updatedAt": "2026-07-28T02:07:43.000Z",
+                  "uid": "35240-29766214-ed84-45ff-a28f-fcec04050723"
+                },
+                {
+                  "id": "076129dc-7a23-4ac5-9ac5-e25a1a7e0198",
+                  "name": "Look not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/looks/:look_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "looks",
+                        ":look_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "look_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:43.000Z",
+                  "updatedAt": "2026-07-28T02:07:43.000Z",
+                  "uid": "35240-076129dc-7a23-4ac5-9ac5-e25a1a7e0198"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:43.000Z",
+              "updatedAt": "2026-07-28T02:07:43.000Z",
+              "uid": "35240-273ab640-efaa-4d0a-9db2-31b5199a0ad6"
+            }
+          ],
+          "id": "f1a47345-0d34-429b-aeef-42e59a0acaee",
+          "createdAt": "2026-07-28T02:07:43.000Z",
+          "updatedAt": "2026-07-28T02:07:43.000Z",
+          "uid": "35240-f1a47345-0d34-429b-aeef-42e59a0acaee"
+        },
+        {
+          "name": "Looker List All Looks",
+          "id": "e3075156-921d-4998-b586-c73c0778fe58",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/looks?fields=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "looks"
+              ],
+              "query": [
+                {
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                  "key": "fields",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a list of all Looks accessible to the authenticated user. Supports filtering by fields to limit the response payload."
+          },
+          "response": [
+            {
+              "id": "db6f8108-efdd-44e6-9b59-76ed5a9dd9ff",
+              "name": "List of Looks",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/looks?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "looks"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"query_id\": \"<long>\",\n    \"query\": {\n      \"id\": \"<long>\",\n      \"model\": \"<string>\",\n      \"view\": \"<string>\",\n      \"fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"pivots\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fill_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"filters\": {\n        \"deserunt0_\": \"<string>\"\n      },\n      \"filter_expression\": \"<string>\",\n      \"sorts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"limit\": \"<string>\",\n      \"column_limit\": \"<string>\",\n      \"total\": \"<boolean>\",\n      \"row_total\": \"<string>\",\n      \"subtotals\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dynamic_fields\": \"<string>\",\n      \"vis_config\": {\n        \"eiusmod3b\": \"ad laboris reprehenderit\",\n        \"in18\": true\n      },\n      \"query_timezone\": \"<string>\",\n      \"client_id\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"share_url\": \"<string>\",\n      \"url\": \"<string>\",\n      \"has_table_calculations\": \"<boolean>\"\n    },\n    \"space_id\": \"<string>\",\n    \"folder_id\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"space\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"folder\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"content_metadata_id\": \"<long>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"public\": \"<boolean>\",\n    \"is_run_on_load\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"deleted\": \"<boolean>\",\n    \"last_accessed_at\": \"<dateTime>\",\n    \"view_count\": \"<integer>\",\n    \"favorite_count\": \"<integer>\",\n    \"model\": {\n      \"id\": \"<string>\",\n      \"label\": \"<string>\"\n    },\n    \"url\": \"<string>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"content_metadata_id\": \"<long>\",\n    \"query_id\": \"<long>\",\n    \"query\": {\n      \"id\": \"<long>\",\n      \"model\": \"<string>\",\n      \"view\": \"<string>\",\n      \"fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"pivots\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fill_fields\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"filters\": {\n        \"cupidatat78\": \"<string>\"\n      },\n      \"filter_expression\": \"<string>\",\n      \"sorts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"limit\": \"<string>\",\n      \"column_limit\": \"<string>\",\n      \"total\": \"<boolean>\",\n      \"row_total\": \"<string>\",\n      \"subtotals\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dynamic_fields\": \"<string>\",\n      \"vis_config\": {\n        \"enim05\": -43553054\n      },\n      \"query_timezone\": \"<string>\",\n      \"client_id\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"share_url\": \"<string>\",\n      \"url\": \"<string>\",\n      \"has_table_calculations\": \"<boolean>\"\n    },\n    \"space_id\": \"<string>\",\n    \"folder_id\": \"<string>\",\n    \"user_id\": \"<long>\",\n    \"space\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"folder\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"content_metadata_id\": \"<long>\",\n      \"is_shared_root\": \"<boolean>\",\n      \"is_users_root\": \"<boolean>\",\n      \"is_user_root\": \"<boolean>\"\n    },\n    \"public\": \"<boolean>\",\n    \"is_run_on_load\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"deleted_at\": \"<dateTime>\",\n    \"deleted\": \"<boolean>\",\n    \"last_accessed_at\": \"<dateTime>\",\n    \"view_count\": \"<integer>\",\n    \"favorite_count\": \"<integer>\",\n    \"model\": {\n      \"id\": \"<string>\",\n      \"label\": \"<string>\"\n    },\n    \"url\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:07:43.000Z",
+              "updatedAt": "2026-07-28T02:07:43.000Z",
+              "uid": "35240-db6f8108-efdd-44e6-9b59-76ed5a9dd9ff"
+            },
+            {
+              "id": "ba27c02f-e6ac-4aca-a1af-8549f3a168f1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/looks?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "looks"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:07:43.000Z",
+              "updatedAt": "2026-07-28T02:07:43.000Z",
+              "uid": "35240-ba27c02f-e6ac-4aca-a1af-8549f3a168f1"
+            }
+          ],
+          "createdAt": "2026-07-28T02:07:43.000Z",
+          "updatedAt": "2026-07-28T02:07:43.000Z",
+          "uid": "35240-e3075156-921d-4998-b586-c73c0778fe58"
+        }
+      ],
+      "id": "5af68749-f678-4e75-9c9a-b9b3fa006dce",
+      "createdAt": "2026-07-28T02:07:43.000Z",
+      "updatedAt": "2026-07-28T02:07:43.000Z",
+      "uid": "35240-5af68749-f678-4e75-9c9a-b9b3fa006dce"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "your-instance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.looker.com/api/4.0"
+    }
+  ]
+}

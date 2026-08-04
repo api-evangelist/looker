@@ -1,0 +1,22 @@
+{
+  "provider": "looker",
+  "sources": [
+    "looker-auth-api-openapi.yml",
+    "looker-dashboard-api-openapi.yml",
+    "looker-look-api-openapi.yml",
+    "looker-query-api-openapi.yml",
+    "looker-user-api-openapi.yml"
+  ],
+  "outputs": [
+    "looker-auth-api-openapi.yml",
+    "looker-dashboard-api-openapi.yml",
+    "looker-look-api-openapi.yml",
+    "looker-query-api-openapi.yml",
+    "looker-user-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

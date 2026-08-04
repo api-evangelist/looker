@@ -1,0 +1,1068 @@
+{
+  "info": {
+    "_postman_id": "f075a1af-964d-4a65-a03a-8f4657090ef7",
+    "name": "Looker Auth Query API",
+    "description": "The Looker API 4.0 provides programmatic access to the Looker business intelligence platform. It allows you to manage and interact with Looks, dashboards, queries, users, and other Looker resources. The API uses client credentials (client_id and client_secret) for authentication and returns JSON responses. Looker is part of Google Cloud and the API is available on any Looker instance at the /api/4.0 path.\n\nContact Support:\n Name: Google Cloud Looker Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:07:44.000Z",
+    "updatedAt": "2026-07-28T02:07:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f075a1af-964d-4a65-a03a-8f4657090ef7"
+  },
+  "item": [
+    {
+      "name": "queries",
+      "item": [
+        {
+          "name": "{query_id}",
+          "item": [
+            {
+              "name": "run",
+              "item": [
+                {
+                  "name": "{result_format}",
+                  "item": [
+                    {
+                      "name": "Looker Run a Saved Query",
+                      "id": "a29d759f-24ce-4767-8241-12c2e2d76e28",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/queries/:query_id/run/:result_format?limit=100&apply_formatting=<boolean>&apply_vis=<boolean>&cache=true&generate_drill_links=true&force_production=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "queries",
+                            ":query_id",
+                            "run",
+                            ":result_format"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Whether to apply model-specified formatting",
+                              "key": "apply_formatting",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to apply visualization options",
+                              "key": "apply_vis",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to use cached results if available",
+                              "key": "cache",
+                              "value": "true"
+                            },
+                            {
+                              "description": "Whether to generate drill links in results",
+                              "key": "generate_drill_links",
+                              "value": "true"
+                            },
+                            {
+                              "description": "Whether to force use of production models",
+                              "key": "force_production",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "a4c0ce94-71a1-48e0-9adb-f807dce9541c",
+                              "key": "query_id",
+                              "value": "<long>",
+                              "description": "(Required) The unique numeric ID of the query"
+                            },
+                            {
+                              "id": "8fbfc6d6-7e89-4698-b005-710265738b47",
+                              "key": "result_format",
+                              "value": "png",
+                              "description": "(Required) Format for the query results"
+                            }
+                          ]
+                        },
+                        "description": "Executes a previously saved query and returns results in the specified format. The query must already exist. Supported formats include json, csv, txt, xlsx, html, md, json_label, json_detail, sql, and png."
+                      },
+                      "response": [
+                        {
+                          "id": "32194aff-30d2-4580-b6ad-18147496f262",
+                          "name": "Query results in the requested format",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/queries/:query_id/run/:result_format?limit=100&apply_formatting=<boolean>&apply_vis=<boolean>&cache=true&generate_drill_links=true&force_production=false",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "queries",
+                                ":query_id",
+                                "run",
+                                ":result_format"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of results to return",
+                                  "key": "limit",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "Whether to apply model-specified formatting",
+                                  "key": "apply_formatting",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to apply visualization options",
+                                  "key": "apply_vis",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to use cached results if available",
+                                  "key": "cache",
+                                  "value": "true"
+                                },
+                                {
+                                  "description": "Whether to generate drill links in results",
+                                  "key": "generate_drill_links",
+                                  "value": "true"
+                                },
+                                {
+                                  "description": "Whether to force use of production models",
+                                  "key": "force_production",
+                                  "value": "false"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "query_id"
+                                },
+                                {
+                                  "key": "result_format"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<string>",
+                          "createdAt": "2026-07-28T02:07:44.000Z",
+                          "updatedAt": "2026-07-28T02:07:44.000Z",
+                          "uid": "35240-32194aff-30d2-4580-b6ad-18147496f262"
+                        },
+                        {
+                          "id": "81065495-6f8e-4894-9175-6a231b1efe30",
+                          "name": "Query not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/queries/:query_id/run/:result_format?limit=100&apply_formatting=<boolean>&apply_vis=<boolean>&cache=true&generate_drill_links=true&force_production=false",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "queries",
+                                ":query_id",
+                                "run",
+                                ":result_format"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum number of results to return",
+                                  "key": "limit",
+                                  "value": "100"
+                                },
+                                {
+                                  "description": "Whether to apply model-specified formatting",
+                                  "key": "apply_formatting",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to apply visualization options",
+                                  "key": "apply_vis",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to use cached results if available",
+                                  "key": "cache",
+                                  "value": "true"
+                                },
+                                {
+                                  "description": "Whether to generate drill links in results",
+                                  "key": "generate_drill_links",
+                                  "value": "true"
+                                },
+                                {
+                                  "description": "Whether to force use of production models",
+                                  "key": "force_production",
+                                  "value": "false"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "query_id"
+                                },
+                                {
+                                  "key": "result_format"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:07:44.000Z",
+                          "updatedAt": "2026-07-28T02:07:44.000Z",
+                          "uid": "35240-81065495-6f8e-4894-9175-6a231b1efe30"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:07:44.000Z",
+                      "updatedAt": "2026-07-28T02:07:44.000Z",
+                      "uid": "35240-a29d759f-24ce-4767-8241-12c2e2d76e28"
+                    }
+                  ],
+                  "id": "fdd284b8-677c-49ad-9451-4742e0999430",
+                  "createdAt": "2026-07-28T02:07:44.000Z",
+                  "updatedAt": "2026-07-28T02:07:44.000Z",
+                  "uid": "35240-fdd284b8-677c-49ad-9451-4742e0999430"
+                }
+              ],
+              "id": "ec5e093f-9f33-4c1a-8895-b84a02163a22",
+              "createdAt": "2026-07-28T02:07:44.000Z",
+              "updatedAt": "2026-07-28T02:07:44.000Z",
+              "uid": "35240-ec5e093f-9f33-4c1a-8895-b84a02163a22"
+            },
+            {
+              "name": "Looker Get a Query",
+              "id": "a3fc322e-ff29-4a4c-b6b8-c0ca3f08d48d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/queries/:query_id?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "queries",
+                    ":query_id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "ce919975-9da5-496f-862e-e2c113d53dfa",
+                      "key": "query_id",
+                      "value": "<long>",
+                      "description": "(Required) The unique numeric ID of the query"
+                    }
+                  ]
+                },
+                "description": "Retrieves a query object by its ID. Returns the query definition including the model, view, fields, filters, sorts, and limit."
+              },
+              "response": [
+                {
+                  "id": "99ff9b79-8bdd-4675-87c9-6d5c279885e8",
+                  "name": "Query details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/queries/:query_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "queries",
+                        ":query_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "query_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<long>\",\n  \"model\": \"<string>\",\n  \"view\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pivots\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fill_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filters\": {\n    \"tempor_a6\": \"<string>\",\n    \"laborisa\": \"<string>\"\n  },\n  \"filter_expression\": \"<string>\",\n  \"sorts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<string>\",\n  \"column_limit\": \"<string>\",\n  \"total\": \"<boolean>\",\n  \"row_total\": \"<string>\",\n  \"subtotals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dynamic_fields\": \"<string>\",\n  \"vis_config\": {\n    \"inc\": \"nulla Ut labori\",\n    \"aliquip_e8\": 89612022\n  },\n  \"query_timezone\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"share_url\": \"<string>\",\n  \"url\": \"<string>\",\n  \"has_table_calculations\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T02:07:44.000Z",
+                  "updatedAt": "2026-07-28T02:07:44.000Z",
+                  "uid": "35240-99ff9b79-8bdd-4675-87c9-6d5c279885e8"
+                },
+                {
+                  "id": "03cf7ff6-9f7e-4dff-9ddf-d83fb4fad0fc",
+                  "name": "Query not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/queries/:query_id?fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "queries",
+                        ":query_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "query_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:07:44.000Z",
+                  "updatedAt": "2026-07-28T02:07:44.000Z",
+                  "uid": "35240-03cf7ff6-9f7e-4dff-9ddf-d83fb4fad0fc"
+                }
+              ],
+              "createdAt": "2026-07-28T02:07:44.000Z",
+              "updatedAt": "2026-07-28T02:07:44.000Z",
+              "uid": "35240-a3fc322e-ff29-4a4c-b6b8-c0ca3f08d48d"
+            }
+          ],
+          "id": "ccd8c8ff-9ebe-43e6-abd7-d47fed8578b9",
+          "createdAt": "2026-07-28T02:07:44.000Z",
+          "updatedAt": "2026-07-28T02:07:44.000Z",
+          "uid": "35240-ccd8c8ff-9ebe-43e6-abd7-d47fed8578b9"
+        },
+        {
+          "name": "run",
+          "item": [
+            {
+              "name": "{result_format}",
+              "item": [
+                {
+                  "name": "Looker Run an Inline Query",
+                  "id": "cfbbac49-6914-4b8f-bb1b-c5153fff688a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"model\": \"<string>\",\n  \"view\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pivots\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fill_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filters\": {\n    \"esse_\": \"<string>\",\n    \"incididuntf5\": \"<string>\"\n  },\n  \"filter_expression\": \"<string>\",\n  \"sorts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<string>\",\n  \"column_limit\": \"<string>\",\n  \"total\": \"<boolean>\",\n  \"row_total\": \"<string>\",\n  \"subtotals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dynamic_fields\": \"<string>\",\n  \"vis_config\": {\n    \"Duis7\": -16628044.192079455,\n    \"mollit8d\": 30124594\n  },\n  \"query_timezone\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/queries/run/:result_format?limit=100&apply_formatting=<boolean>&apply_vis=<boolean>&cache=true",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "queries",
+                        "run",
+                        ":result_format"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "limit",
+                          "value": "100"
+                        },
+                        {
+                          "description": "Whether to apply model-specified formatting",
+                          "key": "apply_formatting",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Whether to apply visualization options",
+                          "key": "apply_vis",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Whether to use cached results",
+                          "key": "cache",
+                          "value": "true"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "7bfa50ad-23b3-4eff-af4e-3f0004d7158e",
+                          "key": "result_format",
+                          "value": "png",
+                          "description": "(Required) Format for the query results"
+                        }
+                      ]
+                    },
+                    "description": "Creates and immediately executes a query in a single request. The query definition is provided in the request body and does not need to be saved first. This is useful for ad-hoc queries."
+                  },
+                  "response": [
+                    {
+                      "id": "5d7c7da4-aec6-41cd-90fd-bf2c6bfa2c09",
+                      "name": "Query results in the requested format",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"model\": \"<string>\",\n  \"view\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pivots\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fill_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filters\": {\n    \"esse_\": \"<string>\",\n    \"incididuntf5\": \"<string>\"\n  },\n  \"filter_expression\": \"<string>\",\n  \"sorts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<string>\",\n  \"column_limit\": \"<string>\",\n  \"total\": \"<boolean>\",\n  \"row_total\": \"<string>\",\n  \"subtotals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dynamic_fields\": \"<string>\",\n  \"vis_config\": {\n    \"Duis7\": -16628044.192079455,\n    \"mollit8d\": 30124594\n  },\n  \"query_timezone\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/queries/run/:result_format?limit=100&apply_formatting=<boolean>&apply_vis=<boolean>&cache=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "queries",
+                            "run",
+                            ":result_format"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Whether to apply model-specified formatting",
+                              "key": "apply_formatting",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to apply visualization options",
+                              "key": "apply_vis",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to use cached results",
+                              "key": "cache",
+                              "value": "true"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "result_format"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-07-28T02:07:44.000Z",
+                      "updatedAt": "2026-07-28T02:07:44.000Z",
+                      "uid": "35240-5d7c7da4-aec6-41cd-90fd-bf2c6bfa2c09"
+                    },
+                    {
+                      "id": "ece7b141-8d96-4601-88c5-eefb9509d01e",
+                      "name": "Invalid query definition",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"model\": \"<string>\",\n  \"view\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pivots\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fill_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filters\": {\n    \"esse_\": \"<string>\",\n    \"incididuntf5\": \"<string>\"\n  },\n  \"filter_expression\": \"<string>\",\n  \"sorts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<string>\",\n  \"column_limit\": \"<string>\",\n  \"total\": \"<boolean>\",\n  \"row_total\": \"<string>\",\n  \"subtotals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dynamic_fields\": \"<string>\",\n  \"vis_config\": {\n    \"Duis7\": -16628044.192079455,\n    \"mollit8d\": 30124594\n  },\n  \"query_timezone\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/queries/run/:result_format?limit=100&apply_formatting=<boolean>&apply_vis=<boolean>&cache=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "queries",
+                            "run",
+                            ":result_format"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Whether to apply model-specified formatting",
+                              "key": "apply_formatting",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to apply visualization options",
+                              "key": "apply_vis",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to use cached results",
+                              "key": "cache",
+                              "value": "true"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "result_format"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:44.000Z",
+                      "updatedAt": "2026-07-28T02:07:44.000Z",
+                      "uid": "35240-ece7b141-8d96-4601-88c5-eefb9509d01e"
+                    },
+                    {
+                      "id": "fbc15a00-ff6e-46bd-b5e4-3e74e9a8606c",
+                      "name": "Validation error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"model\": \"<string>\",\n  \"view\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pivots\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fill_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filters\": {\n    \"esse_\": \"<string>\",\n    \"incididuntf5\": \"<string>\"\n  },\n  \"filter_expression\": \"<string>\",\n  \"sorts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<string>\",\n  \"column_limit\": \"<string>\",\n  \"total\": \"<boolean>\",\n  \"row_total\": \"<string>\",\n  \"subtotals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dynamic_fields\": \"<string>\",\n  \"vis_config\": {\n    \"Duis7\": -16628044.192079455,\n    \"mollit8d\": 30124594\n  },\n  \"query_timezone\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/queries/run/:result_format?limit=100&apply_formatting=<boolean>&apply_vis=<boolean>&cache=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "queries",
+                            "run",
+                            ":result_format"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum number of results to return",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Whether to apply model-specified formatting",
+                              "key": "apply_formatting",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to apply visualization options",
+                              "key": "apply_vis",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to use cached results",
+                              "key": "cache",
+                              "value": "true"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "result_format"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:07:44.000Z",
+                      "updatedAt": "2026-07-28T02:07:44.000Z",
+                      "uid": "35240-fbc15a00-ff6e-46bd-b5e4-3e74e9a8606c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:07:44.000Z",
+                  "updatedAt": "2026-07-28T02:07:44.000Z",
+                  "uid": "35240-cfbbac49-6914-4b8f-bb1b-c5153fff688a"
+                }
+              ],
+              "id": "21255953-efaa-40c8-8628-9213976abffc",
+              "createdAt": "2026-07-28T02:07:44.000Z",
+              "updatedAt": "2026-07-28T02:07:44.000Z",
+              "uid": "35240-21255953-efaa-40c8-8628-9213976abffc"
+            }
+          ],
+          "id": "6050f585-5eaf-4dba-b17a-69a27a817a92",
+          "createdAt": "2026-07-28T02:07:44.000Z",
+          "updatedAt": "2026-07-28T02:07:44.000Z",
+          "uid": "35240-6050f585-5eaf-4dba-b17a-69a27a817a92"
+        },
+        {
+          "name": "Looker Create a Query",
+          "id": "a6607d42-235c-40be-abf1-fec6a75f954f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"view\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pivots\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fill_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filters\": {\n    \"esse_\": \"<string>\",\n    \"incididuntf5\": \"<string>\"\n  },\n  \"filter_expression\": \"<string>\",\n  \"sorts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<string>\",\n  \"column_limit\": \"<string>\",\n  \"total\": \"<boolean>\",\n  \"row_total\": \"<string>\",\n  \"subtotals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dynamic_fields\": \"<string>\",\n  \"vis_config\": {\n    \"Duis7\": -16628044.192079455,\n    \"mollit8d\": 30124594\n  },\n  \"query_timezone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/queries?fields=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "queries"
+              ],
+              "query": [
+                {
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                  "key": "fields",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a new query object. A query defines the model, view, fields, filters, sorts, and limit used to retrieve data from the underlying database. The query is not executed until you call the run_query endpoint. Queries are immutable once created."
+          },
+          "response": [
+            {
+              "id": "4b005d95-1776-4cc9-95eb-6e558d2a5472",
+              "name": "Query created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"<string>\",\n  \"view\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pivots\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fill_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filters\": {\n    \"esse_\": \"<string>\",\n    \"incididuntf5\": \"<string>\"\n  },\n  \"filter_expression\": \"<string>\",\n  \"sorts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<string>\",\n  \"column_limit\": \"<string>\",\n  \"total\": \"<boolean>\",\n  \"row_total\": \"<string>\",\n  \"subtotals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dynamic_fields\": \"<string>\",\n  \"vis_config\": {\n    \"Duis7\": -16628044.192079455,\n    \"mollit8d\": 30124594\n  },\n  \"query_timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/queries?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "queries"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<long>\",\n  \"model\": \"<string>\",\n  \"view\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pivots\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fill_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filters\": {\n    \"tempor_a6\": \"<string>\",\n    \"laborisa\": \"<string>\"\n  },\n  \"filter_expression\": \"<string>\",\n  \"sorts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<string>\",\n  \"column_limit\": \"<string>\",\n  \"total\": \"<boolean>\",\n  \"row_total\": \"<string>\",\n  \"subtotals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dynamic_fields\": \"<string>\",\n  \"vis_config\": {\n    \"inc\": \"nulla Ut labori\",\n    \"aliquip_e8\": 89612022\n  },\n  \"query_timezone\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"share_url\": \"<string>\",\n  \"url\": \"<string>\",\n  \"has_table_calculations\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T02:07:44.000Z",
+              "updatedAt": "2026-07-28T02:07:44.000Z",
+              "uid": "35240-4b005d95-1776-4cc9-95eb-6e558d2a5472"
+            },
+            {
+              "id": "4234e309-084f-48f1-9d8e-f4a08389969d",
+              "name": "Invalid query definition",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"<string>\",\n  \"view\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pivots\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fill_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filters\": {\n    \"esse_\": \"<string>\",\n    \"incididuntf5\": \"<string>\"\n  },\n  \"filter_expression\": \"<string>\",\n  \"sorts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<string>\",\n  \"column_limit\": \"<string>\",\n  \"total\": \"<boolean>\",\n  \"row_total\": \"<string>\",\n  \"subtotals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dynamic_fields\": \"<string>\",\n  \"vis_config\": {\n    \"Duis7\": -16628044.192079455,\n    \"mollit8d\": 30124594\n  },\n  \"query_timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/queries?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "queries"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:07:44.000Z",
+              "updatedAt": "2026-07-28T02:07:44.000Z",
+              "uid": "35240-4234e309-084f-48f1-9d8e-f4a08389969d"
+            },
+            {
+              "id": "04ea73b4-1d5a-48b0-a828-085ca15b6203",
+              "name": "Validation error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"<string>\",\n  \"view\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pivots\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fill_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filters\": {\n    \"esse_\": \"<string>\",\n    \"incididuntf5\": \"<string>\"\n  },\n  \"filter_expression\": \"<string>\",\n  \"sorts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<string>\",\n  \"column_limit\": \"<string>\",\n  \"total\": \"<boolean>\",\n  \"row_total\": \"<string>\",\n  \"subtotals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dynamic_fields\": \"<string>\",\n  \"vis_config\": {\n    \"Duis7\": -16628044.192079455,\n    \"mollit8d\": 30124594\n  },\n  \"query_timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/queries?fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "queries"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"documentation_url\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:07:44.000Z",
+              "updatedAt": "2026-07-28T02:07:44.000Z",
+              "uid": "35240-04ea73b4-1d5a-48b0-a828-085ca15b6203"
+            }
+          ],
+          "createdAt": "2026-07-28T02:07:44.000Z",
+          "updatedAt": "2026-07-28T02:07:44.000Z",
+          "uid": "35240-a6607d42-235c-40be-abf1-fec6a75f954f"
+        }
+      ],
+      "id": "55a570e3-ab7a-4736-8ac0-8d1ab1d8a761",
+      "createdAt": "2026-07-28T02:07:44.000Z",
+      "updatedAt": "2026-07-28T02:07:44.000Z",
+      "uid": "35240-55a570e3-ab7a-4736-8ac0-8d1ab1d8a761"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "your-instance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.looker.com/api/4.0"
+    }
+  ]
+}
