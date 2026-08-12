@@ -255,6 +255,15 @@ apis:
   - type: Versioning
     url: https://docs.cloud.google.com/looker/docs/api-versioning
 common:
+  - type: IssueTracker
+    url: https://github.com/looker-open-source/actions/issues
+  - type: CodeOfConduct
+    url: https://github.com/looker-open-source/actions/blob/master/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/looker-open-source/actions/blob/master/CONTRIBUTING.md
+  - type: License
+    name: MIT
+    url: https://github.com/looker-open-source/actions/blob/master/LICENSE
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/looker/overview
   - type: AgenticAccess
