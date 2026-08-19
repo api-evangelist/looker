@@ -1,0 +1,1887 @@
+{
+  "item": [
+    {
+      "id": "26bc334c-08a2-4949-9446-33b72c4867ea",
+      "name": "User",
+      "description": {
+        "content": "Manage Looker users including creating, updating, and retrieving user accounts, credentials, roles, and sessions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70ab3373-a963-4266-ae73-507909e2bc24",
+          "name": "Looker List All Users",
+          "request": {
+            "name": "Looker List All Users",
+            "description": {
+              "content": "Returns a list of all Looker user accounts. The response includes basic user information. Use the fields parameter to include additional details such as roles, credentials, and sessions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip before returning results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sorts",
+                  "value": "<string>",
+                  "description": "Sort fields (e.g. last_name asc, created_at desc)"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of user IDs to retrieve"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3eb2d834-0dac-40a0-91f8-8377c3ef0b54",
+              "name": "List of users",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sorts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8295,\n    \"first_name\": \"example_value\",\n    \"last_name\": \"example_value\",\n    \"display_name\": \"example_value\",\n    \"email\": \"user@example.com\",\n    \"avatar_url\": \"https://www.example.com\",\n    \"is_disabled\": true,\n    \"locale\": \"example_value\",\n    \"home_space_id\": \"500123\",\n    \"home_folder_id\": \"500123\",\n    \"personal_space_id\": 6257,\n    \"personal_folder_id\": 4932,\n    \"presumed_looker_employee\": true,\n    \"verified_looker_employee\": true,\n    \"roles_externally_managed\": true,\n    \"allow_direct_roles\": true,\n    \"allow_normal_group_membership\": true,\n    \"allow_roles_from_normal_groups\": true,\n    \"embed_group_space_id\": 3365,\n    \"credentials_email\": {\n      \"email\": \"user@example.com\",\n      \"is_disabled\": true,\n      \"logged_in_at\": \"2026-01-15T10:30:00Z\",\n      \"created_at\": \"2026-01-15T10:30:00Z\",\n      \"url\": \"https://www.example.com\"\n    },\n    \"url\": \"https://www.example.com\",\n    \"created_at\": \"2026-01-15T10:30:00Z\"\n  },\n  {\n    \"id\": 3542,\n    \"first_name\": \"example_value\",\n    \"last_name\": \"example_value\",\n    \"display_name\": \"example_value\",\n    \"email\": \"user@example.com\",\n    \"avatar_url\": \"https://www.example.com\",\n    \"is_disabled\": true,\n    \"locale\": \"example_value\",\n    \"home_space_id\": \"500123\",\n    \"home_folder_id\": \"500123\",\n    \"personal_space_id\": 1330,\n    \"personal_folder_id\": 3102,\n    \"presumed_looker_employee\": true,\n    \"verified_looker_employee\": true,\n    \"roles_externally_managed\": true,\n    \"allow_direct_roles\": true,\n    \"allow_normal_group_membership\": true,\n    \"allow_roles_from_normal_groups\": true,\n    \"embed_group_space_id\": 2647,\n    \"credentials_email\": {\n      \"email\": \"user@example.com\",\n      \"is_disabled\": true,\n      \"logged_in_at\": \"2026-01-15T10:30:00Z\",\n      \"created_at\": \"2026-01-15T10:30:00Z\",\n      \"url\": \"https://www.example.com\"\n    },\n    \"url\": \"https://www.example.com\",\n    \"created_at\": \"2026-01-15T10:30:00Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ee602a2-d279-4f5e-918c-53d2269aee2c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sorts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a948c727-9e5b-4c1a-8c3e-cce0d741ae8d",
+          "name": "Looker Create a User",
+          "request": {
+            "name": "Looker Create a User",
+            "description": {
+              "content": "Creates a new Looker user account. The new user will not have any credentials or roles assigned; those must be configured separately via the credentials and role endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f3714ee7-85b7-4e08-97c2-18c2cf14ccf8",
+              "name": "User created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"example_value\",\n  \"last_name\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"is_disabled\": true,\n  \"locale\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1298,\n  \"first_name\": \"example_value\",\n  \"last_name\": \"example_value\",\n  \"display_name\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"avatar_url\": \"https://www.example.com\",\n  \"is_disabled\": true,\n  \"locale\": \"example_value\",\n  \"home_space_id\": \"500123\",\n  \"home_folder_id\": \"500123\",\n  \"personal_space_id\": 3535,\n  \"personal_folder_id\": 6756,\n  \"presumed_looker_employee\": true,\n  \"verified_looker_employee\": true,\n  \"roles_externally_managed\": true,\n  \"allow_direct_roles\": true,\n  \"allow_normal_group_membership\": true,\n  \"allow_roles_from_normal_groups\": true,\n  \"embed_group_space_id\": 6549,\n  \"credentials_email\": {\n    \"email\": \"user@example.com\",\n    \"is_disabled\": true,\n    \"logged_in_at\": \"2026-01-15T10:30:00Z\",\n    \"created_at\": \"2026-01-15T10:30:00Z\",\n    \"url\": \"https://www.example.com\"\n  },\n  \"url\": \"https://www.example.com\",\n  \"created_at\": \"2026-01-15T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "825be41a-c24a-45ec-8a08-a4604a18cbaf",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"example_value\",\n  \"last_name\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"is_disabled\": true,\n  \"locale\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f56c0651-5d97-4958-94b5-d40dcc35764c",
+          "name": "Looker Search Users",
+          "request": {
+            "name": "Looker Search Users",
+            "description": {
+              "content": "Searches for users matching the specified criteria. Supports filtering by name, email, and other user attributes. Results are paginated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip before returning results"
+                },
+                {
+                  "disabled": false,
+                  "key": "first_name",
+                  "value": "<string>",
+                  "description": "Filter by first name"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_name",
+                  "value": "<string>",
+                  "description": "Filter by last name"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "Filter by email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_disabled",
+                  "value": "<boolean>",
+                  "description": "Filter by disabled status"
+                },
+                {
+                  "disabled": false,
+                  "key": "sorts",
+                  "value": "<string>",
+                  "description": "Sort fields"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5f384c7-031f-417b-813a-ea8dfbb7341b",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_disabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sorts",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8295,\n    \"first_name\": \"example_value\",\n    \"last_name\": \"example_value\",\n    \"display_name\": \"example_value\",\n    \"email\": \"user@example.com\",\n    \"avatar_url\": \"https://www.example.com\",\n    \"is_disabled\": true,\n    \"locale\": \"example_value\",\n    \"home_space_id\": \"500123\",\n    \"home_folder_id\": \"500123\",\n    \"personal_space_id\": 6257,\n    \"personal_folder_id\": 4932,\n    \"presumed_looker_employee\": true,\n    \"verified_looker_employee\": true,\n    \"roles_externally_managed\": true,\n    \"allow_direct_roles\": true,\n    \"allow_normal_group_membership\": true,\n    \"allow_roles_from_normal_groups\": true,\n    \"embed_group_space_id\": 3365,\n    \"credentials_email\": {\n      \"email\": \"user@example.com\",\n      \"is_disabled\": true,\n      \"logged_in_at\": \"2026-01-15T10:30:00Z\",\n      \"created_at\": \"2026-01-15T10:30:00Z\",\n      \"url\": \"https://www.example.com\"\n    },\n    \"url\": \"https://www.example.com\",\n    \"created_at\": \"2026-01-15T10:30:00Z\"\n  },\n  {\n    \"id\": 3542,\n    \"first_name\": \"example_value\",\n    \"last_name\": \"example_value\",\n    \"display_name\": \"example_value\",\n    \"email\": \"user@example.com\",\n    \"avatar_url\": \"https://www.example.com\",\n    \"is_disabled\": true,\n    \"locale\": \"example_value\",\n    \"home_space_id\": \"500123\",\n    \"home_folder_id\": \"500123\",\n    \"personal_space_id\": 1330,\n    \"personal_folder_id\": 3102,\n    \"presumed_looker_employee\": true,\n    \"verified_looker_employee\": true,\n    \"roles_externally_managed\": true,\n    \"allow_direct_roles\": true,\n    \"allow_normal_group_membership\": true,\n    \"allow_roles_from_normal_groups\": true,\n    \"embed_group_space_id\": 2647,\n    \"credentials_email\": {\n      \"email\": \"user@example.com\",\n      \"is_disabled\": true,\n      \"logged_in_at\": \"2026-01-15T10:30:00Z\",\n      \"created_at\": \"2026-01-15T10:30:00Z\",\n      \"url\": \"https://www.example.com\"\n    },\n    \"url\": \"https://www.example.com\",\n    \"created_at\": \"2026-01-15T10:30:00Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "28d33bcc-f93d-4051-a48e-79a54ee70d20",
+              "name": "Invalid search parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_disabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sorts",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85d2b754-ec17-456c-83be-1b78d1657afb",
+          "name": "Looker Get a User",
+          "request": {
+            "name": "Looker Get a User",
+            "description": {
+              "content": "Retrieves a single user by their ID including their profile information, roles, and credential settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "user_id",
+                  "description": "(Required) The unique numeric ID of the user"
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96c48f1d-a754-4a83-8950-14be518974f4",
+              "name": "User details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) The unique numeric ID of the user"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1298,\n  \"first_name\": \"example_value\",\n  \"last_name\": \"example_value\",\n  \"display_name\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"avatar_url\": \"https://www.example.com\",\n  \"is_disabled\": true,\n  \"locale\": \"example_value\",\n  \"home_space_id\": \"500123\",\n  \"home_folder_id\": \"500123\",\n  \"personal_space_id\": 3535,\n  \"personal_folder_id\": 6756,\n  \"presumed_looker_employee\": true,\n  \"verified_looker_employee\": true,\n  \"roles_externally_managed\": true,\n  \"allow_direct_roles\": true,\n  \"allow_normal_group_membership\": true,\n  \"allow_roles_from_normal_groups\": true,\n  \"embed_group_space_id\": 6549,\n  \"credentials_email\": {\n    \"email\": \"user@example.com\",\n    \"is_disabled\": true,\n    \"logged_in_at\": \"2026-01-15T10:30:00Z\",\n    \"created_at\": \"2026-01-15T10:30:00Z\",\n    \"url\": \"https://www.example.com\"\n  },\n  \"url\": \"https://www.example.com\",\n  \"created_at\": \"2026-01-15T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2f4c3dc-25d4-4dff-95f2-be91b8300e80",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) The unique numeric ID of the user"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c8dfa7e-c56b-4ff5-80f9-e8b344b00c48",
+          "name": "Looker Update a User",
+          "request": {
+            "name": "Looker Update a User",
+            "description": {
+              "content": "Updates an existing user account. Only the fields provided in the request body are updated. Credentials and roles are managed through separate endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "user_id",
+                  "description": "(Required) The unique numeric ID of the user"
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"is_disabled\": \"<boolean>\",\n  \"locale\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ff3143a0-c316-4369-85a6-4c3c57325268",
+              "name": "Updated user",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) The unique numeric ID of the user"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"example_value\",\n  \"last_name\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"is_disabled\": true,\n  \"locale\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1298,\n  \"first_name\": \"example_value\",\n  \"last_name\": \"example_value\",\n  \"display_name\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"avatar_url\": \"https://www.example.com\",\n  \"is_disabled\": true,\n  \"locale\": \"example_value\",\n  \"home_space_id\": \"500123\",\n  \"home_folder_id\": \"500123\",\n  \"personal_space_id\": 3535,\n  \"personal_folder_id\": 6756,\n  \"presumed_looker_employee\": true,\n  \"verified_looker_employee\": true,\n  \"roles_externally_managed\": true,\n  \"allow_direct_roles\": true,\n  \"allow_normal_group_membership\": true,\n  \"allow_roles_from_normal_groups\": true,\n  \"embed_group_space_id\": 6549,\n  \"credentials_email\": {\n    \"email\": \"user@example.com\",\n    \"is_disabled\": true,\n    \"logged_in_at\": \"2026-01-15T10:30:00Z\",\n    \"created_at\": \"2026-01-15T10:30:00Z\",\n    \"url\": \"https://www.example.com\"\n  },\n  \"url\": \"https://www.example.com\",\n  \"created_at\": \"2026-01-15T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "093141d7-4635-4ebf-a267-1ac6083e0263",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) The unique numeric ID of the user"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"example_value\",\n  \"last_name\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"is_disabled\": true,\n  \"locale\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19fbed1d-7103-45cd-abf7-2715b17b3d26",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) The unique numeric ID of the user"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"example_value\",\n  \"last_name\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"is_disabled\": true,\n  \"locale\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0f88fbe-28d9-4424-a534-7eea631aaf67",
+          "name": "Looker Delete a User",
+          "request": {
+            "name": "Looker Delete a User",
+            "description": {
+              "content": "Permanently deletes the specified user account. This removes the user and all their credentials. Content created by the user (dashboards, Looks, etc.) is not deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "user_id",
+                  "description": "(Required) The unique numeric ID of the user"
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e022fe43-124a-421f-b4a6-c86183cd667b",
+              "name": "User deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) The unique numeric ID of the user"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "75c3bfe6-c2fb-4763-ba33-c0c6491293bd",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) The unique numeric ID of the user"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "128d03b8-ee3e-449a-b02c-e249b04e0ff3",
+          "name": "Looker Get Current User",
+          "request": {
+            "name": "Looker Get Current User",
+            "description": {
+              "content": "Returns the user record for the currently authenticated user. This is useful for determining which user is associated with the current API session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c80eff66-6287-4387-9fe2-49e648ea8ded",
+              "name": "Current user details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1298,\n  \"first_name\": \"example_value\",\n  \"last_name\": \"example_value\",\n  \"display_name\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"avatar_url\": \"https://www.example.com\",\n  \"is_disabled\": true,\n  \"locale\": \"example_value\",\n  \"home_space_id\": \"500123\",\n  \"home_folder_id\": \"500123\",\n  \"personal_space_id\": 3535,\n  \"personal_folder_id\": 6756,\n  \"presumed_looker_employee\": true,\n  \"verified_looker_employee\": true,\n  \"roles_externally_managed\": true,\n  \"allow_direct_roles\": true,\n  \"allow_normal_group_membership\": true,\n  \"allow_roles_from_normal_groups\": true,\n  \"embed_group_space_id\": 6549,\n  \"credentials_email\": {\n    \"email\": \"user@example.com\",\n    \"is_disabled\": true,\n    \"logged_in_at\": \"2026-01-15T10:30:00Z\",\n    \"created_at\": \"2026-01-15T10:30:00Z\",\n    \"url\": \"https://www.example.com\"\n  },\n  \"url\": \"https://www.example.com\",\n  \"created_at\": \"2026-01-15T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17921303-a226-4a75-b11f-5a1bbae53251",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c7773d1-c765-48c8-af91-420953df4ce8",
+          "name": "Looker Get User Roles",
+          "request": {
+            "name": "Looker Get User Roles",
+            "description": {
+              "content": "Returns all roles assigned to the specified user. Roles define the permissions and model access granted to the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":user_id",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "user_id",
+                  "description": "(Required) The unique numeric ID of the user"
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3685c722-76bd-4ebe-881f-adb17fdc777f",
+              "name": "List of user roles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) The unique numeric ID of the user"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 170,\n    \"name\": \"Example Title\",\n    \"permission_set\": {\n      \"id\": 1695,\n      \"name\": \"Example Title\",\n      \"built_in\": true,\n      \"all_access\": true,\n      \"url\": \"https://www.example.com\"\n    },\n    \"permission_set_id\": 8661,\n    \"model_set\": {\n      \"id\": 7818,\n      \"name\": \"Example Title\",\n      \"built_in\": true,\n      \"all_access\": true,\n      \"url\": \"https://www.example.com\"\n    },\n    \"model_set_id\": 389,\n    \"user_count\": 10,\n    \"url\": \"https://www.example.com\"\n  },\n  {\n    \"id\": 9484,\n    \"name\": \"Example Title\",\n    \"permission_set\": {\n      \"id\": 4620,\n      \"name\": \"Example Title\",\n      \"built_in\": true,\n      \"all_access\": true,\n      \"url\": \"https://www.example.com\"\n    },\n    \"permission_set_id\": 3047,\n    \"model_set\": {\n      \"id\": 7869,\n      \"name\": \"Example Title\",\n      \"built_in\": true,\n      \"all_access\": true,\n      \"url\": \"https://www.example.com\"\n    },\n    \"model_set_id\": 3756,\n    \"user_count\": 10,\n    \"url\": \"https://www.example.com\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4caa7eed-3e68-461f-9068-15e61d0d99ca",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) The unique numeric ID of the user"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff124185-77d6-4e19-af83-87a957db12e5",
+          "name": "Looker Set User Roles",
+          "request": {
+            "name": "Looker Set User Roles",
+            "description": {
+              "content": "Replaces all roles assigned to the specified user. Provide the complete list of role IDs that should be assigned to the user. Any roles not included in the request will be removed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":user_id",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "user_id",
+                  "description": "(Required) The unique numeric ID of the user"
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<long>\",\n  \"<long>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "811325ec-75db-435b-aa5b-b4bb2467f059",
+              "name": "Updated role assignments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) The unique numeric ID of the user"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\",\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 170,\n    \"name\": \"Example Title\",\n    \"permission_set\": {\n      \"id\": 1695,\n      \"name\": \"Example Title\",\n      \"built_in\": true,\n      \"all_access\": true,\n      \"url\": \"https://www.example.com\"\n    },\n    \"permission_set_id\": 8661,\n    \"model_set\": {\n      \"id\": 7818,\n      \"name\": \"Example Title\",\n      \"built_in\": true,\n      \"all_access\": true,\n      \"url\": \"https://www.example.com\"\n    },\n    \"model_set_id\": 389,\n    \"user_count\": 10,\n    \"url\": \"https://www.example.com\"\n  },\n  {\n    \"id\": 9484,\n    \"name\": \"Example Title\",\n    \"permission_set\": {\n      \"id\": 4620,\n      \"name\": \"Example Title\",\n      \"built_in\": true,\n      \"all_access\": true,\n      \"url\": \"https://www.example.com\"\n    },\n    \"permission_set_id\": 3047,\n    \"model_set\": {\n      \"id\": 7869,\n      \"name\": \"Example Title\",\n      \"built_in\": true,\n      \"all_access\": true,\n      \"url\": \"https://www.example.com\"\n    },\n    \"model_set_id\": 3756,\n    \"user_count\": 10,\n    \"url\": \"https://www.example.com\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b77619ce-d74e-42c3-a6e7-56815c1c51d6",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user_id",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "user_id",
+                      "description": "(Required) The unique numeric ID of the user"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<long>\",\n  \"<long>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Looker instance hostname prefix",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-instance",
+      "key": "instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{instance}}.looker.com/api/4.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e5deaac7-391e-4837-bf11-14ac98db5c03",
+    "name": "Looker Auth User API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Looker API 4.0 provides programmatic access to the Looker business intelligence platform. It allows you to manage and interact with Looks, dashboards, queries, users, and other Looker resources. The API uses client credentials (client_id and client_secret) for authentication and returns JSON responses. Looker is part of Google Cloud and the API is available on any Looker instance at the /api/4.0 path.\n\nContact Support:\n Name: Google Cloud Looker Support",
+      "type": "text/plain"
+    }
+  }
+}

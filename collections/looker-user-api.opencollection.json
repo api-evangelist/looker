@@ -1,0 +1,289 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Looker Auth User API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Looker List All Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.looker.com/api/4.0/users",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip before returning results"
+              },
+              {
+                "name": "sorts",
+                "value": "",
+                "type": "query",
+                "description": "Sort fields (e.g. last_name asc, created_at desc)"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of user IDs to retrieve"
+              }
+            ]
+          },
+          "docs": "Returns a list of all Looker user accounts. The response includes basic user information. Use the fields parameter to include additional details such as roles, credentials, and sessions."
+        },
+        {
+          "info": {
+            "name": "Looker Create a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.looker.com/api/4.0/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Looker user account. The new user will not have any credentials or roles assigned; those must be configured separately via the credentials and role endpoints."
+        },
+        {
+          "info": {
+            "name": "Looker Search Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.looker.com/api/4.0/users/search",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to skip before returning results"
+              },
+              {
+                "name": "first_name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by first name"
+              },
+              {
+                "name": "last_name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by last name"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Filter by email address"
+              },
+              {
+                "name": "is_disabled",
+                "value": "",
+                "type": "query",
+                "description": "Filter by disabled status"
+              },
+              {
+                "name": "sorts",
+                "value": "",
+                "type": "query",
+                "description": "Sort fields"
+              }
+            ]
+          },
+          "docs": "Searches for users matching the specified criteria. Supports filtering by name, email, and other user attributes. Results are paginated."
+        },
+        {
+          "info": {
+            "name": "Looker Get a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.looker.com/api/4.0/users/:user_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique numeric ID of the user"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+              }
+            ]
+          },
+          "docs": "Retrieves a single user by their ID including their profile information, roles, and credential settings."
+        },
+        {
+          "info": {
+            "name": "Looker Update a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{instance}.looker.com/api/4.0/users/:user_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique numeric ID of the user"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing user account. Only the fields provided in the request body are updated. Credentials and roles are managed through separate endpoints."
+        },
+        {
+          "info": {
+            "name": "Looker Delete a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{instance}.looker.com/api/4.0/users/:user_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique numeric ID of the user"
+              }
+            ]
+          },
+          "docs": "Permanently deletes the specified user account. This removes the user and all their credentials. Content created by the user (dashboards, Looks, etc.) is not deleted."
+        },
+        {
+          "info": {
+            "name": "Looker Get Current User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.looker.com/api/4.0/users/me",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+              }
+            ]
+          },
+          "docs": "Returns the user record for the currently authenticated user. This is useful for determining which user is associated with the current API session."
+        },
+        {
+          "info": {
+            "name": "Looker Get User Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.looker.com/api/4.0/users/:user_id/roles",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique numeric ID of the user"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+              }
+            ]
+          },
+          "docs": "Returns all roles assigned to the specified user. Roles define the permissions and model access granted to the user."
+        },
+        {
+          "info": {
+            "name": "Looker Set User Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{instance}.looker.com/api/4.0/users/:user_id/roles",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique numeric ID of the user"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces all roles assigned to the specified user. Provide the complete list of role IDs that should be assigned to the user. Any roles not included in the request will be removed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

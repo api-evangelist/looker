@@ -1,0 +1,180 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Looker Auth Query API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Looker Create a Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.looker.com/api/4.0/queries",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new query object. A query defines the model, view, fields, filters, sorts, and limit used to retrieve data from the underlying database. The query is not executed until you call the run_query endpoint. Queries are immutable once created."
+        },
+        {
+          "info": {
+            "name": "Looker Get a Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.looker.com/api/4.0/queries/:query_id",
+            "params": [
+              {
+                "name": "query_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique numeric ID of the query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+              }
+            ]
+          },
+          "docs": "Retrieves a query object by its ID. Returns the query definition including the model, view, fields, filters, sorts, and limit."
+        },
+        {
+          "info": {
+            "name": "Looker Run a Saved Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.looker.com/api/4.0/queries/:query_id/run/:result_format",
+            "params": [
+              {
+                "name": "query_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique numeric ID of the query"
+              },
+              {
+                "name": "result_format",
+                "value": "",
+                "type": "path",
+                "description": "Format for the query results"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "apply_formatting",
+                "value": "",
+                "type": "query",
+                "description": "Whether to apply model-specified formatting"
+              },
+              {
+                "name": "apply_vis",
+                "value": "",
+                "type": "query",
+                "description": "Whether to apply visualization options"
+              },
+              {
+                "name": "cache",
+                "value": "",
+                "type": "query",
+                "description": "Whether to use cached results if available"
+              },
+              {
+                "name": "generate_drill_links",
+                "value": "",
+                "type": "query",
+                "description": "Whether to generate drill links in results"
+              },
+              {
+                "name": "force_production",
+                "value": "",
+                "type": "query",
+                "description": "Whether to force use of production models"
+              }
+            ]
+          },
+          "docs": "Executes a previously saved query and returns results in the specified format. The query must already exist. Supported formats include json, csv, txt, xlsx, html, md, json_label, json_detail, sql, and png."
+        },
+        {
+          "info": {
+            "name": "Looker Run an Inline Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.looker.com/api/4.0/queries/run/:result_format",
+            "params": [
+              {
+                "name": "result_format",
+                "value": "",
+                "type": "path",
+                "description": "Format for the query results"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "apply_formatting",
+                "value": "",
+                "type": "query",
+                "description": "Whether to apply model-specified formatting"
+              },
+              {
+                "name": "apply_vis",
+                "value": "",
+                "type": "query",
+                "description": "Whether to apply visualization options"
+              },
+              {
+                "name": "cache",
+                "value": "",
+                "type": "query",
+                "description": "Whether to use cached results"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates and immediately executes a query in a single request. The query definition is provided in the request body and does not need to be saved first. This is useful for ad-hoc queries."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

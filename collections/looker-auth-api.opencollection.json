@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Looker Auth API",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Looker Log in",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.looker.com/api/4.0/login",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Authenticates with the Looker API using client credentials and returns an access token. The client_id and client_secret are generated from the Looker Admin panel under Users > API Keys. The returned access token must be included as a Bearer token in the Authorization header for all subsequent API requests."
+        },
+        {
+          "info": {
+            "name": "Looker Log Out",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{instance}.looker.com/api/4.0/logout"
+          },
+          "docs": "Revokes the current API access token, ending the authenticated session. After logout, the token can no longer be used."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

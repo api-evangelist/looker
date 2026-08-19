@@ -1,0 +1,1105 @@
+{
+  "item": [
+    {
+      "id": "b86c42f1-f518-467a-942c-688efae2ab59",
+      "name": "Query",
+      "description": {
+        "content": "Create and run queries against your Looker models. Queries define the fields, filters, sorts, and limits used to retrieve data from the underlying database through LookML models.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7c4c2b1f-be6a-4e67-9980-1994ca3622ed",
+          "name": "Looker Create a Query",
+          "request": {
+            "name": "Looker Create a Query",
+            "description": {
+              "content": "Creates a new query object. A query defines the model, view, fields, filters, sorts, and limit used to retrieve data from the underlying database. The query is not executed until you call the run_query endpoint. Queries are immutable once created.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "queries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"view\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pivots\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fill_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filters\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"filter_expression\": \"<string>\",\n  \"sorts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<string>\",\n  \"column_limit\": \"<string>\",\n  \"total\": \"<boolean>\",\n  \"row_total\": \"<string>\",\n  \"subtotals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dynamic_fields\": \"<string>\",\n  \"vis_config\": {\n    \"key_0\": 5272.580558332545,\n    \"key_1\": \"string\"\n  },\n  \"query_timezone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c566006c-7874-40de-8901-141a51fd811b",
+              "name": "Query created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"example_value\",\n  \"view\": \"example_value\",\n  \"filters\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"filter_expression\": \"example_value\",\n  \"limit\": \"example_value\",\n  \"column_limit\": \"example_value\",\n  \"total\": true,\n  \"row_total\": \"example_value\",\n  \"dynamic_fields\": \"example_value\",\n  \"vis_config\": {\n    \"key_0\": true\n  },\n  \"query_timezone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6751,\n  \"model\": \"example_value\",\n  \"view\": \"example_value\",\n  \"filters\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"filter_expression\": \"example_value\",\n  \"limit\": \"example_value\",\n  \"column_limit\": \"example_value\",\n  \"total\": true,\n  \"row_total\": \"example_value\",\n  \"dynamic_fields\": \"example_value\",\n  \"vis_config\": {\n    \"key_0\": 9273.167637081435,\n    \"key_1\": false,\n    \"key_2\": false,\n    \"key_3\": 3881.133273454476,\n    \"key_4\": 7892\n  },\n  \"query_timezone\": \"example_value\",\n  \"client_id\": \"500123\",\n  \"slug\": \"example_value\",\n  \"share_url\": \"https://www.example.com\",\n  \"url\": \"https://www.example.com\",\n  \"has_table_calculations\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be58d3f7-2324-47a1-b03d-116f0aa78860",
+              "name": "Invalid query definition",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"example_value\",\n  \"view\": \"example_value\",\n  \"filters\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"filter_expression\": \"example_value\",\n  \"limit\": \"example_value\",\n  \"column_limit\": \"example_value\",\n  \"total\": true,\n  \"row_total\": \"example_value\",\n  \"dynamic_fields\": \"example_value\",\n  \"vis_config\": {\n    \"key_0\": true\n  },\n  \"query_timezone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "307207de-50ad-415b-9029-a520ef40db48",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"example_value\",\n  \"view\": \"example_value\",\n  \"filters\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"filter_expression\": \"example_value\",\n  \"limit\": \"example_value\",\n  \"column_limit\": \"example_value\",\n  \"total\": true,\n  \"row_total\": \"example_value\",\n  \"dynamic_fields\": \"example_value\",\n  \"vis_config\": {\n    \"key_0\": true\n  },\n  \"query_timezone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eab3fc75-78a2-452f-8e27-a93c497100c5",
+          "name": "Looker Get a Query",
+          "request": {
+            "name": "Looker Get a Query",
+            "description": {
+              "content": "Retrieves a query object by its ID. Returns the query definition including the model, view, fields, filters, sorts, and limit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "queries",
+                ":query_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "query_id",
+                  "description": "(Required) The unique numeric ID of the query"
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9739ed62-e53d-432f-a241-1ccf8218439b",
+              "name": "Query details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries",
+                    ":query_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "query_id",
+                      "description": "(Required) The unique numeric ID of the query"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6751,\n  \"model\": \"example_value\",\n  \"view\": \"example_value\",\n  \"filters\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"filter_expression\": \"example_value\",\n  \"limit\": \"example_value\",\n  \"column_limit\": \"example_value\",\n  \"total\": true,\n  \"row_total\": \"example_value\",\n  \"dynamic_fields\": \"example_value\",\n  \"vis_config\": {\n    \"key_0\": 9273.167637081435,\n    \"key_1\": false,\n    \"key_2\": false,\n    \"key_3\": 3881.133273454476,\n    \"key_4\": 7892\n  },\n  \"query_timezone\": \"example_value\",\n  \"client_id\": \"500123\",\n  \"slug\": \"example_value\",\n  \"share_url\": \"https://www.example.com\",\n  \"url\": \"https://www.example.com\",\n  \"has_table_calculations\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81cc4319-546b-472a-abbd-748c1f9ea38d",
+              "name": "Query not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries",
+                    ":query_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "query_id",
+                      "description": "(Required) The unique numeric ID of the query"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9443b8a3-882c-4dbc-85a0-2be227dac570",
+          "name": "Looker Run a Saved Query",
+          "request": {
+            "name": "Looker Run a Saved Query",
+            "description": {
+              "content": "Executes a previously saved query and returns results in the specified format. The query must already exist. Supported formats include json, csv, txt, xlsx, html, md, json_label, json_detail, sql, and png.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "queries",
+                ":query_id",
+                "run",
+                ":result_format"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "apply_formatting",
+                  "value": "<boolean>",
+                  "description": "Whether to apply model-specified formatting"
+                },
+                {
+                  "disabled": false,
+                  "key": "apply_vis",
+                  "value": "<boolean>",
+                  "description": "Whether to apply visualization options"
+                },
+                {
+                  "disabled": false,
+                  "key": "cache",
+                  "value": "true",
+                  "description": "Whether to use cached results if available"
+                },
+                {
+                  "disabled": false,
+                  "key": "generate_drill_links",
+                  "value": "true",
+                  "description": "Whether to generate drill links in results"
+                },
+                {
+                  "disabled": false,
+                  "key": "force_production",
+                  "value": "false",
+                  "description": "Whether to force use of production models"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "query_id",
+                  "description": "(Required) The unique numeric ID of the query"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "result_format",
+                  "description": "(Required) Format for the query results"
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4532cf7-b7e8-41c5-929d-ada1fd5ffa7f",
+              "name": "Query results in the requested format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries",
+                    ":query_id",
+                    "run",
+                    ":result_format"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "apply_formatting",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "apply_vis",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cache",
+                      "value": "true"
+                    },
+                    {
+                      "key": "generate_drill_links",
+                      "value": "true"
+                    },
+                    {
+                      "key": "force_production",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "query_id",
+                      "description": "(Required) The unique numeric ID of the query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "result_format",
+                      "description": "(Required) Format for the query results"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a471dea7-fdb9-4642-8769-dbc0472330e5",
+              "name": "Query not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries",
+                    ":query_id",
+                    "run",
+                    ":result_format"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "apply_formatting",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "apply_vis",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cache",
+                      "value": "true"
+                    },
+                    {
+                      "key": "generate_drill_links",
+                      "value": "true"
+                    },
+                    {
+                      "key": "force_production",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "query_id",
+                      "description": "(Required) The unique numeric ID of the query"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "result_format",
+                      "description": "(Required) Format for the query results"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e77100a-4593-421d-9c7d-745267ba14ae",
+          "name": "Looker Run an Inline Query",
+          "request": {
+            "name": "Looker Run an Inline Query",
+            "description": {
+              "content": "Creates and immediately executes a query in a single request. The query definition is provided in the request body and does not need to be saved first. This is useful for ad-hoc queries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "queries",
+                "run",
+                ":result_format"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "apply_formatting",
+                  "value": "<boolean>",
+                  "description": "Whether to apply model-specified formatting"
+                },
+                {
+                  "disabled": false,
+                  "key": "apply_vis",
+                  "value": "<boolean>",
+                  "description": "Whether to apply visualization options"
+                },
+                {
+                  "disabled": false,
+                  "key": "cache",
+                  "value": "true",
+                  "description": "Whether to use cached results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "result_format",
+                  "description": "(Required) Format for the query results"
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"view\": \"<string>\",\n  \"fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pivots\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fill_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"filters\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"filter_expression\": \"<string>\",\n  \"sorts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<string>\",\n  \"column_limit\": \"<string>\",\n  \"total\": \"<boolean>\",\n  \"row_total\": \"<string>\",\n  \"subtotals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dynamic_fields\": \"<string>\",\n  \"vis_config\": {\n    \"key_0\": 5272.580558332545,\n    \"key_1\": \"string\"\n  },\n  \"query_timezone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3c7dab68-c94c-4e8e-a1cd-eef703357d75",
+              "name": "Query results in the requested format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries",
+                    "run",
+                    ":result_format"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "apply_formatting",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "apply_vis",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cache",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "result_format",
+                      "description": "(Required) Format for the query results"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"example_value\",\n  \"view\": \"example_value\",\n  \"filters\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"filter_expression\": \"example_value\",\n  \"limit\": \"example_value\",\n  \"column_limit\": \"example_value\",\n  \"total\": true,\n  \"row_total\": \"example_value\",\n  \"dynamic_fields\": \"example_value\",\n  \"vis_config\": {\n    \"key_0\": true\n  },\n  \"query_timezone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe3c6e28-9f69-48ed-ae45-b8dc84a5f065",
+              "name": "Invalid query definition",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries",
+                    "run",
+                    ":result_format"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "apply_formatting",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "apply_vis",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cache",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "result_format",
+                      "description": "(Required) Format for the query results"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"example_value\",\n  \"view\": \"example_value\",\n  \"filters\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"filter_expression\": \"example_value\",\n  \"limit\": \"example_value\",\n  \"column_limit\": \"example_value\",\n  \"total\": true,\n  \"row_total\": \"example_value\",\n  \"dynamic_fields\": \"example_value\",\n  \"vis_config\": {\n    \"key_0\": true\n  },\n  \"query_timezone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41dbe82e-37a3-453b-974b-4ca027afb748",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queries",
+                    "run",
+                    ":result_format"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "apply_formatting",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "apply_vis",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "cache",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "result_format",
+                      "description": "(Required) Format for the query results"
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model\": \"example_value\",\n  \"view\": \"example_value\",\n  \"filters\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"filter_expression\": \"example_value\",\n  \"limit\": \"example_value\",\n  \"column_limit\": \"example_value\",\n  \"total\": true,\n  \"row_total\": \"example_value\",\n  \"dynamic_fields\": \"example_value\",\n  \"vis_config\": {\n    \"key_0\": true\n  },\n  \"query_timezone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Looker instance hostname prefix",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-instance",
+      "key": "instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{instance}}.looker.com/api/4.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d141fc3a-264b-4a68-a40a-f00e58012219",
+    "name": "Looker Auth Query API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Looker API 4.0 provides programmatic access to the Looker business intelligence platform. It allows you to manage and interact with Looks, dashboards, queries, users, and other Looker resources. The API uses client credentials (client_id and client_secret) for authentication and returns JSON responses. Looker is part of Google Cloud and the API is available on any Looker instance at the /api/4.0 path.\n\nContact Support:\n Name: Google Cloud Looker Support",
+      "type": "text/plain"
+    }
+  }
+}

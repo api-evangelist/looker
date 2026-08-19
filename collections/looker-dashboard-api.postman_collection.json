@@ -1,0 +1,1618 @@
+{
+  "item": [
+    {
+      "id": "9f078563-4de4-4683-a901-7c46afbfabc5",
+      "name": "Dashboard",
+      "description": {
+        "content": "Manage dashboards, which are collections of tiles displaying visualizations from queries. Dashboards support filters, layouts, and can be shared across the organization.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fd412350-50a8-4ce0-b007-b8ac13720842",
+          "name": "Looker List All Dashboards",
+          "request": {
+            "name": "Looker List All Dashboards",
+            "description": {
+              "content": "Returns a list of all dashboards accessible to the authenticated user. User-defined dashboards and LookML dashboards are both included. Use the fields parameter to limit response size.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7fa7d6b6-66f5-4582-9b29-763efe72c901",
+              "name": "List of dashboards",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"abc123\",\n    \"title\": \"Example Title\",\n    \"description\": \"A sample description.\",\n    \"content_metadata_id\": 5264,\n    \"query_timezone\": \"example_value\",\n    \"space_id\": \"500123\",\n    \"folder_id\": \"500123\",\n    \"user_id\": 9925,\n    \"space\": {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"parent_id\": \"500123\",\n      \"is_shared_root\": true,\n      \"is_users_root\": true,\n      \"is_user_root\": true\n    },\n    \"folder\": {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"parent_id\": \"500123\",\n      \"content_metadata_id\": 4238,\n      \"is_shared_root\": true,\n      \"is_users_root\": true,\n      \"is_user_root\": true\n    },\n    \"background_color\": \"example_value\",\n    \"text_tile_text_color\": \"example_value\",\n    \"tile_background_color\": \"example_value\",\n    \"tile_text_color\": \"example_value\",\n    \"hidden\": true,\n    \"readonly\": true,\n    \"refresh_interval\": \"example_value\",\n    \"load_configuration\": \"example_value\",\n    \"preferred_viewer\": \"example_value\",\n    \"created_at\": \"2026-01-15T10:30:00Z\",\n    \"updated_at\": \"2026-01-15T10:30:00Z\",\n    \"deleted_at\": \"2026-01-15T10:30:00Z\",\n    \"deleted\": true,\n    \"last_accessed_at\": \"2026-01-15T10:30:00Z\",\n    \"view_count\": 10,\n    \"favorite_count\": 10,\n    \"url\": \"https://www.example.com\",\n    \"model\": {\n      \"id\": \"abc123\",\n      \"label\": \"Example Title\"\n    }\n  },\n  {\n    \"id\": \"abc123\",\n    \"title\": \"Example Title\",\n    \"description\": \"A sample description.\",\n    \"content_metadata_id\": 7225,\n    \"query_timezone\": \"example_value\",\n    \"space_id\": \"500123\",\n    \"folder_id\": \"500123\",\n    \"user_id\": 5241,\n    \"space\": {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"parent_id\": \"500123\",\n      \"is_shared_root\": true,\n      \"is_users_root\": true,\n      \"is_user_root\": true\n    },\n    \"folder\": {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"parent_id\": \"500123\",\n      \"content_metadata_id\": 6482,\n      \"is_shared_root\": true,\n      \"is_users_root\": true,\n      \"is_user_root\": true\n    },\n    \"background_color\": \"example_value\",\n    \"text_tile_text_color\": \"example_value\",\n    \"tile_background_color\": \"example_value\",\n    \"tile_text_color\": \"example_value\",\n    \"hidden\": true,\n    \"readonly\": true,\n    \"refresh_interval\": \"example_value\",\n    \"load_configuration\": \"example_value\",\n    \"preferred_viewer\": \"example_value\",\n    \"created_at\": \"2026-01-15T10:30:00Z\",\n    \"updated_at\": \"2026-01-15T10:30:00Z\",\n    \"deleted_at\": \"2026-01-15T10:30:00Z\",\n    \"deleted\": true,\n    \"last_accessed_at\": \"2026-01-15T10:30:00Z\",\n    \"view_count\": 10,\n    \"favorite_count\": 10,\n    \"url\": \"https://www.example.com\",\n    \"model\": {\n      \"id\": \"abc123\",\n      \"label\": \"Example Title\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b235917-ba84-434d-8ae9-aae36aec153e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d02dde8-ca32-4dfb-a9ba-9e5e14d4c4f4",
+          "name": "Looker Create a Dashboard",
+          "request": {
+            "name": "Looker Create a Dashboard",
+            "description": {
+              "content": "Creates a new user-defined dashboard. The dashboard can be populated with tiles, filters, and layout settings after creation or as part of the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_timezone\": \"<string>\",\n  \"background_color\": \"<string>\",\n  \"text_tile_text_color\": \"<string>\",\n  \"tile_background_color\": \"<string>\",\n  \"tile_text_color\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"refresh_interval\": \"<string>\",\n  \"load_configuration\": \"<string>\",\n  \"preferred_viewer\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fed9a3f7-90a0-4eb0-bd77-c9e764367da9",
+              "name": "Dashboard created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Example Title\",\n  \"description\": \"A sample description.\",\n  \"space_id\": \"500123\",\n  \"folder_id\": \"500123\",\n  \"query_timezone\": \"example_value\",\n  \"background_color\": \"example_value\",\n  \"text_tile_text_color\": \"example_value\",\n  \"tile_background_color\": \"example_value\",\n  \"tile_text_color\": \"example_value\",\n  \"hidden\": true,\n  \"refresh_interval\": \"example_value\",\n  \"load_configuration\": \"example_value\",\n  \"preferred_viewer\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"title\": \"Example Title\",\n  \"description\": \"A sample description.\",\n  \"content_metadata_id\": 5074,\n  \"query_timezone\": \"example_value\",\n  \"space_id\": \"500123\",\n  \"folder_id\": \"500123\",\n  \"user_id\": 4767,\n  \"space\": {\n    \"id\": \"abc123\",\n    \"name\": \"Example Title\",\n    \"parent_id\": \"500123\",\n    \"is_shared_root\": true,\n    \"is_users_root\": true,\n    \"is_user_root\": true\n  },\n  \"folder\": {\n    \"id\": \"abc123\",\n    \"name\": \"Example Title\",\n    \"parent_id\": \"500123\",\n    \"content_metadata_id\": 3241,\n    \"is_shared_root\": true,\n    \"is_users_root\": true,\n    \"is_user_root\": true\n  },\n  \"background_color\": \"example_value\",\n  \"text_tile_text_color\": \"example_value\",\n  \"tile_background_color\": \"example_value\",\n  \"tile_text_color\": \"example_value\",\n  \"hidden\": true,\n  \"readonly\": true,\n  \"refresh_interval\": \"example_value\",\n  \"load_configuration\": \"example_value\",\n  \"preferred_viewer\": \"example_value\",\n  \"created_at\": \"2026-01-15T10:30:00Z\",\n  \"updated_at\": \"2026-01-15T10:30:00Z\",\n  \"deleted_at\": \"2026-01-15T10:30:00Z\",\n  \"deleted\": true,\n  \"last_accessed_at\": \"2026-01-15T10:30:00Z\",\n  \"view_count\": 10,\n  \"favorite_count\": 10,\n  \"url\": \"https://www.example.com\",\n  \"model\": {\n    \"id\": \"abc123\",\n    \"label\": \"Example Title\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "638b538b-2537-4c01-82fe-254c99f99c48",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Example Title\",\n  \"description\": \"A sample description.\",\n  \"space_id\": \"500123\",\n  \"folder_id\": \"500123\",\n  \"query_timezone\": \"example_value\",\n  \"background_color\": \"example_value\",\n  \"text_tile_text_color\": \"example_value\",\n  \"tile_background_color\": \"example_value\",\n  \"tile_text_color\": \"example_value\",\n  \"hidden\": true,\n  \"refresh_interval\": \"example_value\",\n  \"load_configuration\": \"example_value\",\n  \"preferred_viewer\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21cba21a-9f79-4c71-806a-475b6f857362",
+          "name": "Looker Search Dashboards",
+          "request": {
+            "name": "Looker Search Dashboards",
+            "description": {
+              "content": "Searches for dashboards matching the specified criteria including title, description, space, and creator. Results are paginated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of results to skip before returning results"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "Filter by dashboard title"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "Filter by dashboard description"
+                },
+                {
+                  "disabled": false,
+                  "key": "space_id",
+                  "value": "<string>",
+                  "description": "Filter by space (folder) ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_id",
+                  "value": "<string>",
+                  "description": "Filter by creator user ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "sorts",
+                  "value": "<string>",
+                  "description": "Sort fields"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8322d45-f690-4ef9-b596-48579c8f3558",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "space_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sorts",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"abc123\",\n    \"title\": \"Example Title\",\n    \"description\": \"A sample description.\",\n    \"content_metadata_id\": 5264,\n    \"query_timezone\": \"example_value\",\n    \"space_id\": \"500123\",\n    \"folder_id\": \"500123\",\n    \"user_id\": 9925,\n    \"space\": {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"parent_id\": \"500123\",\n      \"is_shared_root\": true,\n      \"is_users_root\": true,\n      \"is_user_root\": true\n    },\n    \"folder\": {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"parent_id\": \"500123\",\n      \"content_metadata_id\": 4238,\n      \"is_shared_root\": true,\n      \"is_users_root\": true,\n      \"is_user_root\": true\n    },\n    \"background_color\": \"example_value\",\n    \"text_tile_text_color\": \"example_value\",\n    \"tile_background_color\": \"example_value\",\n    \"tile_text_color\": \"example_value\",\n    \"hidden\": true,\n    \"readonly\": true,\n    \"refresh_interval\": \"example_value\",\n    \"load_configuration\": \"example_value\",\n    \"preferred_viewer\": \"example_value\",\n    \"created_at\": \"2026-01-15T10:30:00Z\",\n    \"updated_at\": \"2026-01-15T10:30:00Z\",\n    \"deleted_at\": \"2026-01-15T10:30:00Z\",\n    \"deleted\": true,\n    \"last_accessed_at\": \"2026-01-15T10:30:00Z\",\n    \"view_count\": 10,\n    \"favorite_count\": 10,\n    \"url\": \"https://www.example.com\",\n    \"model\": {\n      \"id\": \"abc123\",\n      \"label\": \"Example Title\"\n    }\n  },\n  {\n    \"id\": \"abc123\",\n    \"title\": \"Example Title\",\n    \"description\": \"A sample description.\",\n    \"content_metadata_id\": 7225,\n    \"query_timezone\": \"example_value\",\n    \"space_id\": \"500123\",\n    \"folder_id\": \"500123\",\n    \"user_id\": 5241,\n    \"space\": {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"parent_id\": \"500123\",\n      \"is_shared_root\": true,\n      \"is_users_root\": true,\n      \"is_user_root\": true\n    },\n    \"folder\": {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"parent_id\": \"500123\",\n      \"content_metadata_id\": 6482,\n      \"is_shared_root\": true,\n      \"is_users_root\": true,\n      \"is_user_root\": true\n    },\n    \"background_color\": \"example_value\",\n    \"text_tile_text_color\": \"example_value\",\n    \"tile_background_color\": \"example_value\",\n    \"tile_text_color\": \"example_value\",\n    \"hidden\": true,\n    \"readonly\": true,\n    \"refresh_interval\": \"example_value\",\n    \"load_configuration\": \"example_value\",\n    \"preferred_viewer\": \"example_value\",\n    \"created_at\": \"2026-01-15T10:30:00Z\",\n    \"updated_at\": \"2026-01-15T10:30:00Z\",\n    \"deleted_at\": \"2026-01-15T10:30:00Z\",\n    \"deleted\": true,\n    \"last_accessed_at\": \"2026-01-15T10:30:00Z\",\n    \"view_count\": 10,\n    \"favorite_count\": 10,\n    \"url\": \"https://www.example.com\",\n    \"model\": {\n      \"id\": \"abc123\",\n      \"label\": \"Example Title\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "054951ec-1a3c-4a4c-a007-295851b600ba",
+              "name": "Invalid search parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "space_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sorts",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79f417f2-b274-4444-9aa2-ef30a9b3a197",
+          "name": "Looker Get a Dashboard",
+          "request": {
+            "name": "Looker Get a Dashboard",
+            "description": {
+              "content": "Retrieves a single dashboard by its ID, including all dashboard elements (tiles), filters, and layout configuration. For user-defined dashboards the ID is numeric; for LookML dashboards the ID is the model::dashboard_name string.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards",
+                ":dashboard_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dashboard_id",
+                  "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "438efe2e-dddb-4500-80e4-05dc978701c7",
+              "name": "Dashboard details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboard_id",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"title\": \"Example Title\",\n  \"description\": \"A sample description.\",\n  \"content_metadata_id\": 5074,\n  \"query_timezone\": \"example_value\",\n  \"space_id\": \"500123\",\n  \"folder_id\": \"500123\",\n  \"user_id\": 4767,\n  \"space\": {\n    \"id\": \"abc123\",\n    \"name\": \"Example Title\",\n    \"parent_id\": \"500123\",\n    \"is_shared_root\": true,\n    \"is_users_root\": true,\n    \"is_user_root\": true\n  },\n  \"folder\": {\n    \"id\": \"abc123\",\n    \"name\": \"Example Title\",\n    \"parent_id\": \"500123\",\n    \"content_metadata_id\": 3241,\n    \"is_shared_root\": true,\n    \"is_users_root\": true,\n    \"is_user_root\": true\n  },\n  \"background_color\": \"example_value\",\n  \"text_tile_text_color\": \"example_value\",\n  \"tile_background_color\": \"example_value\",\n  \"tile_text_color\": \"example_value\",\n  \"hidden\": true,\n  \"readonly\": true,\n  \"refresh_interval\": \"example_value\",\n  \"load_configuration\": \"example_value\",\n  \"preferred_viewer\": \"example_value\",\n  \"created_at\": \"2026-01-15T10:30:00Z\",\n  \"updated_at\": \"2026-01-15T10:30:00Z\",\n  \"deleted_at\": \"2026-01-15T10:30:00Z\",\n  \"deleted\": true,\n  \"last_accessed_at\": \"2026-01-15T10:30:00Z\",\n  \"view_count\": 10,\n  \"favorite_count\": 10,\n  \"url\": \"https://www.example.com\",\n  \"model\": {\n    \"id\": \"abc123\",\n    \"label\": \"Example Title\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb67e91e-3c6a-47bb-82ed-0726b31ba6f2",
+              "name": "Dashboard not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboard_id",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5469d5d8-c444-4fd7-a0b1-c59256c3eb29",
+          "name": "Looker Update a Dashboard",
+          "request": {
+            "name": "Looker Update a Dashboard",
+            "description": {
+              "content": "Updates an existing dashboard. Only the fields provided in the request body are updated. Dashboard elements and filters can be updated through their own dedicated endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards",
+                ":dashboard_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dashboard_id",
+                  "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"space_id\": \"<string>\",\n  \"folder_id\": \"<string>\",\n  \"query_timezone\": \"<string>\",\n  \"background_color\": \"<string>\",\n  \"text_tile_text_color\": \"<string>\",\n  \"tile_background_color\": \"<string>\",\n  \"tile_text_color\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"refresh_interval\": \"<string>\",\n  \"load_configuration\": \"<string>\",\n  \"preferred_viewer\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2f897783-f8fe-451a-9151-af803604e5b6",
+              "name": "Updated dashboard",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboard_id",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Example Title\",\n  \"description\": \"A sample description.\",\n  \"space_id\": \"500123\",\n  \"folder_id\": \"500123\",\n  \"query_timezone\": \"example_value\",\n  \"background_color\": \"example_value\",\n  \"text_tile_text_color\": \"example_value\",\n  \"tile_background_color\": \"example_value\",\n  \"tile_text_color\": \"example_value\",\n  \"hidden\": true,\n  \"refresh_interval\": \"example_value\",\n  \"load_configuration\": \"example_value\",\n  \"preferred_viewer\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"title\": \"Example Title\",\n  \"description\": \"A sample description.\",\n  \"content_metadata_id\": 5074,\n  \"query_timezone\": \"example_value\",\n  \"space_id\": \"500123\",\n  \"folder_id\": \"500123\",\n  \"user_id\": 4767,\n  \"space\": {\n    \"id\": \"abc123\",\n    \"name\": \"Example Title\",\n    \"parent_id\": \"500123\",\n    \"is_shared_root\": true,\n    \"is_users_root\": true,\n    \"is_user_root\": true\n  },\n  \"folder\": {\n    \"id\": \"abc123\",\n    \"name\": \"Example Title\",\n    \"parent_id\": \"500123\",\n    \"content_metadata_id\": 3241,\n    \"is_shared_root\": true,\n    \"is_users_root\": true,\n    \"is_user_root\": true\n  },\n  \"background_color\": \"example_value\",\n  \"text_tile_text_color\": \"example_value\",\n  \"tile_background_color\": \"example_value\",\n  \"tile_text_color\": \"example_value\",\n  \"hidden\": true,\n  \"readonly\": true,\n  \"refresh_interval\": \"example_value\",\n  \"load_configuration\": \"example_value\",\n  \"preferred_viewer\": \"example_value\",\n  \"created_at\": \"2026-01-15T10:30:00Z\",\n  \"updated_at\": \"2026-01-15T10:30:00Z\",\n  \"deleted_at\": \"2026-01-15T10:30:00Z\",\n  \"deleted\": true,\n  \"last_accessed_at\": \"2026-01-15T10:30:00Z\",\n  \"view_count\": 10,\n  \"favorite_count\": 10,\n  \"url\": \"https://www.example.com\",\n  \"model\": {\n    \"id\": \"abc123\",\n    \"label\": \"Example Title\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c322159-9677-4536-9aa3-41d56e1abcdd",
+              "name": "Dashboard not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboard_id",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Example Title\",\n  \"description\": \"A sample description.\",\n  \"space_id\": \"500123\",\n  \"folder_id\": \"500123\",\n  \"query_timezone\": \"example_value\",\n  \"background_color\": \"example_value\",\n  \"text_tile_text_color\": \"example_value\",\n  \"tile_background_color\": \"example_value\",\n  \"tile_text_color\": \"example_value\",\n  \"hidden\": true,\n  \"refresh_interval\": \"example_value\",\n  \"load_configuration\": \"example_value\",\n  \"preferred_viewer\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9b5ac4a-be15-479d-b0af-bfbd4adf9466",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboard_id",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Example Title\",\n  \"description\": \"A sample description.\",\n  \"space_id\": \"500123\",\n  \"folder_id\": \"500123\",\n  \"query_timezone\": \"example_value\",\n  \"background_color\": \"example_value\",\n  \"text_tile_text_color\": \"example_value\",\n  \"tile_background_color\": \"example_value\",\n  \"tile_text_color\": \"example_value\",\n  \"hidden\": true,\n  \"refresh_interval\": \"example_value\",\n  \"load_configuration\": \"example_value\",\n  \"preferred_viewer\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b24e5f3-0470-4fe9-9998-755e1082c5b4",
+          "name": "Looker Delete a Dashboard",
+          "request": {
+            "name": "Looker Delete a Dashboard",
+            "description": {
+              "content": "Permanently deletes the specified dashboard and all of its elements, filters, and layout configuration. This action cannot be undone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards",
+                ":dashboard_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dashboard_id",
+                  "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1afa891-f4b5-4834-a1a0-66a98431992e",
+              "name": "Dashboard deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboard_id",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c871f8e0-d6d4-4e42-b7bf-a3ec637b3064",
+              "name": "Dashboard not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboard_id",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8e84a72-b9e3-4cd8-80a4-3a88d7567d5b",
+          "name": "Looker List Dashboard Elements",
+          "request": {
+            "name": "Looker List Dashboard Elements",
+            "description": {
+              "content": "Returns all elements (tiles) for the specified dashboard. Each element contains a query, a Look reference, or a text/markdown content block along with positioning and size information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards",
+                ":dashboard_id",
+                "dashboard_elements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dashboard_id",
+                  "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3cb103e-2c7f-4833-aa10-d85413fd10ea",
+              "name": "List of dashboard elements",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id",
+                    "dashboard_elements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboard_id",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"abc123\",\n    \"dashboard_id\": \"500123\",\n    \"look_id\": 9063,\n    \"query_id\": 1026,\n    \"query\": {\n      \"id\": 8759,\n      \"model\": \"example_value\",\n      \"view\": \"example_value\",\n      \"filters\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"filter_expression\": \"example_value\",\n      \"limit\": \"example_value\",\n      \"column_limit\": \"example_value\",\n      \"total\": true,\n      \"row_total\": \"example_value\",\n      \"dynamic_fields\": \"example_value\",\n      \"vis_config\": {\n        \"key_0\": false,\n        \"key_1\": false\n      },\n      \"query_timezone\": \"example_value\",\n      \"client_id\": \"500123\",\n      \"slug\": \"example_value\",\n      \"share_url\": \"https://www.example.com\",\n      \"url\": \"https://www.example.com\",\n      \"has_table_calculations\": true\n    },\n    \"look\": {\n      \"id\": 2159,\n      \"title\": \"Example Title\",\n      \"description\": \"A sample description.\",\n      \"content_metadata_id\": 562,\n      \"query_id\": 2456,\n      \"query\": {\n        \"id\": 357,\n        \"model\": \"example_value\",\n        \"view\": \"example_value\",\n        \"filters\": {\n          \"key_0\": \"string\"\n        },\n        \"filter_expression\": \"example_value\",\n        \"limit\": \"example_value\",\n        \"column_limit\": \"example_value\",\n        \"total\": true,\n        \"row_total\": \"example_value\",\n        \"dynamic_fields\": \"example_value\",\n        \"vis_config\": {\n          \"key_0\": 181,\n          \"key_1\": true\n        },\n        \"query_timezone\": \"example_value\",\n        \"client_id\": \"500123\",\n        \"slug\": \"example_value\",\n        \"share_url\": \"https://www.example.com\",\n        \"url\": \"https://www.example.com\",\n        \"has_table_calculations\": true\n      },\n      \"space_id\": \"500123\",\n      \"folder_id\": \"500123\",\n      \"user_id\": 2397,\n      \"space\": {\n        \"id\": \"abc123\",\n        \"name\": \"Example Title\",\n        \"parent_id\": \"500123\",\n        \"is_shared_root\": true,\n        \"is_users_root\": true,\n        \"is_user_root\": true\n      },\n      \"folder\": {\n        \"id\": \"abc123\",\n        \"name\": \"Example Title\",\n        \"parent_id\": \"500123\",\n        \"content_metadata_id\": 5234,\n        \"is_shared_root\": true,\n        \"is_users_root\": true,\n        \"is_user_root\": true\n      },\n      \"public\": true,\n      \"is_run_on_load\": true,\n      \"created_at\": \"2026-01-15T10:30:00Z\",\n      \"updated_at\": \"2026-01-15T10:30:00Z\",\n      \"deleted_at\": \"2026-01-15T10:30:00Z\",\n      \"deleted\": true,\n      \"last_accessed_at\": \"2026-01-15T10:30:00Z\",\n      \"view_count\": 10,\n      \"favorite_count\": 10,\n      \"model\": {\n        \"id\": \"abc123\",\n        \"label\": \"Example Title\"\n      },\n      \"url\": \"https://www.example.com\"\n    },\n    \"type\": \"vis\",\n    \"title\": \"Example Title\",\n    \"title_hidden\": true,\n    \"subtitle_text\": \"example_value\",\n    \"body_text\": \"example_value\",\n    \"note_text\": \"example_value\",\n    \"note_display\": \"example_value\",\n    \"note_state\": \"example_value\",\n    \"result_maker\": {},\n    \"rich_content_json\": \"example_value\"\n  },\n  {\n    \"id\": \"abc123\",\n    \"dashboard_id\": \"500123\",\n    \"look_id\": 8495,\n    \"query_id\": 1724,\n    \"query\": {\n      \"id\": 3413,\n      \"model\": \"example_value\",\n      \"view\": \"example_value\",\n      \"filters\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"filter_expression\": \"example_value\",\n      \"limit\": \"example_value\",\n      \"column_limit\": \"example_value\",\n      \"total\": true,\n      \"row_total\": \"example_value\",\n      \"dynamic_fields\": \"example_value\",\n      \"vis_config\": {\n        \"key_0\": 3240.703771902852\n      },\n      \"query_timezone\": \"example_value\",\n      \"client_id\": \"500123\",\n      \"slug\": \"example_value\",\n      \"share_url\": \"https://www.example.com\",\n      \"url\": \"https://www.example.com\",\n      \"has_table_calculations\": true\n    },\n    \"look\": {\n      \"id\": 1958,\n      \"title\": \"Example Title\",\n      \"description\": \"A sample description.\",\n      \"content_metadata_id\": 4338,\n      \"query_id\": 1184,\n      \"query\": {\n        \"id\": 8053,\n        \"model\": \"example_value\",\n        \"view\": \"example_value\",\n        \"filters\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"filter_expression\": \"example_value\",\n        \"limit\": \"example_value\",\n        \"column_limit\": \"example_value\",\n        \"total\": true,\n        \"row_total\": \"example_value\",\n        \"dynamic_fields\": \"example_value\",\n        \"vis_config\": {\n          \"key_0\": 3122.724404238589\n        },\n        \"query_timezone\": \"example_value\",\n        \"client_id\": \"500123\",\n        \"slug\": \"example_value\",\n        \"share_url\": \"https://www.example.com\",\n        \"url\": \"https://www.example.com\",\n        \"has_table_calculations\": true\n      },\n      \"space_id\": \"500123\",\n      \"folder_id\": \"500123\",\n      \"user_id\": 4193,\n      \"space\": {\n        \"id\": \"abc123\",\n        \"name\": \"Example Title\",\n        \"parent_id\": \"500123\",\n        \"is_shared_root\": true,\n        \"is_users_root\": true,\n        \"is_user_root\": true\n      },\n      \"folder\": {\n        \"id\": \"abc123\",\n        \"name\": \"Example Title\",\n        \"parent_id\": \"500123\",\n        \"content_metadata_id\": 9062,\n        \"is_shared_root\": true,\n        \"is_users_root\": true,\n        \"is_user_root\": true\n      },\n      \"public\": true,\n      \"is_run_on_load\": true,\n      \"created_at\": \"2026-01-15T10:30:00Z\",\n      \"updated_at\": \"2026-01-15T10:30:00Z\",\n      \"deleted_at\": \"2026-01-15T10:30:00Z\",\n      \"deleted\": true,\n      \"last_accessed_at\": \"2026-01-15T10:30:00Z\",\n      \"view_count\": 10,\n      \"favorite_count\": 10,\n      \"model\": {\n        \"id\": \"abc123\",\n        \"label\": \"Example Title\"\n      },\n      \"url\": \"https://www.example.com\"\n    },\n    \"type\": \"vis\",\n    \"title\": \"Example Title\",\n    \"title_hidden\": true,\n    \"subtitle_text\": \"example_value\",\n    \"body_text\": \"example_value\",\n    \"note_text\": \"example_value\",\n    \"note_display\": \"example_value\",\n    \"note_state\": \"example_value\",\n    \"result_maker\": {},\n    \"rich_content_json\": \"example_value\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "210d84a4-6334-49c3-9510-61a1b9f86ff2",
+              "name": "Dashboard not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id",
+                    "dashboard_elements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboard_id",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32860c75-c90f-4a7b-89ce-4af93992572e",
+          "name": "Looker List Dashboard Filters",
+          "request": {
+            "name": "Looker List Dashboard Filters",
+            "description": {
+              "content": "Returns all filters defined on the specified dashboard. Dashboard filters allow users to dynamically change query parameters across all tiles that listen to a given filter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dashboards",
+                ":dashboard_id",
+                "dashboard_filters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dashboard_id",
+                  "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                },
+                {
+                  "description": "Your Looker instance hostname prefix",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4e39b95-d08b-4bf4-9166-726f85187910",
+              "name": "List of dashboard filters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id",
+                    "dashboard_filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboard_id",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"abc123\",\n    \"dashboard_id\": \"500123\",\n    \"name\": \"Example Title\",\n    \"title\": \"Example Title\",\n    \"type\": \"field_filter\",\n    \"model\": \"example_value\",\n    \"explore\": \"example_value\",\n    \"dimension\": \"example_value\",\n    \"default_value\": \"example_value\",\n    \"allow_multiple_values\": true,\n    \"required\": true,\n    \"row\": 10\n  },\n  {\n    \"id\": \"abc123\",\n    \"dashboard_id\": \"500123\",\n    \"name\": \"Example Title\",\n    \"title\": \"Example Title\",\n    \"type\": \"field_filter\",\n    \"model\": \"example_value\",\n    \"explore\": \"example_value\",\n    \"dimension\": \"example_value\",\n    \"default_value\": \"example_value\",\n    \"allow_multiple_values\": true,\n    \"required\": true,\n    \"row\": 10\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23200802-1960-4be8-8621-d32b8fb078e5",
+              "name": "Dashboard not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dashboards",
+                    ":dashboard_id",
+                    "dashboard_filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dashboard_id",
+                      "description": "(Required) The dashboard ID. Numeric for user-defined dashboards or model::dashboard_name for LookML dashboards."
+                    },
+                    {
+                      "description": "Your Looker instance hostname prefix",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\",\n  \"documentation_url\": \"https://www.example.com\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Looker instance hostname prefix",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-instance",
+      "key": "instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{instance}}.looker.com/api/4.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b487e8ca-1d79-4a74-b059-70138b081a2d",
+    "name": "Looker Auth Dashboard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Looker API 4.0 provides programmatic access to the Looker business intelligence platform. It allows you to manage and interact with Looks, dashboards, queries, users, and other Looker resources. The API uses client credentials (client_id and client_secret) for authentication and returns JSON responses. Looker is part of Google Cloud and the API is available on any Looker instance at the /api/4.0 path.\n\nContact Support:\n Name: Google Cloud Looker Support",
+      "type": "text/plain"
+    }
+  }
+}
