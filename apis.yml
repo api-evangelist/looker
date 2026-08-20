@@ -38,6 +38,10 @@ apis:
   tags:
   - Data Modeling
   - LookML
+  - Project
+  tags_raw:
+  - Data Modeling
+  - LookML
   - Projects
   properties:
   - type: Documentation
@@ -52,6 +56,11 @@ apis:
   humanURL: https://docs.cloud.google.com/looker/docs/actions-overview
   baseURL: https://your-instance.looker.com:19999/api/4.0
   tags:
+  - Actions
+  - Data Delivery
+  - Integration
+  - Webhook
+  tags_raw:
   - Actions
   - Data Delivery
   - Integrations
@@ -122,6 +131,8 @@ apis:
   humanURL: https://developers.looker.com/api/explorer/4.0
   baseURL: https://your-instance.looker.com:19999/api/4.0
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
