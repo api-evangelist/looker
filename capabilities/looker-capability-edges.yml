@@ -1,0 +1,53 @@
+slug: looker
+provider: Looker
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Dashboard
+  spec_file: looker-dashboard-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.85
+  evidence: 'GET /dashboards  allDashboards  Looker List All Dashboards; schemas: Dashboard, DashboardFilter,
+    Look'
+  reason: Managing BI dashboards on a business intelligence platform is squarely analytics & BI delivery.
+- tag: Look
+  spec_file: looker-look-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.85
+  evidence: GET /looks/{look_id}/run/{result_format}  runLook  Looker Run a Look
+  reason: Looks are saved BI reports/visualisations; creating and running them is analytics and BI reporting
+    delivery.
+- tag: Query
+  spec_file: looker-query-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.8
+  evidence: POST /queries/run/{result_format}  runInlineQuery  Looker Run an Inline Query
+  reason: Running analytic queries against the BI semantic model is analytics/BI delivery; slight generic-ness
+    of 'Query' handled by BI platform context.
+- tag: User
+  spec_file: looker-user-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: 'PUT /users/{user_id}/roles  setUserRoles  Looker Set User Roles; schemas: Role, PermissionSet,
+    CredentialsApi3'
+  reason: User CRUD plus role/permission assignment for platform access is identity and access management,
+    not HR employee records.
