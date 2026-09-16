@@ -1,8 +1,7 @@
 aid: looker
 name: Looker
-description: >-
-  Looker is a business intelligence and data analytics platform that enables organizations to explore, analyze, and
-  share real-time business analytics.
+description: Looker is a business intelligence and data analytics platform that enables organizations
+  to explore, analyze, and share real-time business analytics.
 deliveryModel:
   model: open-core
   license: MIT
@@ -34,16 +33,16 @@ accessModel:
 image: https://looker.com/assets/img/images/logos/looker-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/looker/refs/heads/main/apis.yml
 created: '2024-01-01'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 type: Index
 access: 3rd-Party
 tags:
-  - Analytics
-  - BI Platform
-  - Business Intelligence
-  - Data Analytics
-  - Data Visualization
+- Analytics
+- BI Platform
+- Business Intelligence
+- Data Analytics
+- Data Visualization
 apis:
 - aid: looker:lookml
   name: LookML API
@@ -65,9 +64,8 @@ apis:
     url: https://developers.looker.com/api/lookml-validation
 - aid: looker:action
   name: Looker Action API
-  description: >-
-    The Looker Action API enables developers to define custom actions, or destinations, to which Looker
-    can send query results, dashboard results, or user interactions via a webhook-like API.
+  description: The Looker Action API enables developers to define custom actions, or destinations, to
+    which Looker can send query results, dashboard results, or user interactions via a webhook-like API.
   humanURL: https://docs.cloud.google.com/looker/docs/actions-overview
   baseURL: https://your-instance.looker.com:19999/api/4.0
   tags:
@@ -87,9 +85,8 @@ apis:
     url: https://github.com/looker-open-source/actions
 - aid: looker:embed-sdk
   name: Looker Embed SDK
-  description: >-
-    The Looker Embed SDK is a JavaScript library for embedding Looker content such as dashboards, Looks,
-    Explores, reports, and extensions into web applications, with support for signed SSO and cookieless
+  description: The Looker Embed SDK is a JavaScript library for embedding Looker content such as dashboards,
+    Looks, Explores, reports, and extensions into web applications, with support for signed SSO and cookieless
     authentication.
   humanURL: https://docs.cloud.google.com/looker/docs/embed-sdk-intro
   baseURL: https://your-instance.looker.com:19999/api/4.0
@@ -107,9 +104,9 @@ apis:
     url: https://looker-open-source.github.io/embed-sdk/
 - aid: looker:extension-framework
   name: Looker Extension Framework API
-  description: >-
-    The Looker Extension Framework provides APIs and SDKs for building custom extensions that run inside
-    the Looker UI, with access to the Looker API, Looker components library, and the Embed SDK.
+  description: The Looker Extension Framework provides APIs and SDKs for building custom extensions that
+    run inside the Looker UI, with access to the Looker API, Looker components library, and the Embed
+    SDK.
   humanURL: https://developers.looker.com/extensions/overview/
   baseURL: https://your-instance.looker.com:19999/api/4.0
   tags:
@@ -124,9 +121,8 @@ apis:
     url: https://docs.cloud.google.com/looker/docs/extension-framework-react-and-js-code-examples
 - aid: looker:google-cloud-core
   name: Looker (Google Cloud core) API
-  description: >-
-    The Looker (Google Cloud core) REST API provides management capabilities for Looker instances running
-    on Google Cloud, including instance lifecycle management, backups, and operations.
+  description: The Looker (Google Cloud core) REST API provides management capabilities for Looker instances
+    running on Google Cloud, including instance lifecycle management, backups, and operations.
   humanURL: https://cloud.google.com/looker/docs/reference/rest
   baseURL: https://looker.googleapis.com/v1
   tags:
@@ -141,8 +137,7 @@ apis:
     url: https://console.cloud.google.com/apis/library/looker.googleapis.com
 - aid: looker:looker-auth-api
   name: Looker Auth API
-  description: >-
-    Authentication endpoints for obtaining and managing API access tokens using client credentials.
+  description: Authentication endpoints for obtaining and managing API access tokens using client credentials.
   humanURL: https://developers.looker.com/api/explorer/4.0
   baseURL: https://your-instance.looker.com:19999/api/4.0
   tags:
@@ -170,9 +165,8 @@ apis:
     url: https://docs.cloud.google.com/looker/docs/api-versioning
 - aid: looker:looker-dashboard-api
   name: Looker Dashboard API
-  description: >-
-    Manage dashboards, which are collections of tiles displaying visualizations from queries. Dashboards
-    support filters, layouts, and can be shared across the organization.
+  description: Manage dashboards, which are collections of tiles displaying visualizations from queries.
+    Dashboards support filters, layouts, and can be shared across the organization.
   humanURL: https://developers.looker.com/api/explorer/4.0
   baseURL: https://your-instance.looker.com:19999/api/4.0
   tags:
@@ -198,9 +192,8 @@ apis:
     url: https://docs.cloud.google.com/looker/docs/api-versioning
 - aid: looker:looker-look-api
   name: Looker Look API
-  description: >-
-    Manage Looks, which are saved queries with visualizations. A Look contains a query definition and
-    visualization configuration that can be shared, scheduled, and embedded.
+  description: Manage Looks, which are saved queries with visualizations. A Look contains a query definition
+    and visualization configuration that can be shared, scheduled, and embedded.
   humanURL: https://developers.looker.com/api/explorer/4.0
   baseURL: https://your-instance.looker.com:19999/api/4.0
   tags:
@@ -226,9 +219,8 @@ apis:
     url: https://docs.cloud.google.com/looker/docs/api-versioning
 - aid: looker:looker-query-api
   name: Looker Query API
-  description: >-
-    Create and run queries against your Looker models. Queries define the fields, filters, sorts, and
-    limits used to retrieve data from the underlying database through LookML models.
+  description: Create and run queries against your Looker models. Queries define the fields, filters,
+    sorts, and limits used to retrieve data from the underlying database through LookML models.
   humanURL: https://developers.looker.com/api/explorer/4.0
   baseURL: https://your-instance.looker.com:19999/api/4.0
   tags:
@@ -254,9 +246,8 @@ apis:
     url: https://docs.cloud.google.com/looker/docs/api-versioning
 - aid: looker:looker-user-api
   name: Looker User API
-  description: >-
-    Manage Looker users including creating, updating, and retrieving user accounts, credentials, roles,
-    and sessions.
+  description: Manage Looker users including creating, updating, and retrieving user accounts, credentials,
+    roles, and sessions.
   humanURL: https://developers.looker.com/api/explorer/4.0
   baseURL: https://your-instance.looker.com:19999/api/4.0
   tags:
@@ -281,102 +272,112 @@ apis:
   - type: Versioning
     url: https://docs.cloud.google.com/looker/docs/api-versioning
 common:
-  - type: CapabilityMap
-    url: capabilities/looker-capability-edges.yml
-    name: Looker Business Capability Map
-  - type: IssueTracker
-    url: https://github.com/looker-open-source/actions/issues
-  - type: CodeOfConduct
-    url: https://github.com/looker-open-source/actions/blob/master/CODE_OF_CONDUCT.md
-  - type: ContributionGuide
-    url: https://github.com/looker-open-source/actions/blob/master/CONTRIBUTING.md
-  - type: License
-    name: MIT
-    url: https://github.com/looker-open-source/actions/blob/master/LICENSE
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/looker/overview
-  - type: AgenticAccess
-    url: agentic-access/looker-agentic-access.yml
-  - type: DomainSecurity
-    url: security/looker-domain-security.yml
-  - type: Authentication
-    url: authentication/looker-authentication.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/looker
-  - type: DeveloperPortal
-    url: https://developers.looker.com/
-  - type: GitHubOrganization
-    url: https://github.com/looker-open-source
-  - type: Support
-    url: https://cloud.google.com/looker/docs/support
-  - type: StatusPage
-    url: https://status.looker.com/
-  - type: PrivacyPolicy
-    url: https://looker.com/privacy
-  - type: TermsOfService
-    url: https://looker.com/terms
-  - type: SDKs
-    url: https://docs.cloud.google.com/looker/docs/api-sdk
-  - type: ChangeLog
-    url: https://github.com/looker-open-source/sdk-codegen/blob/main/CHANGELOG.md
-  - type: ReleaseNotes
-    url: https://docs.cloud.google.com/looker/docs/release-notes
-  - type: Pricing
-    url: https://cloud.google.com/looker/pricing
-  - type: GettingStarted
-    url: https://docs.cloud.google.com/looker/docs/api-getting-started
-  - type: Authentication
-    url: https://docs.cloud.google.com/looker/docs/api-auth
-  - type: Tutorials
-    url: https://developers.looker.com/api/tutorials/interactive-api-docs-whats-next/
-  - type: JSONSchema
-    url: json-schema/looker-dashboard-schema.json
-  - type: JSONLD
-    url: json-ld/looker-context.jsonld
-  - type: Features
-    data:
-      - name: Self-Service Analytics
-        description: >-
-          Enable business users to explore data, build visualizations, and create dashboards without SQL knowledge using
-          LookML models.
-      - name: Data Modeling with LookML
-        description: Define reusable data models in LookML that provide a semantic layer between databases and end-user analytics.
-      - name: Embedded Analytics
-        description: >-
-          Embed interactive dashboards, reports, and data explorations directly into web applications using SSO and
-          cookieless authentication.
-      - name: Scheduled Reports
-        description: Schedule and deliver reports and dashboards via email, Slack, S3, or custom action destinations.
-      - name: Custom Actions
-        description: Build webhook-based actions to send query results to any external destination or trigger workflows.
-      - name: API-Driven Administration
-        description: Programmatically manage users, roles, dashboards, queries, and platform settings through the Looker API.
-  - type: UseCases
-    data:
-      - name: Executive Dashboards
-        description: Build real-time executive dashboards aggregating KPIs from multiple data sources for leadership visibility.
-      - name: Customer-Facing Analytics
-        description: Embed analytics into SaaS products to provide customers with self-service reporting and data exploration.
-      - name: Data Governance Reporting
-        description: Monitor data quality, usage patterns, and access controls across the organization through audit reports.
-      - name: Marketing Performance Analytics
-        description: Analyze campaign performance, attribution, and ROI across marketing channels with unified data models.
-      - name: Operational Monitoring
-        description: Track operational metrics and KPIs in real time with automated alerting and scheduled report delivery.
-  - type: Integrations
-    data:
-      - name: Google BigQuery
-        description: Native optimized connector for querying and analyzing data in Google BigQuery data warehouse.
-      - name: Snowflake
-        description: High-performance connector for Snowflake cloud data warehouse with push-down query optimization.
-      - name: Amazon Redshift
-        description: Native connector for querying and visualizing data in Amazon Redshift data warehouse.
-      - name: Slack
-        description: Deliver scheduled reports and dashboard snapshots to Slack channels with interactive query capabilities.
-      - name: Google Sheets
-        description: Export query results and dashboard data directly to Google Sheets for collaborative analysis.
-      - name: Salesforce
-        description: Connect to Salesforce data for CRM analytics and combine with other data sources for unified views.
+- type: Website
+  url: https://looker.com
+- type: CapabilityMap
+  url: capabilities/looker-capability-edges.yml
+  name: Looker Business Capability Map
+- type: IssueTracker
+  url: https://github.com/looker-open-source/actions/issues
+- type: CodeOfConduct
+  url: https://github.com/looker-open-source/actions/blob/master/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/looker-open-source/actions/blob/master/CONTRIBUTING.md
+- type: License
+  name: MIT
+  url: https://github.com/looker-open-source/actions/blob/master/LICENSE
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/looker/overview
+- type: AgenticAccess
+  url: agentic-access/looker-agentic-access.yml
+- type: DomainSecurity
+  url: security/looker-domain-security.yml
+- type: Authentication
+  url: authentication/looker-authentication.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/looker
+- type: DeveloperPortal
+  url: https://developers.looker.com/
+- type: GitHubOrganization
+  url: https://github.com/looker-open-source
+- type: Support
+  url: https://cloud.google.com/looker/docs/support
+- type: StatusPage
+  url: https://status.looker.com/
+- type: PrivacyPolicy
+  url: https://looker.com/privacy
+- type: TermsOfService
+  url: https://looker.com/terms
+- type: SDKs
+  url: https://docs.cloud.google.com/looker/docs/api-sdk
+- type: ChangeLog
+  url: https://github.com/looker-open-source/sdk-codegen/blob/main/CHANGELOG.md
+- type: ReleaseNotes
+  url: https://docs.cloud.google.com/looker/docs/release-notes
+- type: Pricing
+  url: https://cloud.google.com/looker/pricing
+- type: GettingStarted
+  url: https://docs.cloud.google.com/looker/docs/api-getting-started
+- type: Authentication
+  url: https://docs.cloud.google.com/looker/docs/api-auth
+- type: Tutorials
+  url: https://developers.looker.com/api/tutorials/interactive-api-docs-whats-next/
+- type: JSONSchema
+  url: json-schema/looker-dashboard-schema.json
+- type: JSONLD
+  url: json-ld/looker-context.jsonld
+- type: Features
+  data:
+  - name: Self-Service Analytics
+    description: Enable business users to explore data, build visualizations, and create dashboards without
+      SQL knowledge using LookML models.
+  - name: Data Modeling with LookML
+    description: Define reusable data models in LookML that provide a semantic layer between databases
+      and end-user analytics.
+  - name: Embedded Analytics
+    description: Embed interactive dashboards, reports, and data explorations directly into web applications
+      using SSO and cookieless authentication.
+  - name: Scheduled Reports
+    description: Schedule and deliver reports and dashboards via email, Slack, S3, or custom action destinations.
+  - name: Custom Actions
+    description: Build webhook-based actions to send query results to any external destination or trigger
+      workflows.
+  - name: API-Driven Administration
+    description: Programmatically manage users, roles, dashboards, queries, and platform settings through
+      the Looker API.
+- type: UseCases
+  data:
+  - name: Executive Dashboards
+    description: Build real-time executive dashboards aggregating KPIs from multiple data sources for
+      leadership visibility.
+  - name: Customer-Facing Analytics
+    description: Embed analytics into SaaS products to provide customers with self-service reporting and
+      data exploration.
+  - name: Data Governance Reporting
+    description: Monitor data quality, usage patterns, and access controls across the organization through
+      audit reports.
+  - name: Marketing Performance Analytics
+    description: Analyze campaign performance, attribution, and ROI across marketing channels with unified
+      data models.
+  - name: Operational Monitoring
+    description: Track operational metrics and KPIs in real time with automated alerting and scheduled
+      report delivery.
+- type: Integrations
+  data:
+  - name: Google BigQuery
+    description: Native optimized connector for querying and analyzing data in Google BigQuery data warehouse.
+  - name: Snowflake
+    description: High-performance connector for Snowflake cloud data warehouse with push-down query optimization.
+  - name: Amazon Redshift
+    description: Native connector for querying and visualizing data in Amazon Redshift data warehouse.
+  - name: Slack
+    description: Deliver scheduled reports and dashboard snapshots to Slack channels with interactive
+      query capabilities.
+  - name: Google Sheets
+    description: Export query results and dashboard data directly to Google Sheets for collaborative analysis.
+  - name: Salesforce
+    description: Connect to Salesforce data for CRM analytics and combine with other data sources for
+      unified views.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
