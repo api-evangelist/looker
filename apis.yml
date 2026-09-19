@@ -92,6 +92,11 @@ apis:
   baseURL: https://your-instance.looker.com:19999/api/4.0
   tags:
   - Dashboards
+  - Embeddings
+  - JavaScript SDK
+  - SSO
+  tags_raw:
+  - Dashboards
   - Embedding
   - JavaScript SDK
   - SSO
@@ -170,6 +175,8 @@ apis:
   humanURL: https://developers.looker.com/api/explorer/4.0
   baseURL: https://your-instance.looker.com:19999/api/4.0
   tags:
+  - Dashboards
+  tags_raw:
   - Dashboard
   properties:
   - type: OpenAPI
