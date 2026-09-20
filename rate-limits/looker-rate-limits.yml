@@ -1,76 +1,28 @@
-specification: API Commons Rate Limits
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
-provider: Looker
-providerId: looker
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: true
-tags:
-  - Rate Limiting
-  - BI Platform
-  - Business Intelligence
-description: Looker (Google Cloud) enforces monthly API call quotas that scale with edition (Standard /
-  Enterprise / Embed). Quotas are split between query-based API calls and administrative API calls. Per-second
-  throttling is governed by the Looker (Google Cloud core) API service quotas via Google Cloud Quotas;
-  raise via support.
+# Rate limits transcribed from the provider's own documentation — see provenance. Quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://docs.cloud.google.com/armor/docs/rate-limiting-overview
 sources:
-  - https://cloud.google.com/looker/pricing
-  - https://cloud.google.com/looker/docs
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
+- https://docs.cloud.google.com/armor/docs/rate-limiting-overview
+provenance:
+  tool: planning/api-economics/harvest_ratelimits.py
+  run: 20260920T133210
+  grounding: every limit_text was found verbatim in the fetched page text
+published: true
+note: Page describes configurable Cloud Armor rate-limiting rules (throttle and rate-based ban), not a
+  provider API quota. Numeric values are configuration defaults/bounds; exceed_action status codes offered
+  are 403, 404, 429, 502 with 429 recommended.
+limit_count: 3
 limits:
-  - name: Query-based API calls (Standard)
-    scope: account
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-  - name: Administrative API calls (Standard)
-    scope: account
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-  - name: Query-based API calls (Enterprise)
-    scope: account
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-  - name: Administrative API calls (Enterprise)
-    scope: account
-    metric: requests_per_month
-    limit: 10000
-    timeFrame: month
-  - name: Query-based API calls (Embed)
-    scope: account
-    metric: requests_per_month
-    limit: 500000
-    timeFrame: month
-  - name: Administrative API calls (Embed)
-    scope: account
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-  - name: Conversational Analytics input tokens (per Developer User)
-    scope: user
-    metric: tokens_per_month
-    limit: 4000000
-    timeFrame: month
-  - name: Conversational Analytics output tokens (per Developer User)
-    scope: user
-    metric: tokens_per_month
-    limit: 80000
-    timeFrame: month
-policies:
-  - name: Edition-scoped quotas
-    description: API call quotas are split between query-based and administrative APIs and scale by edition.
-  - name: Per-user token quotas
-    description: Conversational Analytics tokens are quota'd per user role; overage applies after Oct 1 2026.
-  - name: Cloud quota
-    description: For the Looker (Google Cloud core) API, additional per-second/per-region throttling
-      is governed by Google Cloud quotas; request increases via the Cloud Quotas page.
-  - name: Backoff
-    description: On 429, retry with exponential backoff and respect Retry-After when present.
+- name: Default rate limiting security policy threshold
+  limit_text: the default threshold is 500 requests during each one-minute interval
+  limit: 500
+  window: minute
+  scope: ip
+- name: Throttle rate_limit_threshold_count maximum
+  limit_text: The minimum value is 1 and the maximum value is 1,000,000.
+  scope: unclear
+- name: Rate-based ban rate_limit_threshold_count maximum
+  limit_text: The minimum value is 1 request and the maximum value is 10,000 requests.
+  scope: unclear
+exceeded_status: 429

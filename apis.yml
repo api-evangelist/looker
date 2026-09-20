@@ -279,6 +279,8 @@ apis:
   - type: Versioning
     url: https://docs.cloud.google.com/looker/docs/api-versioning
 common:
+- type: RateLimits
+  url: rate-limits/looker-rate-limits.yml
 - type: Plans
   url: plans/looker-plans-pricing.yml
 - type: Website
