@@ -1,294 +1,60 @@
-specification: API Commons Plans
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
-provider: Looker
-providerId: looker
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: true
-tags:
-  - Analytics
-  - BI Platform
-  - Business Intelligence
-  - Data Analytics
-  - Embedded Analytics
-description: Looker (Google Cloud) prices in three editions — Standard, Enterprise, Embed — each requiring
-  an annual commitment with quoted pricing through Google Cloud sales. All editions include 1 production
-  instance, 10 Standard Users, and 2 Developer Users; editions differ by included monthly API call quotas
-  and security features. User add-ons are licensed by type (Developer / Standard / Viewer). Conversational
-  Analytics is unlimited through Sept 30 2026, then billed at $3/1M input tokens and $20/1M output tokens.
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://cloud.google.com/looker/pricing
 sources:
-  - https://cloud.google.com/looker/pricing
+- https://cloud.google.com/looker/pricing
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: per-call
+published: true
+note: Platform editions and user licensing prices are not published ("Call sales"); the only numeric prices
+  on the page are Conversational Analytics data token overage rates, currently under a promotional period
+  without quota limits or overage fees.
+plan_count: 5
+currency: USD
 plans:
-  - id: looker-standard
-    name: Standard
-    type: subscription
-    description: For small organizations (<50 users). 1 production instance, 10 Standard + 2 Developer Users included,
-      1,000 query-based API calls/month, 1,000 admin API calls/month. Annual commitment with custom pricing.
-    entries:
-      - label: Annual subscription
-        name: subscription
-        type: subscription
-        metric: year
-        limit: -1
-        timeFrame: year
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: false
-      - label: Query-based API calls
-        name: api_calls_query
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Administrative API calls
-        name: api_calls_admin
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: 1 production instance
-      - name: 10 Standard Users included
-      - name: 2 Developer Users included
-      - name: 1,000 query-based API calls/month
-      - name: 1,000 administrative API calls/month
-  - id: looker-enterprise
-    name: Enterprise
-    type: subscription
-    description: For larger organizations needing enhanced security. 100,000 query-based + 10,000 admin
-      API calls/month. Annual commitment with custom pricing.
-    entries:
-      - label: Annual subscription
-        name: subscription
-        type: subscription
-        metric: year
-        limit: -1
-        timeFrame: year
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: false
-      - label: Query-based API calls
-        name: api_calls_query
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Administrative API calls
-        name: api_calls_admin
-        type: quota
-        metric: requests
-        limit: 10000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: 1 production instance
-      - name: Enhanced security features
-      - name: 100,000 query-based API calls/month
-      - name: 10,000 administrative API calls/month
-      - name: 10 Standard Users + 2 Developer Users included
-  - id: looker-embed
-    name: Embed
-    type: subscription
-    description: For external analytics deployment. 500,000 query-based + 100,000 admin API calls/month.
-    entries:
-      - label: Annual subscription
-        name: subscription
-        type: subscription
-        metric: year
-        limit: -1
-        timeFrame: year
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: false
-      - label: Query-based API calls
-        name: api_calls_query
-        type: quota
-        metric: requests
-        limit: 500000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Administrative API calls
-        name: api_calls_admin
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: External / customer-facing embed deployment
-      - name: 500,000 query-based API calls/month
-      - name: 100,000 administrative API calls/month
-  - id: looker-developer-user
-    name: Developer User (add-on)
-    type: subscription
-    description: Per-user add-on. Full admin / development / API access. 4M input / 80K output Conversational Analytics tokens/month.
-    entries:
-      - label: Per-user license
-        name: developer_user
-        type: subscription
-        metric: seat
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: true
-      - label: Conversational input tokens (included)
-        name: ca_input_included
-        type: quota
-        metric: tokens
-        limit: 4000000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: true
-      - label: Conversational output tokens (included)
-        name: ca_output_included
-        type: quota
-        metric: tokens
-        limit: 80000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: true
-    elements:
-      - name: Administration
-      - name: Development Mode
-      - name: LookML, APIs, Support
-  - id: looker-standard-user
-    name: Standard User (add-on)
-    type: subscription
-    description: Per-user add-on. Dashboards, Looks, Explore, SQL Runner, Scheduling, View-only LookML. 2M input / 40K output tokens/month.
-    entries:
-      - label: Per-user license
-        name: standard_user
-        type: subscription
-        metric: seat
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: true
-      - label: Conversational input tokens (included)
-        name: ca_input_included
-        type: quota
-        metric: tokens
-        limit: 2000000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: true
-      - label: Conversational output tokens (included)
-        name: ca_output_included
-        type: quota
-        metric: tokens
-        limit: 40000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: true
-    elements:
-      - name: Dashboards / Looks / Explore
-      - name: SQL Runner
-      - name: Scheduling
-      - name: View-only LookML
-  - id: looker-viewer-user
-    name: Viewer User (add-on)
-    type: subscription
-    description: Per-user add-on. Read-only access to Dashboards, Looks, Folders, Boards. 1M input / 20K output tokens/month.
-    entries:
-      - label: Per-user license
-        name: viewer_user
-        type: subscription
-        metric: seat
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: true
-      - label: Conversational input tokens (included)
-        name: ca_input_included
-        type: quota
-        metric: tokens
-        limit: 1000000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: true
-      - label: Conversational output tokens (included)
-        name: ca_output_included
-        type: quota
-        metric: tokens
-        limit: 20000
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '0.00'
-        userMultiplied: true
-    elements:
-      - name: Read-only Dashboards
-      - name: Read-only Looks
-      - name: Read-only Folders / Boards
-  - id: looker-conversational-analytics
-    name: Conversational Analytics (overage)
-    type: usage-based
-    description: Through Sept 30 2026 unlimited under fair-use; from Oct 1 2026 input $3.00/1M tokens, output $20.00/1M tokens.
-    entries:
-      - label: Input data tokens
-        name: ca_input_tokens
-        type: metered
-        metric: tokens
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1000000
-        price: '3.00'
-        userMultiplied: false
-      - label: Output data tokens
-        name: ca_output_tokens
-        type: metered
-        metric: tokens
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1000000
-        price: '20.00'
-        userMultiplied: false
-    elements:
-      - name: Natural-language analytics
-      - name: Token-based overage past per-user quotas
+- name: Standard edition (annual commitment)
+  price_text: Call sales
+  period: year
+  unit: platform instance
+  included_quota: one production instance, 10 Standard Users, 2 Developer Users, upgrades, up to 1,000
+    query-based API calls per month, and up to 1,000 administrative API calls per month
+- name: Enterprise edition (annual commitment)
+  price_text: Call sales
+  period: year
+  unit: platform instance
+  included_quota: one production instance, 10 Standard Users, 2 Developer Users, upgrades, up to 100,000
+    query-based API calls per month, and up to 10,000 administrative API calls per month
+- name: Embed platform (annual commitment)
+  price_text: Call sales
+  period: year
+  unit: platform instance
+  included_quota: one production instance, 10 Standard Users, 2 Developer Users, upgrades, up to 500,000
+    query-based API calls per month, and up to 100,000 administrative API calls per month
+- name: Conversational Analytics input data tokens
+  price_text: $3.00 per 1M tokens
+  price: 3.0
+  currency: USD
+  period: per-use
+  unit: 1M input data tokens
+  included_quota: Standard 60M, Enterprise/Advanced 300M, Embed/Elite 1.2B monthly input data tokens
+  overage: $3.00 per 1M tokens
+- name: Conversational Analytics output data tokens
+  price_text: $20.00 per 1M tokens
+  price: 20.0
+  currency: USD
+  period: per-use
+  unit: 1M output data tokens
+  included_quota: Standard 1.2M, Enterprise/Advanced 6M, Embed/Elite 24M monthly output data tokens
+  overage: $20.00 per 1M tokens
+rate_limit_statements:
+- up to 1,000 query-based API calls per month, and up to 1,000 administrative API calls per month
+- up to 100,000 query-based API calls per month, and up to 10,000 administrative API calls per month
+- up to 500,000 query-based API calls per month, and up to 100,000 administrative API calls per month
+- All non-production and add-on instances receive a flat, baseline allocation of 6M input data tokens
+  and 0.12M output data tokens per month
+- Data token allocations will reset every month and unused tokens will not roll over.

@@ -279,6 +279,8 @@ apis:
   - type: Versioning
     url: https://docs.cloud.google.com/looker/docs/api-versioning
 common:
+- type: Plans
+  url: plans/looker-plans-pricing.yml
 - type: Website
   url: https://looker.com
 - type: CapabilityMap
