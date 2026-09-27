@@ -90,6 +90,18 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      description: Error response from the Looker API
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+          example: example_value
+        documentation_url:
+          type: string
+          description: URL to relevant API documentation
+          example: https://www.example.com
     AccessToken:
       type: object
       description: An API access token returned after successful authentication
@@ -112,18 +124,6 @@ components:
           nullable: true
           description: Refresh token (not used in API client credential flow)
           example: example_value
-    ErrorResponse:
-      type: object
-      description: Error response from the Looker API
-      properties:
-        message:
-          type: string
-          description: Human-readable error message
-          example: example_value
-        documentation_url:
-          type: string
-          description: URL to relevant API documentation
-          example: https://www.example.com
   securitySchemes:
     bearerAuth:
       type: http
