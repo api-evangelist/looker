@@ -256,41 +256,164 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    WriteLookWithQuery:
+    SpaceBase:
       type: object
-      description: Writable fields for creating or updating a Look
+      description: Basic space (folder) information
       properties:
-        title:
+        id:
           type: string
-          description: Display title
+          description: Unique identifier
+          example: abc123
+        name:
+          type: string
+          description: Display name
           example: Example Title
-        description:
+        parent_id:
           type: string
           nullable: true
-          description: Description of the Look
-          example: A sample description.
-        space_id:
-          type: string
-          description: Space (folder) ID to place the Look in
+          description: Parent space ID
           example: '500123'
-        folder_id:
+        is_shared_root:
+          type: boolean
+          description: Whether this is the shared root space
+          example: true
+        is_users_root:
+          type: boolean
+          description: Whether this is the users root space
+          example: true
+        is_user_root:
+          type: boolean
+          description: Whether this is a user's personal root space
+          example: true
+    WriteQuery:
+      type: object
+      required:
+      - model
+      - view
+      description: Writable fields for creating a new query
+      properties:
+        model:
           type: string
-          description: Folder ID to place the Look in
+          description: LookML model name
+          example: example_value
+        view:
+          type: string
+          description: LookML explore (view) name
+          example: example_value
+        fields:
+          type: array
+          description: List of field names to include
+          items:
+            type: string
+          example: []
+        pivots:
+          type: array
+          nullable: true
+          description: Fields to pivot on
+          items:
+            type: string
+          example: []
+        fill_fields:
+          type: array
+          nullable: true
+          description: Fields to fill missing values for
+          items:
+            type: string
+          example: []
+        filters:
+          type: object
+          nullable: true
+          description: Filter expressions keyed by field name
+          additionalProperties:
+            type: string
+          example: example_value
+        filter_expression:
+          type: string
+          nullable: true
+          description: Custom filter expression
+          example: example_value
+        sorts:
+          type: array
+          nullable: true
+          description: Sort order for results
+          items:
+            type: string
+          example: []
+        limit:
+          type: string
+          nullable: true
+          description: Maximum rows to return
+          example: example_value
+        column_limit:
+          type: string
+          nullable: true
+          description: Maximum columns for pivoted results
+          example: example_value
+        total:
+          type: boolean
+          description: Include row totals
+          example: true
+        row_total:
+          type: string
+          nullable: true
+          description: Row total setting
+          example: example_value
+        subtotals:
+          type: array
+          nullable: true
+          description: Fields to subtotal on
+          items:
+            type: string
+          example: []
+        dynamic_fields:
+          type: string
+          nullable: true
+          description: JSON string of dynamic field definitions
+          example: example_value
+        vis_config:
+          type: object
+          nullable: true
+          description: Visualization configuration
+          additionalProperties: true
+          example: example_value
+        query_timezone:
+          type: string
+          nullable: true
+          description: Timezone for date/time calculations
+          example: example_value
+    FolderBase:
+      type: object
+      description: Basic folder information
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          example: abc123
+        name:
+          type: string
+          description: Display name
+          example: Example Title
+        parent_id:
+          type: string
+          nullable: true
+          description: Parent folder ID
           example: '500123'
-        query_id:
+        content_metadata_id:
           type: integer
           format: int64
-          description: ID of the query to use
+          description: Content metadata ID
           example: '500123'
-        query:
-          $ref: '#/components/schemas/WriteQuery'
-        public:
+        is_shared_root:
           type: boolean
-          description: Whether the Look is public
+          description: Whether this is the shared root folder
           example: true
-        is_run_on_load:
+        is_users_root:
           type: boolean
-          description: Whether to auto-run the query on load
+          description: Whether this is the users root folder
+          example: true
+        is_user_root:
+          type: boolean
+          description: Whether this is a user's personal root folder
           example: true
     Query:
       type: object
@@ -416,68 +539,41 @@ components:
           description: Whether this query has table calculations
           readOnly: true
           example: true
-    FolderBase:
+    WriteLookWithQuery:
       type: object
-      description: Basic folder information
+      description: Writable fields for creating or updating a Look
       properties:
-        id:
+        title:
           type: string
-          description: Unique identifier
-          example: abc123
-        name:
-          type: string
-          description: Display name
+          description: Display title
           example: Example Title
-        parent_id:
+        description:
           type: string
           nullable: true
-          description: Parent folder ID
+          description: Description of the Look
+          example: A sample description.
+        space_id:
+          type: string
+          description: Space (folder) ID to place the Look in
           example: '500123'
-        content_metadata_id:
+        folder_id:
+          type: string
+          description: Folder ID to place the Look in
+          example: '500123'
+        query_id:
           type: integer
           format: int64
-          description: Content metadata ID
+          description: ID of the query to use
           example: '500123'
-        is_shared_root:
+        query:
+          $ref: '#/components/schemas/WriteQuery'
+        public:
           type: boolean
-          description: Whether this is the shared root folder
+          description: Whether the Look is public
           example: true
-        is_users_root:
+        is_run_on_load:
           type: boolean
-          description: Whether this is the users root folder
-          example: true
-        is_user_root:
-          type: boolean
-          description: Whether this is a user's personal root folder
-          example: true
-    SpaceBase:
-      type: object
-      description: Basic space (folder) information
-      properties:
-        id:
-          type: string
-          description: Unique identifier
-          example: abc123
-        name:
-          type: string
-          description: Display name
-          example: Example Title
-        parent_id:
-          type: string
-          nullable: true
-          description: Parent space ID
-          example: '500123'
-        is_shared_root:
-          type: boolean
-          description: Whether this is the shared root space
-          example: true
-        is_users_root:
-          type: boolean
-          description: Whether this is the users root space
-          example: true
-        is_user_root:
-          type: boolean
-          description: Whether this is a user's personal root space
+          description: Whether to auto-run the query on load
           example: true
     LookModel:
       type: object
@@ -491,114 +587,6 @@ components:
           type: string
           description: Display label for the model
           example: Example Title
-    WriteQuery:
-      type: object
-      required:
-      - model
-      - view
-      description: Writable fields for creating a new query
-      properties:
-        model:
-          type: string
-          description: LookML model name
-          example: example_value
-        view:
-          type: string
-          description: LookML explore (view) name
-          example: example_value
-        fields:
-          type: array
-          description: List of field names to include
-          items:
-            type: string
-          example: []
-        pivots:
-          type: array
-          nullable: true
-          description: Fields to pivot on
-          items:
-            type: string
-          example: []
-        fill_fields:
-          type: array
-          nullable: true
-          description: Fields to fill missing values for
-          items:
-            type: string
-          example: []
-        filters:
-          type: object
-          nullable: true
-          description: Filter expressions keyed by field name
-          additionalProperties:
-            type: string
-          example: example_value
-        filter_expression:
-          type: string
-          nullable: true
-          description: Custom filter expression
-          example: example_value
-        sorts:
-          type: array
-          nullable: true
-          description: Sort order for results
-          items:
-            type: string
-          example: []
-        limit:
-          type: string
-          nullable: true
-          description: Maximum rows to return
-          example: example_value
-        column_limit:
-          type: string
-          nullable: true
-          description: Maximum columns for pivoted results
-          example: example_value
-        total:
-          type: boolean
-          description: Include row totals
-          example: true
-        row_total:
-          type: string
-          nullable: true
-          description: Row total setting
-          example: example_value
-        subtotals:
-          type: array
-          nullable: true
-          description: Fields to subtotal on
-          items:
-            type: string
-          example: []
-        dynamic_fields:
-          type: string
-          nullable: true
-          description: JSON string of dynamic field definitions
-          example: example_value
-        vis_config:
-          type: object
-          nullable: true
-          description: Visualization configuration
-          additionalProperties: true
-          example: example_value
-        query_timezone:
-          type: string
-          nullable: true
-          description: Timezone for date/time calculations
-          example: example_value
-    ErrorResponse:
-      type: object
-      description: Error response from the Looker API
-      properties:
-        message:
-          type: string
-          description: Human-readable error message
-          example: example_value
-        documentation_url:
-          type: string
-          description: URL to relevant API documentation
-          example: https://www.example.com
     Look:
       type: object
       description: A Look is a saved query with a visualization. Looks can be shared, embedded, scheduled for delivery, and added to dashboards as tiles.
@@ -705,7 +693,25 @@ components:
           description: Relative URL path for this Look
           readOnly: true
           example: https://www.example.com
+    ErrorResponse:
+      type: object
+      description: Error response from the Looker API
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+          example: example_value
+        documentation_url:
+          type: string
+          description: URL to relevant API documentation
+          example: https://www.example.com
   parameters:
+    fields:
+      name: fields
+      in: query
+      description: Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.
+      schema:
+        type: string
     lookId:
       name: look_id
       in: path
@@ -714,19 +720,6 @@ components:
       schema:
         type: integer
         format: int64
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        default: 100
-    fields:
-      name: fields
-      in: query
-      description: Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.
-      schema:
-        type: string
     offset:
       name: offset
       in: query
@@ -734,6 +727,13 @@ components:
       schema:
         type: integer
         default: 0
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        default: 100
   securitySchemes:
     bearerAuth:
       type: http
