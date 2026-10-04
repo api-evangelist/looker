@@ -241,6 +241,18 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      description: Error response from the Looker API
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+          example: example_value
+        documentation_url:
+          type: string
+          description: URL to relevant API documentation
+          example: https://www.example.com
     WriteQuery:
       type: object
       required:
@@ -461,19 +473,14 @@ components:
           description: Whether this query has table calculations
           readOnly: true
           example: true
-    ErrorResponse:
-      type: object
-      description: Error response from the Looker API
-      properties:
-        message:
-          type: string
-          description: Human-readable error message
-          example: example_value
-        documentation_url:
-          type: string
-          description: URL to relevant API documentation
-          example: https://www.example.com
   parameters:
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+        default: 100
     fields:
       name: fields
       in: query
@@ -488,13 +495,6 @@ components:
       schema:
         type: integer
         format: int64
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-        default: 100
   securitySchemes:
     bearerAuth:
       type: http

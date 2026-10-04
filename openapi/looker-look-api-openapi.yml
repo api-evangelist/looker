@@ -256,6 +256,88 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      description: Error response from the Looker API
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+          example: example_value
+        documentation_url:
+          type: string
+          description: URL to relevant API documentation
+          example: https://www.example.com
+    FolderBase:
+      type: object
+      description: Basic folder information
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          example: abc123
+        name:
+          type: string
+          description: Display name
+          example: Example Title
+        parent_id:
+          type: string
+          nullable: true
+          description: Parent folder ID
+          example: '500123'
+        content_metadata_id:
+          type: integer
+          format: int64
+          description: Content metadata ID
+          example: '500123'
+        is_shared_root:
+          type: boolean
+          description: Whether this is the shared root folder
+          example: true
+        is_users_root:
+          type: boolean
+          description: Whether this is the users root folder
+          example: true
+        is_user_root:
+          type: boolean
+          description: Whether this is a user's personal root folder
+          example: true
+    WriteLookWithQuery:
+      type: object
+      description: Writable fields for creating or updating a Look
+      properties:
+        title:
+          type: string
+          description: Display title
+          example: Example Title
+        description:
+          type: string
+          nullable: true
+          description: Description of the Look
+          example: A sample description.
+        space_id:
+          type: string
+          description: Space (folder) ID to place the Look in
+          example: '500123'
+        folder_id:
+          type: string
+          description: Folder ID to place the Look in
+          example: '500123'
+        query_id:
+          type: integer
+          format: int64
+          description: ID of the query to use
+          example: '500123'
+        query:
+          $ref: '#/components/schemas/WriteQuery'
+        public:
+          type: boolean
+          description: Whether the Look is public
+          example: true
+        is_run_on_load:
+          type: boolean
+          description: Whether to auto-run the query on load
+          example: true
     SpaceBase:
       type: object
       description: Basic space (folder) information
@@ -381,40 +463,6 @@ components:
           nullable: true
           description: Timezone for date/time calculations
           example: example_value
-    FolderBase:
-      type: object
-      description: Basic folder information
-      properties:
-        id:
-          type: string
-          description: Unique identifier
-          example: abc123
-        name:
-          type: string
-          description: Display name
-          example: Example Title
-        parent_id:
-          type: string
-          nullable: true
-          description: Parent folder ID
-          example: '500123'
-        content_metadata_id:
-          type: integer
-          format: int64
-          description: Content metadata ID
-          example: '500123'
-        is_shared_root:
-          type: boolean
-          description: Whether this is the shared root folder
-          example: true
-        is_users_root:
-          type: boolean
-          description: Whether this is the users root folder
-          example: true
-        is_user_root:
-          type: boolean
-          description: Whether this is a user's personal root folder
-          example: true
     Query:
       type: object
       description: A query defines a data request against a LookML model. Queries are immutable once created and contain the model, view, fields, filters, sorts, and limit needed to generate SQL and retrieve results.
@@ -539,54 +587,6 @@ components:
           description: Whether this query has table calculations
           readOnly: true
           example: true
-    WriteLookWithQuery:
-      type: object
-      description: Writable fields for creating or updating a Look
-      properties:
-        title:
-          type: string
-          description: Display title
-          example: Example Title
-        description:
-          type: string
-          nullable: true
-          description: Description of the Look
-          example: A sample description.
-        space_id:
-          type: string
-          description: Space (folder) ID to place the Look in
-          example: '500123'
-        folder_id:
-          type: string
-          description: Folder ID to place the Look in
-          example: '500123'
-        query_id:
-          type: integer
-          format: int64
-          description: ID of the query to use
-          example: '500123'
-        query:
-          $ref: '#/components/schemas/WriteQuery'
-        public:
-          type: boolean
-          description: Whether the Look is public
-          example: true
-        is_run_on_load:
-          type: boolean
-          description: Whether to auto-run the query on load
-          example: true
-    LookModel:
-      type: object
-      description: Basic LookML model information
-      properties:
-        id:
-          type: string
-          description: Model name/identifier
-          example: abc123
-        label:
-          type: string
-          description: Display label for the model
-          example: Example Title
     Look:
       type: object
       description: A Look is a saved query with a visualization. Looks can be shared, embedded, scheduled for delivery, and added to dashboards as tiles.
@@ -693,25 +693,19 @@ components:
           description: Relative URL path for this Look
           readOnly: true
           example: https://www.example.com
-    ErrorResponse:
+    LookModel:
       type: object
-      description: Error response from the Looker API
+      description: Basic LookML model information
       properties:
-        message:
+        id:
           type: string
-          description: Human-readable error message
-          example: example_value
-        documentation_url:
+          description: Model name/identifier
+          example: abc123
+        label:
           type: string
-          description: URL to relevant API documentation
-          example: https://www.example.com
+          description: Display label for the model
+          example: Example Title
   parameters:
-    fields:
-      name: fields
-      in: query
-      description: Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.
-      schema:
-        type: string
     lookId:
       name: look_id
       in: path
@@ -720,13 +714,6 @@ components:
       schema:
         type: integer
         format: int64
-    offset:
-      name: offset
-      in: query
-      description: Number of results to skip before returning results
-      schema:
-        type: integer
-        default: 0
     limit:
       name: limit
       in: query
@@ -734,6 +721,19 @@ components:
       schema:
         type: integer
         default: 100
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip before returning results
+      schema:
+        type: integer
+        default: 0
+    fields:
+      name: fields
+      in: query
+      description: Comma-separated list of field names to include in the response. Use this to limit response payload and improve performance.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
