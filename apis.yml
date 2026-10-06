@@ -33,7 +33,7 @@ accessModel:
 image: https://looker.com/assets/img/images/logos/looker-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/looker/refs/heads/main/apis.yml
 created: '2024-01-01'
-modified: '2026-09-16'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 type: Index
 access: 3rd-Party
@@ -279,6 +279,8 @@ apis:
   - type: Versioning
     url: https://docs.cloud.google.com/looker/docs/api-versioning
 common:
+- url: https://cloud.google.com/blog/
+  type: Blog
 - type: RateLimits
   url: rate-limits/looker-rate-limits.yml
 - type: Plans
