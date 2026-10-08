@@ -279,6 +279,8 @@ apis:
   - type: Versioning
     url: https://docs.cloud.google.com/looker/docs/api-versioning
 common:
+- type: FinOps
+  url: finops/looker-finops.yml
 - url: https://cloud.google.com/blog/
   type: Blog
 - type: RateLimits
