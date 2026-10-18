@@ -39,7 +39,7 @@
     - connectors/applications/looker
     vendor_link: https://www.looker.com/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: looker-meltano
   label: Meltano
@@ -74,7 +74,7 @@
     - silver
     - unknown
     builder: 'community (Meltano Hub variant maintainers: airbyte, bytecodeio, singer-io)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
 - slug: looker-slack-own
   label: Slack (own)
