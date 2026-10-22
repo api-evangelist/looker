@@ -1,5 +1,22 @@
 generated: '2026-10-14'
 edges:
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/AQ1UQTDK6-looker
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - Looker
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
 - partner_name: Twilio Segment
   partner: segment
   partner_match: aggregator
@@ -78,23 +95,6 @@ edges:
     builder: 'community (Meltano Hub variant maintainers: airbyte, bytecodeio, singer-io)'
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
-- partner_name: Slack (own)
-  partner: slack
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://slack.com/marketplace/AQ1UQTDK6-looker
-  mirror_of: slack/integrations/slack-integration-edges.yml
-  apps:
-  - Looker
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Slack app
 method: searched
 checked:
 - https://fivetran.com/docs-sitemap.xml
