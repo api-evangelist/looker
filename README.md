@@ -1,4 +1,4 @@
-# Looker (looker)
+# Looker
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,184 +66,250 @@
 
 Looker is a business intelligence and data analytics platform that enables organizations to explore, analyze, and share real-time business analytics.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/looker/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/looker/refs/heads/main/apis.yml)
+**Areas:** Analytics · BI Platform · Business Intelligence · Data Analytics · Data Visualization
 
-## Scope
+## Looker on APIs.io
 
-- **Type:** Index
-- **Access:** 3rd-Party
+Everything profiled for Looker is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/looker/](https://apis.io/providers/looker/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (10)
 
-- Analytics
-- BI Platform
-- Business Intelligence
-- Data Analytics
-- Data Visualization
+- [LookML API](https://apis.io/apis/looker/lookml/) — API for programmatically managing LookML projects, models, and views.
+- [Looker Action API](https://apis.io/apis/looker/action/) — The Looker Action API enables developers to define custom actions, or destinations, to which Looker can send query results, dashboard results, or user…
+- [Looker Embed SDK](https://apis.io/apis/looker/embed-sdk/) — The Looker Embed SDK is a JavaScript library for embedding Looker content such as dashboards, Looks, Explores, reports, and extensions into web…
+- [Looker Extension Framework API](https://apis.io/apis/looker/extension-framework/) — The Looker Extension Framework provides APIs and SDKs for building custom extensions that run inside the Looker UI, with access to the Looker API, Looker…
+- [Looker (Google Cloud core) API](https://apis.io/apis/looker/google-cloud-core/) — The Looker (Google Cloud core) REST API provides management capabilities for Looker instances running on Google Cloud, including instance lifecycle…
+- [Looker Auth API](https://apis.io/apis/looker/looker-auth-api/) — Authentication endpoints for obtaining and managing API access tokens using client credentials.
+- [Looker Dashboard API](https://apis.io/apis/looker/looker-dashboard-api/) — Manage dashboards, which are collections of tiles displaying visualizations from queries. Dashboards support filters, layouts, and can be shared across the…
+- [Looker Look API](https://apis.io/apis/looker/looker-look-api/) — Manage Looks, which are saved queries with visualizations. A Look contains a query definition and visualization configuration that can be shared, scheduled,…
+- [Looker Query API](https://apis.io/apis/looker/looker-query-api/) — Create and run queries against your Looker models. Queries define the fields, filters, sorts, and limits used to retrieve data from the underlying database…
+- [Looker User API](https://apis.io/apis/looker/looker-user-api/) — Manage Looker users including creating, updating, and retrieving user accounts, credentials, roles, and sessions.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Looker API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Looker API provides programmatic access to Looker functionality including running queries, managing users, creating dashboards, and administering the platform.
+- [Looker Agentic Access](https://apis.io/agentic-access/looker/looker-agentic-access/)
 
-- **Human URL:** [https://developers.looker.com/api/explorer/4.0](https://developers.looker.com/api/explorer/4.0)
-- **Base URL:** `https://your-instance.looker.com:19999/api/4.0`
+#### JSON Schema (40)
 
-#### Tags
+The data models the API reads and writes.
 
-- Analytics
-- Dashboards
-- Queries
-- REST API
+- [AccessToken](https://apis.io/schemas/looker/looker-access-token/)
+- [AccessToken](https://apis.io/schemas/looker/looker-accesstoken/)
+- [CredentialsApi3](https://apis.io/schemas/looker/looker-credentials-api3/)
+- [CredentialsEmail](https://apis.io/schemas/looker/looker-credentials-email/)
+- [CredentialsApi3](https://apis.io/schemas/looker/looker-credentialsapi3/)
+- [CredentialsEmail](https://apis.io/schemas/looker/looker-credentialsemail/)
+- [Dashboard](https://apis.io/schemas/looker/looker-dashboard/)
+- [DashboardElement](https://apis.io/schemas/looker/looker-dashboard-element/)
+- [DashboardFilter](https://apis.io/schemas/looker/looker-dashboard-filter/)
+- [DashboardLayout](https://apis.io/schemas/looker/looker-dashboard-layout/)
+- [DashboardLayoutComponent](https://apis.io/schemas/looker/looker-dashboard-layout-component/)
+- [DashboardElement](https://apis.io/schemas/looker/looker-dashboardelement/)
+- [DashboardFilter](https://apis.io/schemas/looker/looker-dashboardfilter/)
+- [DashboardLayout](https://apis.io/schemas/looker/looker-dashboardlayout/)
+- [DashboardLayoutComponent](https://apis.io/schemas/looker/looker-dashboardlayoutcomponent/)
+- [ErrorResponse](https://apis.io/schemas/looker/looker-error-response/)
+- [ErrorResponse](https://apis.io/schemas/looker/looker-errorresponse/)
+- [FolderBase](https://apis.io/schemas/looker/looker-folder-base/)
+- [FolderBase](https://apis.io/schemas/looker/looker-folderbase/)
+- [Look](https://apis.io/schemas/looker/looker-look/)
+- [LookModel](https://apis.io/schemas/looker/looker-look-model/)
+- [LookModel](https://apis.io/schemas/looker/looker-lookmodel/)
+- [ModelSet](https://apis.io/schemas/looker/looker-model-set/)
+- [ModelSet](https://apis.io/schemas/looker/looker-modelset/)
+- [PermissionSet](https://apis.io/schemas/looker/looker-permission-set/)
+- …and 15 more published on APIs.io
 
-#### Properties
+#### JSON Structure (24)
 
-- [Documentation](https://developers.looker.com/api/getting-started)
-- [OpenAPI](openapi/looker-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/looker-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/looker-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://developers.looker.com/api/getting-started#authentication)
-- [SDK](https://developers.looker.com/api/sdks)
-- [Console](https://developers.looker.com/api/explorer/4.0)
-- [Rate Limits](https://cloud.google.com/looker/docs/api-rate-limits)
-- [API Reference](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest)
-- [Getting Started](https://docs.cloud.google.com/looker/docs/api-getting-started)
-- [Versioning](https://docs.cloud.google.com/looker/docs/api-versioning)
+Data models expressed in JSON Structure.
 
-### LookML API
+- [Looker Access Token Structure](https://apis.io/json-structure/looker/looker-access-token-structure/)
+- [Looker Credentials Api3 Structure](https://apis.io/json-structure/looker/looker-credentials-api3-structure/)
+- [Looker Credentials Email Structure](https://apis.io/json-structure/looker/looker-credentials-email-structure/)
+- [Looker Dashboard Element Structure](https://apis.io/json-structure/looker/looker-dashboard-element-structure/)
+- [Looker Dashboard Filter Structure](https://apis.io/json-structure/looker/looker-dashboard-filter-structure/)
+- [Looker Dashboard Layout Component Structure](https://apis.io/json-structure/looker/looker-dashboard-layout-component-structure/)
+- [Looker Dashboard Layout Structure](https://apis.io/json-structure/looker/looker-dashboard-layout-structure/)
+- [Looker Dashboard Structure](https://apis.io/json-structure/looker/looker-dashboard-structure/)
+- [Looker Error Response Structure](https://apis.io/json-structure/looker/looker-error-response-structure/)
+- [Looker Folder Base Structure](https://apis.io/json-structure/looker/looker-folder-base-structure/)
+- [Looker Look Model Structure](https://apis.io/json-structure/looker/looker-look-model-structure/)
+- [Looker Look Structure](https://apis.io/json-structure/looker/looker-look-structure/)
+- [Looker Model Set Structure](https://apis.io/json-structure/looker/looker-model-set-structure/)
+- [Looker Permission Set Structure](https://apis.io/json-structure/looker/looker-permission-set-structure/)
+- [Looker Query Structure](https://apis.io/json-structure/looker/looker-query-structure/)
+- [Looker Role Structure](https://apis.io/json-structure/looker/looker-role-structure/)
+- [Looker Session Structure](https://apis.io/json-structure/looker/looker-session-structure/)
+- [Looker Space Base Structure](https://apis.io/json-structure/looker/looker-space-base-structure/)
+- [Looker Structure](https://apis.io/json-structure/looker/looker-structure/)
+- [Looker User Structure](https://apis.io/json-structure/looker/looker-user-structure/)
+- [Looker Write Dashboard Structure](https://apis.io/json-structure/looker/looker-write-dashboard-structure/)
+- [Looker Write Look With Query Structure](https://apis.io/json-structure/looker/looker-write-look-with-query-structure/)
+- [Looker Write Query Structure](https://apis.io/json-structure/looker/looker-write-query-structure/)
+- [Looker Write User Structure](https://apis.io/json-structure/looker/looker-write-user-structure/)
 
-API for programmatically managing LookML projects, models, and views.
+#### JSON-LD (1)
 
-- **Human URL:** [https://developers.looker.com/api/explorer/4.0/methods/Project](https://developers.looker.com/api/explorer/4.0/methods/Project)
-- **Base URL:** `https://your-instance.looker.com:19999/api/4.0`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Looker Context](https://apis.io/jsonld/looker/looker-context/)
 
-- Data Modeling
-- LookML
-- Projects
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://developers.looker.com/api/explorer/4.0/methods/Project)
-- [Tutorials](https://developers.looker.com/api/lookml-validation)
-- [Postman Collection](collections/looker-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/looker-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Looker Domain Vocabulary](https://apis.io/vocabularies/looker/looker-vocabulary/)
 
-### Looker Action API
+#### Examples (23)
 
-The Looker Action API enables developers to define custom actions, or destinations, to which Looker can send query results, dashboard results, or user interactions via a webhook-like API.
+Example requests and responses.
 
-- **Human URL:** [https://docs.cloud.google.com/looker/docs/actions-overview](https://docs.cloud.google.com/looker/docs/actions-overview)
-- **Base URL:** `https://your-instance.looker.com:19999/api/4.0`
+- [Looker Access Token Example](https://apis.io/examples/looker/looker-access-token-example/)
+- [Looker Credentials Api3 Example](https://apis.io/examples/looker/looker-credentials-api3-example/)
+- [Looker Credentials Email Example](https://apis.io/examples/looker/looker-credentials-email-example/)
+- [Looker Dashboard Element Example](https://apis.io/examples/looker/looker-dashboard-element-example/)
+- [Looker Dashboard Example](https://apis.io/examples/looker/looker-dashboard-example/)
+- [Looker Dashboard Filter Example](https://apis.io/examples/looker/looker-dashboard-filter-example/)
+- [Looker Dashboard Layout Component Example](https://apis.io/examples/looker/looker-dashboard-layout-component-example/)
+- [Looker Dashboard Layout Example](https://apis.io/examples/looker/looker-dashboard-layout-example/)
+- [Looker Error Response Example](https://apis.io/examples/looker/looker-error-response-example/)
+- [Looker Folder Base Example](https://apis.io/examples/looker/looker-folder-base-example/)
+- [Looker Look Example](https://apis.io/examples/looker/looker-look-example/)
+- [Looker Look Model Example](https://apis.io/examples/looker/looker-look-model-example/)
+- [Looker Model Set Example](https://apis.io/examples/looker/looker-model-set-example/)
+- [Looker Permission Set Example](https://apis.io/examples/looker/looker-permission-set-example/)
+- [Looker Query Example](https://apis.io/examples/looker/looker-query-example/)
+- [Looker Role Example](https://apis.io/examples/looker/looker-role-example/)
+- [Looker Session Example](https://apis.io/examples/looker/looker-session-example/)
+- [Looker Space Base Example](https://apis.io/examples/looker/looker-space-base-example/)
+- [Looker User Example](https://apis.io/examples/looker/looker-user-example/)
+- [Looker Write Dashboard Example](https://apis.io/examples/looker/looker-write-dashboard-example/)
+- [Looker Write Look With Query Example](https://apis.io/examples/looker/looker-write-look-with-query-example/)
+- [Looker Write Query Example](https://apis.io/examples/looker/looker-write-query-example/)
+- [Looker Write User Example](https://apis.io/examples/looker/looker-write-user-example/)
 
-#### Tags
+#### Collections (11)
 
-- Actions
-- Data Delivery
-- Integrations
-- Webhooks
+Postman and Open Collection request collections.
 
-#### Properties
+- [Looker API](https://apis.io/collections/looker/open-looker-api/)
+- [Looker Auth API](https://apis.io/collections/looker/open-looker-auth-api/)
+- [Looker Auth Dashboard API](https://apis.io/collections/looker/open-looker-dashboard-api/)
+- [Looker Auth Look API](https://apis.io/collections/looker/open-looker-look-api/)
+- [Looker Auth Query API](https://apis.io/collections/looker/open-looker-query-api/)
+- [Looker Auth User API](https://apis.io/collections/looker/open-looker-user-api/)
+- [Looker Auth API](https://apis.io/collections/looker/postman-looker-auth-api/)
+- [Looker Auth Dashboard API](https://apis.io/collections/looker/postman-looker-dashboard-api/)
+- [Looker Auth Look API](https://apis.io/collections/looker/postman-looker-look-api/)
+- [Looker Auth Query API](https://apis.io/collections/looker/postman-looker-query-api/)
+- [Looker Auth User API](https://apis.io/collections/looker/postman-looker-user-api/)
 
-- [Documentation](https://docs.cloud.google.com/looker/docs/actions-overview)
-- [GitHub Repository](https://github.com/looker-open-source/actions)
-- [Postman Collection](collections/looker-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/looker-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Governance rules (2)
 
-### Looker Embed SDK
+Spectral rulesets for the provider's contracts.
 
-The Looker Embed SDK is a JavaScript library for embedding Looker content such as dashboards, Looks, Explores, reports, and extensions into web applications, with support for signed SSO and cookieless authentication.
+- [Looker — jsonschema rules](https://apis.io/rules/looker/looker-jsonschema-spectral-rules/)
+- [Looker API Rules](https://apis.io/rules/looker/looker-spectral-rules/)
 
-- **Human URL:** [https://docs.cloud.google.com/looker/docs/embed-sdk-intro](https://docs.cloud.google.com/looker/docs/embed-sdk-intro)
-- **Base URL:** `https://your-instance.looker.com:19999/api/4.0`
+#### Security (2)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Dashboards
-- Embedding
-- JavaScript SDK
-- SSO
+- [Looker Authentication](https://apis.io/security/looker/looker-authentication/)
+- [Looker Domain Security](https://apis.io/security/looker/looker-domain-security/)
 
-#### Properties
+#### Plans and pricing (2)
 
-- [Documentation](https://docs.cloud.google.com/looker/docs/embed-sdk-intro)
-- [GitHub Repository](https://github.com/looker-open-source/embed-sdk)
-- [API Reference](https://looker-open-source.github.io/embed-sdk/)
-- [Postman Collection](collections/looker-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/looker-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published plans, tiers and prices.
 
-### Looker Extension Framework API
+- [Looker Plans Pricing](https://apis.io/plans/looker/looker-plans-pricing/)
+- [Looker Price Estimates](https://apis.io/plans/looker/looker-price-estimates/)
 
-The Looker Extension Framework provides APIs and SDKs for building custom extensions that run inside the Looker UI, with access to the Looker API, Looker components library, and the Embed SDK.
+#### Rate limits (1)
 
-- **Human URL:** [https://developers.looker.com/extensions/overview/](https://developers.looker.com/extensions/overview/)
-- **Base URL:** `https://your-instance.looker.com:19999/api/4.0`
+Published request limits.
 
-#### Tags
+- [Looker Rate Limits](https://apis.io/rate-limits/looker/looker-rate-limits/)
 
-- Extensions
-- JavaScript
-- React
-- UI Components
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://docs.cloud.google.com/looker/docs/intro-to-extension-framework)
-- [Code Examples](https://docs.cloud.google.com/looker/docs/extension-framework-react-and-js-code-examples)
-- [Postman Collection](collections/looker-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/looker-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Looker Finops](https://apis.io/finops/looker/looker-finops/)
 
-### Looker (Google Cloud core) API
+## Where to find this API
 
-The Looker (Google Cloud core) REST API provides management capabilities for Looker instances running on Google Cloud, including instance lifecycle management, backups, and operations.
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- **Human URL:** [https://cloud.google.com/looker/docs/reference/rest](https://cloud.google.com/looker/docs/reference/rest)
-- **Base URL:** `https://looker.googleapis.com/v1`
-
-#### Tags
-
-- Backups
-- Google Cloud
-- Infrastructure
-- Instance Management
-
-#### Properties
-
-- [Documentation](https://cloud.google.com/looker/docs/reference/rest)
-- [Console](https://console.cloud.google.com/apis/library/looker.googleapis.com)
-- [Postman Collection](collections/looker-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/looker-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/looker)
-- [Developer Portal](https://developers.looker.com/)
-- [GitHub Organization](https://github.com/looker-open-source)
-- [Support](https://cloud.google.com/looker/docs/support)
-- [Status Page](https://status.looker.com/)
-- [Privacy Policy](https://looker.com/privacy)
-- [Terms of Service](https://looker.com/terms)
-- [SDK](https://docs.cloud.google.com/looker/docs/api-sdk)
-- [Changelog](https://github.com/looker-open-source/sdk-codegen/blob/main/CHANGELOG.md)
-- [Release Notes](https://docs.cloud.google.com/looker/docs/release-notes)
+- [Website](https://looker.com)
+- [Getting started](https://docs.cloud.google.com/looker/docs/api-getting-started)
 - [Pricing](https://cloud.google.com/looker/pricing)
-- [Getting Started](https://docs.cloud.google.com/looker/docs/api-getting-started)
-- [Authentication](https://docs.cloud.google.com/looker/docs/api-auth)
-- [Tutorials](https://developers.looker.com/api/tutorials/interactive-api-docs-whats-next/)
-- [JSON Schema](json-schema/looker-dashboard-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/looker-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Support](https://cloud.google.com/looker/docs/support)
+- [Changelog](https://github.com/looker-open-source/sdk-codegen/blob/main/CHANGELOG.md)
+- [Blog](https://cloud.google.com/blog/)
+- [Terms of service](https://looker.com/terms)
+- [Privacy policy](https://looker.com/privacy)
+- [GitHub](https://github.com/looker-open-source)
+- [Status](https://status.looker.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 48.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 62.7 |
+| Contract governance | 13.6 |
+| Operational transparency | 57.9 |
+| Developer ergonomics | 54.8 |
+| Access clarity | 42.1 |
+
+**Agent readiness 27.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/looker/](https://apis.io/providers/looker/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Looker: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/looker/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
